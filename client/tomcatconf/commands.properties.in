@@ -210,8 +210,6 @@ scaleSystemVm=1
 #### configuration commands
 updateConfiguration=1
 listConfigurations=1
-ldapConfig=1
-ldapRemove=1
 listCapabilities=15
 listDeploymentPlanners=1
 
@@ -668,3 +666,10 @@ listDedicatedZones=1
 listDedicatedPods=1
 listDedicatedClusters=1
 listDedicatedHosts=1
+
+### LDAP
+searchLdap=1
+listLdapConfigurations=1
+addLdapConfiguration=1
+deleteLdapConfiguration=1
+listAllLdapUsers=1

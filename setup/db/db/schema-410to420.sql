@@ -2238,3 +2238,18 @@ CREATE VIEW `cloud`.`project_view` AS
             and resource_tags.resource_type = 'Project'
             left join
         `cloud`.`project_account` pacct ON projects.id = pacct.project_id;
+        
+INSERT IGNORE INTO `cloud`.`configuration` VALUES ('Advanced', 'DEFAULT', 'management-server', 'ldap.bind.principal', NULL, 'Specifies the bind principal to use for bind to LDAP');
+INSERT IGNORE INTO `cloud`.`configuration` VALUES ('Advanced', 'DEFAULT', 'management-server', 'ldap.bind.password', NULL, 'Specifies the password to use for binding to LDAP');
+INSERT IGNORE INTO `cloud`.`configuration` VALUES ('Advanced', 'DEFAULT', 'management-server', 'ldap.username.attribute', 'uid', 'Sets the username attribute used within LDAP');
+INSERT IGNORE INTO `cloud`.`configuration` VALUES ('Advanced', 'DEFAULT', 'management-server', 'ldap.email.attribute', 'mail', 'Sets the email attribute used within LDAP');
+INSERT IGNORE INTO `cloud`.`configuration` VALUES ('Advanced', 'DEFAULT', 'management-server', 'ldap.realname.attribute', 'cn', 'Sets the realname attribute used within LDAP');
+INSERT IGNORE INTO `cloud`.`configuration` VALUES ('Advanced', 'DEFAULT', 'management-server', 'ldap.user.object', 'inetOrgPerson', 'Sets the object type of users within LDAP');
+INSERT IGNORE INTO `cloud`.`configuration` VALUES ('Advanced', 'DEFAULT', 'management-server', 'ldap.basedn', NULL, 'Sets the basedn for LDAP');
+
+CREATE TABLE `cloud`.`ldap_configuration` (
+  `id` bigint unsigned NOT NULL auto_increment COMMENT 'id',
+  `hostname` varchar(255) NOT NULL COMMENT 'the hostname of the ldap server',
+  `port` int(10) COMMENT 'port that the ldap server is listening on',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,4 +1,4 @@
-// Licensed to the Apache Software Foundation (ASF) under one
+//Licensed to the Apache Software Foundation (ASF) under one
 // or more contributor license agreements.  See the NOTICE file
 // distributed with this work for additional information
 // regarding copyright ownership.  The ASF licenses this file
@@ -422,6 +422,15 @@ public enum Config {
     // object store
     S3EnableRRS("Advanced", ManagementServer.class, Boolean.class, "s3.rrs.enabled", "false", "enable s3 reduced redundancy storage", null),
 
+    // Ldap
+    LdapBasedn("Advanced", ManagementServer.class, String.class, "ldap.basedn", null, "Sets the basedn for LDAP", null),
+    LdapBindPassword("Advanced", ManagementServer.class, String.class, "ldap.bind.password", null, "Sets the bind password for LDAP", null),
+    LdapBindPrincipal("Advanced", ManagementServer.class, String.class, "ldap.bind.principal", null, "Sets the bind principal for LDAP", null),
+    LdapEmailAttribute("Advanced", ManagementServer.class, String.class, "ldap.email.attribute", "mail", "Sets the email attribute used within LDAP", null),
+    LdapRealnameAttribute("Advanced", ManagementServer.class, String.class, "ldap.realname.attribute", "cn", "Sets the realname attribute used within LDAP", null),
+    LdapUsernameAttribute("Advanced", ManagementServer.class, String.class, "ldap.username.attribute", "uid", "Sets the username attribute used within LDAP", null),
+    LdapUserObject("Advanced", ManagementServer.class, String.class, "ldap.user.object", "inetOrgPerson", "Sets the object type of users within LDAP", null),
+
 	// VMSnapshots
     VMSnapshotMax("Advanced", VMSnapshotManager.class, Integer.class, "vmsnapshot.max", "10", "Maximum vm snapshots for a vm", null),
     VMSnapshotCreateWait("Advanced", VMSnapshotManager.class, Integer.class, "vmsnapshot.create.wait", "1800", "In second, timeout for create vm snapshot", null),
@@ -434,7 +443,7 @@ public enum Config {
     InternalLbVmServiceOfferingId("Advanced", ManagementServer.class, String.class, "internallbvm.service.offering", null, "Uuid of the service offering used by internal lb vm; if NULL - default system internal lb offering will be used", null),
     ExecuteInSequence("Advanced", ManagementServer.class, Boolean.class, "execute.in.sequence.hypervisor.commands", "false", "If set to true, StartCommand, StopCommand, CopyVolumeCommand, CreateCommand will be synchronized on the agent side." +
     		" If set to false, these commands become asynchronous. Default value is false.", null),
-    ExecuteInSequenceNetworkElementCommands("Advanced", NetworkManager.class, Boolean.class, "execute.in.sequence.network.element.commands", "false", "If set to true, DhcpEntryCommand, SavePasswordCommand, UserDataCommand, VmDataCommand will be synchronized on the agent side." + 
+    ExecuteInSequenceNetworkElementCommands("Advanced", NetworkManager.class, Boolean.class, "execute.in.sequence.network.element.commands", "false", "If set to true, DhcpEntryCommand, SavePasswordCommand, UserDataCommand, VmDataCommand will be synchronized on the agent side." +
             " If set to false, these commands become asynchronous. Default value is false.", null);
 	
 	private final String _category;
