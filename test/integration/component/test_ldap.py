@@ -44,23 +44,21 @@ class Services:
     def __init__(self):
         self.services = {
             "account": {
-                "email": "rmurphy@test.com",
+                "email": "rmurphy@cloudstack.org",
                 "firstname": "Ryan",
                 "lastname": "Murphy",
                 "username": "rmurphy",
-                "password": "password",
+                "password": "internalcloudstackpassword",
                 },
             "ldapConfiguration_1":
                 {
                 "basedn": "dc=cloudstack,dc=org",
-                "bindPassword": "password",
-                "bindPrincipal": "cn=Administrator,cn=Users,dc=cloudstack,dc=org",
                 "emailAttribute": "mail",
                 "realnameAttribute": "cn",
-                "userObject": "user",
-                "usernameAttribute": "samAccountName",
-                "hostname": "192.168.56.7",
-                "port": "389",
+                "userObject": "inetOrgPerson",
+                "usernameAttribute": "uid",
+                "hostname": "localhost",
+                "port": "10389",
                 "ldapUsername": "rmurphy",
                 "ldapPassword": "password"
                 }
@@ -174,14 +172,6 @@ class TestLdap(cloudstackTestCase):
         updateConfigurationCmd.value = ldapConfiguration['basedn']
         updateConfigurationResponse = self.apiClient.updateConfiguration(updateConfigurationCmd)
         self.debug("updated the parameter %s with value %s"%(updateConfigurationResponse.name, updateConfigurationResponse.value))
-
-
-        updateConfigurationCmd = updateConfiguration.updateConfigurationCmd()
-        updateConfigurationCmd.name = "ldap.bind.password"
-        updateConfigurationCmd.value = ldapConfiguration['bindPassword']
-        updateConfigurationResponse = self.apiClient.updateConfiguration(updateConfigurationCmd)
-        self.debug("updated the parameter %s with value %s"%(updateConfigurationResponse.name, updateConfigurationResponse.value))
-
 
         updateConfigurationCmd = updateConfiguration.updateConfigurationCmd()
         updateConfigurationCmd.name = "ldap.email.attribute"
