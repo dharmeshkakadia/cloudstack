@@ -16,8 +16,8 @@
 // under the License.
 package org.apache.cloudstack.implicitplanner;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -30,15 +30,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.inject.Inject;
-import javax.naming.ConfigurationException;
 
-import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreManager;
-import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
-import org.apache.cloudstack.test.utils.SpringUtils;
+import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -53,6 +50,11 @@ import org.springframework.core.type.filter.TypeFilter;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+
+import org.apache.cloudstack.context.CallContext;
+import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreManager;
+import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
+import org.apache.cloudstack.test.utils.SpringUtils;
 
 import com.cloud.capacity.CapacityManager;
 import com.cloud.capacity.CapacityVO;
@@ -82,7 +84,7 @@ import com.cloud.storage.dao.VolumeDao;
 import com.cloud.user.Account;
 import com.cloud.user.AccountManager;
 import com.cloud.user.AccountVO;
-import com.cloud.user.UserContext;
+import com.cloud.user.UserVO;
 import com.cloud.utils.Pair;
 import com.cloud.utils.component.ComponentContext;
 import com.cloud.vm.UserVmVO;
@@ -151,12 +153,8 @@ public class ImplicitPlannerTest {
     int ramInOffering = 512;
     AccountVO acct = new AccountVO(accountId);
 
-    @BeforeClass
-    public static void setUp() throws ConfigurationException {
-    }
-
     @Before
-    public void testSetUp() {
+    public void setUp() {
         ComponentContext.initComponentsLifeCycle();
 
         acct.setType(Account.ACCOUNT_TYPE_NORMAL);
@@ -164,7 +162,14 @@ public class ImplicitPlannerTest {
         acct.setDomainId(domainId);
         acct.setId(accountId);
 
-        UserContext.registerContext(1, acct, null, true);
+        UserVO user = new UserVO(1, "testuser", "password", "firstname", "lastName", "email", "timezone", UUID.randomUUID().toString());
+
+        CallContext.register(user, acct);
+    }
+
+    @After
+    public void tearDown() {
+        CallContext.unregister();
     }
 
     @Test
@@ -202,11 +207,10 @@ public class ImplicitPlannerTest {
         // Validations.
         // Check cluster 2 and 3 are not in the cluster list.
         // Host 6 and 7 should also be in avoid list.
-        //System.out.println("checkStrictModeWithCurrentAccountVmsPresent:: Cluster list should not be empty but ::" + clusterList.toString());
         assertFalse("Cluster list should not be null/empty", (clusterList == null || clusterList.isEmpty()));
         boolean foundNeededCluster = false;
         for (Long cluster : clusterList) {
-            if (cluster == 4) {
+            if (cluster != 1) {
                 fail("Found a cluster that shouldn't have been present, cluster id : " + cluster);
             }else {
                 foundNeededCluster = true;
@@ -219,8 +223,7 @@ public class ImplicitPlannerTest {
         Set<Long> hostsThatShouldBeInAvoidList = new HashSet<Long>();
         hostsThatShouldBeInAvoidList.add(6L);
         hostsThatShouldBeInAvoidList.add(7L);
-        //System.out.println("checkStrictModeWithCurrentAccountVmsPresent:: Host in avoidlist :: " +  hostsThatShouldBeInAvoidList.toString()); 
-        assertFalse("Hosts 6 and 7 that should have been present were not found in avoid list" ,
+        assertTrue("Hosts 6 and 7 that should have been present were not found in avoid list" ,
                 hostsInAvoidList.containsAll(hostsThatShouldBeInAvoidList));
     }
 
@@ -244,14 +247,11 @@ public class ImplicitPlannerTest {
         // Host 5 and 7 should also be in avoid list.
         assertFalse("Cluster list should not be null/empty", (clusterList == null || clusterList.isEmpty()));
         boolean foundNeededCluster = false;
-        //System.out.println("Cluster list 2 should not be present ::" + clusterList.toString());
         for (Long cluster : clusterList) {
             if (cluster != 2) {
                 fail("Found a cluster that shouldn't have been present, cluster id : " + cluster);
-            }else {
+            } else {
                 foundNeededCluster = true;
-                //System.out.println("Cluster list 2 should not be present breaking now" + cluster);
-                break;
             }
         }
         assertTrue("Didn't find cluster 2 in the list. It should have been present", foundNeededCluster);
@@ -261,7 +261,7 @@ public class ImplicitPlannerTest {
         Set<Long> hostsThatShouldBeInAvoidList = new HashSet<Long>();
         hostsThatShouldBeInAvoidList.add(5L);
         hostsThatShouldBeInAvoidList.add(7L);
-        assertFalse("Hosts 5 and 7 that should have been present were not found in avoid list" ,
+        assertTrue("Hosts 5 and 7 that should have been present were not found in avoid list" ,
                 hostsInAvoidList.containsAll(hostsThatShouldBeInAvoidList));
     }
 
@@ -283,8 +283,7 @@ public class ImplicitPlannerTest {
 
         // Validations.
         // Check cluster list is empty.
-        //System.out.println("Cluster list should not be empty but  ::" + clusterList.toString());
-        assertFalse("Cluster list should not be null/empty", (clusterList == null || clusterList.isEmpty()));
+        assertTrue("Cluster list should not be null/empty", (clusterList == null || clusterList.isEmpty()));
     }
 
     @Test
@@ -360,7 +359,7 @@ public class ImplicitPlannerTest {
         when(vmProfile.getOwner()).thenReturn(account);
         when(vmProfile.getVirtualMachine()).thenReturn(vm);
         when(vmProfile.getId()).thenReturn(12L);
-        when( vmDao.findById(12L)).thenReturn(userVm);
+        when(vmDao.findById(12L)).thenReturn(userVm);
         when(userVm.getAccountId()).thenReturn(accountId);
 
         when(vm.getDataCenterId()).thenReturn(dataCenterId);
@@ -440,20 +439,20 @@ public class ImplicitPlannerTest {
         UserVmVO vm3 = mock(UserVmVO.class);
         when(vm3.getAccountId()).thenReturn(201L);
         when(vm3.getServiceOfferingId()).thenReturn(offeringIdForVmsOfOtherAccount);
-        List<UserVmVO> userVmsForHost1 = new ArrayList<UserVmVO>();
-        List<UserVmVO> userVmsForHost2 = new ArrayList<UserVmVO>();
-        List<UserVmVO> userVmsForHost3 = new ArrayList<UserVmVO>();
-        List<UserVmVO> stoppedVmsForHost = new ArrayList<UserVmVO>();
+        List<VMInstanceVO> vmsForHost1 = new ArrayList<VMInstanceVO>();
+        List<VMInstanceVO> vmsForHost2 = new ArrayList<VMInstanceVO>();
+        List<VMInstanceVO> vmsForHost3 = new ArrayList<VMInstanceVO>();
+        List<VMInstanceVO> stoppedVmsForHost = new ArrayList<VMInstanceVO>();
         // Host 2 is empty.
-        userVmsForHost1.add(vm1);
-        userVmsForHost1.add(vm2);
-        userVmsForHost3.add(vm3);
-        when(vmDao.listUpByHostId(5L)).thenReturn(userVmsForHost1);
-        when(vmDao.listUpByHostId(6L)).thenReturn(userVmsForHost2);
-        when(vmDao.listUpByHostId(7L)).thenReturn(userVmsForHost3);
-        when(vmDao.listByLastHostId(5L)).thenReturn(stoppedVmsForHost);
-        when(vmDao.listByLastHostId(6L)).thenReturn(stoppedVmsForHost);
-        when(vmDao.listByLastHostId(7L)).thenReturn(stoppedVmsForHost);
+        vmsForHost1.add(vm1);
+        vmsForHost1.add(vm2);
+        vmsForHost3.add(vm3);
+        when(vmInstanceDao.listUpByHostId(5L)).thenReturn(vmsForHost1);
+        when(vmInstanceDao.listUpByHostId(6L)).thenReturn(vmsForHost2);
+        when(vmInstanceDao.listUpByHostId(7L)).thenReturn(vmsForHost3);
+        when(vmInstanceDao.listByLastHostId(5L)).thenReturn(stoppedVmsForHost);
+        when(vmInstanceDao.listByLastHostId(6L)).thenReturn(stoppedVmsForHost);
+        when(vmInstanceDao.listByLastHostId(7L)).thenReturn(stoppedVmsForHost);
 
         // Mock the offering with which the vm was created.
         ServiceOfferingVO offeringForVmOfThisAccount = mock(ServiceOfferingVO.class);

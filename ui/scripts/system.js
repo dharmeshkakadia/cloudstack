@@ -1309,419 +1309,7 @@
                     //scope: { label: 'label.scope' }
                   },
                   actions: {
-                    add: {
-                      label: 'label.add.guest.network',
-
-                      messages: {
-                        confirm: function(args) {
-                          return 'message.add.guest.network';
-                        },
-                        notification: function(args) {
-                          return 'label.add.guest.network';
-                        }
-                      },
-
-                      createForm: {
-                        title: 'label.add.guest.network',  //Add guest network in advanced zone
-
-                        fields: {
-                          name: {
-                            docID: 'helpGuestNetworkZoneName',
-                            label: 'label.name',
-                            validation: { required: true }
-                          },
-                          description: {
-                            label: 'label.description',
-                            docID: 'helpGuestNetworkZoneDescription',
-                            validation: { required: true }
-                          },
-                          vlanId: {
-                            label: 'label.vlan.id',
-                            docID: 'helpGuestNetworkZoneVLANID'
-                          },
-                          isolatedpvlanId: {
-                            label: 'Secondary Isolated VLAN ID'                           
-                          },
-                          
-                          scope: {
-                            label: 'label.scope',
-                            docID: 'helpGuestNetworkZoneScope',
-                            select: function(args) {
-                              var array1 = [];															
-															if(args.context.zones[0].networktype == "Advanced" && args.context.zones[0].securitygroupsenabled	== true) {															  
-																array1.push({id: 'zone-wide', description: 'All'});
-															}
-															else {															
-																array1.push({id: 'zone-wide', description: 'All'});
-																array1.push({id: 'domain-specific', description: 'Domain'});
-																array1.push({id: 'account-specific', description: 'Account'});
-																array1.push({id: 'project-specific', description: 'Project'});
-															}
-                              args.response.success({data: array1});
-
-                              args.$select.change(function() {
-                                var $form = $(this).closest('form');
-                                if($(this).val() == "zone-wide") {
-                                  $form.find('.form-item[rel=domainId]').hide();
-                                  $form.find('.form-item[rel=subdomainaccess]').hide();
-                                  $form.find('.form-item[rel=account]').hide();
-																	$form.find('.form-item[rel=projectId]').hide();
-                                }
-                                else if ($(this).val() == "domain-specific") {
-                                  $form.find('.form-item[rel=domainId]').css('display', 'inline-block');
-                                  $form.find('.form-item[rel=subdomainaccess]').css('display', 'inline-block');
-                                  $form.find('.form-item[rel=account]').hide();
-																	$form.find('.form-item[rel=projectId]').hide();
-                                }
-                                else if($(this).val() == "account-specific") {
-                                  $form.find('.form-item[rel=domainId]').css('display', 'inline-block');
-                                  $form.find('.form-item[rel=subdomainaccess]').hide();
-                                  $form.find('.form-item[rel=account]').css('display', 'inline-block');
-																	$form.find('.form-item[rel=projectId]').hide();
-                                }
-																else if($(this).val() == "project-specific") {
-                                  $form.find('.form-item[rel=domainId]').css('display', 'inline-block');
-                                  $form.find('.form-item[rel=subdomainaccess]').hide();
-                                  $form.find('.form-item[rel=account]').hide();
-																	$form.find('.form-item[rel=projectId]').css('display', 'inline-block');
-                                }
-                              });
-                            }
-                          },
-                          domainId: {
-                            label: 'label.domain',
-                            validation: { required: true },
-                            select: function(args) {
-                              var items = [];
-                              if(selectedZoneObj.domainid != null) { //list only domains under selectedZoneObj.domainid
-                                $.ajax({
-                                  url: createURL("listDomainChildren&id=" + selectedZoneObj.domainid + "&isrecursive=true"),
-                                  dataType: "json",
-                                  async: false,
-                                  success: function(json) {
-                                    var domainObjs = json.listdomainchildrenresponse.domain;
-                                    $(domainObjs).each(function() {
-                                      items.push({id: this.id, description: this.path});
-                                    });
-                                  }
-                                });
-                                $.ajax({
-                                  url: createURL("listDomains&id=" + selectedZoneObj.domainid),
-                                  dataType: "json",
-                                  async: false,
-                                  success: function(json) {
-                                    var domainObjs = json.listdomainsresponse.domain;
-                                    $(domainObjs).each(function() {
-                                      items.push({id: this.id, description: this.path});
-                                    });
-                                  }
-                                });
-                              }
-                              else { //list all domains
-                                $.ajax({
-                                  url: createURL("listDomains&listAll=true"),
-                                  dataType: "json",
-                                  async: false,
-                                  success: function(json) {
-                                    var domainObjs = json.listdomainsresponse.domain;
-                                    $(domainObjs).each(function() {
-                                      items.push({id: this.id, description: this.path});
-                                    });
-                                  }
-                                });
-                              }
-                              args.response.success({data: items});
-                            }
-                          },
-                          subdomainaccess: {
-                            label: 'label.subdomain.access', isBoolean: true, isHidden: true,
-                          },
-                          account: { label: 'label.account' },
-
-													projectId: {
-                            label: 'label.project',
-                            validation: { required: true },
-                            select: function(args) {
-                              var items = [];
-                              $.ajax({
-															  url: createURL("listProjects&listAll=true"),
-																dataType: "json",
-																async: false,
-																success: function(json) {
-																  projectObjs = json.listprojectsresponse.project;
-																  $(projectObjs).each(function() {
-                                    items.push({id: this.id, description: this.name});
-                                  });
-																}
-															});
-                              args.response.success({data: items});
-                            }
-                          },
-
-                          networkOfferingId: {
-                            label: 'label.network.offering',
-                            docID: 'helpGuestNetworkZoneNetworkOffering',
-                            dependsOn: 'scope',
-                            select: function(args) {
-															$.ajax({
-																url: createURL('listPhysicalNetworks'),
-																data: {
-																	id: args.context.physicalNetworks[0].id
-																},
-																async: false,
-																success: function(json) {
-																	args.context.physicalNetworks[0] = json.listphysicalnetworksresponse.physicalnetwork[0];
-																}
-															});
-
-                              var apiCmd = "listNetworkOfferings&state=Enabled&zoneid=" + selectedZoneObj.id;
-															var array1 = [];
-
-															if(physicalNetworkObjs.length > 1) { //multiple physical networks
-															  var guestTrafficTypeTotal = 0;
-															  for(var i = 0; i < physicalNetworkObjs.length; i++) {
-																  if(guestTrafficTypeTotal > 1) //as long as guestTrafficTypeTotal > 1, break for loop, don't need to continue to count. It doesn't matter whether guestTrafficTypeTotal is 2 or 3 or 4 or 5 or more. We only care whether guestTrafficTypeTotal is greater than 1.
-																	  break;
-																  $.ajax({
-																	  url: createURL("listTrafficTypes&physicalnetworkid=" + physicalNetworkObjs[i].id),
-																		dataType: "json",
-																		async: false,
-																		success: function(json) {
-																			var items = json.listtraffictypesresponse.traffictype;
-																			for(var k = 0; k < items.length; k++) {
-																			  if(items[k].traffictype == "Guest") {
-																				  guestTrafficTypeTotal++;
-																				  break;
-																				}
-																			}
-																		}
-																	});
-																}
-
-															  if(guestTrafficTypeTotal > 1) {
-																	if(args.context.physicalNetworks[0].tags != null && args.context.physicalNetworks[0].tags.length > 0) {
-																		array1.push("&tags=" + args.context.physicalNetworks[0].tags);
-																	}
-																	else {
-																		alert(dictionary['error.please.specify.physical.network.tags']);
-																		return;
-																	}
-																}
-															}
-
-                              //this tab (Network tab in guest network) only shows when it's under an Advanced zone
-															if(args.scope == "zone-wide" || args.scope == "domain-specific") {
-																array1.push("&guestiptype=Shared");
-															}
-
-															var networkOfferingArray = [];
-															
-                              $.ajax({
-                                url: createURL(apiCmd + array1.join("")),
-                                dataType: "json",
-                                async: false,
-                                success: function(json) {																  
-                                  networkOfferingObjs = json.listnetworkofferingsresponse.networkoffering;
-                                  if (networkOfferingObjs != null && networkOfferingObjs.length > 0) {
-                                    for (var i = 0; i < networkOfferingObjs.length; i++) {    
-																			//for zone-wide network in Advanced SG-enabled zone, list only SG network offerings 
-																			if(args.context.zones[0].networktype == 'Advanced' && args.context.zones[0].securitygroupsenabled == true) {																		
-																				if(args.scope == "zone-wide") { 
-																					var includingSecurityGroup = false;
-																					var serviceObjArray = networkOfferingObjs[i].service;
-																					for(var k = 0; k < serviceObjArray.length; k++) {																					  
-																						if(serviceObjArray[k].name == "SecurityGroup") {
-																							includingSecurityGroup = true;
-																							break;
-																						}
-																					}
-																					if(includingSecurityGroup == false)
-																						continue; //skip to next network offering
-																				}
-																			}
-																			
-                                      networkOfferingArray.push({id: networkOfferingObjs[i].id, description: networkOfferingObjs[i].displaytext});
-                                    }
-                                  }
-                                }
-                              });
-
-                              args.response.success({data: networkOfferingArray});
-
-
-															args.$select.change(function(){
-															  var $form = $(this).closest("form");
-																var selectedNetworkOfferingId = $(this).val();
-																$(networkOfferingObjs).each(function(){
-																  if(this.id == selectedNetworkOfferingId) {																		
-																		if(this.specifyvlan == false) {
-																		  $form.find('.form-item[rel=vlanId]').hide();
-																			cloudStack.dialog.createFormField.validation.required.remove($form.find('.form-item[rel=vlanId]'));	//make vlanId optional 	
-																			
-																			$form.find('.form-item[rel=isolatedpvlanId]').hide();
-																		}
-																		else {
-																		  $form.find('.form-item[rel=vlanId]').css('display', 'inline-block');																			
-																			cloudStack.dialog.createFormField.validation.required.add($form.find('.form-item[rel=vlanId]'));		//make vlanId required	
-																			
-																			$form.find('.form-item[rel=isolatedpvlanId]').css('display', 'inline-block');             
-																		}
-																		return false; //break each loop
-																	}
-																});
-															});
-                            }
-                          },
-
-                          //IPv4 (begin)
-                          ip4gateway: {
-                            label: 'IPv4 Gateway',
-                            docID: 'helpGuestNetworkZoneGateway'
-                          },
-                          ip4Netmask: {
-                            label: 'IPv4 Netmask',
-                            docID: 'helpGuestNetworkZoneNetmask'
-                          },
-                          startipv4: { 
-							label: 'IPv4 Start IP', 							
-                            docID: 'helpGuestNetworkZoneStartIP'
-						  },
-                          endipv4: { 
-							label: 'IPv4 End IP', 							
-                            docID: 'helpGuestNetworkZoneEndIP'
-						  },
-						//IPv4 (end)
-						  
-						//IPv6 (begin)
-                          ip6gateway: {
-                            label: 'IPv6 Gateway',
-                            docID: 'helpGuestNetworkZoneGateway'
-                          },
-                          ip6cidr: {
-                            label: 'IPv6 CIDR'
-                          },
-                          startipv6: { 
-							label: 'IPv6 Start IP', 							
-                            docID: 'helpGuestNetworkZoneStartIP'
-						  },
-                          endipv6: { 
-							label: 'IPv6 End IP', 							
-                            docID: 'helpGuestNetworkZoneEndIP'
-						  },
-						//IPv6 (end)
-						  
-                          networkdomain: {
-                            label: 'label.network.domain',
-                            docID: 'helpGuestNetworkZoneNetworkDomain'
-                          }
-                        }
-                      },
-
-                      action: function(args) { //Add guest network in advanced zone											  
-												if (
-													((args.data.ip4gateway.length == 0) && (args.data.ip4Netmask.length == 0) && (args.data.startipv4.length == 0) && (args.data.endipv4.length == 0))
-													&& 
-													((args.data.ip6gateway.length == 0) && (args.data.ip6cidr.length == 0) && (args.data.startipv6.length == 0) && (args.data.endipv6.length == 0))
-												)
-												{
-												  args.response.error("Either IPv4 fields or IPv6 fields need to be filled when adding a guest network");
-													return;
-												}
-											
-                        var $form = args.$form;
-
-												var array1 = [];
-                        array1.push("&zoneId=" + selectedZoneObj.id);
-												array1.push("&networkOfferingId=" + args.data.networkOfferingId);
-
-												//Pass physical network ID to createNetwork API only when network offering's guestiptype is Shared.
-												var selectedNetworkOfferingObj;
-												$(networkOfferingObjs).each(function(){
-													if(this.id == args.data.networkOfferingId) {
-													  selectedNetworkOfferingObj = this;
-														return false; //break each loop
-													}
-												});
-												if(selectedNetworkOfferingObj.guestiptype == "Shared")
-												  array1.push("&physicalnetworkid=" + selectedPhysicalNetworkObj.id);
-
-                        array1.push("&name=" + todb(args.data.name));
-                        array1.push("&displayText=" + todb(args.data.description));
-
-											  if(($form.find('.form-item[rel=vlanId]').css("display") != "none") && (args.data.vlanId != null && args.data.vlanId.length > 0))
-												  array1.push("&vlan=" + todb(args.data.vlanId));
-											  
-											  if(($form.find('.form-item[rel=isolatedpvlanId]').css("display") != "none") && (args.data.isolatedpvlanId != null && args.data.isolatedpvlanId.length > 0))
-                          array1.push("&isolatedpvlan=" + todb(args.data.isolatedpvlanId));
-											  											  
-												if($form.find('.form-item[rel=domainId]').css("display") != "none") {
-												  array1.push("&domainId=" + args.data.domainId);
-
-													if($form.find('.form-item[rel=account]').css("display") != "none") {  //account-specific
-														array1.push("&account=" + args.data.account);
-														array1.push("&acltype=account");
-													}
-													else if($form.find('.form-item[rel=projectId]').css("display") != "none") {  //project-specific
-														array1.push("&projectid=" + args.data.projectId);
-														array1.push("&acltype=account");														
-													}
-													else {  //domain-specific
-														array1.push("&acltype=domain");
-
-                            if ($form.find('.form-item[rel=subdomainaccess]:visible input:checked').size())
-															array1.push("&subdomainaccess=true");
-														else
-															array1.push("&subdomainaccess=false");
-													}
-												}
-												else { //zone-wide
-													array1.push("&acltype=domain"); //server-side will make it Root domain (i.e. domainid=1)
-												}
-
-												//IPv4 (begin)
-											    if(args.data.ip4gateway != null && args.data.ip4gateway.length > 0)
-												  array1.push("&gateway=" + args.data.ip4gateway);
-												if(args.data.ip4Netmask != null && args.data.ip4Netmask.length > 0)
-												  array1.push("&netmask=" + args.data.ip4Netmask);
-												if(($form.find('.form-item[rel=startipv4]').css("display") != "none") && (args.data.startipv4 != null && args.data.startipv4.length > 0))
-												  array1.push("&startip=" + args.data.startipv4);
-												if(($form.find('.form-item[rel=endipv4]').css("display") != "none") && (args.data.endipv4 != null && args.data.endipv4.length > 0))
-												  array1.push("&endip=" + args.data.endipv4);
-												//IPv4 (end)
-												
-												//IPv6 (begin)
-											    if(args.data.ip6gateway != null && args.data.ip6gateway.length > 0)
-												  array1.push("&ip6gateway=" + args.data.ip6gateway);
-												if(args.data.ip6cidr != null && args.data.ip6cidr.length > 0)
-												  array1.push("&ip6cidr=" + args.data.ip6cidr);
-												if(($form.find('.form-item[rel=startipv6]').css("display") != "none") && (args.data.startipv6 != null && args.data.startipv6.length > 0))
-												  array1.push("&startipv6=" + args.data.startipv6);
-												if(($form.find('.form-item[rel=endipv6]').css("display") != "none") && (args.data.endipv6 != null && args.data.endipv6.length > 0))
-												  array1.push("&endipv6=" + args.data.endipv6);
-												//IPv6 (end)
-												
-												if(args.data.networkdomain != null && args.data.networkdomain.length > 0)
-													array1.push("&networkdomain=" + todb(args.data.networkdomain));
-
-                        $.ajax({
-                          url: createURL("createNetwork" + array1.join("")),
-                          dataType: "json",
-                          success: function(json) {
-                            var item = json.createnetworkresponse.network;
-                            args.response.success({data:item});
-                          },
-                          error: function(XMLHttpResponse) {
-                            var errorMsg = parseXMLHttpResponse(XMLHttpResponse);
-                            args.response.error(errorMsg);
-                          }
-                        });
-                      },
-                      notification: {
-                        poll: function(args) {
-                          args.complete();
-                        }
-                      }
-                    }
+                    add: addGuestNetworkDialog.def
                   },
 
                   dataProvider: function(args) {
@@ -2628,11 +2216,11 @@
                               validation: { required: true },
                               select: function(args) {
                                 $.ajax({
-                                  url: createURL("listHosts&VirtualMachineId=" + args.context.routers[0].id),
+                                  url: createURL("findHostsForMigration&VirtualMachineId=" + args.context.routers[0].id),
                                   dataType: "json",
                                   async: true,
                                   success: function(json) {
-                                    var hostObjs = json.listhostsresponse.host;
+                                    var hostObjs = json.findhostsformigrationresponse.host;
                                     var items = [];
                                     $(hostObjs).each(function() {
                                       items.push({id: this.id, description: (this.name + " (" + (this.suitableformigration? "Suitable": "Not Suitable") + ")")});
@@ -3072,11 +2660,11 @@
                               validation: { required: true },
                               select: function(args) {
                                 $.ajax({
-                                  url: createURL("listHosts&VirtualMachineId=" + args.context.internallbinstances[0].id),
+                                  url: createURL("findHostsForMigration&VirtualMachineId=" + args.context.internallbinstances[0].id),
                                   dataType: "json",
                                   async: true,
                                   success: function(json) {
-                                    var hostObjs = json.listhostsresponse.host;
+                                    var hostObjs = json.findhostsformigrationresponse.host;
                                     var items = [];
                                     $(hostObjs).each(function() {
                                       items.push({id: this.id, description: (this.name + " (" + (this.suitableformigration? "Suitable": "Not Suitable") + ")")});
@@ -3645,11 +3233,11 @@
                               validation: { required: true },
                               select: function(args) {
                                 $.ajax({
-                                  url: createURL("listHosts&VirtualMachineId=" + args.context.routers[0].id),
+                                  url: createURL("findHostsForMigration&VirtualMachineId=" + args.context.routers[0].id),
                                   dataType: "json",
                                   async: true,
                                   success: function(json) {
-                                    var hostObjs = json.listhostsresponse.host;
+                                    var hostObjs = json.findhostsformigrationresponse.host;
                                     var items = [];
                                     $(hostObjs).each(function() {
                                       items.push({id: this.id, description: (this.name + " (" + (this.suitableformigration? "Suitable": "Not Suitable") + ")")});
@@ -6152,14 +5740,15 @@
 												  converter:cloudStack.converters.toBooleanText
                         }
                       },
-
-                       {
-
-                       isdedicated:{label:'Dedicated'},
-                       domainid:{label:'Domain ID'}
-
+                      {
+                       isdedicated: {label:'Dedicated'},
+                       domainid: {label:'Domain ID'}
+                      },
+                      {
+                        vmwaredcName: { label: 'VMware datacenter Name' },
+                        vmwaredcVcenter: { label: 'VMware datacenter vcenter' },
+                        vmwaredcId: { label: 'VMware datacenter Id' }
                       }
-
                     ],
                     dataProvider: function(args) {
                       $.ajax({
@@ -6169,30 +5758,51 @@
                         },
                         success: function(json) {
                           selectedZoneObj = json.listzonesresponse.zone[0];
-                             $.ajax({
-                                                    url:createURL("listDedicatedZones&zoneid=" +args.context.physicalResources[0].id),
-                                                    dataType:"json",
-                                                    async:false,
-                                                    success:function(json){
-                                                        if(json.listdedicatedzonesresponse.dedicatedzone != undefined){
-                                                          var zoneItem = json.listdedicatedzonesresponse.dedicatedzone[0];
-                                                            if (zoneItem.domainid != null) {
-                                                            $.extend(selectedZoneObj, zoneItem , { isdedicated: 'Yes' });
-                                                          }
-                                                        }
-                                                        else
-                                                            $.extend(selectedZoneObj,{ isdedicated: 'No' })
-
-                                                    },
-                                                  error:function(json){
-                                                       args.response.error(parseXMLHttpResponse(XMLHttpResponse));
-                                                  }
-                                              });
-                          args.response.success({
-                                                actionFilter: zoneActionfilter,
-                                                data: selectedZoneObj
+                          $.ajax({
+                            url: createURL("listDedicatedZones&zoneid=" +args.context.physicalResources[0].id),
+                            dataType: "json",
+                            async: false,
+                            success: function(json){
+                              if(json.listdedicatedzonesresponse.dedicatedzone != undefined) {
+                                var zoneItem = json.listdedicatedzonesresponse.dedicatedzone[0];
+                                if (zoneItem.domainid != null) {
+                                  $.extend(selectedZoneObj, zoneItem , { isdedicated: 'Yes' });
+                                }
+                              }
+                              else {
+                                $.extend(selectedZoneObj, { isdedicated: 'No' })
+                              }
+                            }
                           });
-
+                           
+                          $.ajax({
+                            url: createURL('listVmwareDcs'),
+                            data: {
+                              zoneid: args.context.physicalResources[0].id
+                            },
+                            async: false,
+                            success: function(json) { //e.g. json == { "listvmwaredcsresponse" { "count":1 ,"VMwareDC" [ {"id":"c3c2562d-65e9-4fc7-92e2-773c2efe8f37","zoneid":1,"name":"datacenter","vcenter":"10.10.20.20"} ] } } 
+                              var vmwaredcs = json.listvmwaredcsresponse.VMwareDC;
+                              if(vmwaredcs != null) {
+                                selectedZoneObj.vmwaredcName = vmwaredcs[0].name;
+                                selectedZoneObj.vmwaredcVcenter = vmwaredcs[0].vcenter;
+                                selectedZoneObj.vmwaredcId = vmwaredcs[0].id;
+                              }                              
+                            }                         
+                          });                            
+                           
+                          // for testing only (begin)
+                          /*
+                          selectedZoneObj.vmwaredcName = "datacenter";
+                          selectedZoneObj.vmwaredcVcenter = "10.10.20.20";
+                          selectedZoneObj.vmwaredcId = "c3c2562d-65e9-4fc7-92e2-773c2efe8f37";
+                          */
+                          // for testing only (end)
+                          
+                          args.response.success({
+                            actionFilter: zoneActionfilter,
+                            data: selectedZoneObj
+                          });
                         }
                       });
                     }
@@ -6497,12 +6107,12 @@
                                       dataType: "json",
                                       async: true,
                                       success: function(json) {
-                                        var hostObjs = json.listhostsresponse.host;
+                                        var hostObjs = json.findhostsformigrationresponse.host;
                                         var items = [];
                                         $(hostObjs).each(function() {
                                           if(this.requiresStorageMotion == false){
-                                          items.push({id: this.id, description: (this.name + " (" + (this.suitableformigration? "Suitable": "Not Suitable") + ")")});
-                                           }
+                                            items.push({id: this.id, description: (this.name + " (" + (this.suitableformigration? "Suitable": "Not Suitable") + ")")});
+                                          }
                                         });
                                         args.response.success({data: items});
                                       }
@@ -7437,11 +7047,11 @@
                       validation: { required: true },
                       select: function(args) {
                         $.ajax({
-                          url: createURL("listHosts&VirtualMachineId=" + args.context.routers[0].id),
+                          url: createURL("findHostsForMigration&VirtualMachineId=" + args.context.routers[0].id),
                           dataType: "json",
                           async: true,
                           success: function(json) {
-                            var hostObjs = json.listhostsresponse.host;
+                            var hostObjs = json.findhostsformigrationresponse.host;
                             var items = [];
                             $(hostObjs).each(function() {
                               items.push({id: this.id, description: (this.name + " (" + (this.suitableformigration? "Suitable": "Not Suitable") + ")")});
@@ -7985,11 +7595,11 @@
                           dataType: "json",
                           async: true,
                           success: function(json) {
-                            var hostObjs = json.listhostsresponse.host;
+                            var hostObjs = json.findhostsformigrationresponse.host;
                             var items = [];
                             $(hostObjs).each(function() {
                               if(this.requiresStorageMotion == false){
-                              items.push({id: this.id, description: (this.name + " (" + (this.suitableformigration? "Suitable": "Not Suitable") + ")")});
+                                items.push({id: this.id, description: (this.name + " (" + (this.suitableformigration? "Suitable": "Not Suitable") + ")")});
                               }
                             });
                             args.response.success({data: items});
@@ -10146,13 +9756,11 @@
                   },
                   vCenterUsername: {
                     label: 'label.vcenter.username',
-                    docID: 'helpClustervCenterUsername',
-                    validation: { required: true }
+                    docID: 'helpClustervCenterUsername'
                   },
                   vCenterPassword: {
                     label: 'label.vcenter.password',
                     docID: 'helpClustervCenterPassword',
-                    validation: { required: true },
                     isPassword: true
                   },
                   vCenterDatacenter: {
@@ -10355,7 +9963,24 @@
 
                   var hostname = args.data.vCenterHost;
                   var dcName = args.data.vCenterDatacenter;
-
+                 
+                  if(hostname.length == 0 && dcName.length == 0) {
+                    $.ajax({
+                      url: createURL('listVmwareDcs'),
+                      data: {
+                        zoneid: args.data.zoneid
+                      },
+                      async: false,
+                      success: function(json) { //e.g. json == { "listvmwaredcsresponse" { "count":1 ,"VMwareDC" [ {"id":"c3c2562d-65e9-4fc7-92e2-773c2efe8f37","zoneid":1,"name":"datacenter","vcenter":"10.10.20.20"} ] } } 
+                        var vmwaredcs = json.listvmwaredcsresponse.VMwareDC;                        
+                        if(vmwaredcs != null) {
+                          hostname = vmwaredcs[0].vcenter;
+                          dcName = vmwaredcs[0].name;
+                        }                              
+                      }                         
+                    });    
+                  }                              
+                  
                   var url;
                   if(hostname.indexOf("http://") == -1)
                     url = "http://" + hostname;
@@ -13067,6 +12692,7 @@
               blades: {
                 title: 'Blades',
                 listView: {
+                  id: 'blades',
                   fields: {
                     //dn: { label: 'Distinguished Name' },
                     chassis: { label: 'Chassis' }, 
@@ -13088,37 +12714,35 @@
                           data[i].bladeid = array1[2];
                         }
 
+                        
+                        //for testing only (begin)   
+                        /*
+                        var data = [
+                          {
+                            "id": "58c84a1d-6e46-44e3-b7ec-abaa876d1be3",
+                            "ucsmanagerid": "0c96f848-4306-47e5-a9ac-b76aad3557fb",
+                            "bladedn": "sys/chassis-1/blade-1"
+                          },
+                          {
+                            "id": "de5abadf-f294-4014-9fed-7ee37a9b8724",
+                            "ucsmanagerid": "0c96f848-4306-47e5-a9ac-b76aad3557fb",
+                            "bladedn": "sys/chassis-1/blade-2"
+                          }
+                        ];         
+                        for(var i = 0; i < data.length; i++) {
+                          var array1 = data[i].bladedn.split('/');                      
+                          data[i].chassis = array1[1];
+                          data[i].bladeid = array1[2];
+                        }  
+                        */
+                        //for testing only (end)
+                        
+                        
                         args.response.success({
                           data: data
                         });      
                       }                      
-                    });                           
-
-                    /*
-                    var data = [
-                      {
-                        "id": "58c84a1d-6e46-44e3-b7ec-abaa876d1be3",
-                        "ucsmanagerid": "0c96f848-4306-47e5-a9ac-b76aad3557fb",
-                        "bladedn": "sys/chassis-1/blade-1"
-                      },
-                      {
-                        "id": "de5abadf-f294-4014-9fed-7ee37a9b8724",
-                        "ucsmanagerid": "0c96f848-4306-47e5-a9ac-b76aad3557fb",
-                        "bladedn": "sys/chassis-1/blade-2"
-                      }
-                    ];                    
-                               
-                    for(var i = 0; i < data.length; i++) {
-                      var array1 = data[i].bladedn.split('/');                      
-                      data[i].chassis = array1[1];
-                      data[i].bladeid = array1[2];
-                    }
-
-                    args.response.success({
-                      data: data
-                    });      
-                    */
-                    
+                    });  
                   },                  
                   actions: {                      
                     associateProfileToBlade: {
@@ -13142,49 +12766,51 @@
                                 data: {
                                   ucsmanagerid: args.context.ucsManagers[0].id
                                 },
+                                async: false,
                                 success: function(json) { //e.g. json == { "listucsprofileresponse" : { "count":1 ,"ucsprofile" : [  {"ucsdn":"org-root/ls-testProfile"} ] } }
                                   var ucsprofiles = json.listucsprofileresponse.ucsprofile;
                                   if(ucsprofiles != null) {
                                     for(var i = 0; i < ucsprofiles.length; i++) {
                                       items.push({ id: ucsprofiles[i].ucsdn, description: ucsprofiles[i].ucsdn });                                      
                                     }
-                                  }
-                                  
-                                  //for testing only (begin)
-                                  /*
-                                  items.push({id: 'Service_Profile_Demo1', description: 'Service_Profile_Demo1'});
-                                  items.push({id: 'Service_Profile_Demo2', description: 'Service_Profile_Demo2'});
-                                  items.push({id: 'Service_Profile_Demo3', description: 'Service_Profile_Demo3'});
-                                  items.push({id: 'Service_Profile_Demo4', description: 'Service_Profile_Demo4'});
-                                  items.push({id: 'Service_Profile_Demo5', description: 'Service_Profile_Demo5'});
-                                  items.push({id: 'Service_Profile_Demo6', description: 'Service_Profile_Demo6'});
-                                  items.push({id: 'Service_Profile_Demo7', description: 'Service_Profile_Demo7'});
-                                  */
-                                  //for testing only (end)
-                                  
-                                  args.response.success({ data: items });
+                                  }                                  
                                 }
-                              });
+                              });                              
+
+                              //for testing only (begin)     
+                              /*
+                              items.push({id: 'org-root/ls-testProfile1', description: 'org-root/ls-testProfile1'});
+                              items.push({id: 'org-root/ls-testProfile2', description: 'org-root/ls-testProfile2'});
+                              items.push({id: 'org-root/ls-testProfile3', description: 'org-root/ls-testProfile3'});
+                              items.push({id: 'org-root/ls-testProfile4', description: 'org-root/ls-testProfile4'});
+                              items.push({id: 'org-root/ls-testProfile5', description: 'org-root/ls-testProfile5'});
+                              items.push({id: 'org-root/ls-testProfile6', description: 'org-root/ls-testProfile6'});
+                              items.push({id: 'org-root/ls-testProfile7', description: 'org-root/ls-testProfile7'});    
+                              */                             
+                              //for testing only (end)                              
+                              
+                              args.response.success({ data: items });
+                              
                             },
                             validation: { required: true }
                           }
                         }
                       },
-                      action: function(args) {
-                        /*
+                      action: function(args) {                        
                         $.ajax({
-                          url: createURL('associatesUscProfileToBlade'),
+                          url: createURL('associatesUcsProfileToBlade'),
                           data: {
                             ucsmanagerid: args.context.ucsManagers[0].id,
                             profiledn: args.data.profiledn, 
-                            bladeid: '1234567890' //to change later
+                            bladeid: args.context.blades[0].id
                           },
                           success: function(json) {
-                            
+                            //json.associateucsprofiletobladeresponse.ucsblade
+                            args.response.success({data: { associatedProfileDn: args.data.profiledn }});
                           }
                         });
-                        */
-                        args.response.success({data: { associatedProfileDn: args.data.profiledn }});
+                        
+                        //args.response.success({data: { associatedProfileDn: args.data.profiledn }}); //for testing only
                       },
                       notification: {
                         poll: function(args) {
@@ -14945,19 +14571,23 @@
     var jsonObj = args.context.item;
     var allowedActions = ['enableSwift'];
 
-    allowedActions.push('addVmwareDc');
-    allowedActions.push('removeVmwareDc');
+    if(jsonObj.vmwaredcId == null)
+      allowedActions.push('addVmwareDc');
+    else
+      allowedActions.push('removeVmwareDc');
     
-     if(jsonObj.domainid != null)
+    if(jsonObj.domainid != null)
       allowedActions.push("releaseDedicatedZone");
     else
-    allowedActions.push("dedicateZone");
+      allowedActions.push("dedicateZone");
 
     allowedActions.push("edit");
+    
     if(jsonObj.allocationstate == "Disabled")
       allowedActions.push("enable");
     else if(jsonObj.allocationstate == "Enabled")
       allowedActions.push("disable");
+    
     allowedActions.push("remove");
     return allowedActions;
   }

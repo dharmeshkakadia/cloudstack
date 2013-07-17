@@ -185,7 +185,7 @@
                 $icmpFields.hide();
                 $otherFields.hide();
                 $protocolFields.show().addClass('required');
-                $portFields.show();
+                $inputs.filter('[name=startport],[name=endport]').show().attr('disabled', false);
               } else if ($(this).val() == 'icmp') {
                 $icmpFields.show();
                 $icmpFields.attr('disabled', false);
@@ -292,25 +292,27 @@
       action: function(args) {
         var $multi = args.$multi;
         //Support for Protocol Number between 0 to 255
-        if(args.data.protocol == 'protocolnumber'){
+        if (args.data.protocol === 'protocolnumber'){
           $.extend(args.data,{protocol:args.data.protocolnumber});
           delete args.data.protocolnumber;
-        }
-        else
+          delete args.data.startport;
+          delete args.data.endport;
+          delete args.data.icmptype;
+          delete args.data.icmpcode;
+        } else {
           delete args.data.protocolnumber;
+        }
 
-
-        
-        if((args.data.protocol == 'tcp' || args.data.protocol == 'udp') && (args.data.startport=="" || args.data.startport == undefined)){
+        if ((args.data.protocol == 'tcp' || args.data.protocol == 'udp') && (args.data.startport=="" || args.data.startport == undefined)){
           cloudStack.dialog.notice({message:_l('Start Port or End Port value should not be blank')});
           $(window).trigger('cloudStack.fullRefresh');
         }
-        else if((args.data.protocol == 'tcp' || args.data.protocol == 'udp')  && (args.data.endport=="" || args.data.endport == undefined)){
+        else if ((args.data.protocol == 'tcp' || args.data.protocol == 'udp')  && (args.data.endport=="" || args.data.endport == undefined)){
           cloudStack.dialog.notice({message:_l('Start Port or End Port value should not be blank')});
           $(window).trigger('cloudStack.fullRefresh');
         }
 
-        else{       
+        else {
           $.ajax({
             url: createURL('createNetworkACL'),
             data: $.extend(args.data, {
@@ -365,8 +367,12 @@
             });
           } else if (data.protocol === 'protocolnumber') {
             $.extend(data, {
-              protocolnumber: args.data.protocolnumber
+              protocol: args.data.protocolnumber,
+              startport: args.data.startport,
+              endport: args.data.endport
             });
+
+            delete args.data.protocolnumber;
           }
 
           $.ajax({
@@ -1147,10 +1153,17 @@
                         success:function(json){
                           var items = json.listnetworkaclsresponse.networkacl.sort(function(a, b) {
                             return a.number >= b.number;
+                          }).map(function(acl) {
+                            if (parseInt(acl.protocol)) { // protocol number
+                              acl.protocolnumber = acl.protocol;
+                              acl.protocol = "protocolnumber";
+                            }
+                            
+                            return acl;
                           });
 
                           args.response.success({
-                            data:items
+                            data: items
                             /* {
                                cidrlist: '10.1.1.0/24',
                                protocol: 'TCP',
@@ -3544,6 +3557,9 @@
             if(args.data.aclid !='')
                 $.extend(dataObj, {aclid:args.data.aclid});
 
+            if (args.$form.find('.form-item[rel=vlan]').is(':visible')) {
+              $.extend(dataObj, { vlan: args.data.vlan });
+            }
 
             $.ajax({
               url: createURL('createNetwork'),

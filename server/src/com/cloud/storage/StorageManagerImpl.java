@@ -51,6 +51,7 @@ import org.apache.cloudstack.api.command.admin.storage.CreateStoragePoolCmd;
 import org.apache.cloudstack.api.command.admin.storage.DeleteImageStoreCmd;
 import org.apache.cloudstack.api.command.admin.storage.DeletePoolCmd;
 import org.apache.cloudstack.api.command.admin.storage.UpdateStoragePoolCmd;
+import org.apache.cloudstack.context.CallContext;
 import org.apache.cloudstack.engine.subsystem.api.storage.ClusterScope;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreLifeCycle;
@@ -148,7 +149,6 @@ import com.cloud.template.TemplateManager;
 import com.cloud.user.Account;
 import com.cloud.user.AccountManager;
 import com.cloud.user.User;
-import com.cloud.user.UserContext;
 import com.cloud.user.dao.UserDao;
 import com.cloud.utils.NumbersUtil;
 import com.cloud.utils.Pair;
@@ -698,7 +698,7 @@ public class StorageManagerImpl extends ManagerBase implements StorageManager, C
             throw new InvalidParameterValueException("unable to find zone by id " + zoneId);
         }
         // Check if zone is disabled
-        Account account = UserContext.current().getCaller();
+        Account account = CallContext.current().getCallingAccount();
         if (Grouping.AllocationState.Disabled == zone.getAllocationState() && !_accountMgr.isRootAdmin(account.getType())) {
             throw new PermissionDeniedException("Cannot perform this operation, Zone is currently disabled: " + zoneId);
         }
@@ -717,7 +717,7 @@ public class StorageManagerImpl extends ManagerBase implements StorageManager, C
         params.put("capacityIops", cmd.getCapacityIops());
 
         DataStoreLifeCycle lifeCycle = storeProvider.getDataStoreLifeCycle();
-        DataStore store;
+        DataStore store = null;
         try {
             store = lifeCycle.initialize(params);
             if (scopeType == ScopeType.CLUSTER) {
@@ -729,6 +729,10 @@ public class StorageManagerImpl extends ManagerBase implements StorageManager, C
             }
         } catch (Exception e) {
             s_logger.debug("Failed to add data store", e);
+            // clean up the db
+            if (store != null) {
+                lifeCycle.deleteDataStore(store);
+            }
             throw new CloudRuntimeException("Failed to add data store", e);
         }
 
@@ -1191,9 +1195,9 @@ public class StorageManagerImpl extends ManagerBase implements StorageManager, C
     @DB
     public PrimaryDataStoreInfo preparePrimaryStorageForMaintenance(Long primaryStorageId) throws ResourceUnavailableException,
             InsufficientCapacityException {
-        Long userId = UserContext.current().getCallerUserId();
+        Long userId = CallContext.current().getCallingUserId();
         User user = _userDao.findById(userId);
-        Account account = UserContext.current().getCaller();
+        Account account = CallContext.current().getCallingAccount();
 
         boolean restart = true;
         StoragePoolVO primaryStorage = null;
@@ -1222,9 +1226,9 @@ public class StorageManagerImpl extends ManagerBase implements StorageManager, C
     @DB
     public PrimaryDataStoreInfo cancelPrimaryStorageForMaintenance(CancelPrimaryStorageMaintenanceCmd cmd) throws ResourceUnavailableException {
         Long primaryStorageId = cmd.getId();
-        Long userId = UserContext.current().getCallerUserId();
+        Long userId = CallContext.current().getCallingUserId();
         User user = _userDao.findById(userId);
-        Account account = UserContext.current().getCaller();
+        Account account = CallContext.current().getCallingAccount();
         StoragePoolVO primaryStorage = null;
 
         primaryStorage = _storagePoolDao.findById(primaryStorageId);
@@ -1499,10 +1503,14 @@ public class StorageManagerImpl extends ManagerBase implements StorageManager, C
         if (requestedVolumes == null || requestedVolumes.isEmpty() || pool == null) {
             return false;
         }
-
+        // Only Solidfire type primary storage is using/setting Iops.
+        // This check will fix to return the storage has enough Iops when capacityIops is set to NULL for any PS Storage provider
+        if (pool.getCapacityIops() == null ) {
+            return true;
+        }
         long currentIops = 0;
-
         List<VolumeVO> volumesInPool = _volumeDao.findByPoolId(pool.getId(), null);
+
 
         for (VolumeVO volumeInPool : volumesInPool) {
             Long minIops = volumeInPool.getMinIops();
@@ -1671,7 +1679,7 @@ public class StorageManagerImpl extends ManagerBase implements StorageManager, C
                 throw new InvalidParameterValueException("Can't find zone by id " + dcId);
             }
 
-            Account account = UserContext.current().getCaller();
+            Account account = CallContext.current().getCallingAccount();
             if (Grouping.AllocationState.Disabled == zone.getAllocationState() && !_accountMgr.isRootAdmin(account.getType())) {
                 PermissionDeniedException ex = new PermissionDeniedException(
                         "Cannot perform this operation, Zone with specified id is currently disabled");
@@ -1746,13 +1754,13 @@ public class StorageManagerImpl extends ManagerBase implements StorageManager, C
     @Override
     public boolean deleteImageStore(DeleteImageStoreCmd cmd) {
         long storeId = cmd.getId();
-        User caller = _accountMgr.getActiveUser(UserContext.current().getCallerUserId());
+        User caller = _accountMgr.getActiveUser(CallContext.current().getCallingUserId());
         // Verify that image store exists
         ImageStoreVO store = _imageStoreDao.findById(storeId);
         if (store == null) {
             throw new InvalidParameterValueException("Image store with id " + storeId + " doesn't exist");
         }
-        _accountMgr.checkAccessAndSpecifyAuthority(UserContext.current().getCaller(), store.getDataCenterId());
+        _accountMgr.checkAccessAndSpecifyAuthority(CallContext.current().getCallingAccount(), store.getDataCenterId());
 
         // Verify that there are no live snapshot, template, volume on the image
         // store to be deleted
@@ -1825,7 +1833,7 @@ public class StorageManagerImpl extends ManagerBase implements StorageManager, C
             throw new InvalidParameterValueException("Can't find zone by id " + dcId);
         }
 
-        Account account = UserContext.current().getCaller();
+        Account account = CallContext.current().getCallingAccount();
         if (Grouping.AllocationState.Disabled == zone.getAllocationState() && !_accountMgr.isRootAdmin(account.getType())) {
             PermissionDeniedException ex = new PermissionDeniedException(
                     "Cannot perform this operation, Zone with specified id is currently disabled");

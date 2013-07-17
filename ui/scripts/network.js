@@ -327,7 +327,7 @@
         listView: {
           actions: {
             add: { 
-              label: 'Add Isolated Guest Network with SourceNat',
+              label: 'Add Isolated Network',
 
               preFilter: function(args) { 
                 if(advZoneObjs != null && advZoneObjs.length > 0) {
@@ -550,7 +550,10 @@
               messages: {
                 notification: function() { return 'Add Isolated Guest Network'; }
               }
-            }
+            },
+            
+            rootAdminAddGuestNetwork: $.extend( {}, addGuestNetworkDialog.def, {isHeader: true} )
+            
           },
           id: 'networks',
           fields: {

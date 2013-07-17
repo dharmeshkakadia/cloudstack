@@ -726,6 +726,7 @@
 						  var data = {
 							  id: args.context.instances[0].id,
 							  group: args.data.group,
+							  isdynamicallyscalable: (args.data.isdynamicallyscalable=="on"),
 								ostypeid: args.data.guestosid
 							};
 						  
@@ -922,65 +923,6 @@
             },
             notification: {
               poll: pollAsyncJobResult
-            }
-          },
-
-          changeService: {
-            label: 'label.action.change.service',
-            messages: {
-              notification: function(args) {
-                return 'label.action.change.service';
-              }
-            },
-            createForm: {
-              title: 'label.action.change.service',
-              desc: '',
-              fields: {
-                serviceOffering: {
-                  label: 'label.compute.offering',
-                  select: function(args) {
-                    $.ajax({
-                      url: createURL("listServiceOfferings&VirtualMachineId=" + args.context.instances[0].id),
-                      dataType: "json",
-                      async: true,
-                      success: function(json) {
-                        var serviceofferings = json.listserviceofferingsresponse.serviceoffering;
-                        var items = [];
-                        $(serviceofferings).each(function() {
-                          items.push({id: this.id, description: this.name});
-                        });
-                        args.response.success({data: items});
-                      }
-                    });
-                  }
-                }
-              }
-            },
-
-            preAction: function(args) {
-              var jsonObj = args.context.instances[0];
-              if (jsonObj.state != 'Stopped') {
-                cloudStack.dialog.notice({ message: 'message.action.change.service.warning.for.instance' });
-                return false;
-              }
-              return true;
-            },
-
-            action: function(args) {
-              $.ajax({
-                url: createURL("changeServiceForVirtualMachine&id=" + args.context.instances[0].id + "&serviceOfferingId=" + args.data.serviceOffering),
-                dataType: "json",
-                async: true,
-                success: function(json) {
-                  var jsonObj = json.changeserviceforvirtualmachineresponse.virtualmachine;
-                  args.response.success({data: jsonObj});
-                }
-              });
-            },
-            notification: {
-              poll: function(args) {
-                args.complete();
-              }
             }
           },
 
@@ -1366,9 +1308,16 @@
 										});	
                     return toClearInterval;										
 									}								
-								},                       
-                hypervisor: { label: 'label.hypervisor' },
+								},        
                 templatename: { label: 'label.template' },
+                
+                isdynamicallyscalable: {
+                  label: 'Dynamically Scalable',
+                  isBoolean: true,
+                  isEditable: true,
+                  converter:cloudStack.converters.toBooleanText
+                },    
+                
                 guestosid: {
                   label: 'label.os.type',
                   isEditable: true,
@@ -1388,7 +1337,9 @@
                     });
                   }
                 },              
-                                
+                 
+                hypervisor: { label: 'label.hypervisor' },
+                
                 /*
 								isoid: {
                   label: 'label.attached.iso',
