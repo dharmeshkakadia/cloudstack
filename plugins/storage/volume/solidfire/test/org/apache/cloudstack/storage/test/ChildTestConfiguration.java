@@ -16,12 +16,11 @@
 // under the License.
 package org.apache.cloudstack.storage.test;
 
+import org.apache.agent.AgentManager;
 import org.apache.cloudstack.storage.image.motion.ImageMotionService;
+import org.apache.host.dao.HostDao;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
-
-import com.cloud.agent.AgentManager;
-import com.cloud.host.dao.HostDao;
 
 public class ChildTestConfiguration extends TestConfiguration {
 

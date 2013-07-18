@@ -25,8 +25,7 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.VlanIpRangeResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "deleteVlanIpRange", description="Creates a VLAN IP range.", responseObject=SuccessResponse.class)
 public class DeleteVlanIpRangeCmd extends BaseCmd {

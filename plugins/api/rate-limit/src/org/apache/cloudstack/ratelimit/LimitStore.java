@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.ratelimit;
 
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 /**
  * Interface to define how an api limit store should work.

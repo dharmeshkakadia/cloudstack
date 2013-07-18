@@ -37,21 +37,22 @@ import org.apache.cloudstack.storage.LocalHostEndpoint;
 import org.apache.cloudstack.storage.MockLocalNfsSecondaryStorageResource;
 import org.apache.cloudstack.storage.datastore.db.ImageStoreDao;
 import org.apache.cloudstack.storage.datastore.db.ImageStoreVO;
+import org.apache.storage.download.DownloadMonitorImpl;
 import org.mockito.Matchers;
 import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
 import org.testng.annotations.Test;
 
-import com.cloud.dc.DataCenterVO;
-import com.cloud.dc.DataCenter.NetworkType;
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.Storage;
-import com.cloud.storage.VMTemplateVO;
-import com.cloud.storage.Storage.TemplateType;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.storage.download.DownloadMonitorImpl;
-import com.cloud.utils.component.ComponentContext;
+import org.apache.dc.DataCenterVO;
+import org.apache.dc.DataCenter.NetworkType;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.Storage;
+import org.apache.storage.VMTemplateVO;
+import org.apache.storage.Storage.TemplateType;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.storage.download.DownloadMonitorImpl;
+import org.apache.utils.component.ComponentContext;
 
 @ContextConfiguration(locations = { "classpath:/storageContext.xml" })
 public class TemplateTest extends CloudStackTestNGBase {

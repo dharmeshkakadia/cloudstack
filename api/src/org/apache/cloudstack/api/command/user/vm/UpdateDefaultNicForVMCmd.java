@@ -20,19 +20,18 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 
 import org.apache.log4j.Logger;
-
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.uservm.UserVm;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.ApiConstants.VMDetails;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.cloudstack.api.response.NicResponse;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.uservm.UserVm;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 
 @APICommand(name = "updateDefaultNicForVirtualMachine", description="Changes the default NIC on a VM", responseObject=UserVmResponse.class)
 

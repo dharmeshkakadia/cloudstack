@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -32,14 +33,12 @@ import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ProjectAccountResponse;
 import org.apache.cloudstack.api.response.SecurityGroupResponse;
 import org.apache.cloudstack.api.response.SecurityGroupRuleResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.security.SecurityRule;
-import com.cloud.user.UserContext;
-import com.cloud.utils.StringUtils;
+import org.apache.network.security.SecurityRule;
+import org.apache.user.UserContext;
+import org.apache.utils.StringUtils;
 
 @APICommand(name = "authorizeSecurityGroupEgress", responseObject = SecurityGroupRuleResponse.class, description = "Authorizes a particular egress rule for this security group", since="3.0.0")
 @SuppressWarnings("rawtypes")

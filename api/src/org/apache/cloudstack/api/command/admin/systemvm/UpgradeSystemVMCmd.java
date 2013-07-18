@@ -25,13 +25,12 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.user.vm.UpgradeVMCmd;
 import org.apache.cloudstack.api.response.ServiceOfferingResponse;
 import org.apache.cloudstack.api.response.SystemVmResponse;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.offering.ServiceOffering;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.vm.VirtualMachine;
+import org.apache.offering.ServiceOffering;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.vm.VirtualMachine;
 
 @APICommand(name = "changeServiceForSystemVm", responseObject=SystemVmResponse.class, description="Changes the service offering for a system vm (console proxy or secondary storage). " +
                                                                                             "The system vm must be in a \"Stopped\" state for " +

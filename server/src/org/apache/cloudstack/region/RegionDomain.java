@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.region;
 
-import com.cloud.domain.DomainVO;
+import org.apache.domain.DomainVO;
 
 public class RegionDomain extends DomainVO {
     String accountUuid;

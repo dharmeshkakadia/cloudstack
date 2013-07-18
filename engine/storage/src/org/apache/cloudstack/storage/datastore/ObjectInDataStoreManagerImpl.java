@@ -18,6 +18,8 @@ package org.apache.cloudstack.storage.datastore;
 
 import javax.inject.Inject;
 
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.S3TO;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObject;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObjectInStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
@@ -37,22 +39,19 @@ import org.apache.cloudstack.storage.datastore.db.TemplateDataStoreVO;
 import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreVO;
 import org.apache.cloudstack.storage.db.ObjectInDataStoreDao;
+import org.apache.exception.ConcurrentOperationException;
 import org.apache.log4j.Logger;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.VMTemplateStoragePoolVO;
+import org.apache.storage.dao.SnapshotDao;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.storage.dao.VMTemplatePoolDao;
+import org.apache.storage.dao.VolumeDao;
+import org.apache.storage.template.TemplateConstants;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.fsm.NoTransitionException;
+import org.apache.utils.fsm.StateMachine2;
 import org.springframework.stereotype.Component;
-
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.S3TO;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.VMTemplateStoragePoolVO;
-import com.cloud.storage.dao.SnapshotDao;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.storage.dao.VMTemplatePoolDao;
-import com.cloud.storage.dao.VolumeDao;
-import com.cloud.storage.template.TemplateConstants;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.fsm.NoTransitionException;
-import com.cloud.utils.fsm.StateMachine2;
 
 @Component
 public class ObjectInDataStoreManagerImpl implements ObjectInDataStoreManager {

@@ -27,12 +27,11 @@ import org.apache.cloudstack.api.response.AccountResponse;
 import org.apache.cloudstack.api.response.ApiLimitResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.ratelimit.ApiRateLimitService;
+import org.apache.configuration.Config;
+import org.apache.configuration.dao.ConfigurationDao;
 import org.apache.log4j.Logger;
-
-import com.cloud.configuration.Config;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 import javax.inject.Inject;
 

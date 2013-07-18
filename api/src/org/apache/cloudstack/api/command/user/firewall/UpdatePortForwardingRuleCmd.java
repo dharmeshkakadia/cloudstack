@@ -23,11 +23,10 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.FirewallRuleResponse;
 import org.apache.cloudstack.api.response.IPAddressResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.network.IpAddress;
-import com.cloud.user.Account;
+import org.apache.network.IpAddress;
+import org.apache.user.Account;
 
 @APICommand(name = "updatePortForwardingRule", responseObject=FirewallRuleResponse.class, description="Updates a port forwarding rule.  Only the private port and the virtual machine can be updated.")
 public class UpdatePortForwardingRuleCmd extends BaseAsyncCmd {

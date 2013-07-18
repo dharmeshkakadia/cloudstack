@@ -17,7 +17,7 @@
 
 package org.apache.cloudstack.alert.snmp;
 
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.snmp4j.CommunityTarget;
 import org.snmp4j.PDU;
 import org.snmp4j.Snmp;

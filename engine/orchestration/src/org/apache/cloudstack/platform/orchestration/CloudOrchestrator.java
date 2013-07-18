@@ -25,7 +25,6 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import com.cloud.storage.VolumeManager;
 import org.apache.cloudstack.engine.cloud.entity.api.NetworkEntity;
 import org.apache.cloudstack.engine.cloud.entity.api.TemplateEntity;
 import org.apache.cloudstack.engine.cloud.entity.api.VirtualMachineEntity;
@@ -33,29 +32,28 @@ import org.apache.cloudstack.engine.cloud.entity.api.VirtualMachineEntityImpl;
 import org.apache.cloudstack.engine.cloud.entity.api.VMEntityManager;
 import org.apache.cloudstack.engine.cloud.entity.api.VolumeEntity;
 import org.apache.cloudstack.engine.service.api.OrchestrationService;
+import org.apache.deploy.DeploymentPlan;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.hypervisor.Hypervisor;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.network.dao.NetworkDao;
+import org.apache.network.dao.NetworkVO;
+import org.apache.service.ServiceOfferingVO;
+import org.apache.service.dao.ServiceOfferingDao;
+import org.apache.storage.DiskOfferingVO;
+import org.apache.storage.VolumeManager;
+import org.apache.storage.dao.DiskOfferingDao;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.user.dao.AccountDao;
+import org.apache.utils.Pair;
+import org.apache.utils.component.ComponentContext;
+import org.apache.vm.NicProfile;
+import org.apache.vm.VMInstanceVO;
+import org.apache.vm.VirtualMachineManager;
+import org.apache.vm.dao.UserVmDao;
+import org.apache.vm.dao.VMInstanceDao;
 import org.springframework.stereotype.Component;
-
-import com.cloud.deploy.DeploymentPlan;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.hypervisor.Hypervisor;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-
-import com.cloud.network.dao.NetworkDao;
-import com.cloud.network.dao.NetworkVO;
-import com.cloud.service.ServiceOfferingVO;
-import com.cloud.service.dao.ServiceOfferingDao;
-import com.cloud.storage.DiskOfferingVO;
-import com.cloud.storage.dao.DiskOfferingDao;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.user.dao.AccountDao;
-import com.cloud.utils.Pair;
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.vm.NicProfile;
-import com.cloud.vm.VMInstanceVO;
-import com.cloud.vm.VirtualMachineManager;
-import com.cloud.vm.dao.UserVmDao;
-import com.cloud.vm.dao.VMInstanceDao;
 
 
 @Component

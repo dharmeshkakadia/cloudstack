@@ -19,6 +19,7 @@ package org.apache.cloudstack.api.command.admin.resource;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.alert.Alert;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListCmd;
@@ -26,9 +27,7 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.AlertResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.alert.Alert;
-import com.cloud.utils.Pair;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listAlerts", description = "Lists all alerts.", responseObject = AlertResponse.class)
 public class ListAlertsCmd extends BaseListCmd {

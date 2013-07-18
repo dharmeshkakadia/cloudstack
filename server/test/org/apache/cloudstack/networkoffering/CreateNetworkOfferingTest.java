@@ -17,26 +17,27 @@
 
 package org.apache.cloudstack.networkoffering;
 
-import com.cloud.configuration.ConfigurationManager;
-import com.cloud.configuration.ConfigurationVO;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.Network;
-import com.cloud.network.Network.Provider;
-import com.cloud.network.Network.Service;
-import com.cloud.network.Networks.TrafficType;
-import com.cloud.network.vpc.VpcManager;
-import com.cloud.offering.NetworkOffering.Availability;
-import com.cloud.offerings.NetworkOfferingServiceMapVO;
-import com.cloud.offerings.NetworkOfferingVO;
-import com.cloud.offerings.dao.NetworkOfferingDao;
-import com.cloud.offerings.dao.NetworkOfferingServiceMapDao;
-import com.cloud.user.AccountManager;
-import com.cloud.user.AccountVO;
-import com.cloud.user.UserContext;
-import com.cloud.user.UserVO;
-import com.cloud.utils.component.ComponentContext;
 import junit.framework.TestCase;
+
+import org.apache.configuration.ConfigurationManager;
+import org.apache.configuration.ConfigurationVO;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.network.Network;
+import org.apache.network.Network.Provider;
+import org.apache.network.Network.Service;
+import org.apache.network.Networks.TrafficType;
+import org.apache.network.vpc.VpcManager;
+import org.apache.offering.NetworkOffering.Availability;
+import org.apache.offerings.NetworkOfferingServiceMapVO;
+import org.apache.offerings.NetworkOfferingVO;
+import org.apache.offerings.dao.NetworkOfferingDao;
+import org.apache.offerings.dao.NetworkOfferingServiceMapDao;
+import org.apache.user.AccountManager;
+import org.apache.user.AccountVO;
+import org.apache.user.UserContext;
+import org.apache.user.UserVO;
+import org.apache.utils.component.ComponentContext;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,6 +46,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.inject.Inject;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;

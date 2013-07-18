@@ -33,16 +33,15 @@ import org.apache.cloudstack.engine.subsystem.api.storage.ZoneScope;
 import org.apache.cloudstack.storage.datastore.db.TemplateDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.TemplateDataStoreVO;
 import org.apache.log4j.Logger;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.VMTemplateStorageResourceAssoc.Status;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.db.UpdateBuilder;
+import org.apache.utils.db.SearchCriteria.Op;
 import org.springframework.stereotype.Component;
-
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.VMTemplateStorageResourceAssoc.Status;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.Transaction;
-import com.cloud.utils.db.SearchCriteria.Op;
-import com.cloud.utils.db.UpdateBuilder;
 
 import edu.emory.mathcs.backport.java.util.Collections;
 

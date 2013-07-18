@@ -36,7 +36,7 @@
   <!--  aop:config proxy-target-class="true" >
     <aop:aspect id="AopTestAdvice" ref="aopTestBean">
     <aop:pointcut id="aoptest"
-      expression="@annotation(com.cloud.utils.db.DB)" />
+      expression="@annotation(org.apache.utils.db.DB)" />
       <aop:around pointcut-ref="aoptest" method="AopTestMethod"/> 
     </aop:aspect>
   </aop:config>

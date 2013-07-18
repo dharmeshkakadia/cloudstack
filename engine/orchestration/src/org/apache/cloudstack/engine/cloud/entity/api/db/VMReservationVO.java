@@ -30,8 +30,7 @@ import javax.persistence.Transient;
 
 import org.apache.cloudstack.api.Identity;
 import org.apache.cloudstack.api.InternalIdentity;
-
-import com.cloud.utils.db.GenericDao;
+import org.apache.utils.db.GenericDao;
 
 @Entity
 @Table(name = "vm_reservation")

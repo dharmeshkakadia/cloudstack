@@ -34,21 +34,20 @@ import org.apache.cloudstack.engine.subsystem.api.storage.EndPointSelector;
 import org.apache.cloudstack.engine.subsystem.api.storage.Scope;
 import org.apache.cloudstack.storage.RemoteHostEndPoint;
 import org.apache.cloudstack.storage.LocalHostEndpoint;
+import org.apache.host.Host;
+import org.apache.host.HostVO;
+import org.apache.host.Status;
+import org.apache.host.dao.HostDao;
 import org.apache.log4j.Logger;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.ScopeType;
+import org.apache.utils.db.DB;
+import org.apache.utils.db.SearchCriteria2;
+import org.apache.utils.db.SearchCriteriaService;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.db.SearchCriteria.Op;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.springframework.stereotype.Component;
-
-import com.cloud.host.Host;
-import com.cloud.host.HostVO;
-import com.cloud.host.Status;
-import com.cloud.host.dao.HostDao;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.ScopeType;
-import com.cloud.utils.db.DB;
-import com.cloud.utils.db.SearchCriteria2;
-import com.cloud.utils.db.SearchCriteriaService;
-import com.cloud.utils.db.Transaction;
-import com.cloud.utils.db.SearchCriteria.Op;
-import com.cloud.utils.exception.CloudRuntimeException;
 
 @Component
 public class DefaultEndPointSelector implements EndPointSelector {
@@ -205,7 +204,7 @@ public class DefaultEndPointSelector implements EndPointSelector {
         if (dcId != null) {
             sc.addAnd(sc.getEntity().getDataCenterId(), Op.EQ, dcId);
         }
-        sc.addAnd(sc.getEntity().getStatus(), Op.IN, com.cloud.host.Status.Up, com.cloud.host.Status.Connecting);
+        sc.addAnd(sc.getEntity().getStatus(), Op.IN, org.apache.host.Status.Up, org.apache.host.Status.Connecting);
         sc.addAnd(sc.getEntity().getType(), Op.EQ, Host.Type.SecondaryStorageVM);
         return sc.list();
     }

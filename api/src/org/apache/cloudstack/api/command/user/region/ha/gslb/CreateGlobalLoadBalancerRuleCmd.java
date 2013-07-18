@@ -17,18 +17,18 @@
 
 package org.apache.cloudstack.api.command.user.region.ha.gslb;
 
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.region.ha.GlobalLoadBalancerRule;
-import com.cloud.region.ha.GlobalLoadBalancingRulesService;
-import com.cloud.user.UserContext;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.GlobalLoadBalancerResponse;
 import org.apache.cloudstack.api.response.RegionResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
+import org.apache.region.ha.GlobalLoadBalancerRule;
+import org.apache.region.ha.GlobalLoadBalancingRulesService;
+import org.apache.user.UserContext;
 
 import javax.inject.Inject;
 

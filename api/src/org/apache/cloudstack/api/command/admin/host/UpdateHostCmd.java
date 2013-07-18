@@ -26,10 +26,9 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.GuestOSCategoryResponse;
 import org.apache.cloudstack.api.response.HostResponse;
+import org.apache.host.Host;
 import org.apache.log4j.Logger;
-
-import com.cloud.host.Host;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "updateHost", description="Updates a host.", responseObject=HostResponse.class)
 public class UpdateHostCmd extends BaseCmd {

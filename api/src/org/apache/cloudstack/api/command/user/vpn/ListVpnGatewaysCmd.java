@@ -27,9 +27,8 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.Site2SiteVpnGatewayResponse;
 import org.apache.cloudstack.api.response.VpcResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.Site2SiteVpnGateway;
-import com.cloud.utils.Pair;
+import org.apache.network.Site2SiteVpnGateway;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listVpnGateways", description="Lists site 2 site vpn gateways", responseObject=Site2SiteVpnGatewayResponse.class)
 public class ListVpnGatewaysCmd extends BaseListProjectAndAccountResourcesCmd {

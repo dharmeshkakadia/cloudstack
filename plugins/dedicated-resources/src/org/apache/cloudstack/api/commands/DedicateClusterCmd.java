@@ -32,11 +32,10 @@ import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.DedicateClusterResponse;
 import org.apache.cloudstack.dedicated.DedicatedService;
+import org.apache.dc.DedicatedResources;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.DedicatedResources;
-import com.cloud.event.EventTypes;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "dedicateCluster", description= "Dedicate an existing cluster", responseObject = DedicateClusterResponse.class )
 public class DedicateClusterCmd extends BaseAsyncCmd {

@@ -18,9 +18,9 @@
  */
 package org.apache.cloudstack.engine.subsystem.api.storage;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.Volume;
+import org.apache.agent.api.Answer;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.storage.Volume;
 
 public interface VolumeInfo extends DataObject, Volume {
     boolean isAttachedVM();

@@ -24,17 +24,16 @@ import javax.inject.Inject;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreManager;
 import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.StoragePoolVO;
+import org.apache.deploy.DeploymentPlan;
+import org.apache.deploy.DeploymentPlanner.ExcludeList;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 import org.apache.log4j.Logger;
+import org.apache.storage.StoragePool;
+import org.apache.storage.Volume;
+import org.apache.vm.DiskProfile;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
 import org.springframework.stereotype.Component;
-
-import com.cloud.deploy.DeploymentPlan;
-import com.cloud.deploy.DeploymentPlanner.ExcludeList;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.Volume;
-import com.cloud.vm.DiskProfile;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
 
 @Component
 public class ZoneWideStoragePoolAllocator extends AbstractStoragePoolAllocator {

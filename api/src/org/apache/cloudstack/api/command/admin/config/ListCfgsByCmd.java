@@ -24,10 +24,9 @@ import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.*;
+import org.apache.configuration.Configuration;
 import org.apache.log4j.Logger;
-
-import com.cloud.configuration.Configuration;
-import com.cloud.utils.Pair;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listConfigurations", description = "Lists all configurations.", responseObject = ConfigurationResponse.class)
 public class ListCfgsByCmd extends BaseListCmd {

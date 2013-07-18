@@ -26,15 +26,14 @@ import javax.ejb.Local;
 import javax.inject.Inject;
 import javax.naming.ConfigurationException;
 
+import org.apache.exception.PermissionDeniedException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.PermissionDeniedException;
-import com.cloud.user.Account;
-import com.cloud.user.AccountService;
-import com.cloud.user.User;
-import com.cloud.utils.PropertiesUtil;
-import com.cloud.utils.component.AdapterBase;
-import com.cloud.utils.component.PluggableService;
+import org.apache.user.Account;
+import org.apache.user.AccountService;
+import org.apache.user.User;
+import org.apache.utils.PropertiesUtil;
+import org.apache.utils.component.AdapterBase;
+import org.apache.utils.component.PluggableService;
 
 // This is the default API access checker that grab's the user's account
 // based on the account type, access is granted

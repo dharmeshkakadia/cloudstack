@@ -41,12 +41,12 @@ under the License.
   documented, please contact the author.
 -->
 <components.xml>
-    <interceptor library="com.cloud.configuration.DefaultInterceptorLibrary"/>
-    <management-server class="com.cloud.network.NetworkManagerImpl" library="com.cloud.network.NetworkManagerTestComponentLibrary">
-        <dao name="Configuration configuration server" class="com.cloud.configuration.dao.ConfigurationDaoImpl">
+    <interceptor library="org.apache.configuration.DefaultInterceptorLibrary"/>
+    <management-server class="org.apache.network.NetworkManagerImpl" library="org.apache.network.NetworkManagerTestComponentLibrary">
+        <dao name="Configuration configuration server" class="org.apache.configuration.dao.ConfigurationDaoImpl">
              <param name="premium">true</param>
         </dao>
-        <adapters key="com.cloud.network.guru.NetworkGuru">
+        <adapters key="org.apache.network.guru.NetworkGuru">
             <!--
                  NOTE: The order of those gurus implicates priority of network traffic types the guru implements.
                  The upper the higher priority. It effects listTafficTypeImplementors API which returns impelmentor
@@ -66,118 +66,118 @@ under the License.
                  However, above case barely happens.
             -->
 
-            <adapter name="StorageNetworkGuru" class="com.cloud.network.guru.StorageNetworkGuru"/>
-            <adapter name="ExternalGuestNetworkGuru" class="com.cloud.network.guru.ExternalGuestNetworkGuru"/>
-            <adapter name="PublicNetworkGuru" class="com.cloud.network.guru.PublicNetworkGuru"/>
-            <adapter name="PodBasedNetworkGuru" class="com.cloud.network.guru.PodBasedNetworkGuru"/>
-            <adapter name="ControlNetworkGuru" class="com.cloud.network.guru.ControlNetworkGuru"/>
-            <adapter name="DirectNetworkGuru" class="com.cloud.network.guru.DirectNetworkGuru"/>
-            <adapter name="DirectPodBasedNetworkGuru" class="com.cloud.network.guru.DirectPodBasedNetworkGuru"/>
-            <!--<adapter name="OvsGuestNetworkGuru" class="com.cloud.network.guru.OvsGuestNetworkGuru"/> -->
-            <adapter name="PrivateNetworkGuru" class="com.cloud.network.guru.PrivateNetworkGuru"/>
-            <!--<adapter name="NiciraNvpGuestNetworkGuru" class="com.cloud.network.guru.NiciraNvpGuestNetworkGuru"/> -->
+            <adapter name="StorageNetworkGuru" class="org.apache.network.guru.StorageNetworkGuru"/>
+            <adapter name="ExternalGuestNetworkGuru" class="org.apache.network.guru.ExternalGuestNetworkGuru"/>
+            <adapter name="PublicNetworkGuru" class="org.apache.network.guru.PublicNetworkGuru"/>
+            <adapter name="PodBasedNetworkGuru" class="org.apache.network.guru.PodBasedNetworkGuru"/>
+            <adapter name="ControlNetworkGuru" class="org.apache.network.guru.ControlNetworkGuru"/>
+            <adapter name="DirectNetworkGuru" class="org.apache.network.guru.DirectNetworkGuru"/>
+            <adapter name="DirectPodBasedNetworkGuru" class="org.apache.network.guru.DirectPodBasedNetworkGuru"/>
+            <!--<adapter name="OvsGuestNetworkGuru" class="org.apache.network.guru.OvsGuestNetworkGuru"/> -->
+            <adapter name="PrivateNetworkGuru" class="org.apache.network.guru.PrivateNetworkGuru"/>
+            <!--<adapter name="NiciraNvpGuestNetworkGuru" class="org.apache.network.guru.NiciraNvpGuestNetworkGuru"/> -->
         </adapters>
-        <adapters key="com.cloud.network.IpAddrAllocator">
-            <adapter name="Basic" class="com.cloud.network.ExternalIpAddressAllocator"/>
+        <adapters key="org.apache.network.IpAddrAllocator">
+            <adapter name="Basic" class="org.apache.network.ExternalIpAddressAllocator"/>
         </adapters>
-        <adapters key="com.cloud.network.element.NetworkElement">
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
-            <!--<adapter name="Ovs" class="com.cloud.network.element.OvsElement"/> -->
-            <!--<adapter name="ExternalDhcpServer" class="com.cloud.network.element.ExternalDhcpElement"/>-->
-            <adapter name="BareMetal" class="com.cloud.network.element.BareMetalElement"/>
-            <adapter name="SecurityGroupProvider" class="com.cloud.network.element.SecurityGroupElement"/>
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
-            <!--<adapter name="NiciraNvp" class="com.cloud.network.element.NiciraNvpElement"/> -->
+        <adapters key="org.apache.network.element.NetworkElement">
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
+            <!--<adapter name="Ovs" class="org.apache.network.element.OvsElement"/> -->
+            <!--<adapter name="ExternalDhcpServer" class="org.apache.network.element.ExternalDhcpElement"/>-->
+            <adapter name="BareMetal" class="org.apache.network.element.BareMetalElement"/>
+            <adapter name="SecurityGroupProvider" class="org.apache.network.element.SecurityGroupElement"/>
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
+            <!--<adapter name="NiciraNvp" class="org.apache.network.element.NiciraNvpElement"/> -->
         </adapters>
-        <adapters key="com.cloud.network.element.FirewallServiceProvider">
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
+        <adapters key="org.apache.network.element.FirewallServiceProvider">
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
         </adapters>
-        <adapters key="com.cloud.network.element.DhcpServiceProvider">
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
-            <adapter name="ExternalDhcpElement" class="com.cloud.network.element.ExternalDhcpElement"/>
+        <adapters key="org.apache.network.element.DhcpServiceProvider">
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
+            <adapter name="ExternalDhcpElement" class="org.apache.network.element.ExternalDhcpElement"/>
         </adapters>
-        <adapters key="com.cloud.network.element.UserDataServiceProvider">
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
+        <adapters key="org.apache.network.element.UserDataServiceProvider">
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
         </adapters>
-        <adapters key="com.cloud.network.element.SourceNatServiceProvider">
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
-            <!--<adapter name="NiciraNvp" class="com.cloud.network.element.NiciraNvpElement"/>   -->
+        <adapters key="org.apache.network.element.SourceNatServiceProvider">
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
+            <!--<adapter name="NiciraNvp" class="org.apache.network.element.NiciraNvpElement"/>   -->
         </adapters>
-        <adapters key="com.cloud.network.element.StaticNatServiceProvider">
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
-            <!-- <adapter name="NiciraNvp" class="com.cloud.network.element.NiciraNvpElement"/> -->
+        <adapters key="org.apache.network.element.StaticNatServiceProvider">
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
+            <!-- <adapter name="NiciraNvp" class="org.apache.network.element.NiciraNvpElement"/> -->
         </adapters>
-        <adapters key="com.cloud.network.element.PortForwardingServiceProvider">
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
-            <!-- <adapter name="NiciraNvp" class="com.cloud.network.element.NiciraNvpElement"/> -->
+        <adapters key="org.apache.network.element.PortForwardingServiceProvider">
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
+            <!-- <adapter name="NiciraNvp" class="org.apache.network.element.NiciraNvpElement"/> -->
         </adapters>
-        <adapters key="com.cloud.network.element.LoadBalancingServiceProvider">
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
+        <adapters key="org.apache.network.element.LoadBalancingServiceProvider">
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
         </adapters>
-        <adapters key="com.cloud.network.element.RemoteAccessVPNServiceProvider">
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
+        <adapters key="org.apache.network.element.RemoteAccessVPNServiceProvider">
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
         </adapters>
-        <adapters key="com.cloud.network.element.Site2SiteVpnServiceProvider">
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
+        <adapters key="org.apache.network.element.Site2SiteVpnServiceProvider">
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
         </adapters>
-        <adapters key="com.cloud.network.element.IpDeployer">
-            <adapter name="VirtualRouter" class="com.cloud.network.element.VirtualRouterElement"/>
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
-            <!-- <adapter name="NiciraNvp" class="com.cloud.network.element.NiciraNvpElement"/> -->
+        <adapters key="org.apache.network.element.IpDeployer">
+            <adapter name="VirtualRouter" class="org.apache.network.element.VirtualRouterElement"/>
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
+            <!-- <adapter name="NiciraNvp" class="org.apache.network.element.NiciraNvpElement"/> -->
         </adapters>
-        <adapters key="com.cloud.network.element.ConnectivityProvider">
-            <!-- <adapter name="NiciraNvp" class="com.cloud.network.element.NiciraNvpElement"/> -->
+        <adapters key="org.apache.network.element.ConnectivityProvider">
+            <!-- <adapter name="NiciraNvp" class="org.apache.network.element.NiciraNvpElement"/> -->
         </adapters>
-        <adapters key="com.cloud.network.element.NetworkACLServiceProvider">
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
+        <adapters key="org.apache.network.element.NetworkACLServiceProvider">
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
         </adapters>
-        <adapters key="com.cloud.network.element.VpcProvider">
-            <adapter name="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement"/>
+        <adapters key="org.apache.network.element.VpcProvider">
+            <adapter name="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement"/>
         </adapters>
 
-        <!--<manager name="OvsTunnelManager" key="com.cloud.network.ovs.OvsTunnelManager" class="com.cloud.network.ovs.OvsTunnelManagerImpl"/>-->
-        <!--<manager name="ElasticLoadBalancerManager" key="com.cloud.network.lb.ElasticLoadBalancerManager" class="com.cloud.network.lb.ElasticLoadBalancerManagerImpl"/>-->
-        <pluggableservice name="VirtualRouterElementService" key="com.cloud.network.element.VirtualRouterElementService" class="com.cloud.network.element.VirtualRouterElement"/>
-        <!-- <pluggableservice name="NiciraNvpElementService" key="com.cloud.network.element.NiciraNvpElementService" class="com.cloud.network.element.NiciraNvpElement"/> -->
-        <!--<dao name="OvsTunnelInterfaceDao" class="com.cloud.network.ovs.dao.OvsTunnelInterfaceDaoImpl" singleton="false"/> -->
-        <!--<dao name="OvsTunnelAccountDao" class="com.cloud.network.ovs.dao.OvsTunnelNetworkDaoImpl" singleton="false"/> -->
-        <!--<dao name="NiciraNvpDao" class="com.cloud.network.dao.NiciraNvpDaoImpl" singleton="false"/> -->
-        <!--<dao name="NiciraNvpNicMappingDao" class="com.cloud.network.dao.NiciraNvpNicMappingDaoImpl" singleton="false"/> -->
-        <!--<dao name="NiciraNvpRouterMappingDao" class="com.cloud.network.dao.NiciraNvpRouterMappingDaoImpl" singleton="false"/> -->
-        <!--<dao name="ElasticLbVmMapDao" class="com.cloud.network.lb.dao.ElasticLbVmMapDaoImpl" singleton="false"/> -->
+        <!--<manager name="OvsTunnelManager" key="org.apache.network.ovs.OvsTunnelManager" class="org.apache.network.ovs.OvsTunnelManagerImpl"/>-->
+        <!--<manager name="ElasticLoadBalancerManager" key="org.apache.network.lb.ElasticLoadBalancerManager" class="org.apache.network.lb.ElasticLoadBalancerManagerImpl"/>-->
+        <pluggableservice name="VirtualRouterElementService" key="org.apache.network.element.VirtualRouterElementService" class="org.apache.network.element.VirtualRouterElement"/>
+        <!-- <pluggableservice name="NiciraNvpElementService" key="org.apache.network.element.NiciraNvpElementService" class="org.apache.network.element.NiciraNvpElement"/> -->
+        <!--<dao name="OvsTunnelInterfaceDao" class="org.apache.network.ovs.dao.OvsTunnelInterfaceDaoImpl" singleton="false"/> -->
+        <!--<dao name="OvsTunnelAccountDao" class="org.apache.network.ovs.dao.OvsTunnelNetworkDaoImpl" singleton="false"/> -->
+        <!--<dao name="NiciraNvpDao" class="org.apache.network.dao.NiciraNvpDaoImpl" singleton="false"/> -->
+        <!--<dao name="NiciraNvpNicMappingDao" class="org.apache.network.dao.NiciraNvpNicMappingDaoImpl" singleton="false"/> -->
+        <!--<dao name="NiciraNvpRouterMappingDao" class="org.apache.network.dao.NiciraNvpRouterMappingDaoImpl" singleton="false"/> -->
+        <!--<dao name="ElasticLbVmMapDao" class="org.apache.network.lb.dao.ElasticLbVmMapDaoImpl" singleton="false"/> -->
     </management-server>
 
-    <configuration-server class="com.cloud.server.ConfigurationServerImpl">
-        <dao name="Configuration configuration server" class="com.cloud.configuration.dao.ConfigurationDaoImpl" singleton="false">
+    <configuration-server class="org.apache.server.ConfigurationServerImpl">
+        <dao name="Configuration configuration server" class="org.apache.configuration.dao.ConfigurationDaoImpl" singleton="false">
              <param name="premium">true</param>
         </dao>
-        <dao name="Snapshot policy defaults" class="com.cloud.storage.dao.SnapshotPolicyDaoImpl" singleton="false"/>
-        <dao name="DiskOffering configuration server" class="com.cloud.storage.dao.DiskOfferingDaoImpl" singleton="false"/>         
-        <dao name="ServiceOffering configuration server" class="com.cloud.service.dao.ServiceOfferingDaoImpl" singleton="false"/>
-        <dao name="host zone configuration server" class="com.cloud.dc.dao.DataCenterDaoImpl" singleton="false"/>
-        <dao name="host pod configuration server" class="com.cloud.dc.dao.HostPodDaoImpl" singleton="false"/>
-        <dao name="DomainDao" class="com.cloud.domain.dao.DomainDaoImpl" singleton="false"/>
-        <dao name="NetworkOfferingDao" class="com.cloud.offerings.dao.NetworkOfferingDaoImpl" singleton="false"/>
-        <dao name="DataCenterDao" class="com.cloud.dc.dao.DataCenterDaoImpl" singleton="false"/>
-        <dao name="NetworkDao" class="com.cloud.network.dao.NetworkDaoImpl" singleton="false"/>
-        <dao name="IpAddressDao" class="com.cloud.network.dao.IPAddressDaoImpl" singleton="false"/>     
-        <dao name="VlanDao" class="com.cloud.dc.dao.VlanDaoImpl" singleton="false"/>
-        <dao name="ResouceCountDao" class="com.cloud.configuration.dao.ResourceCountDaoImpl" singleton="false"/>
-        <dao name="AccountDao" class="com.cloud.user.dao.AccountDaoImpl" singleton="false"/>
-        <dao name="UserDao" class="com.cloud.user.dao.UserDaoImpl" singleton="false"/>
-        <dao name="NetworkOfferingServiceDao" class="com.cloud.offerings.dao.NetworkOfferingServiceMapDaoImpl" singleton="false"/>
-        <dao name="VirtualRouterProviderDao" class="com.cloud.network.dao.VirtualRouterProviderDaoImpl" singleton="false"/>
-        <dao name="IdentityDao" class="com.cloud.uuididentity.dao.IdentityDaoImpl" singleton="false"/>
-        <dao name="Site2SiteCustomerGatewayDao" class="com.cloud.network.dao.Site2SiteCustomerGatewayDaoImpl" singleton="false"/>
-        <dao name="Site2SiteVpnGatewayDao" class="com.cloud.network.dao.Site2SiteVpnGatewayDaoImpl" singleton="false"/>
-        <dao name="Site2SiteVpnConnectionDao" class="com.cloud.network.dao.Site2SiteVpnConnectionDaoImpl" singleton="false"/>
+        <dao name="Snapshot policy defaults" class="org.apache.storage.dao.SnapshotPolicyDaoImpl" singleton="false"/>
+        <dao name="DiskOffering configuration server" class="org.apache.storage.dao.DiskOfferingDaoImpl" singleton="false"/>         
+        <dao name="ServiceOffering configuration server" class="org.apache.service.dao.ServiceOfferingDaoImpl" singleton="false"/>
+        <!-- <dao name="host zone configuration server" class="org.apache.dc.dao.DataCenterDaoImpl" singleton="false"/> -->
+        <dao name="host pod configuration server" class="org.apache.dc.dao.HostPodDaoImpl" singleton="false"/>
+        <dao name="DomainDao" class="org.apache.domain.dao.DomainDaoImpl" singleton="false"/>
+        <dao name="NetworkOfferingDao" class="org.apache.offerings.dao.NetworkOfferingDaoImpl" singleton="false"/>
+        <dao name="DataCenterDao" class="org.apache.dc.dao.DataCenterDaoImpl" singleton="false"/>
+        <dao name="NetworkDao" class="org.apache.network.dao.NetworkDaoImpl" singleton="false"/>
+        <dao name="IpAddressDao" class="org.apache.network.dao.IPAddressDaoImpl" singleton="false"/>     
+        <dao name="VlanDao" class="org.apache.dc.dao.VlanDaoImpl" singleton="false"/>
+        <dao name="ResouceCountDao" class="org.apache.configuration.dao.ResourceCountDaoImpl" singleton="false"/>
+        <dao name="AccountDao" class="org.apache.user.dao.AccountDaoImpl" singleton="false"/>
+        <dao name="UserDao" class="org.apache.user.dao.UserDaoImpl" singleton="false"/>
+        <dao name="NetworkOfferingServiceDao" class="org.apache.offerings.dao.NetworkOfferingServiceMapDaoImpl" singleton="false"/>
+        <dao name="VirtualRouterProviderDao" class="org.apache.network.dao.VirtualRouterProviderDaoImpl" singleton="false"/>
+        <dao name="IdentityDao" class="org.apache.uuididentity.dao.IdentityDaoImpl" singleton="false"/>
+        <dao name="Site2SiteCustomerGatewayDao" class="org.apache.network.dao.Site2SiteCustomerGatewayDaoImpl" singleton="false"/>
+        <dao name="Site2SiteVpnGatewayDao" class="org.apache.network.dao.Site2SiteVpnGatewayDaoImpl" singleton="false"/>
+        <dao name="Site2SiteVpnConnectionDao" class="org.apache.network.dao.Site2SiteVpnConnectionDaoImpl" singleton="false"/>
     </configuration-server>
     
     

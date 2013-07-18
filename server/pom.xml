@@ -136,8 +136,8 @@
             <phase>test-compile</phase>
             <configuration>
               <testExcludes>
-                <exclude>**/com/cloud/upgrade/*.java</exclude>
-                <exclude>**/com/cloud/async/*.java</exclude>
+                <exclude>**/org/apache/upgrade/*.java</exclude>
+                <exclude>**/org/apache/async/*.java</exclude>
               </testExcludes>
             </configuration>
             <goals>
@@ -153,20 +153,20 @@
           <argLine>-Xmx1024m</argLine>
           <excludes>
             <exclude>%regex[.*[0-9]*To[0-9]*.*Test.*]</exclude>
-            <exclude>com/cloud/upgrade/AdvanceZone223To224UpgradeTest</exclude>
-            <exclude>com/cloud/upgrade/AdvanceZone217To224UpgradeTest</exclude>
-            <exclude>com/cloud/async/*</exclude>
-            <exclude>com/cloud/cluster/*</exclude>
-            <exclude>com/cloud/snapshot/*</exclude>
-            <exclude>com/cloud/storage/dao/*</exclude>
-            <exclude>com/cloud/vm/dao/*</exclude>
-            <exclude>com/cloud/api/ListPerfTest.java</exclude>
-            <exclude>com/cloud/network/vpn/RemoteAccessVpnTest.java</exclude>
-            <exclude>com/cloud/network/security/SecurityGroupManagerImpl2Test.java</exclude>
-            <exclude>com/cloud/network/security/SecurityGroupManagerImpl2Test.java</exclude>
-            <exclude>com/cloud/vpc/VpcTestConfiguration.java</exclude>
-            <exclude>com/cloud/vpc/VpcApiUnitTest.java</exclude>
-            <exclude>com/cloud/vpc/VpcManagerTest.java</exclude>
+            <exclude>org/apache/upgrade/AdvanceZone223To224UpgradeTest</exclude>
+            <exclude>org/apache/upgrade/AdvanceZone217To224UpgradeTest</exclude>
+            <exclude>org/apache/async/*</exclude>
+            <exclude>org/apache/cluster/*</exclude>
+            <exclude>org/apache/snapshot/*</exclude>
+            <exclude>org/apache/storage/dao/*</exclude>
+            <exclude>org/apache//vm/dao/*</exclude>
+            <exclude>org/apache/api/ListPerfTest.java</exclude>
+            <exclude>org/apache/network/vpn/RemoteAccessVpnTest.java</exclude>
+            <exclude>org/apache/network/security/SecurityGroupManagerImpl2Test.java</exclude>
+            <exclude>org/apache/network/security/SecurityGroupManagerImpl2Test.java</exclude>
+            <exclude>org/apache/vpc/VpcTestConfiguration.java</exclude>
+            <exclude>org/apache/vpc/VpcApiUnitTest.java</exclude>
+            <exclude>org/apache/vpc/VpcManagerTest.java</exclude>
           </excludes>
         </configuration>
       </plugin>

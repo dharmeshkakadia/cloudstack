@@ -18,8 +18,8 @@
  */
 package org.apache.cloudstack.storage.command;
 
-import com.cloud.agent.api.Command;
-import com.cloud.agent.api.to.DiskTO;
+import org.apache.agent.api.Command;
+import org.apache.agent.api.to.DiskTO;
 
 public final class AttachCommand extends Command implements StorageSubSystemCommand {
     private DiskTO disk;

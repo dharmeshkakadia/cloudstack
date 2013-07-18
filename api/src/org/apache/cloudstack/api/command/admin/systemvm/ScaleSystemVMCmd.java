@@ -16,18 +16,17 @@
 // under the License.
 package org.apache.cloudstack.api.command.admin.systemvm;
 
-import com.cloud.event.EventTypes;
-import com.cloud.exception.*;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.command.user.vm.UpgradeVMCmd;
 import org.apache.cloudstack.api.response.ServiceOfferingResponse;
 import org.apache.cloudstack.api.response.SystemVmResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.*;
 import org.apache.log4j.Logger;
-
-import com.cloud.offering.ServiceOffering;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.vm.VirtualMachine;
+import org.apache.offering.ServiceOffering;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.vm.VirtualMachine;
 
 @APICommand(name = "scaleSystemVm", responseObject=SystemVmResponse.class, description="Scale the service offering for a system vm (console proxy or secondary storage). " +
         "The system vm must be in a \"Stopped\" state for " +

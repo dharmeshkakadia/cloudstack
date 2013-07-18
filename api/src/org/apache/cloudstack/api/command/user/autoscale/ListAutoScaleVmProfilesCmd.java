@@ -27,8 +27,7 @@ import org.apache.cloudstack.api.response.AutoScaleVmProfileResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.TemplateResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.as.AutoScaleVmProfile;
+import org.apache.network.as.AutoScaleVmProfile;
 
 @APICommand(name = "listAutoScaleVmProfiles", description = "Lists autoscale vm profiles.", responseObject = AutoScaleVmProfileResponse.class)
 public class ListAutoScaleVmProfilesCmd extends BaseListProjectAndAccountResourcesCmd {

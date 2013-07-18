@@ -22,8 +22,7 @@ import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineClusterVO;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineDataCenterVO;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineHostPodVO;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineHostVO;
-
-import com.cloud.utils.fsm.NoTransitionException;
+import org.apache.utils.fsm.NoTransitionException;
 
 
 

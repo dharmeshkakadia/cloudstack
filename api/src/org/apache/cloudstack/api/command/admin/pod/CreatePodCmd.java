@@ -24,10 +24,9 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.dc.Pod;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.Pod;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "createPod", description="Creates a new Pod.", responseObject=PodResponse.class)
 public class CreatePodCmd extends BaseCmd {

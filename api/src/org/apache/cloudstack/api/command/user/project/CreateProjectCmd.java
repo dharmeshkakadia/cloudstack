@@ -24,14 +24,13 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.projects.Project;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.projects.Project;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "createProject", description = "Creates a project", responseObject = ProjectResponse.class, since = "3.0.0")
 public class CreateProjectCmd extends BaseAsyncCreateCmd {

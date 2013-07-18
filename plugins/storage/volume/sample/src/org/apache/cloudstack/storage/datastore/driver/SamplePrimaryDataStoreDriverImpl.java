@@ -16,10 +16,9 @@
 // under the License.
 package org.apache.cloudstack.storage.datastore.driver;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.DataTO;
-import com.cloud.storage.dao.StoragePoolHostDao;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.DataTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.*;
 import org.apache.cloudstack.framework.async.AsyncCallbackDispatcher;
 import org.apache.cloudstack.framework.async.AsyncCompletionCallback;
@@ -28,6 +27,7 @@ import org.apache.cloudstack.storage.command.CommandResult;
 import org.apache.cloudstack.storage.command.CreateObjectCommand;
 import org.apache.cloudstack.storage.datastore.DataObjectManager;
 import org.apache.log4j.Logger;
+import org.apache.storage.dao.StoragePoolHostDao;
 
 import javax.inject.Inject;
 

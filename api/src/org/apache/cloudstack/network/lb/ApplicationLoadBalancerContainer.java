@@ -16,8 +16,8 @@
 // under the License.
 package org.apache.cloudstack.network.lb;
 
-import com.cloud.network.rules.LoadBalancerContainer;
-import com.cloud.utils.net.Ip;
+import org.apache.network.rules.LoadBalancerContainer;
+import org.apache.utils.net.Ip;
 
 public interface ApplicationLoadBalancerContainer extends LoadBalancerContainer{
     

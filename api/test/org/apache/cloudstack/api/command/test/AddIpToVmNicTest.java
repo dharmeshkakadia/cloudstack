@@ -16,7 +16,6 @@
 // under the License.
 package org.apache.cloudstack.api.command.test;
 
-import com.cloud.vm.NicSecondaryIp;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
@@ -28,20 +27,20 @@ import org.apache.cloudstack.api.response.SuccessResponse;
 
 
 
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientAddressCapacityException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.network.NetworkService;
+import org.apache.user.Account;
+import org.apache.vm.NicSecondaryIp;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientAddressCapacityException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.NetworkService;
-import com.cloud.user.Account;
 
 public class AddIpToVmNicTest extends TestCase {
 

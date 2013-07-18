@@ -24,12 +24,11 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.VolumeResponse;
+import org.apache.exception.ConcurrentOperationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.storage.Volume;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.storage.Volume;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "deleteVolume", description="Deletes a detached disk volume.", responseObject=SuccessResponse.class)
 public class DeleteVolumeCmd extends BaseCmd {

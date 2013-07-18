@@ -20,8 +20,8 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-import com.cloud.storage.DiskOfferingVO;
-import com.cloud.storage.dao.DiskOfferingDao;
+import org.apache.storage.DiskOfferingVO;
+import org.apache.storage.dao.DiskOfferingDao;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObjectInStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.ObjectInDataStoreStateMachine;
@@ -32,25 +32,25 @@ import org.apache.cloudstack.storage.datastore.ObjectInDataStoreManager;
 import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreVO;
 import org.apache.cloudstack.storage.to.VolumeObjectTO;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 import org.apache.log4j.Logger;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.storage.DownloadAnswer;
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.DataTO;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.Storage.ImageFormat;
+import org.apache.storage.Volume;
+import org.apache.storage.VolumeVO;
+import org.apache.storage.dao.VolumeDao;
+import org.apache.utils.component.ComponentContext;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.fsm.NoTransitionException;
+import org.apache.utils.fsm.StateMachine2;
+import org.apache.utils.storage.encoding.EncodingType;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.storage.DownloadAnswer;
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.DataTO;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.Storage.ImageFormat;
-import com.cloud.storage.Volume;
-import com.cloud.storage.VolumeVO;
-import com.cloud.storage.dao.VolumeDao;
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.fsm.NoTransitionException;
-import com.cloud.utils.fsm.StateMachine2;
-import com.cloud.utils.storage.encoding.EncodingType;
-import com.cloud.vm.VMInstanceVO;
-import com.cloud.vm.dao.VMInstanceDao;
+import org.apache.vm.VMInstanceVO;
+import org.apache.vm.dao.VMInstanceDao;
 
 public class VolumeObject implements VolumeInfo {
     private static final Logger s_logger = Logger.getLogger(VolumeObject.class);

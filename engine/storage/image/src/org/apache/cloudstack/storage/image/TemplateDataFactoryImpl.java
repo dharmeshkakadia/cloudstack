@@ -31,11 +31,11 @@ import org.apache.cloudstack.storage.image.store.TemplateObject;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.VMTemplateStoragePoolVO;
-import com.cloud.storage.VMTemplateVO;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.storage.dao.VMTemplatePoolDao;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.VMTemplateStoragePoolVO;
+import org.apache.storage.VMTemplateVO;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.storage.dao.VMTemplatePoolDao;
 
 @Component
 public class TemplateDataFactoryImpl implements TemplateDataFactory {

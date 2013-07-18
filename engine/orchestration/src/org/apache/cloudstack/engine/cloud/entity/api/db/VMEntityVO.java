@@ -37,13 +37,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.utils.db.Encrypt;
-import com.cloud.utils.db.GenericDao;
-import com.cloud.utils.db.StateMachine;
-import com.cloud.utils.fsm.FiniteStateObject;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachine.State;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.utils.db.Encrypt;
+import org.apache.utils.db.GenericDao;
+import org.apache.utils.db.StateMachine;
+import org.apache.utils.fsm.FiniteStateObject;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachine.State;
 
 @Entity
 @Table(name="vm_instance")

@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.engine.datacenter.entity.api.db;
 
-import com.cloud.dc.Pod;
+import org.apache.dc.Pod;
 
 public interface EnginePod extends Pod {
 

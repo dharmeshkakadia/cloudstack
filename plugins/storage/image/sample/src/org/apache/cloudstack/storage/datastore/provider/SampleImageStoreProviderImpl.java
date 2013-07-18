@@ -34,9 +34,8 @@ import org.apache.cloudstack.storage.datastore.lifecycle.SampleImageStoreLifeCyc
 import org.apache.cloudstack.storage.image.ImageStoreDriver;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreProviderManager;
 import org.apache.cloudstack.storage.image.store.lifecycle.ImageStoreLifeCycle;
-
-import com.cloud.storage.ScopeType;
-import com.cloud.utils.component.ComponentContext;
+import org.apache.storage.ScopeType;
+import org.apache.utils.component.ComponentContext;
 
 public class SampleImageStoreProviderImpl implements ImageStoreProvider {
     private final String name = DataStoreProvider.SAMPLE_IMAGE;

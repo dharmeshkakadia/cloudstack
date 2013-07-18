@@ -25,10 +25,9 @@ import java.util.concurrent.Executors;
 
 import org.apache.cloudstack.api.response.ApiLimitResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.cloud.utils.exception.CloudRuntimeException;
 
 
 /**

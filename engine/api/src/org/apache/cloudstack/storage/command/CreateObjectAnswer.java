@@ -18,8 +18,8 @@
  */
 package org.apache.cloudstack.storage.command;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.to.DataTO;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.to.DataTO;
 
 public final class CreateObjectAnswer extends Answer {
     private DataTO data;

@@ -19,6 +19,7 @@ package org.apache.cloudstack.api.command.user.autoscale;
 
 import java.util.Map;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -28,13 +29,11 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.AutoScaleVmProfileResponse;
 import org.apache.cloudstack.api.response.TemplateResponse;
 import org.apache.cloudstack.api.response.UserResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.network.as.AutoScaleVmProfile;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.network.as.AutoScaleVmProfile;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "updateAutoScaleVmProfile", description = "Updates an existing autoscale vm profile.", responseObject = AutoScaleVmProfileResponse.class)
 public class UpdateAutoScaleVmProfileCmd extends BaseAsyncCmd {

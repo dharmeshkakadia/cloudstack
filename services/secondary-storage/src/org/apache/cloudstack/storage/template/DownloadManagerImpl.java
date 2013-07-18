@@ -42,45 +42,43 @@ import javax.ejb.Local;
 import javax.naming.ConfigurationException;
 
 import org.apache.log4j.Logger;
-
+import org.apache.storage.StorageLayer;
+import org.apache.storage.VMTemplateHostVO;
+import org.apache.storage.VMTemplateStorageResourceAssoc;
+import org.apache.storage.Storage.ImageFormat;
+import org.apache.storage.template.HttpTemplateDownloader;
+import org.apache.storage.template.IsoProcessor;
+import org.apache.storage.template.LocalTemplateDownloader;
+import org.apache.storage.template.Processor;
+import org.apache.storage.template.QCOW2Processor;
+import org.apache.storage.template.RawImageProcessor;
+import org.apache.storage.template.S3TemplateDownloader;
+import org.apache.storage.template.ScpTemplateDownloader;
+import org.apache.storage.template.TemplateConstants;
+import org.apache.storage.template.TemplateDownloader;
+import org.apache.storage.template.TemplateLocation;
+import org.apache.storage.template.TemplateProp;
+import org.apache.storage.template.VhdProcessor;
+import org.apache.storage.template.VmdkProcessor;
+import org.apache.storage.template.Processor.FormatInfo;
+import org.apache.storage.template.TemplateDownloader.DownloadCompleteCallback;
+import org.apache.storage.template.TemplateDownloader.Status;
+import org.apache.utils.NumbersUtil;
+import org.apache.utils.component.ManagerBase;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.script.OutputInterpreter;
+import org.apache.utils.script.Script;
+import org.apache.agent.api.storage.DownloadAnswer;
+import org.apache.agent.api.storage.Proxy;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.NfsTO;
+import org.apache.agent.api.to.S3TO;
 import org.apache.cloudstack.storage.command.DownloadCommand;
 import org.apache.cloudstack.storage.command.DownloadCommand.ResourceType;
 import org.apache.cloudstack.storage.command.DownloadProgressCommand;
 import org.apache.cloudstack.storage.command.DownloadProgressCommand.RequestType;
 import org.apache.cloudstack.storage.resource.SecondaryStorageResource;
-
-import com.cloud.agent.api.storage.DownloadAnswer;
-import com.cloud.agent.api.storage.Proxy;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.NfsTO;
-import com.cloud.agent.api.to.S3TO;
-import com.cloud.exception.InternalErrorException;
-import com.cloud.storage.Storage.ImageFormat;
-import com.cloud.storage.StorageLayer;
-import com.cloud.storage.VMTemplateHostVO;
-import com.cloud.storage.VMTemplateStorageResourceAssoc;
-import com.cloud.storage.template.HttpTemplateDownloader;
-import com.cloud.storage.template.IsoProcessor;
-import com.cloud.storage.template.LocalTemplateDownloader;
-import com.cloud.storage.template.Processor;
-import com.cloud.storage.template.Processor.FormatInfo;
-import com.cloud.storage.template.QCOW2Processor;
-import com.cloud.storage.template.RawImageProcessor;
-import com.cloud.storage.template.S3TemplateDownloader;
-import com.cloud.storage.template.ScpTemplateDownloader;
-import com.cloud.storage.template.TemplateConstants;
-import com.cloud.storage.template.TemplateDownloader;
-import com.cloud.storage.template.TemplateDownloader.DownloadCompleteCallback;
-import com.cloud.storage.template.TemplateDownloader.Status;
-import com.cloud.storage.template.TemplateLocation;
-import com.cloud.storage.template.TemplateProp;
-import com.cloud.storage.template.VhdProcessor;
-import com.cloud.storage.template.VmdkProcessor;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.utils.component.ManagerBase;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.script.OutputInterpreter;
-import com.cloud.utils.script.Script;
+import org.apache.exception.InternalErrorException;
 
 @Local(value = DownloadManager.class)
 public class DownloadManagerImpl extends ManagerBase implements DownloadManager {
@@ -668,7 +666,7 @@ public class DownloadManagerImpl extends ManagerBase implements DownloadManager 
     }
 
     @Override
-    public com.cloud.storage.VMTemplateHostVO.Status getDownloadStatus2(String jobId) {
+    public org.apache.storage.VMTemplateHostVO.Status getDownloadStatus2(String jobId) {
         return convertStatus(getDownloadStatus(jobId));
     }
 

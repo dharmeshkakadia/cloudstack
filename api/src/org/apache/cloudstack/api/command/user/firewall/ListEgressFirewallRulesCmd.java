@@ -22,7 +22,8 @@ import java.util.List;
 
 import org.apache.cloudstack.api.APICommand;
 import org.apache.log4j.Logger;
-
+import org.apache.network.rules.FirewallRule;
+import org.apache.utils.Pair;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListTaggedResourcesCmd;
 import org.apache.cloudstack.api.APICommand;
@@ -31,8 +32,6 @@ import org.apache.cloudstack.api.response.FirewallResponse;
 import org.apache.cloudstack.api.response.FirewallRuleResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.utils.Pair;
 
 @APICommand(name = "listEgressFirewallRules", description="Lists all egress firewall rules for network id.", responseObject=FirewallResponse.class)
 public class ListEgressFirewallRulesCmd extends ListFirewallRulesCmd {

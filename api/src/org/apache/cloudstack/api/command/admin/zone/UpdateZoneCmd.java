@@ -26,11 +26,10 @@ import org.apache.cloudstack.api.BaseCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.dc.DataCenter;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.DataCenter;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "updateZone", description="Updates a Zone.", responseObject=ZoneResponse.class)
 public class UpdateZoneCmd extends BaseCmd {

@@ -24,9 +24,8 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ServiceOfferingResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.offering.ServiceOffering;
-import com.cloud.user.Account;
+import org.apache.offering.ServiceOffering;
+import org.apache.user.Account;
 
 @APICommand(name = "updateServiceOffering", description="Updates a service offering.", responseObject=ServiceOfferingResponse.class)
 public class UpdateServiceOfferingCmd extends BaseCmd {

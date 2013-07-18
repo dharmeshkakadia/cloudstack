@@ -53,4 +53,4 @@ if [ "$test" == "" ] ; then
    echo usage: $0 test.to.run \<parameters...\> > /dev/stderr
    exit 64
 fi
-java -cp "$CLASSPATH" com.cloud.test."$test" "$@"
+java -cp "$CLASSPATH" org.apache.test."$test" "$@"

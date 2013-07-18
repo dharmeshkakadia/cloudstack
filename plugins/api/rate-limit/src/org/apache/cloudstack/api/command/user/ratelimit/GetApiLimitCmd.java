@@ -32,21 +32,19 @@ import org.apache.cloudstack.api.response.AccountResponse;
 import org.apache.cloudstack.api.response.ApiLimitResponse;
 import org.apache.cloudstack.api.response.PhysicalNetworkResponse;
 import org.apache.log4j.Logger;
-
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.ratelimit.ApiRateLimitService;
-
-import com.cloud.configuration.Config;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.configuration.Config;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 
 import javax.inject.Inject;
 

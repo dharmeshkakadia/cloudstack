@@ -28,14 +28,13 @@ import javax.inject.Inject;
 import org.apache.cloudstack.engine.cloud.entity.api.db.VMEntityVO;
 import org.apache.cloudstack.engine.cloud.entity.api.db.VMReservationVO;
 import org.apache.cloudstack.engine.cloud.entity.api.db.VolumeReservationVO;
+import org.apache.host.dao.HostTagsDaoImpl;
+import org.apache.utils.db.DB;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.Transaction;
 import org.springframework.stereotype.Component;
-
-import com.cloud.host.dao.HostTagsDaoImpl;
-import com.cloud.utils.db.DB;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.Transaction;
 
 @Component
 @Local(value = { VMReservationDao.class })

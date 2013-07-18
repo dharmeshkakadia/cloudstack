@@ -20,6 +20,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.apache.agent.api.StoragePoolInfo;
 import org.apache.cloudstack.engine.subsystem.api.storage.ClusterScope;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.HostScope;
@@ -29,9 +30,7 @@ import org.apache.cloudstack.storage.datastore.db.ImageStoreVO;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreHelper;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreProviderManager;
 import org.apache.cloudstack.storage.image.store.lifecycle.ImageStoreLifeCycle;
-
-import com.cloud.agent.api.StoragePoolInfo;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 
 public class SampleImageStoreLifeCycleImpl implements ImageStoreLifeCycle {
     @Inject

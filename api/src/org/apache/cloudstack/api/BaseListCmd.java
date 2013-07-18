@@ -16,8 +16,8 @@
 // under the License.
 package org.apache.cloudstack.api;
 
-import com.cloud.async.AsyncJob;
-import com.cloud.exception.InvalidParameterValueException;
+import org.apache.async.AsyncJob;
+import org.apache.exception.InvalidParameterValueException;
 
 public abstract class BaseListCmd extends BaseCmd {
 

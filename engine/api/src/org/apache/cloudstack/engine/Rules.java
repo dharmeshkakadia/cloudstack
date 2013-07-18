@@ -21,7 +21,7 @@ package org.apache.cloudstack.engine;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cloud.utils.StringUtils;
+import org.apache.utils.StringUtils;
 
 /**
  * Rules specifies all rules about developing and using CloudStack Orchestration

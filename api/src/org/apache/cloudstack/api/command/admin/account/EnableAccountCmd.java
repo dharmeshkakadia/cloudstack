@@ -28,8 +28,7 @@ import org.apache.cloudstack.api.response.AccountResponse;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.region.RegionService;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "enableAccount", description="Enables an account", responseObject=AccountResponse.class)
 public class EnableAccountCmd extends BaseCmd {

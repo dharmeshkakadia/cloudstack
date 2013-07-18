@@ -36,11 +36,11 @@ import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.domain.DomainVO;
 import org.apache.log4j.Logger;
+import org.apache.user.UserAccount;
+import org.apache.user.UserAccountVO;
 
-import com.cloud.domain.DomainVO;
-import com.cloud.user.UserAccount;
-import com.cloud.user.UserAccountVO;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 

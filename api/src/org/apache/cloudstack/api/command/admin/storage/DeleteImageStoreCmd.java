@@ -26,8 +26,7 @@ import org.apache.cloudstack.api.response.HostResponse;
 import org.apache.cloudstack.api.response.ImageStoreResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "deleteImageStore", description = "Deletes an image store .", responseObject = SuccessResponse.class, since = "4.2.0")
 public class DeleteImageStoreCmd extends BaseCmd {

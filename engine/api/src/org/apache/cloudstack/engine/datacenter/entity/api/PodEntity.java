@@ -20,9 +20,9 @@ package org.apache.cloudstack.engine.datacenter.entity.api;
 
 import java.util.List;
 
-import com.cloud.dc.Pod;
-import com.cloud.org.Cluster;
-import com.cloud.org.Grouping.AllocationState;
+import org.apache.dc.Pod;
+import org.apache.org.Cluster;
+import org.apache.org.Grouping.AllocationState;
 
 public interface PodEntity extends DataCenterResourceEntity {
 

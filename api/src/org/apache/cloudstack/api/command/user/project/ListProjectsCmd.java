@@ -27,9 +27,8 @@ import org.apache.cloudstack.api.BaseListAccountResourcesCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
 
 @APICommand(name = "listProjects", description="Lists projects and provides detailed information for listed projects", responseObject=ProjectResponse.class, since="3.0.0")
 public class ListProjectsCmd extends BaseListAccountResourcesCmd {

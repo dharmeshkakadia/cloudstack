@@ -16,11 +16,7 @@
 // under the License.
 package org.apache.cloudstack.storage.datastore.lifecycle;
 
-import com.cloud.agent.api.StoragePoolInfo;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.resource.ResourceManager;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.ScopeType;
+import org.apache.agent.api.StoragePoolInfo;
 import org.apache.cloudstack.engine.subsystem.api.storage.ClusterScope;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.HostScope;
@@ -30,9 +26,14 @@ import org.apache.cloudstack.storage.datastore.db.ImageStoreVO;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreHelper;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreProviderManager;
 import org.apache.cloudstack.storage.image.store.lifecycle.ImageStoreLifeCycle;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 import org.apache.log4j.Logger;
+import org.apache.resource.ResourceManager;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.ScopeType;
 
 import javax.inject.Inject;
+
 import java.util.HashMap;
 import java.util.Map;
 

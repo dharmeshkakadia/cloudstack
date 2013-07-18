@@ -30,6 +30,10 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.naming.ConfigurationException;
 
+import org.apache.agent.AgentManager;
+import org.apache.agent.api.MigrateWithStorageAnswer;
+import org.apache.agent.api.MigrateWithStorageCommand;
+import org.apache.agent.api.to.VirtualMachineTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.CopyCommandResult;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.VolumeDataFactory;
@@ -41,6 +45,12 @@ import org.apache.cloudstack.framework.async.AsyncRpcContext;
 import org.apache.cloudstack.storage.command.CommandResult;
 import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
 import org.apache.cloudstack.test.utils.SpringUtils;
+import org.apache.host.Host;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.storage.dao.VolumeDao;
+import org.apache.utils.component.ComponentContext;
+import org.apache.vm.VMInstanceVO;
+import org.apache.vm.dao.VMInstanceDao;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -57,17 +67,6 @@ import org.springframework.core.type.filter.TypeFilter;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
-
-import com.cloud.agent.AgentManager;
-import com.cloud.agent.api.MigrateWithStorageAnswer;
-import com.cloud.agent.api.MigrateWithStorageCommand;
-import com.cloud.agent.api.to.VirtualMachineTO;
-import com.cloud.host.Host;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.dao.VolumeDao;
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.vm.VMInstanceVO;
-import com.cloud.vm.dao.VMInstanceDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class)

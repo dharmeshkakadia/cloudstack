@@ -16,6 +16,7 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.volume;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -24,14 +25,12 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.cloudstack.api.response.VolumeResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.storage.Volume;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.uservm.UserVm;
+import org.apache.storage.Volume;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.uservm.UserVm;
 
 @APICommand(name = "detachVolume", description="Detaches a disk volume from a virtual machine.", responseObject=VolumeResponse.class)
 public class DetachVolumeCmd extends BaseAsyncCmd {

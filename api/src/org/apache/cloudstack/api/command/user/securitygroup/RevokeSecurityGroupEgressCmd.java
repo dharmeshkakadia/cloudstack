@@ -16,6 +16,7 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.securitygroup;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -24,12 +25,10 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SecurityGroupRuleResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.network.security.SecurityGroup;
-import com.cloud.user.Account;
+import org.apache.network.security.SecurityGroup;
+import org.apache.user.Account;
 
 @APICommand(name = "revokeSecurityGroupEgress", responseObject = SuccessResponse.class, description = "Deletes a particular egress rule from this security group", since="3.0.0")
 public class RevokeSecurityGroupEgressCmd extends BaseAsyncCmd {

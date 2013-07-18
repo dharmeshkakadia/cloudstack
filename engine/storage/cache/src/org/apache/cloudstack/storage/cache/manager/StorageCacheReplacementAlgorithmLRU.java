@@ -17,25 +17,28 @@
  * under the License.
  */
 package org.apache.cloudstack.storage.cache.manager;
-import com.cloud.configuration.Config;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.utils.DateUtil;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.SearchCriteria2;
-import com.cloud.utils.db.SearchCriteriaService;
-import org.apache.cloudstack.engine.subsystem.api.storage.*;
-import org.apache.cloudstack.storage.datastore.db.SnapshotDataStoreVO;
-import org.apache.cloudstack.storage.datastore.db.TemplateDataStoreVO;
-import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreVO;
-import org.apache.commons.lang.math.NumberUtils;
-
 import java.util.Calendar;
 import java.util.Date;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-
+import org.apache.cloudstack.engine.subsystem.api.storage.DataObject;
+import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
+import org.apache.cloudstack.engine.subsystem.api.storage.ObjectInDataStoreStateMachine;
+import org.apache.cloudstack.engine.subsystem.api.storage.SnapshotDataFactory;
+import org.apache.cloudstack.engine.subsystem.api.storage.TemplateDataFactory;
+import org.apache.cloudstack.engine.subsystem.api.storage.VolumeDataFactory;
+import org.apache.cloudstack.storage.datastore.db.SnapshotDataStoreVO;
+import org.apache.cloudstack.storage.datastore.db.TemplateDataStoreVO;
+import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreVO;
+import org.apache.configuration.Config;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.utils.DateUtil;
+import org.apache.utils.NumbersUtil;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.SearchCriteria2;
+import org.apache.utils.db.SearchCriteriaService;
 
 public class StorageCacheReplacementAlgorithmLRU implements StorageCacheReplacementAlgorithm {
     @Inject

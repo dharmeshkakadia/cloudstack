@@ -25,15 +25,14 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.IPAddressResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.Network;
+import org.apache.network.Network;
 
 @APICommand(name = "restartNetwork", description="Restarts the network; includes 1) restarting network elements - virtual routers, dhcp servers 2) reapplying all public ips 3) reapplying loadBalancing/portForwarding rules", responseObject=IPAddressResponse.class)
 public class RestartNetworkCmd extends BaseAsyncCmd {

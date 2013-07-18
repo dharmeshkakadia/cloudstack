@@ -28,9 +28,8 @@ import org.apache.cloudstack.api.response.GuestOSCategoryResponse;
 import org.apache.cloudstack.api.response.GuestOSResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.storage.GuestOS;
-import com.cloud.utils.Pair;
+import org.apache.storage.GuestOS;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listOsTypes", description="Lists all supported OS types for this cloud.", responseObject=GuestOSResponse.class)
 public class ListGuestOsCmd extends BaseListCmd {

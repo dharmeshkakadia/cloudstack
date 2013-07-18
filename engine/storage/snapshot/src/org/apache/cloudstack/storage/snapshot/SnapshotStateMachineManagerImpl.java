@@ -20,15 +20,14 @@ package org.apache.cloudstack.storage.snapshot;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
-
-import com.cloud.storage.Snapshot;
-import com.cloud.storage.Snapshot.Event;
-import com.cloud.storage.Snapshot.State;
-import com.cloud.storage.SnapshotVO;
-import com.cloud.storage.dao.SnapshotDao;
-import com.cloud.storage.listener.SnapshotStateListener;
-import com.cloud.utils.fsm.NoTransitionException;
-import com.cloud.utils.fsm.StateMachine2;
+import org.apache.storage.Snapshot;
+import org.apache.storage.Snapshot.Event;
+import org.apache.storage.Snapshot.State;
+import org.apache.storage.SnapshotVO;
+import org.apache.storage.dao.SnapshotDao;
+import org.apache.storage.listener.SnapshotStateListener;
+import org.apache.utils.fsm.NoTransitionException;
+import org.apache.utils.fsm.StateMachine2;
 
 @Component
 public class SnapshotStateMachineManagerImpl implements SnapshotStateMachineManager {

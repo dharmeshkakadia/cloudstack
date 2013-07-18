@@ -27,18 +27,17 @@ import org.apache.cloudstack.engine.datacenter.entity.api.DataCenterResourceEnti
 import org.apache.cloudstack.engine.datacenter.entity.api.DataCenterResourceEntity.State.Event;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineDataCenterVO;
 import org.apache.log4j.Logger;
+import org.apache.org.Grouping;
+import org.apache.utils.NumbersUtil;
+import org.apache.utils.db.DB;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.SequenceFetcher;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.db.UpdateBuilder;
+import org.apache.utils.net.NetUtils;
 import org.springframework.stereotype.Component;
-
-import com.cloud.org.Grouping;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.utils.db.DB;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.SequenceFetcher;
-import com.cloud.utils.db.Transaction;
-import com.cloud.utils.db.UpdateBuilder;
-import com.cloud.utils.net.NetUtils;
 
 /**
  * @config

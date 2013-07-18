@@ -21,16 +21,15 @@ import junit.framework.TestCase;
 
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.user.vpn.AddVpnUserCmd;
+import org.apache.network.VpnUser;
+import org.apache.network.vpn.RemoteAccessVpnService;
+import org.apache.user.Account;
+import org.apache.user.AccountService;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
-
-import com.cloud.network.VpnUser;
-import com.cloud.network.vpn.RemoteAccessVpnService;
-import com.cloud.user.Account;
-import com.cloud.user.AccountService;
 
 public class AddVpnUserCmdTest extends TestCase {
 

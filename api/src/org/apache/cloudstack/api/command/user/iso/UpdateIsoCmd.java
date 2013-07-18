@@ -22,9 +22,8 @@ import org.apache.cloudstack.api.BaseUpdateTemplateOrIsoCmd;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.TemplateResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.template.VirtualMachineTemplate;
-import com.cloud.user.Account;
+import org.apache.template.VirtualMachineTemplate;
+import org.apache.user.Account;
 
 @APICommand(name = "updateIso", description="Updates an ISO file.", responseObject=TemplateResponse.class)
 public class UpdateIsoCmd extends BaseUpdateTemplateOrIsoCmd {

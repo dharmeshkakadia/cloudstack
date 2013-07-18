@@ -27,10 +27,9 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.AlertResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "deleteAlerts", description = "Delete one or more alerts.", responseObject = SuccessResponse.class)
 public class DeleteAlertsCmd extends BaseCmd {

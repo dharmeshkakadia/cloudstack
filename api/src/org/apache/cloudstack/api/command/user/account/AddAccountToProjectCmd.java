@@ -24,12 +24,11 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.projects.Project;
-import com.cloud.user.UserContext;
+import org.apache.projects.Project;
+import org.apache.user.UserContext;
 
 
 @APICommand(name = "addAccountToProject", description="Adds acoount to a project", responseObject=SuccessResponse.class, since="3.0.0")

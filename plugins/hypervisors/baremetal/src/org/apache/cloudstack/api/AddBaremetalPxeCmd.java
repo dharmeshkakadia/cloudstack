@@ -20,6 +20,8 @@ package org.apache.cloudstack.api;
 
 import javax.inject.Inject;
 
+import org.apache.baremetal.database.BaremetalPxeVO;
+import org.apache.baremetal.networkservice.BaremetalPxeManager;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -30,17 +32,14 @@ import org.apache.cloudstack.api.response.PhysicalNetworkResponse;
 import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.baremetal.database.BaremetalPxeVO;
-import com.cloud.baremetal.networkservice.BaremetalPxeManager;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.user.UserContext;
+import org.apache.user.UserContext;
 public class AddBaremetalPxeCmd extends BaseAsyncCmd {
     private static final String s_name = "addexternalpxeresponse";
     public static final Logger s_logger = Logger.getLogger(AddBaremetalPxeCmd.class);

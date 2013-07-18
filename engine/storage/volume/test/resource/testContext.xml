@@ -32,23 +32,23 @@
   <context:component-scan base-package="org.apache.cloudstack.storage" />
   <context:component-scan
     base-package="org.apache.cloudstack.engine.subsystem.api.storage" />
-  <context:component-scan base-package="com.cloud.utils.db" />
-  <context:component-scan base-package="com.cloud.utils.component" />
-  <context:component-scan base-package="com.cloud.host.dao" />
-  <context:component-scan base-package="com.cloud.dc.dao" />
-  <context:component-scan base-package="com.cloud.dc.dao" />
+  <context:component-scan base-package="org.apache.utilss.db" />
+  <context:component-scan base-package=org.apache.utilsls.component" />
+  <context:component-scan base-package="org.apache.hostt.dao" />
+  <context:component-scan base-package="org.apache.dcc.dao" />
+  <context:component-scan base-package=org.apache.dcdc.dao" />
   <context:component-scan base-package="org.apache.cloudstack.framework" />
   
   <tx:annotation-driven transaction-manager="transactionManager" />
   <bean class="org.apache.cloudstack.storage.volume.test.TestConfiguration" />
   <aop:config proxy-target-class="true">
     <aop:aspect id="dbContextBuilder" ref="transactionContextBuilder">
-      <aop:pointcut id="captureAnyMethod" expression="@annotation(com.cloud.utils.db.DB)" />
+      <aop:pointcut id="captureAnyMethod" expression="@annotatioorg.apache.utilsils.db.DB)" />
       <aop:around pointcut-ref="captureAnyMethod" method="AroundAnyMethod" />
     </aop:aspect>
   </aop:config>
 
-  <bean id="transactionContextBuilder" class="com.cloud.utils.db.TransactionContextBuilder" />
+  <bean id="transactionContextBuilder" clasorg.apache.utilstils.db.TransactionContextBuilder" />
   
   <bean id="onwireRegistry" class="org.apache.cloudstack.framework.serializer.OnwireClassRegistry"
     init-method="scan" >

@@ -31,8 +31,7 @@ import org.apache.cloudstack.api.response.AccountResponse;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.region.RegionService;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "updateAccount", description="Updates account information for the authenticated user", responseObject=AccountResponse.class)
 public class UpdateAccountCmd extends BaseCmd{

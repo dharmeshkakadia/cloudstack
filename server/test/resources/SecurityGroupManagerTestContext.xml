@@ -23,9 +23,9 @@
   <context:annotation-config />
 
   <!-- @DB support -->
-  <bean id="componentContext" class="com.cloud.utils.component.ComponentContext" />
-  <bean id="transactionContextBuilder" class="com.cloud.utils.db.TransactionContextBuilder" />
-  <bean id="instantiatePostProcessor" class="com.cloud.utils.component.ComponentInstantiationPostProcessor">
+  <bean id="componentContext" class="org.apache.utils.component.ComponentContext" />
+  <bean id="transactionContextBuilder" class="org.apache.utils.db.TransactionContextBuilder" />
+  <bean id="instantiatePostProcessor" class="org.apache.utils.component.ComponentInstantiationPostProcessor">
     <property name="Interceptors">
         <list>
             <ref bean="transactionContextBuilder" />
@@ -34,7 +34,7 @@
   </bean>
 
   <bean id="TestConfiguration"
-    class="com.cloud.network.security.SecurityGroupManagerTestConfiguration" />
+    class="org.apache.network.security.SecurityGroupManagerTestConfiguration" />
   <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor">
     <property name="requiredParameterValue" value="false" />
   </bean>

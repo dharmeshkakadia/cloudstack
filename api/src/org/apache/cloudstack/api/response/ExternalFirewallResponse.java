@@ -17,8 +17,8 @@
 package org.apache.cloudstack.api.response;
 
 import org.apache.cloudstack.api.ApiConstants;
+import org.apache.serializer.Param;
 
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 public class ExternalFirewallResponse extends NetworkDeviceResponse {

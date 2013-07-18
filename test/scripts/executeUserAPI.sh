@@ -29,6 +29,6 @@ fi
 DST='../src/'
 
 CP=${DST}commons-httpclient-3.1.jar${PATHSEP}${DST}commons-logging-1.1.1.jar${PATHSEP}${DST}commons-codec-1.4.jar${PATHSEP}${DST}testclient.jar${PATHSEP}.././conf
-java -cp $CP com.cloud.sample.UserCloudAPIExecutor
+java -cp $CP org.apache.sample.UserCloudAPIExecutor
 
 

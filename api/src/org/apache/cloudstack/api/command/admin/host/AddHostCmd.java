@@ -30,11 +30,10 @@ import org.apache.cloudstack.api.response.HostResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.exception.DiscoveryException;
+import org.apache.host.Host;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.DiscoveryException;
-import com.cloud.host.Host;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "addHost", description="Adds a new host.", responseObject=HostResponse.class)
 public class AddHostCmd extends BaseCmd {

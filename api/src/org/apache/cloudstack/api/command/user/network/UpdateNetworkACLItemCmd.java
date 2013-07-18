@@ -16,18 +16,18 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.network;
 
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.vpc.NetworkACLItem;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.utils.net.NetUtils;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.response.NetworkACLItemResponse;
 import org.apache.cloudstack.api.response.NetworkACLResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
+import org.apache.network.vpc.NetworkACLItem;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.utils.net.NetUtils;
 
 import java.util.ArrayList;
 import java.util.List;

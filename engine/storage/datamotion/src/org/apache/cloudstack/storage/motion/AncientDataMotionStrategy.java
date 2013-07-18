@@ -22,6 +22,12 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.DataTO;
+import org.apache.agent.api.to.NfsTO;
+import org.apache.agent.api.to.VirtualMachineTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.ClusterScope;
 import org.apache.cloudstack.engine.subsystem.api.storage.CopyCommandResult;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataMotionStrategy;
@@ -45,34 +51,27 @@ import org.apache.cloudstack.storage.datastore.db.SnapshotDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.TemplateDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreDao;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreEntity;
+import org.apache.configuration.Config;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.host.Host;
+import org.apache.host.dao.HostDao;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 import org.apache.log4j.Logger;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.StorageManager;
+import org.apache.storage.StoragePool;
+import org.apache.storage.VolumeManager;
+import org.apache.storage.dao.DiskOfferingDao;
+import org.apache.storage.dao.SnapshotDao;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.storage.dao.VMTemplatePoolDao;
+import org.apache.storage.dao.VolumeDao;
+import org.apache.storage.snapshot.SnapshotManager;
+import org.apache.template.TemplateManager;
+import org.apache.utils.NumbersUtil;
+import org.apache.utils.db.DB;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.springframework.stereotype.Component;
-
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.DataTO;
-import com.cloud.agent.api.to.NfsTO;
-import com.cloud.agent.api.to.VirtualMachineTO;
-import com.cloud.configuration.Config;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.host.Host;
-import com.cloud.host.dao.HostDao;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.StorageManager;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.VolumeManager;
-import com.cloud.storage.dao.DiskOfferingDao;
-import com.cloud.storage.dao.SnapshotDao;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.storage.dao.VMTemplatePoolDao;
-import com.cloud.storage.dao.VolumeDao;
-import com.cloud.storage.snapshot.SnapshotManager;
-import com.cloud.template.TemplateManager;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.utils.db.DB;
-import com.cloud.utils.exception.CloudRuntimeException;
 
 @Component
 public class AncientDataMotionStrategy implements DataMotionStrategy {

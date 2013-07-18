@@ -17,6 +17,7 @@
 
 package org.apache.cloudstack.api.command.user.autoscale;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -24,12 +25,10 @@ import org.apache.cloudstack.api.BaseAsyncCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.AutoScaleVmGroupResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.network.as.AutoScaleVmGroup;
-import com.cloud.user.Account;
+import org.apache.network.as.AutoScaleVmGroup;
+import org.apache.user.Account;
 
 @APICommand(name = "disableAutoScaleVmGroup", description = "Disables an AutoScale Vm Group", responseObject = AutoScaleVmGroupResponse.class)
 public class DisableAutoScaleVmGroupCmd extends BaseAsyncCmd {

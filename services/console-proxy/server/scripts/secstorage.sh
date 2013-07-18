@@ -30,4 +30,4 @@ keyvalues=
 #LOGHOME=/var/log/cloud/
 LOGHOME=$PWD/
 
-java -Djavax.net.ssl.trustStore=./certs/realhostip.keystore -Dlog.home=$LOGHOME -cp $CP com.cloud.agent.AgentShell $keyvalues $@
+java -Djavax.net.ssl.trustStore=./certs/realhostip.keystore -Dlog.home=$LOGHOME -cp $CP org.apache.agent.AgentShell $keyvalues $@

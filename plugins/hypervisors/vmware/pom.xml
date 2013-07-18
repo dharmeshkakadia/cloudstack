@@ -44,7 +44,7 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>com.cloud.com.vmware</groupId>
+      <groupId>org.apache.com.vmware</groupId>
       <artifactId>vmware-vim25</artifactId>
       <version>${cs.vmware.api.version}</version>
       <scope>compile</scope>

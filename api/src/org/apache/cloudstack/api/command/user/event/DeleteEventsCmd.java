@@ -27,11 +27,10 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.EventResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "deleteEvents", description = "Delete one or more events.", responseObject = SuccessResponse.class)
 public class DeleteEventsCmd extends BaseCmd {

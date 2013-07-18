@@ -25,9 +25,8 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DomainRouterResponse;
 import org.apache.cloudstack.api.response.ServiceOfferingResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.router.VirtualRouter;
-import com.cloud.user.Account;
+import org.apache.network.router.VirtualRouter;
+import org.apache.user.Account;
 
 @APICommand(name = "changeServiceForRouter", description="Upgrades domain router to a new service offering", responseObject=DomainRouterResponse.class)
 public class UpgradeRouterCmd extends BaseCmd {

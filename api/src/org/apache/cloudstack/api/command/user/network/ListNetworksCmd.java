@@ -29,8 +29,7 @@ import org.apache.cloudstack.api.response.PhysicalNetworkResponse;
 import org.apache.cloudstack.api.response.VpcResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.Network;
+import org.apache.network.Network;
 
 @APICommand(name = "listNetworks", description="Lists all available networks.", responseObject=NetworkResponse.class)
 public class ListNetworksCmd extends BaseListTaggedResourcesCmd {

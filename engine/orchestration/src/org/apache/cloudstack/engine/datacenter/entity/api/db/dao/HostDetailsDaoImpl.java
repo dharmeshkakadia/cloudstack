@@ -24,15 +24,14 @@ import java.util.Map;
 
 import javax.ejb.Local;
 
+import org.apache.host.DetailVO;
+import org.apache.utils.crypt.DBEncryptionUtil;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.springframework.stereotype.Component;
-
-import com.cloud.host.DetailVO;
-import com.cloud.utils.crypt.DBEncryptionUtil;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.Transaction;
-import com.cloud.utils.exception.CloudRuntimeException;
 
 @Component(value="EngineHostDetailsDao")
 @Local(value=HostDetailsDao.class)

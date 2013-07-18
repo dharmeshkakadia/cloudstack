@@ -22,22 +22,21 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.storage.CreateEntityDownloadURLCommand;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.NfsTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.EndPoint;
 import org.apache.cloudstack.engine.subsystem.api.storage.EndPointSelector;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreEntity;
 import org.apache.cloudstack.storage.image.store.ImageStoreImpl;
 import org.apache.log4j.Logger;
+import org.apache.storage.Storage.ImageFormat;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.apache.cloudstack.storage.image.BaseImageStoreDriverImpl;
-
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.storage.CreateEntityDownloadURLCommand;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.NfsTO;
-import com.cloud.configuration.Config;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.storage.Storage.ImageFormat;
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.configuration.Config;
+import org.apache.configuration.dao.ConfigurationDao;
 
 public class CloudStackImageStoreDriverImpl extends BaseImageStoreDriverImpl {
     private static final Logger s_logger = Logger.getLogger(CloudStackImageStoreDriverImpl.class);

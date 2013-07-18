@@ -31,14 +31,13 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.NetworkOfferingResponse;
 import org.apache.cloudstack.api.response.ServiceOfferingResponse;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.Network.Capability;
-import com.cloud.network.Network.Service;
-import com.cloud.offering.NetworkOffering;
-import com.cloud.offering.NetworkOffering.Availability;
-import com.cloud.user.Account;
+import org.apache.network.Network.Capability;
+import org.apache.network.Network.Service;
+import org.apache.offering.NetworkOffering;
+import org.apache.offering.NetworkOffering.Availability;
+import org.apache.user.Account;
 
 @APICommand(name = "createNetworkOffering", description="Creates a network offering.", responseObject=NetworkOfferingResponse.class, since="3.0.0")
 public class CreateNetworkOfferingCmd extends BaseCmd {

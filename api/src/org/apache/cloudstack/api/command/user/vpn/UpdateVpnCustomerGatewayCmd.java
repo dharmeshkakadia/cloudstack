@@ -24,11 +24,10 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.Site2SiteCustomerGatewayResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.network.Site2SiteCustomerGateway;
-import com.cloud.user.UserContext;
+import org.apache.network.Site2SiteCustomerGateway;
+import org.apache.user.UserContext;
 
 @APICommand(name = "updateVpnCustomerGateway", description="Update site to site vpn customer gateway", responseObject=Site2SiteCustomerGatewayResponse.class)
 public class UpdateVpnCustomerGatewayCmd extends BaseAsyncCmd {

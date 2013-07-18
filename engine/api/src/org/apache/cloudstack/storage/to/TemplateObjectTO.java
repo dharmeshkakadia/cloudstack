@@ -16,13 +16,12 @@
 // under the License.
 package org.apache.cloudstack.storage.to;
 
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.DataTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.TemplateInfo;
-
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.DataTO;
-import com.cloud.storage.Storage.ImageFormat;
-import com.cloud.template.VirtualMachineTemplate;
+import org.apache.storage.Storage.ImageFormat;
+import org.apache.template.VirtualMachineTemplate;
 
 public class TemplateObjectTO implements DataTO {
     private String path;

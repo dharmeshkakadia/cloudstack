@@ -18,11 +18,11 @@
 <!-- This file was auto-generated from WSDL -->
 <!-- by the Apache Axis2 version: 1.5  Built on : Apr 30, 2009 (06:07:24 EDT) -->
 <serviceGroup>
-    <service name="AmazonEC2"  class="com.cloud.bridge.lifecycle.ServiceEngineLifecycle">
+    <service name="AmazonEC2"  class="org.apache.bridge.lifecycle.ServiceEngineLifecycle">
         <messageReceivers>
             <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.amazon.ec2.AmazonEC2MessageReceiverInOut"/>
         </messageReceivers>
-        <parameter name="ServiceClass">com.cloud.bridge.service.EC2SoapService</parameter>
+        <parameter name="ServiceClass">org.apache.bridge.service.EC2SoapService</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
         <operation name="ModifyInstanceAttribute" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://ec2.amazonaws.com/doc/2010-11-15/">

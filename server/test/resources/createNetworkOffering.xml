@@ -24,11 +24,11 @@
 
     <!-- @DB support -->
       
-  <bean id="componentContext" class="com.cloud.utils.component.ComponentContext" />
+  <bean id="componentContext" class="org.apache.utils.component.ComponentContext" />
 
-  <bean id="transactionContextBuilder" class="com.cloud.utils.db.TransactionContextBuilder" />
-  <bean id="actionEventInterceptor" class="com.cloud.event.ActionEventInterceptor" />
-  <bean id="instantiatePostProcessor" class="com.cloud.utils.component.ComponentInstantiationPostProcessor">
+  <bean id="transactionContextBuilder" class="org.apache.utils.db.TransactionContextBuilder" />
+  <bean id="actionEventInterceptor" class="org.apache.event.ActionEventInterceptor" />
+  <bean id="instantiatePostProcessor" class="org.apache.utils.component.ComponentInstantiationPostProcessor">
     <property name="Interceptors">
         <list>
             <ref bean="transactionContextBuilder" />
@@ -37,8 +37,8 @@
     </property>
   </bean>
 
-    <bean id="nicIpAliasDaoImpl" class="com.cloud.vm.dao.NicIpAliasDaoImpl" />
-    <bean id="ConfigurationManager" class="com.cloud.configuration.ConfigurationManagerImpl">
+    <bean id="nicIpAliasDaoImpl" class="org.apache.vm.dao.NicIpAliasDaoImpl" />
+    <bean id="ConfigurationManager" class="org.apache.configuration.ConfigurationManagerImpl">
         <property name="name" value="ConfigurationManager"/>
     </bean>
 

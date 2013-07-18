@@ -16,6 +16,7 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.address;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -25,15 +26,13 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.AccountResponse;
 import org.apache.cloudstack.api.response.IPAddressResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InsufficientAddressCapacityException;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InsufficientAddressCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.IpAddress;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.network.IpAddress;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "disassociateIpAddress", description="Disassociates an ip address from the account.", responseObject=SuccessResponse.class)
 public class DisassociateIPAddrCmd extends BaseAsyncCmd {

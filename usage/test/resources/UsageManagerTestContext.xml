@@ -32,10 +32,10 @@
 
   </aop:config>
 
-  <bean id="transactionContextBuilder" class="com.cloud.utils.db.TransactionContextBuilder" />
-  <bean id="componentContext" class="com.cloud.utils.component.ComponentContext"/>
+  <bean id="transactionContextBuilder" class="org.apache.utils.db.TransactionContextBuilder" />
+  <bean id="componentContext" class="org.apache.utils.component.ComponentContext"/>
   <bean id="TestConfiguration"
-    class="com.cloud.usage.UsageManagerTestConfiguration" />
+    class="org.apache.usage.UsageManagerTestConfiguration" />
   <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor">
     <property name="requiredParameterValue" value="false" />
   </bean>

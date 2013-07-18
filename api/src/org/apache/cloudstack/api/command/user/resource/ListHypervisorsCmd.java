@@ -28,8 +28,7 @@ import org.apache.cloudstack.api.response.HypervisorResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "listHypervisors", description = "List hypervisors", responseObject = HypervisorResponse.class)
 public class ListHypervisorsCmd extends BaseCmd {

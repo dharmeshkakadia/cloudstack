@@ -31,18 +31,18 @@
   <context:annotation-config />
   <context:component-scan base-package="org.apache.cloudstack.storage" />
   <context:component-scan base-package="org.apache.cloudstack.engine.subsystem.api.storage" />
-  <context:component-scan base-package="com.cloud.utils.db" />
-  <context:component-scan base-package="com.cloud.utils.component" />
-  <context:component-scan base-package="com.cloud.host.dao" />
-  <context:component-scan base-package="com.cloud.dc.dao" />
+  <context:component-scan base-package="org.apache.utils.db" />
+  <context:component-scan base-package="org.apache.utils.component" />
+  <context:component-scan base-package="org.apache.host.dao" />
+  <context:component-scan base-package="org.apache.dc.dao" />
  
-   <context:component-scan base-package=" com.cloud.upgrade.dao" />
+   <context:component-scan base-package=" org.apache.upgrade.dao" />
    <tx:annotation-driven transaction-manager="transactionManager" />
   <bean id="aopTestBean" class="org.apache.cloudstack.storage.test.AopTestAdvice"/>
   <aop:config proxy-target-class="true" >
     <aop:aspect id="AopTestAdvice" ref="aopTestBean">
     <aop:pointcut id="aoptest"
-      expression="@annotation(com.cloud.utils.db.DB)" />
+      expression="@annotation(org.apache.utils.db.DB)" />
       <aop:around pointcut-ref="aoptest" method="AopTestMethod"/> 
     </aop:aspect>
   </aop:config>

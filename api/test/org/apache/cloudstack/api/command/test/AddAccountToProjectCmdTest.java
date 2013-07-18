@@ -20,16 +20,15 @@ import junit.framework.Assert;
 import junit.framework.TestCase;
 
 import org.apache.cloudstack.api.command.user.account.AddAccountToProjectCmd;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.projects.Project;
+import org.apache.projects.ProjectService;
+import org.apache.user.Account;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.projects.Project;
-import com.cloud.projects.ProjectService;
-import com.cloud.user.Account;
 
 public class AddAccountToProjectCmdTest extends TestCase {
 

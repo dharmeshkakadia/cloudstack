@@ -16,6 +16,7 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.securitygroup;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListTaggedResourcesCmd;
@@ -24,8 +25,6 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.SecurityGroupResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
 
 @APICommand(name = "listSecurityGroups", description="Lists security groups", responseObject=SecurityGroupResponse.class)
 public class ListSecurityGroupsCmd extends BaseListTaggedResourcesCmd {

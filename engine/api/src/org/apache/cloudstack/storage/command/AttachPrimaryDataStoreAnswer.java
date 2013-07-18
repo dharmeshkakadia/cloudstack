@@ -18,8 +18,8 @@
  */
 package org.apache.cloudstack.storage.command;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.Command;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.Command;
 
 public class AttachPrimaryDataStoreAnswer extends Answer {
     private String uuid;

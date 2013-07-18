@@ -18,6 +18,7 @@ package org.apache.cloudstack.api.command.user.address;
 
 import java.util.List;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -33,25 +34,23 @@ import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.RegionResponse;
 import org.apache.cloudstack.api.response.VpcResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.dc.DataCenter;
+import org.apache.dc.DataCenter.NetworkType;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientAddressCapacityException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.PermissionDeniedException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.dc.DataCenter;
-import com.cloud.dc.DataCenter.NetworkType;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientAddressCapacityException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.PermissionDeniedException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.IpAddress;
-import com.cloud.network.Network;
-import com.cloud.network.vpc.Vpc;
-import com.cloud.projects.Project;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.network.IpAddress;
+import org.apache.network.Network;
+import org.apache.network.vpc.Vpc;
+import org.apache.projects.Project;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "associateIpAddress", description="Acquires and associates a public IP to an account.", responseObject=IPAddressResponse.class)
 public class AssociateIPAddrCmd extends BaseAsyncCreateCmd {

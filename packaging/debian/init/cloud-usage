@@ -35,7 +35,7 @@
 SHORTNAME="cloudstack-usage"
 PIDFILE=/var/run/"$SHORTNAME".pid
 PROGNAME="CloudStack Usage Monitor"
-CLASS="com.cloud.usage.UsageServer"
+CLASS="org.apache.usage.UsageServer"
 PROG="jsvc"
 DAEMON="/usr/bin/jsvc"
 

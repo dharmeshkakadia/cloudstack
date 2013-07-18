@@ -20,13 +20,12 @@ package org.apache.cloudstack.engine.subsystem.api.storage;
 
 import java.util.Map;
 
+import org.apache.agent.api.to.VirtualMachineTO;
 import org.apache.cloudstack.engine.cloud.entity.api.VolumeEntity;
 import org.apache.cloudstack.framework.async.AsyncCallFuture;
 import org.apache.cloudstack.storage.command.CommandResult;
-
-import com.cloud.agent.api.to.VirtualMachineTO;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.host.Host;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.host.Host;
 
 public interface VolumeService {
     class VolumeApiResult extends CommandResult {

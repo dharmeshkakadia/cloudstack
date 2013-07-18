@@ -20,14 +20,13 @@ package org.apache.cloudstack.test.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.utils.component.ComponentContext;
+import org.apache.utils.component.ComponentInstantiationPostProcessor;
+import org.apache.utils.component.ComponentMethodInterceptor;
+import org.apache.utils.db.TransactionContextBuilder;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.utils.component.ComponentInstantiationPostProcessor;
-import com.cloud.utils.component.ComponentMethodInterceptor;
-import com.cloud.utils.db.TransactionContextBuilder;
-import com.cloud.utils.exception.CloudRuntimeException;
 
 public class SpringUtils {
 

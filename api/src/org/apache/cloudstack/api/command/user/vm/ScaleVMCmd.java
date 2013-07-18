@@ -16,16 +16,16 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.vm;
 
-import com.cloud.event.EventTypes;
-import com.cloud.exception.*;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.uservm.UserVm;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.response.ServiceOfferingResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.*;
 import org.apache.log4j.Logger;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.uservm.UserVm;
 
 import java.util.List;
 

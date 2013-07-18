@@ -18,6 +18,7 @@ package org.apache.cloudstack.api.command.user.template;
 
 import java.util.List;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -27,15 +28,13 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.TemplateResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.StorageUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.StorageUnavailableException;
-import com.cloud.template.VirtualMachineTemplate;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.template.VirtualMachineTemplate;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "copyTemplate", description="Copies a template from one zone to another.", responseObject=TemplateResponse.class)
 public class CopyTemplateCmd extends BaseAsyncCmd {

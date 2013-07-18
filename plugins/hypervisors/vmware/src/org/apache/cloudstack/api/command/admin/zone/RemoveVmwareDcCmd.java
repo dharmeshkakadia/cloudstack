@@ -28,19 +28,18 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.BaseCmd.CommandType;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.DiscoveryException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceInUseException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.hypervisor.vmware.VmwareDatacenterService;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.DiscoveryException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceInUseException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.hypervisor.vmware.VmwareDatacenterService;
-import com.cloud.network.element.CiscoNexusVSMElementService;
-import com.cloud.user.Account;
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.network.element.CiscoNexusVSMElementService;
+import org.apache.user.Account;
+import org.apache.utils.exception.CloudRuntimeException;
 
 @APICommand(name = "removeVmwareDc", responseObject=SuccessResponse.class, description="Remove a VMware datacenter from a zone.")
 public class RemoveVmwareDcCmd extends BaseCmd {

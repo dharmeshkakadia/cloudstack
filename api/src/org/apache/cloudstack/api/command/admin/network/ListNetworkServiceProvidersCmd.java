@@ -27,10 +27,9 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.PhysicalNetworkResponse;
 import org.apache.cloudstack.api.response.ProviderResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.PhysicalNetworkServiceProvider;
-import com.cloud.user.Account;
-import com.cloud.utils.Pair;
+import org.apache.network.PhysicalNetworkServiceProvider;
+import org.apache.user.Account;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listNetworkServiceProviders", description="Lists network serviceproviders for a given physical network.", responseObject=ProviderResponse.class, since="3.0.0")
 public class ListNetworkServiceProvidersCmd extends BaseListCmd {

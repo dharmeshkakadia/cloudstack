@@ -23,7 +23,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.cloud.utils.db.GenericDao;
+import org.apache.utils.db.GenericDao;
 
 
 @Entity

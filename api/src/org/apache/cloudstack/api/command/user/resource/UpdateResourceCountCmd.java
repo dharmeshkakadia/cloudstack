@@ -29,11 +29,10 @@ import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.ResourceCountResponse;
+import org.apache.configuration.ResourceCount;
 import org.apache.log4j.Logger;
-
-import com.cloud.configuration.ResourceCount;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "updateResourceCount", description="Recalculate and update resource count for an account or domain.", responseObject=ResourceCountResponse.class)
 public class UpdateResourceCountCmd extends BaseCmd {

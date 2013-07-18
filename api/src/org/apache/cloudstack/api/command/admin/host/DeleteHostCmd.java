@@ -25,8 +25,7 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.HostResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "deleteHost", description = "Deletes a host.", responseObject = SuccessResponse.class)
 public class DeleteHostCmd extends BaseCmd {

@@ -21,9 +21,9 @@ import java.util.List;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.projects.ProjectAccount;
+import org.apache.serializer.Param;
 
-import com.cloud.projects.ProjectAccount;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=ProjectAccount.class)

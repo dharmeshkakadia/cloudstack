@@ -29,12 +29,12 @@ import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.Storage.StoragePoolType;
-import com.cloud.storage.ScopeType;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.StoragePoolStatus;
-import com.cloud.utils.db.GenericDao;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.storage.ScopeType;
+import org.apache.storage.StoragePool;
+import org.apache.storage.StoragePoolStatus;
+import org.apache.storage.Storage.StoragePoolType;
+import org.apache.utils.db.GenericDao;
 
 @Entity
 @Table(name = "storage_pool")

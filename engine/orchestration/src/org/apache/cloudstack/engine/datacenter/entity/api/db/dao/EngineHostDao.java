@@ -21,14 +21,13 @@ import java.util.List;
 
 import org.apache.cloudstack.engine.datacenter.entity.api.DataCenterResourceEntity;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineHostVO;
-
-import com.cloud.host.Host;
-import com.cloud.host.Host.Type;
-import com.cloud.host.Status;
-import com.cloud.info.RunningHostCountInfo;
-import com.cloud.resource.ResourceState;
-import com.cloud.utils.db.GenericDao;
-import com.cloud.utils.fsm.StateDao;
+import org.apache.host.Host;
+import org.apache.host.Status;
+import org.apache.host.Host.Type;
+import org.apache.info.RunningHostCountInfo;
+import org.apache.resource.ResourceState;
+import org.apache.utils.db.GenericDao;
+import org.apache.utils.fsm.StateDao;
 
 /**
  * Data Access Object for server

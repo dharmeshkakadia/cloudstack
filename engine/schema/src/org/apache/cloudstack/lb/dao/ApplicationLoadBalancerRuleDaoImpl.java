@@ -22,18 +22,17 @@ import java.util.List;
 import javax.ejb.Local;
 
 import org.apache.cloudstack.lb.ApplicationLoadBalancerRuleVO;
+import org.apache.network.rules.FirewallRule;
+import org.apache.network.rules.FirewallRule.State;
+import org.apache.network.rules.LoadBalancerContainer.Scheme;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.GenericSearchBuilder;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.SearchCriteria.Func;
+import org.apache.utils.db.SearchCriteria.Op;
+import org.apache.utils.net.Ip;
 import org.springframework.stereotype.Component;
-
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.network.rules.FirewallRule.State;
-import com.cloud.network.rules.LoadBalancerContainer.Scheme;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.GenericSearchBuilder;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.SearchCriteria.Func;
-import com.cloud.utils.db.SearchCriteria.Op;
-import com.cloud.utils.net.Ip;
 
 @Component
 @Local(value = { ApplicationLoadBalancerRuleDao.class })

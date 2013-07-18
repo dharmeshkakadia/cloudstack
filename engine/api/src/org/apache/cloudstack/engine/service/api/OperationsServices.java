@@ -21,8 +21,8 @@ package org.apache.cloudstack.engine.service.api;
 import java.net.URL;
 import java.util.List;
 
-import com.cloud.alert.Alert;
-import com.cloud.async.AsyncJob;
+import org.apache.alert.Alert;
+import org.apache.async.AsyncJob;
 
 public interface OperationsServices {
     List<AsyncJob> listJobs();

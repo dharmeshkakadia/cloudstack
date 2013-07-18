@@ -31,15 +31,14 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.NetworkDeviceResponse;
 import org.apache.cloudstack.network.ExternalNetworkDeviceManager;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.host.Host;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.host.Host;
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.utils.exception.CloudRuntimeException;
 
 @APICommand(name = "listNetworkDevice", description="List network devices", responseObject = NetworkDeviceResponse.class)
 public class ListNetworkDeviceCmd extends BaseListCmd {

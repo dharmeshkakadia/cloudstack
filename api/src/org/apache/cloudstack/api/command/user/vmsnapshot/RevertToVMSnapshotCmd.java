@@ -26,16 +26,15 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.cloudstack.api.response.VMSnapshotResponse;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.uservm.UserVm;
-import com.cloud.vm.snapshot.VMSnapshot;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.uservm.UserVm;
+import org.apache.vm.snapshot.VMSnapshot;
 
 @APICommand(name = "revertToVMSnapshot",description = "Revert VM from a vmsnapshot.", responseObject = UserVmResponse.class, since="4.2.0")
 public class RevertToVMSnapshotCmd extends BaseAsyncCmd {

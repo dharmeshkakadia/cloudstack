@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.region;
 
-import com.cloud.user.UserVO;
+import org.apache.user.UserVO;
 
 public class RegionUser extends UserVO {
     String accountUuid;

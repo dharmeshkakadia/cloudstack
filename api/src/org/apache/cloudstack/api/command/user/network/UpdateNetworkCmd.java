@@ -24,16 +24,15 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.NetworkOfferingResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.Network;
-import com.cloud.user.Account;
-import com.cloud.user.User;
-import com.cloud.user.UserContext;
+import org.apache.network.Network;
+import org.apache.user.Account;
+import org.apache.user.User;
+import org.apache.user.UserContext;
 
 @APICommand(name = "updateNetwork", description="Updates a network", responseObject=NetworkResponse.class)
 public class UpdateNetworkCmd extends BaseAsyncCmd {

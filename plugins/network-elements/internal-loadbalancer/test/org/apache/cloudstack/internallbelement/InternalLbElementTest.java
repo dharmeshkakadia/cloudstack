@@ -28,36 +28,35 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.agent.api.to.LoadBalancerTO;
 import org.apache.cloudstack.lb.ApplicationLoadBalancerRuleVO;
 import org.apache.cloudstack.network.element.InternalLoadBalancerElement;
 import org.apache.cloudstack.network.lb.InternalLoadBalancerVMManager;
+import org.apache.configuration.ConfigurationManager;
+import org.apache.dc.DataCenterVO;
+import org.apache.dc.DataCenter.NetworkType;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.network.Network.Provider;
+import org.apache.network.Network.Service;
+import org.apache.network.VirtualRouterProvider.VirtualRouterProviderType;
+import org.apache.network.addr.PublicIp;
+import org.apache.network.dao.NetworkVO;
+import org.apache.network.dao.PhysicalNetworkServiceProviderDao;
+import org.apache.network.dao.PhysicalNetworkServiceProviderVO;
+import org.apache.network.dao.VirtualRouterProviderDao;
+import org.apache.network.element.VirtualRouterProviderVO;
+import org.apache.network.lb.LoadBalancingRule;
+import org.apache.network.rules.FirewallRule;
+import org.apache.network.rules.LoadBalancerContainer.Scheme;
+import org.apache.user.AccountManager;
+import org.apache.utils.component.ComponentContext;
+import org.apache.utils.net.Ip;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.cloud.agent.api.to.LoadBalancerTO;
-import com.cloud.configuration.ConfigurationManager;
-import com.cloud.dc.DataCenter.NetworkType;
-import com.cloud.dc.DataCenterVO;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.Network.Provider;
-import com.cloud.network.Network.Service;
-import com.cloud.network.VirtualRouterProvider.VirtualRouterProviderType;
-import com.cloud.network.addr.PublicIp;
-import com.cloud.network.dao.NetworkVO;
-import com.cloud.network.dao.PhysicalNetworkServiceProviderDao;
-import com.cloud.network.dao.PhysicalNetworkServiceProviderVO;
-import com.cloud.network.dao.VirtualRouterProviderDao;
-import com.cloud.network.element.VirtualRouterProviderVO;
-import com.cloud.network.lb.LoadBalancingRule;
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.network.rules.LoadBalancerContainer.Scheme;
-import com.cloud.user.AccountManager;
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.utils.net.Ip;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:/lb_element.xml")

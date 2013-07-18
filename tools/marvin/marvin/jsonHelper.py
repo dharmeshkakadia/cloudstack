@@ -333,7 +333,7 @@ due to missing parameter jobid"
     "queryasyncjobresultresponse" : {
         "accountid":"30910093-22e4-4d3c-a464-8b36b60c8001",
         "userid":"cb0aeca3-42ee-47c4-838a-2cd9053441f2",
-        "cmd":"com.cloud.api.commands.DeployVMCmd","jobstatus":1,
+        "cmd":"org.apache.api.commands.DeployVMCmd","jobstatus":1,
         "jobprocstatus":0,"jobresultcode":0,"jobresulttype":"object",
         "jobresult":{
             "virtualmachine":{

@@ -24,14 +24,13 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ServiceOfferingResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.offering.ServiceOffering;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.uservm.UserVm;
+import org.apache.offering.ServiceOffering;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.uservm.UserVm;
 
 @APICommand(name = "changeServiceForVirtualMachine", responseObject=UserVmResponse.class, description="Changes the service offering for a virtual machine. " +
                                             "The virtual machine must be in a \"Stopped\" state for " +

@@ -20,14 +20,14 @@
 package org.apache.cloudstack.storage.datastore.driver;
 
 
-import com.cloud.agent.api.storage.DownloadAnswer;
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.NfsTO;
-import com.cloud.storage.Storage;
-import com.cloud.storage.VMTemplateStorageResourceAssoc;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.storage.dao.VolumeDao;
+import org.apache.agent.api.storage.DownloadAnswer;
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.NfsTO;
+import org.apache.storage.Storage;
+import org.apache.storage.VMTemplateStorageResourceAssoc;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.storage.dao.VolumeDao;
 import org.apache.cloudstack.engine.subsystem.api.storage.CreateCmdResult;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObject;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;

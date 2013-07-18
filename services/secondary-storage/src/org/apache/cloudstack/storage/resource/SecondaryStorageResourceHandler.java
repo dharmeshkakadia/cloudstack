@@ -16,8 +16,8 @@
 // under the License.
 package org.apache.cloudstack.storage.resource;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.Command;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.Command;
 
 public interface SecondaryStorageResourceHandler {
 	Answer executeRequest(Command cmd);

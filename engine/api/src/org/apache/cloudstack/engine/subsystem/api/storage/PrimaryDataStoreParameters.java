@@ -20,8 +20,8 @@ package org.apache.cloudstack.engine.subsystem.api.storage;
 
 import java.util.Map;
 
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.Storage.StoragePoolType;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.storage.Storage.StoragePoolType;
 
 public class PrimaryDataStoreParameters {
     private Long zoneId;

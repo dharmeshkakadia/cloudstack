@@ -25,9 +25,8 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.GetVMPasswordResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
-import com.cloud.uservm.UserVm;
+import org.apache.user.Account;
+import org.apache.uservm.UserVm;
 
 @APICommand(name = "getVMPassword", responseObject=GetVMPasswordResponse.class, description="Returns an encrypted password for the VM")
 public class GetVMPasswordCmd extends BaseCmd {

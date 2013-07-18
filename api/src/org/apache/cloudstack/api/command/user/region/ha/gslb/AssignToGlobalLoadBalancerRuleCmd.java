@@ -17,22 +17,23 @@
 
 package org.apache.cloudstack.api.command.user.region.ha.gslb;
 
-import com.cloud.dao.EntityManager;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.rules.LoadBalancer;
-import com.cloud.region.ha.GlobalLoadBalancerRule;
-import com.cloud.region.ha.GlobalLoadBalancingRulesService;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.utils.StringUtils;
+import org.apache.network.rules.LoadBalancer;
+import org.apache.region.ha.GlobalLoadBalancerRule;
+import org.apache.region.ha.GlobalLoadBalancingRulesService;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.utils.StringUtils;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.response.FirewallRuleResponse;
 import org.apache.cloudstack.api.response.GlobalLoadBalancerResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.dao.EntityManager;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
 
 import javax.inject.Inject;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;

@@ -17,9 +17,11 @@
 package org.apache.cloudstack.api.response;
 
 import org.apache.cloudstack.api.ApiConstants;
-import com.cloud.serializer.Param;
+
 import com.google.gson.annotations.SerializedName;
+
 import org.apache.cloudstack.api.BaseResponse;
+import org.apache.serializer.Param;
 
 import java.util.HashSet;
 import java.util.Set;

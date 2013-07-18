@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.engine.cloud.entity.api;
 
-import com.cloud.utils.component.ComponentContext;
+import org.apache.utils.component.ComponentContext;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;
 

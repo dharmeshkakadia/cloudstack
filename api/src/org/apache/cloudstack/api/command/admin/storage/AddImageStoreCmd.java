@@ -29,11 +29,10 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ImageStoreResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.exception.DiscoveryException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.DiscoveryException;
-import com.cloud.storage.ImageStore;
-import com.cloud.user.Account;
+import org.apache.storage.ImageStore;
+import org.apache.user.Account;
 
 @APICommand(name = "addImageStore", description="Adds backup image store.", responseObject=ImageStoreResponse.class, since = "4.2.0")
 public class AddImageStoreCmd extends BaseCmd {

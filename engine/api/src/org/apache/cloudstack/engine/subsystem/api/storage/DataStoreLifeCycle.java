@@ -20,8 +20,8 @@ package org.apache.cloudstack.engine.subsystem.api.storage;
 
 import java.util.Map;
 
-import com.cloud.agent.api.StoragePoolInfo;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
+import org.apache.agent.api.StoragePoolInfo;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 
 public interface DataStoreLifeCycle {
     DataStore initialize(Map<String, Object> dsInfos);

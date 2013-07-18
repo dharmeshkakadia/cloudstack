@@ -28,9 +28,8 @@ import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ServiceOfferingResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.dc.DataCenter;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.DataCenter;
 
 @APICommand(name = "listZones", description="Lists zones", responseObject=ZoneResponse.class)
 public class ListZonesByCmd extends BaseListCmd {

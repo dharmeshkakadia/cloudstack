@@ -16,12 +16,12 @@
 // under the License.
 package org.apache.cloudstack.affinity;
 
-import com.cloud.deploy.DeploymentPlan;
-import com.cloud.deploy.DeploymentPlanner.ExcludeList;
-import com.cloud.exception.AffinityConflictException;
-import com.cloud.utils.component.Adapter;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
+import org.apache.deploy.DeploymentPlan;
+import org.apache.deploy.DeploymentPlanner.ExcludeList;
+import org.apache.exception.AffinityConflictException;
+import org.apache.utils.component.Adapter;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
 
 public interface AffinityGroupProcessor extends Adapter {
 

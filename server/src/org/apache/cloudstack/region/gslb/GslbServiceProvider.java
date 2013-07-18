@@ -18,9 +18,9 @@
  */
 package org.apache.cloudstack.region.gslb;
 
-import com.cloud.agent.api.routing.GlobalLoadBalancerConfigCommand;
-import com.cloud.exception.ResourceUnavailableException;
+import org.apache.agent.api.routing.GlobalLoadBalancerConfigCommand;
 import org.apache.cloudstack.region.RegionServiceProvider;
+import org.apache.exception.ResourceUnavailableException;
 
 public interface GslbServiceProvider extends RegionServiceProvider {
 

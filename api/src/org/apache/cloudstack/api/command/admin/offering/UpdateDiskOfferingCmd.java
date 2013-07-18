@@ -23,9 +23,8 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DiskOfferingResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.offering.DiskOffering;
-import com.cloud.user.Account;
+import org.apache.offering.DiskOffering;
+import org.apache.user.Account;
 
 @APICommand(name = "updateDiskOffering", description="Updates a disk offering.", responseObject=DiskOfferingResponse.class)
 public class UpdateDiskOfferingCmd extends BaseCmd{

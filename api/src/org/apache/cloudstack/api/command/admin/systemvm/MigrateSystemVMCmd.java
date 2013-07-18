@@ -25,18 +25,17 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.HostResponse;
 import org.apache.cloudstack.api.response.SystemVmInstanceResponse;
 import org.apache.cloudstack.api.response.SystemVmResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ManagementServerException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.exception.VirtualMachineMigrationException;
+import org.apache.host.Host;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ManagementServerException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.exception.VirtualMachineMigrationException;
-import com.cloud.host.Host;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.vm.VirtualMachine;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.vm.VirtualMachine;
 
 @APICommand(name = "migrateSystemVm", description="Attempts Migration of a system virtual machine to the host specified.", responseObject=SystemVmInstanceResponse.class)
 public class MigrateSystemVMCmd extends BaseAsyncCmd {

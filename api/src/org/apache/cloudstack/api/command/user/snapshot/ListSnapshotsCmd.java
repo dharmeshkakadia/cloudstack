@@ -19,6 +19,7 @@ package org.apache.cloudstack.api.command.user.snapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListTaggedResourcesCmd;
@@ -28,10 +29,8 @@ import org.apache.cloudstack.api.response.SnapshotResponse;
 import org.apache.cloudstack.api.response.VolumeResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.storage.Snapshot;
-import com.cloud.utils.Pair;
+import org.apache.storage.Snapshot;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listSnapshots", description="Lists all available snapshots for the account.", responseObject=SnapshotResponse.class)
 public class ListSnapshotsCmd extends BaseListTaggedResourcesCmd {

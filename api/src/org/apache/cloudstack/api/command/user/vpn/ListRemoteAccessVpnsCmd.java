@@ -27,9 +27,8 @@ import org.apache.cloudstack.api.response.IPAddressResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.RemoteAccessVpnResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.RemoteAccessVpn;
-import com.cloud.utils.Pair;
+import org.apache.network.RemoteAccessVpn;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listRemoteAccessVpns", description="Lists remote access vpns", responseObject=RemoteAccessVpnResponse.class)
 public class ListRemoteAccessVpnsCmd extends BaseListProjectAndAccountResourcesCmd {

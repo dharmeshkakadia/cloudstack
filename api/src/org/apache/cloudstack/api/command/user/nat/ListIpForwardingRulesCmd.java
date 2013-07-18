@@ -29,10 +29,9 @@ import org.apache.cloudstack.api.response.IpForwardingRuleResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.network.rules.StaticNatRule;
-import com.cloud.utils.Pair;
+import org.apache.network.rules.FirewallRule;
+import org.apache.network.rules.StaticNatRule;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listIpForwardingRules", description="List the ip forwarding rules", responseObject=FirewallRuleResponse.class)
 public class ListIpForwardingRulesCmd extends BaseListProjectAndAccountResourcesCmd {

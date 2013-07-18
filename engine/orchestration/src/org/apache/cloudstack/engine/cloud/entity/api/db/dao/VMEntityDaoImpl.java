@@ -29,16 +29,14 @@ import javax.inject.Inject;
 import org.apache.cloudstack.engine.cloud.entity.api.db.VMEntityVO;
 import org.apache.cloudstack.engine.cloud.entity.api.db.VMReservationVO;
 import org.apache.log4j.Logger;
+import org.apache.network.dao.NetworkDao;
+import org.apache.network.dao.NetworkVO;
+import org.apache.utils.Pair;
+import org.apache.utils.db.DB;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.Transaction;
+import org.apache.vm.NicProfile;
 import org.springframework.stereotype.Component;
-
-
-import com.cloud.network.dao.NetworkDao;
-import com.cloud.network.dao.NetworkVO;
-import com.cloud.utils.Pair;
-import com.cloud.utils.db.DB;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.Transaction;
-import com.cloud.vm.NicProfile;
 
 
 

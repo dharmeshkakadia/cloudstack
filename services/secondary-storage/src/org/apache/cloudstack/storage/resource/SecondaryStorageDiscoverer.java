@@ -30,25 +30,24 @@ import javax.ejb.Local;
 import javax.inject.Inject;
 import javax.naming.ConfigurationException;
 
+import org.apache.agent.AgentManager;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.host.HostVO;
+import org.apache.host.Status.Event;
+import org.apache.host.dao.HostDao;
+import org.apache.hypervisor.Hypervisor;
 import org.apache.log4j.Logger;
-
-import com.cloud.agent.AgentManager;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.host.HostVO;
-import com.cloud.host.Status.Event;
-import com.cloud.host.dao.HostDao;
-import com.cloud.hypervisor.Hypervisor;
-import com.cloud.resource.Discoverer;
-import com.cloud.resource.DiscovererBase;
-import com.cloud.resource.ServerResource;
-import com.cloud.storage.VMTemplateVO;
-import com.cloud.storage.VMTemplateZoneVO;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.storage.dao.VMTemplateZoneDao;
-import com.cloud.storage.resource.DummySecondaryStorageResource;
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.utils.net.NfsUtils;
-import com.cloud.utils.script.Script;
+import org.apache.resource.Discoverer;
+import org.apache.resource.DiscovererBase;
+import org.apache.resource.ServerResource;
+import org.apache.storage.VMTemplateVO;
+import org.apache.storage.VMTemplateZoneVO;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.storage.dao.VMTemplateZoneDao;
+import org.apache.storage.resource.DummySecondaryStorageResource;
+import org.apache.utils.component.ComponentContext;
+import org.apache.utils.net.NfsUtils;
+import org.apache.utils.script.Script;
 
 /**
  * SecondaryStorageDiscoverer is used to discover secondary
@@ -138,32 +137,32 @@ public class SecondaryStorageDiscoverer extends DiscovererBase implements Discov
         NfsSecondaryStorageResource storage;
         if(_configDao.isPremium()) {
             Class<?> impl;
-            String name = "com.cloud.storage.resource.PremiumSecondaryStorageResource";
+            String name = "org.apache.storage.resource.PremiumSecondaryStorageResource";
             try {
                 impl = Class.forName(name);
                 final Constructor<?> constructor = impl.getDeclaredConstructor();
                 constructor.setAccessible(true);
                 storage = (NfsSecondaryStorageResource)constructor.newInstance();
             } catch (final ClassNotFoundException e) {
-            	s_logger.error("Unable to load com.cloud.storage.resource.PremiumSecondaryStorageResource due to ClassNotFoundException");
+            	s_logger.error("Unable to load org.apache.storage.resource.PremiumSecondaryStorageResource due to ClassNotFoundException");
             	return null;
             } catch (final SecurityException e) {
-            	s_logger.error("Unable to load com.cloud.storage.resource.PremiumSecondaryStorageResource due to SecurityException");
+            	s_logger.error("Unable to load org.apache.storage.resource.PremiumSecondaryStorageResource due to SecurityException");
             	return null;
             } catch (final NoSuchMethodException e) {
-            	s_logger.error("Unable to load com.cloud.storage.resource.PremiumSecondaryStorageResource due to NoSuchMethodException");
+            	s_logger.error("Unable to load org.apache.storage.resource.PremiumSecondaryStorageResource due to NoSuchMethodException");
             	return null;
             } catch (final IllegalArgumentException e) {
-            	s_logger.error("Unable to load com.cloud.storage.resource.PremiumSecondaryStorageResource due to IllegalArgumentException");
+            	s_logger.error("Unable to load org.apache.storage.resource.PremiumSecondaryStorageResource due to IllegalArgumentException");
             	return null;
             } catch (final InstantiationException e) {
-            	s_logger.error("Unable to load com.cloud.storage.resource.PremiumSecondaryStorageResource due to InstantiationException");
+            	s_logger.error("Unable to load org.apache.storage.resource.PremiumSecondaryStorageResource due to InstantiationException");
             	return null;
             } catch (final IllegalAccessException e) {
-            	s_logger.error("Unable to load com.cloud.storage.resource.PremiumSecondaryStorageResource due to IllegalAccessException");
+            	s_logger.error("Unable to load org.apache.storage.resource.PremiumSecondaryStorageResource due to IllegalAccessException");
             	return null;
             } catch (final InvocationTargetException e) {
-            	s_logger.error("Unable to load com.cloud.storage.resource.PremiumSecondaryStorageResource due to InvocationTargetException");
+            	s_logger.error("Unable to load org.apache.storage.resource.PremiumSecondaryStorageResource due to InvocationTargetException");
             	return null;
             }
         } else {

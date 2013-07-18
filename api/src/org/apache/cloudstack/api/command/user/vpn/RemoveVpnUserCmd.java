@@ -25,11 +25,10 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "removeVpnUser", description="Removes vpn user", responseObject=SuccessResponse.class)
 public class RemoveVpnUserCmd extends BaseAsyncCmd {

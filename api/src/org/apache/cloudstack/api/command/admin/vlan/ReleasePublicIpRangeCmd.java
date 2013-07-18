@@ -25,8 +25,7 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.VlanIpRangeResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "releasePublicIpRange", description="Releases a Public IP range back to the system pool", responseObject=SuccessResponse.class)
 public class ReleasePublicIpRangeCmd extends BaseCmd {

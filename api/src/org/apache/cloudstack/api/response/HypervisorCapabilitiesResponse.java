@@ -19,10 +19,10 @@ package org.apache.cloudstack.api.response;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.hypervisor.HypervisorCapabilities;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.serializer.Param;
 
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.hypervisor.HypervisorCapabilities;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=HypervisorCapabilities.class)

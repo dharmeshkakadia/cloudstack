@@ -19,12 +19,7 @@ package org.apache.cloudstack.api.command.admin.region;
 
 import javax.inject.Inject;
 
-import com.cloud.async.AsyncJob;
-import com.cloud.dc.Vlan;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceAllocationException;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -37,9 +32,13 @@ import org.apache.cloudstack.api.response.VlanIpRangeResponse;
 import org.apache.cloudstack.region.PortableIpRange;
 import org.apache.cloudstack.region.Region;
 import org.apache.cloudstack.region.RegionService;
+import org.apache.dc.Vlan;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "createPortableIpRange", responseObject=PortableIpRangeResponse.class, description="adds a range of portable public IP's to a region", since="4.2.0")
 public class CreatePortableIpRangeCmd extends BaseAsyncCreateCmd {

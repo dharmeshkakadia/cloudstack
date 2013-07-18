@@ -25,11 +25,10 @@ import org.apache.cloudstack.api.BaseListCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.HypervisorCapabilitiesResponse;
 import org.apache.cloudstack.api.response.ListResponse;
+import org.apache.hypervisor.HypervisorCapabilities;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 import org.apache.log4j.Logger;
-
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.hypervisor.HypervisorCapabilities;
-import com.cloud.utils.Pair;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listHypervisorCapabilities", description="Lists all hypervisor capabilities.", responseObject=HypervisorCapabilitiesResponse.class, since="3.0.0")
 public class ListHypervisorCapabilitiesCmd extends BaseListCmd {

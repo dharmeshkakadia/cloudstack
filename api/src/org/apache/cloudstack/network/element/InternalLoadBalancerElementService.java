@@ -18,9 +18,8 @@ package org.apache.cloudstack.network.element;
 
 import java.util.List;
 
-
-import com.cloud.network.VirtualRouterProvider;
-import com.cloud.utils.component.PluggableService;
+import org.apache.network.VirtualRouterProvider;
+import org.apache.utils.component.PluggableService;
 
 public interface InternalLoadBalancerElementService extends PluggableService{
     /**

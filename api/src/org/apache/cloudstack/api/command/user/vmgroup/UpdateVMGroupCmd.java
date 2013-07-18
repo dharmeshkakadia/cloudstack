@@ -24,9 +24,8 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.InstanceGroupResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
-import com.cloud.vm.InstanceGroup;
+import org.apache.user.Account;
+import org.apache.vm.InstanceGroup;
 
 @APICommand(name = "updateInstanceGroup", description="Updates a vm group", responseObject=InstanceGroupResponse.class)
 public class UpdateVMGroupCmd extends BaseCmd{

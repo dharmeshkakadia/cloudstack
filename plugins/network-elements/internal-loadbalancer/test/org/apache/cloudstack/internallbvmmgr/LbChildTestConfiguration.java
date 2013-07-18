@@ -18,8 +18,29 @@ package org.apache.cloudstack.internallbvmmgr;
 
 import java.io.IOException;
 
+import org.apache.agent.AgentManager;
 import org.apache.cloudstack.lb.dao.ApplicationLoadBalancerRuleDao;
 import org.apache.cloudstack.test.utils.SpringUtils;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.dc.dao.AccountVlanMapDaoImpl;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.network.NetworkManager;
+import org.apache.network.NetworkModel;
+import org.apache.network.dao.NetworkDao;
+import org.apache.network.dao.PhysicalNetworkServiceProviderDao;
+import org.apache.network.dao.VirtualRouterProviderDao;
+import org.apache.network.lb.LoadBalancingRulesManager;
+import org.apache.offerings.dao.NetworkOfferingDao;
+import org.apache.resource.ResourceManager;
+import org.apache.server.ConfigurationServer;
+import org.apache.service.dao.ServiceOfferingDao;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.user.AccountManager;
+import org.apache.user.dao.AccountDao;
+import org.apache.utils.net.NetUtils;
+import org.apache.vm.VirtualMachineManager;
+import org.apache.vm.dao.DomainRouterDao;
+import org.apache.vm.dao.NicDao;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -29,28 +50,6 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.core.type.filter.TypeFilter;
-
-import com.cloud.agent.AgentManager;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.dc.dao.AccountVlanMapDaoImpl;
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.network.NetworkManager;
-import com.cloud.network.NetworkModel;
-import com.cloud.network.dao.NetworkDao;
-import com.cloud.network.dao.PhysicalNetworkServiceProviderDao;
-import com.cloud.network.dao.VirtualRouterProviderDao;
-import com.cloud.network.lb.LoadBalancingRulesManager;
-import com.cloud.offerings.dao.NetworkOfferingDao;
-import com.cloud.resource.ResourceManager;
-import com.cloud.server.ConfigurationServer;
-import com.cloud.service.dao.ServiceOfferingDao;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.user.AccountManager;
-import com.cloud.utils.net.NetUtils;
-import com.cloud.vm.VirtualMachineManager;
-import com.cloud.vm.dao.DomainRouterDao;
-import com.cloud.vm.dao.NicDao;
-import com.cloud.user.dao.AccountDao;
 
 
 @Configuration

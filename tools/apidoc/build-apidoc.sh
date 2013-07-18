@@ -56,7 +56,7 @@ for file in $DEPSDIR/*.jar; do
   CP=${CP}$PATHSEP$file
 done
 
-java -cp $CP com.cloud.api.doc.ApiXmlDocWriter -d "$DISTDIR" $*
+java -cp $CP org.apache.api.doc.ApiXmlDocWriter -d "$DISTDIR" $*
 
 if [ $? -ne 0 ]
 then

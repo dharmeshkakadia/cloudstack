@@ -21,13 +21,12 @@ import java.util.List;
 
 import javax.ejb.Local;
 
+import org.apache.host.HostTagVO;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.Transaction;
 import org.springframework.stereotype.Component;
-
-import com.cloud.host.HostTagVO;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.Transaction;
 
 @Component(value="EngineHostTagsDao")
 @Local(value=HostTagsDao.class)

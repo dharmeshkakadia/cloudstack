@@ -55,23 +55,23 @@ under the License.
    <!-- Limit categories -->
    <!-- ================ -->
 
-   <category name="com.cloud.console.ConsoleCanvas">
+   <category name="org.apache.console.ConsoleCanvas">
      <priority value="WARN"/>
    </category>
    
-   <category name="com.cloud.consoleproxy.ConsoleProxyAjaxImageHandler">
+   <category name="org.apache.consoleproxy.ConsoleProxyAjaxImageHandler">
      <priority value="WARN"/>
    </category>
    
-   <category name="com.cloud.consoleproxy.ConsoleProxyViwer">
+   <category name="org.apache.consoleproxy.ConsoleProxyViwer">
      <priority value="WARN"/>
    </category>
 
-   <category name="com.cloud.consoleproxy">
+   <category name="org.apache.consoleproxy">
      <priority value="INFO"/>
    </category>
 
-   <category name="com.cloud">
+   <category name="org.apache">
      <priority value="DEBUG"/>
    </category>
    

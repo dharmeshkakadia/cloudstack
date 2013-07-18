@@ -27,14 +27,13 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.HostResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.network.ExternalNetworkDeviceManager;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.utils.exception.CloudRuntimeException;
 
 @APICommand(name = "deleteNetworkDevice", description="Deletes network device.", responseObject=SuccessResponse.class)
 public class DeleteNetworkDeviceCmd extends BaseCmd {

@@ -29,9 +29,8 @@ import org.apache.cloudstack.api.command.user.offering.ListServiceOfferingsCmd;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.TrafficMonitorResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.host.Host;
 import org.apache.log4j.Logger;
-
-import com.cloud.host.Host;
 
 
 @APICommand(name = "listTrafficMonitors", description="List traffic monitor Hosts.", responseObject = TrafficMonitorResponse.class)

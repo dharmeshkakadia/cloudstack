@@ -27,9 +27,8 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.PrivateGatewayResponse;
 import org.apache.cloudstack.api.response.StaticRouteResponse;
 import org.apache.cloudstack.api.response.VpcResponse;
-
-import com.cloud.network.vpc.StaticRoute;
-import com.cloud.utils.Pair;
+import org.apache.network.vpc.StaticRoute;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listStaticRoutes", description="Lists all static routes", responseObject=StaticRouteResponse.class)
 public class ListStaticRoutesCmd extends BaseListTaggedResourcesCmd {

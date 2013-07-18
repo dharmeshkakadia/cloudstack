@@ -16,9 +16,9 @@
 // under the License.
 package org.apache.cloudstack.acl;
 
-import com.cloud.exception.PermissionDeniedException;
-import com.cloud.user.User;
-import com.cloud.utils.component.Adapter;
+import org.apache.exception.PermissionDeniedException;
+import org.apache.user.User;
+import org.apache.utils.component.Adapter;
 
 // APIChecker checks the ownership and access control to API requests
 public interface APIChecker extends Adapter {

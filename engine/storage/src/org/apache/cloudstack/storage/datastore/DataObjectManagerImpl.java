@@ -32,12 +32,11 @@ import org.apache.cloudstack.framework.async.AsyncCallbackDispatcher;
 import org.apache.cloudstack.framework.async.AsyncCompletionCallback;
 import org.apache.cloudstack.framework.async.AsyncRpcContext;
 import org.apache.cloudstack.storage.command.CommandResult;
+import org.apache.exception.ConcurrentOperationException;
 import org.apache.log4j.Logger;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.fsm.NoTransitionException;
 import org.springframework.stereotype.Component;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.fsm.NoTransitionException;
 
 @Component
 public class DataObjectManagerImpl implements DataObjectManager {

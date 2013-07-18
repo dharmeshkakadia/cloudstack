@@ -24,14 +24,13 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SnapshotPolicyResponse;
 import org.apache.cloudstack.api.response.VolumeResponse;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.PermissionDeniedException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.PermissionDeniedException;
-import com.cloud.projects.Project;
-import com.cloud.storage.Volume;
-import com.cloud.storage.snapshot.SnapshotPolicy;
-import com.cloud.user.Account;
+import org.apache.projects.Project;
+import org.apache.storage.Volume;
+import org.apache.storage.snapshot.SnapshotPolicy;
+import org.apache.user.Account;
 
 @APICommand(name = "createSnapshotPolicy", description="Creates a snapshot policy for the account.", responseObject=SnapshotPolicyResponse.class)
 public class CreateSnapshotPolicyCmd extends BaseCmd {

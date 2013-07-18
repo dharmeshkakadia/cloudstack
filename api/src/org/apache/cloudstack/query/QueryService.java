@@ -42,8 +42,7 @@ import org.apache.cloudstack.api.command.user.volume.ListResourceDetailsCmd;
 import org.apache.cloudstack.api.command.user.volume.ListVolumesCmd;
 import org.apache.cloudstack.api.command.user.zone.ListZonesByCmd;
 import org.apache.cloudstack.api.response.*;
-
-import com.cloud.exception.PermissionDeniedException;
+import org.apache.exception.PermissionDeniedException;
 
 import java.util.List;
 

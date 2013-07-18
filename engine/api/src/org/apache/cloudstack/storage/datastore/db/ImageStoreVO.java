@@ -28,10 +28,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.ImageStore;
-import com.cloud.storage.ScopeType;
-import com.cloud.utils.db.GenericDao;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.ImageStore;
+import org.apache.storage.ScopeType;
+import org.apache.utils.db.GenericDao;
 
 @Entity
 @Table(name = "image_store")

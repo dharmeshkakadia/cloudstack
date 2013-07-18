@@ -25,8 +25,7 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DiskOfferingResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "deleteDiskOffering", description="Updates a disk offering.", responseObject=SuccessResponse.class)
 public class DeleteDiskOfferingCmd extends BaseCmd {

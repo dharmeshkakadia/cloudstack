@@ -55,15 +55,15 @@ under the License.
    <!-- Limit categories -->
    <!-- ================ -->
 
-   <category name="com.cloud">
+   <category name="org.apache">
      <priority value="INFO"/>
    </category>
    
-   <category name="com.cloud.agent.metrics">
+   <category name="org.apache.agent.metrics">
      <priority value="INFO"/>
    </category>
    
-   <category name="com.cloud.agent.resource.computing.ComputingResource$StorageMonitorTask">
+   <category name="org.apache.agent.resource.computing.ComputingResource$StorageMonitorTask">
      <priority value="INFO"/>
    </category>
 

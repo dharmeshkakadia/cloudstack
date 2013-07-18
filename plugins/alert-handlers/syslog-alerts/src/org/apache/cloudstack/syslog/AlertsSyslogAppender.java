@@ -17,10 +17,10 @@
 
 package org.apache.cloudstack.syslog;
 
-import com.cloud.utils.net.NetUtils;
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.net.SyslogAppender;
 import org.apache.log4j.spi.LoggingEvent;
+import org.apache.utils.net.NetUtils;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

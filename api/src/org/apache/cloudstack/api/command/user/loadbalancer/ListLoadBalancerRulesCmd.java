@@ -31,9 +31,8 @@ import org.apache.cloudstack.api.response.NetworkResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.rules.LoadBalancer;
-import com.cloud.utils.Pair;
+import org.apache.network.rules.LoadBalancer;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listLoadBalancerRules", description = "Lists load balancer rules.", responseObject = LoadBalancerResponse.class)
 public class ListLoadBalancerRulesCmd extends BaseListTaggedResourcesCmd {

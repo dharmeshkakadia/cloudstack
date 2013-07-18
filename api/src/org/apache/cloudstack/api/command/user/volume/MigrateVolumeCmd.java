@@ -24,11 +24,10 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.StoragePoolResponse;
 import org.apache.cloudstack.api.response.VolumeResponse;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.storage.Volume;
-import com.cloud.user.Account;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.storage.Volume;
+import org.apache.user.Account;
 
 
 @APICommand(name = "migrateVolume", description="Migrate volume", responseObject=VolumeResponse.class, since="3.0.0")

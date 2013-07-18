@@ -29,10 +29,9 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.PhysicalNetworkResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.PhysicalNetwork;
-import com.cloud.user.Account;
-import com.cloud.utils.Pair;
+import org.apache.network.PhysicalNetwork;
+import org.apache.user.Account;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listPhysicalNetworks", description="Lists physical networks", responseObject=PhysicalNetworkResponse.class, since="3.0.0")
 public class ListPhysicalNetworksCmd extends BaseListCmd {

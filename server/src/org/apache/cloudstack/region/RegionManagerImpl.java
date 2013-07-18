@@ -16,29 +16,30 @@
 // under the License.
 package org.apache.cloudstack.region;
 
-import com.cloud.domain.Domain;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.user.Account;
-import com.cloud.user.AccountManager;
-import com.cloud.user.DomainManager;
-import com.cloud.user.UserAccount;
-import com.cloud.user.dao.AccountDao;
-import com.cloud.user.dao.UserAccountDao;
-import com.cloud.utils.component.Manager;
-import com.cloud.utils.component.ManagerBase;
 import org.apache.cloudstack.api.command.admin.account.UpdateAccountCmd;
 import org.apache.cloudstack.api.command.admin.domain.UpdateDomainCmd;
 import org.apache.cloudstack.api.command.admin.user.DeleteUserCmd;
 import org.apache.cloudstack.api.command.admin.user.UpdateUserCmd;
 import org.apache.cloudstack.region.dao.RegionDao;
+import org.apache.domain.Domain;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
+import org.apache.user.Account;
+import org.apache.user.AccountManager;
+import org.apache.user.DomainManager;
+import org.apache.user.UserAccount;
+import org.apache.user.dao.AccountDao;
+import org.apache.user.dao.UserAccountDao;
+import org.apache.utils.component.Manager;
+import org.apache.utils.component.ManagerBase;
 import org.springframework.stereotype.Component;
 
 import javax.ejb.Local;
 import javax.inject.Inject;
 import javax.naming.ConfigurationException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

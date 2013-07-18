@@ -24,22 +24,21 @@ import static org.junit.Assert.assertTrue;
 import javax.inject.Inject;
 
 import org.apache.cloudstack.network.element.InternalLoadBalancerElementService;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.network.VirtualRouterProvider;
+import org.apache.network.VirtualRouterProvider.VirtualRouterProviderType;
+import org.apache.network.dao.PhysicalNetworkServiceProviderDao;
+import org.apache.network.dao.PhysicalNetworkServiceProviderVO;
+import org.apache.network.dao.VirtualRouterProviderDao;
+import org.apache.network.element.VirtualRouterProviderVO;
+import org.apache.user.AccountManager;
+import org.apache.utils.component.ComponentContext;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.VirtualRouterProvider;
-import com.cloud.network.VirtualRouterProvider.VirtualRouterProviderType;
-import com.cloud.network.dao.PhysicalNetworkServiceProviderDao;
-import com.cloud.network.dao.PhysicalNetworkServiceProviderVO;
-import com.cloud.network.dao.VirtualRouterProviderDao;
-import com.cloud.network.element.VirtualRouterProviderVO;
-import com.cloud.user.AccountManager;
-import com.cloud.utils.component.ComponentContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:/lb_element.xml")

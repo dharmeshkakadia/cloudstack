@@ -35,12 +35,11 @@ import org.apache.cloudstack.engine.datacenter.entity.api.PodEntityImpl;
 import org.apache.cloudstack.engine.datacenter.entity.api.StorageEntity;
 import org.apache.cloudstack.engine.datacenter.entity.api.ZoneEntity;
 import org.apache.cloudstack.engine.datacenter.entity.api.ZoneEntityImpl;
+import org.apache.host.Host;
+import org.apache.host.Status;
+import org.apache.storage.StoragePool;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import com.cloud.host.Host;
-import com.cloud.host.Status;
-import com.cloud.storage.StoragePool;
 
 
 @Component

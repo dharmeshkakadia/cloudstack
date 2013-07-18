@@ -16,9 +16,6 @@
 // under the License.
 package org.apache.cloudstack.api.command.admin.account;
 
-import com.cloud.user.Account;
-import com.cloud.user.UserAccount;
-import com.cloud.user.UserContext;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -28,6 +25,9 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.AccountResponse;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.log4j.Logger;
+import org.apache.user.Account;
+import org.apache.user.UserAccount;
+import org.apache.user.UserContext;
 
 import java.util.Collection;
 import java.util.Map;

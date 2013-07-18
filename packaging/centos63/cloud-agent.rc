@@ -34,7 +34,7 @@ LOCKFILE=/var/lock/subsys/"$SHORTNAME"
 LOGDIR=/var/log/cloudstack/agent
 LOGFILE=${LOGDIR}/agent.log
 PROGNAME="Cloud Agent"
-CLASS="com.cloud.agent.AgentShell"
+CLASS="org.apache.agent.AgentShell"
 JSVC=`which jsvc 2>/dev/null`;
 
 # exit if we don't find jsvc

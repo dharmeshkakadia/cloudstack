@@ -26,9 +26,8 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.Site2SiteCustomerGatewayResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.Site2SiteCustomerGateway;
-import com.cloud.utils.Pair;
+import org.apache.network.Site2SiteCustomerGateway;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listVpnCustomerGateways", description="Lists site to site vpn customer gateways", responseObject=Site2SiteCustomerGatewayResponse.class)
 public class ListVpnCustomerGatewaysCmd extends BaseListProjectAndAccountResourcesCmd {

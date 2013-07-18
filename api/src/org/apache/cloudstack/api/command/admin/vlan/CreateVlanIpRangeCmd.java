@@ -29,14 +29,13 @@ import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.VlanIpRangeResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.dc.Vlan;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.Vlan;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "createVlanIpRange", description="Creates a VLAN IP range.", responseObject=VlanIpRangeResponse.class)
 public class CreateVlanIpRangeCmd extends BaseCmd {

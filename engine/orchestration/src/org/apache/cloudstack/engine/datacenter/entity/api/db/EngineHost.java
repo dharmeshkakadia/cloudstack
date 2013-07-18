@@ -17,7 +17,7 @@
 
 package org.apache.cloudstack.engine.datacenter.entity.api.db;
 
-import com.cloud.host.Host;
+import org.apache.host.Host;
 
 public interface EngineHost extends Host {
 

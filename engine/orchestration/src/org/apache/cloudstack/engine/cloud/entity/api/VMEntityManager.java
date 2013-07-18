@@ -17,15 +17,14 @@
 package org.apache.cloudstack.engine.cloud.entity.api;
 
 import org.apache.cloudstack.engine.cloud.entity.api.db.VMEntityVO;
-
-import com.cloud.deploy.DeploymentPlan;
-import com.cloud.deploy.DeploymentPlanner.ExcludeList;
-import com.cloud.exception.AgentUnavailableException;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.OperationTimedoutException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.vm.VirtualMachineProfile;
+import org.apache.deploy.DeploymentPlan;
+import org.apache.deploy.DeploymentPlanner.ExcludeList;
+import org.apache.exception.AgentUnavailableException;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.OperationTimedoutException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.vm.VirtualMachineProfile;
 
 import java.util.Map;
 

@@ -25,8 +25,7 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "deletePod", description="Deletes a Pod.", responseObject=SuccessResponse.class)
 public class DeletePodCmd extends BaseCmd {

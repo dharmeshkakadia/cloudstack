@@ -17,10 +17,10 @@
 
 package org.apache.cloudstack.alert.snmp;
 
-import com.cloud.utils.net.NetUtils;
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.spi.ErrorCode;
 import org.apache.log4j.spi.LoggingEvent;
+import org.apache.utils.net.NetUtils;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -24,22 +24,22 @@ import java.util.Set;
 import javax.ejb.Local;
 import javax.naming.ConfigurationException;
 
-import com.cloud.deploy.DeployDestination;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.Network;
-import com.cloud.network.Network.Capability;
-import com.cloud.network.Network.Provider;
-import com.cloud.network.Network.Service;
-import com.cloud.network.PhysicalNetworkServiceProvider;
-import com.cloud.network.element.NetworkElement;
-import com.cloud.offering.NetworkOffering;
-import com.cloud.utils.component.AdapterBase;
-import com.cloud.vm.NicProfile;
-import com.cloud.vm.ReservationContext;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
+import org.apache.deploy.DeployDestination;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.network.Network;
+import org.apache.network.PhysicalNetworkServiceProvider;
+import org.apache.network.Network.Capability;
+import org.apache.network.Network.Provider;
+import org.apache.network.Network.Service;
+import org.apache.network.element.NetworkElement;
+import org.apache.offering.NetworkOffering;
+import org.apache.utils.component.AdapterBase;
+import org.apache.vm.NicProfile;
+import org.apache.vm.ReservationContext;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
 
 /**
  * @author ahuang

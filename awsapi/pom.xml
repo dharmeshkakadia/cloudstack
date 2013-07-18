@@ -306,9 +306,9 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <excludes>
-            <exclude>com/cloud/gate/util/UtilTestCase.java</exclude>
-            <exclude>com/cloud/gate/service/ServiceTestCase.java</exclude>
-            <exclude>com/cloud/gate/util/CloudStackClientTestCase.java</exclude>
+            <exclude>org/apache/gate/util/UtilTestCase.java</exclude>
+            <exclude>org/apache/gate/service/ServiceTestCase.java</exclude>
+            <exclude>org/apache/gate/util/CloudStackClientTestCase.java</exclude>
           </excludes>
         </configuration>
       </plugin>

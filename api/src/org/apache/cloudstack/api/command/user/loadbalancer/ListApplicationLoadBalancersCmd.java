@@ -28,11 +28,10 @@ import org.apache.cloudstack.api.response.FirewallRuleResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
 import org.apache.cloudstack.network.lb.ApplicationLoadBalancerRule;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.rules.LoadBalancerContainer.Scheme;
-import com.cloud.utils.Pair;
+import org.apache.network.rules.LoadBalancerContainer.Scheme;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listLoadBalancers", description = "Lists Load Balancers", responseObject = ApplicationLoadBalancerResponse.class, since="4.2.0")
 public class ListApplicationLoadBalancersCmd extends BaseListTaggedResourcesCmd {

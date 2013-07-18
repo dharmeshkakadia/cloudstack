@@ -38,23 +38,23 @@
           
     <servlet>
         <servlet-name>cloudStartupServlet</servlet-name>
-        <servlet-class>com.cloud.servlet.CloudStartupServlet</servlet-class>
+        <servlet-class>org.apache.servlet.CloudStartupServlet</servlet-class>
         <load-on-startup>4</load-on-startup>
     </servlet>
 
     <servlet>
         <servlet-name>apiServlet</servlet-name>
-        <servlet-class>com.cloud.api.ApiServlet</servlet-class>
+        <servlet-class>org.apache.api.ApiServlet</servlet-class>
     </servlet>
     
     <servlet>
         <servlet-name>consoleServlet</servlet-name>
-        <servlet-class>com.cloud.servlet.ConsoleProxyServlet</servlet-class>
+        <servlet-class>org.apache.servlet.ConsoleProxyServlet</servlet-class>
     </servlet>
 	
 	<servlet>
         <servlet-name>registerCompleteServlet</servlet-name>
-        <servlet-class>com.cloud.servlet.RegisterCompleteServlet</servlet-class>
+        <servlet-class>org.apache.servlet.RegisterCompleteServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>   

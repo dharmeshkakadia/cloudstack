@@ -16,21 +16,21 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.network;
 
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.network.vpc.NetworkACL;
-import com.cloud.network.vpc.Vpc;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.response.AccountResponse;
 import org.apache.cloudstack.api.response.FirewallRuleResponse;
 import org.apache.cloudstack.api.response.NetworkACLResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
+import org.apache.network.rules.FirewallRule;
+import org.apache.network.vpc.NetworkACL;
+import org.apache.network.vpc.Vpc;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "deleteNetworkACLList", description="Deletes a Network ACL", responseObject=SuccessResponse.class)
 public class DeleteNetworkACLListCmd extends BaseAsyncCmd {

@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import com.cloud.exception.InvalidParameterValueException;
+import org.apache.exception.InvalidParameterValueException;
 
 public abstract class BaseListTaggedResourcesCmd extends BaseListProjectAndAccountResourcesCmd{
     @Parameter(name = ApiConstants.TAGS, type = CommandType.MAP, description = "List resources by tags (key/value pairs)")

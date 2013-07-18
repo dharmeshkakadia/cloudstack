@@ -19,9 +19,8 @@ package org.apache.cloudstack.api.agent.test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.apache.agent.api.CheckHealthCommand;
 import org.junit.Test;
-
-import com.cloud.agent.api.CheckHealthCommand;
 
 public class CheckHealthCommandTest {
     CheckHealthCommand chc = new CheckHealthCommand();

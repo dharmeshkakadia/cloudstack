@@ -16,8 +16,8 @@
 // under the License.
 package org.apache.cloudstack.acl;
 
-import com.cloud.domain.PartOf;
-import com.cloud.user.OwnedBy;
+import org.apache.domain.PartOf;
+import org.apache.user.OwnedBy;
 
 /**
  * ControlledEntity defines an object for which the access from an

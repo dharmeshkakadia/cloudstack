@@ -21,10 +21,9 @@ import java.util.Date;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.log4j.Logger;
-
+import org.apache.user.Account;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.response.SuccessResponse;
-import com.cloud.user.Account;
 
 @APICommand(name = "generateUsageRecords", description="Generates usage records. This will generate records only if there any records to be generated, i.e if the scheduled usage job was not run or failed", responseObject=SuccessResponse.class)
 public class GenerateUsageRecordsCmd extends BaseCmd {

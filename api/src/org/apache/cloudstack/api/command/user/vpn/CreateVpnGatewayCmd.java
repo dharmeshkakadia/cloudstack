@@ -24,11 +24,10 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.Site2SiteVpnGatewayResponse;
 import org.apache.cloudstack.api.response.VpcResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.network.Site2SiteVpnGateway;
-import com.cloud.network.vpc.Vpc;
+import org.apache.network.Site2SiteVpnGateway;
+import org.apache.network.vpc.Vpc;
 
 @APICommand(name = "createVpnGateway", description="Creates site to site vpn local gateway", responseObject=Site2SiteVpnGatewayResponse.class)
 public class CreateVpnGatewayCmd extends BaseAsyncCmd {

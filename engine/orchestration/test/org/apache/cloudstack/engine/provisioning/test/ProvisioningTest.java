@@ -42,13 +42,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineClusterVO;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineDataCenterVO;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineHostPodVO;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineHostVO;
-
-import com.cloud.dc.DataCenter.NetworkType;
+import org.apache.dc.DataCenter.NetworkType;
 
 import junit.framework.TestCase;
 

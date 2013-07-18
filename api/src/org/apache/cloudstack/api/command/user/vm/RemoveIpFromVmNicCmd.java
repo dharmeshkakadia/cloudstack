@@ -17,7 +17,12 @@
 package org.apache.cloudstack.api.command.user.vm;
 
 import org.apache.log4j.Logger;
-
+import org.apache.network.Network;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.vm.Nic;
+import org.apache.vm.NicSecondaryIp;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -26,17 +31,11 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.NicSecondaryIpResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
-import com.cloud.async.AsyncJob;
-import com.cloud.dc.DataCenter;
-import com.cloud.dc.DataCenter.NetworkType;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InsufficientAddressCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.Network;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.vm.Nic;
-import com.cloud.vm.NicSecondaryIp;
+import org.apache.dc.DataCenter;
+import org.apache.dc.DataCenter.NetworkType;
+import org.apache.event.EventTypes;
+import org.apache.exception.InsufficientAddressCapacityException;
+import org.apache.exception.InvalidParameterValueException;
 
 @APICommand(name = "removeIpFromNic", description="Assigns secondary IP to NIC.", responseObject=SuccessResponse.class)
 public class RemoveIpFromVmNicCmd extends BaseAsyncCmd {

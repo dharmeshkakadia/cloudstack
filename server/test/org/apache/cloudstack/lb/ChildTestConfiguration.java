@@ -20,6 +20,15 @@ import java.io.IOException;
 
 import org.apache.cloudstack.lb.dao.ApplicationLoadBalancerRuleDao;
 import org.apache.cloudstack.test.utils.SpringUtils;
+import org.apache.dc.dao.AccountVlanMapDaoImpl;
+import org.apache.event.dao.UsageEventDao;
+import org.apache.network.NetworkManager;
+import org.apache.network.NetworkModel;
+import org.apache.network.dao.FirewallRulesDao;
+import org.apache.network.lb.LoadBalancingRulesManager;
+import org.apache.tags.dao.ResourceTagDao;
+import org.apache.user.AccountManager;
+import org.apache.utils.net.NetUtils;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -29,16 +38,6 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.core.type.filter.TypeFilter;
-
-import com.cloud.dc.dao.AccountVlanMapDaoImpl;
-import com.cloud.event.dao.UsageEventDao;
-import com.cloud.network.NetworkManager;
-import com.cloud.network.NetworkModel;
-import com.cloud.network.dao.FirewallRulesDao;
-import com.cloud.network.lb.LoadBalancingRulesManager;
-import com.cloud.tags.dao.ResourceTagDao;
-import com.cloud.user.AccountManager;
-import com.cloud.utils.net.NetUtils;
 
 
 @Configuration

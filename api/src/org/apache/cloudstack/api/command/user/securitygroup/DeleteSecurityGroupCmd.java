@@ -26,11 +26,10 @@ import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ProjectAccountResponse;
 import org.apache.cloudstack.api.response.SecurityGroupResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceInUseException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceInUseException;
-import com.cloud.user.UserContext;
+import org.apache.user.UserContext;
 
 @APICommand(name = "deleteSecurityGroup", description="Deletes security group", responseObject=SuccessResponse.class)
 public class DeleteSecurityGroupCmd extends BaseCmd {

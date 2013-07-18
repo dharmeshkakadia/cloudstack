@@ -29,9 +29,8 @@ import org.apache.cloudstack.engine.subsystem.api.storage.PrimaryDataStoreProvid
 import org.apache.cloudstack.storage.datastore.driver.SolidfirePrimaryDataStoreDriver;
 import org.apache.cloudstack.storage.datastore.lifecycle.SolidFirePrimaryDataStoreLifeCycle;
 import org.apache.cloudstack.storage.datastore.util.SolidFireUtil;
+import org.apache.utils.component.ComponentContext;
 import org.springframework.stereotype.Component;
-
-import com.cloud.utils.component.ComponentContext;
 
 @Component
 public class SolidfirePrimaryDataStoreProvider implements PrimaryDataStoreProvider {

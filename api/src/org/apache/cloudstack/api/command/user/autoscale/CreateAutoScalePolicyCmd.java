@@ -18,6 +18,7 @@ package org.apache.cloudstack.api.command.user.autoscale;
 
 import java.util.List;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -26,15 +27,13 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.AutoScalePolicyResponse;
 import org.apache.cloudstack.api.response.ConditionResponse;
+import org.apache.domain.Domain;
+import org.apache.event.EventTypes;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.domain.Domain;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.network.as.AutoScalePolicy;
-import com.cloud.network.as.Condition;
-import com.cloud.user.Account;
+import org.apache.network.as.AutoScalePolicy;
+import org.apache.network.as.Condition;
+import org.apache.user.Account;
 
 @APICommand(name = "createAutoScalePolicy", description = "Creates an autoscale policy for a provision or deprovision action, the action is taken when the all the conditions evaluates to true for the specified duration. The policy is in effect once it is attached to a autscale vm group.", responseObject = AutoScalePolicyResponse.class)
 public class CreateAutoScalePolicyCmd extends BaseAsyncCreateCmd {

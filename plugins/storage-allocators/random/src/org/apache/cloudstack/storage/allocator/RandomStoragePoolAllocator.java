@@ -23,15 +23,14 @@ import javax.ejb.Local;
 
 import org.apache.cloudstack.engine.subsystem.api.storage.StoragePoolAllocator;
 import org.apache.cloudstack.storage.datastore.db.StoragePoolVO;
+import org.apache.deploy.DeploymentPlan;
+import org.apache.deploy.DeploymentPlanner.ExcludeList;
 import org.apache.log4j.Logger;
-
-import com.cloud.deploy.DeploymentPlan;
-import com.cloud.deploy.DeploymentPlanner.ExcludeList;
-import com.cloud.storage.ScopeType;
-import com.cloud.storage.StoragePool;
-import com.cloud.vm.DiskProfile;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
+import org.apache.storage.ScopeType;
+import org.apache.storage.StoragePool;
+import org.apache.vm.DiskProfile;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
 
 @Local(value = StoragePoolAllocator.class)
 public class RandomStoragePoolAllocator extends AbstractStoragePoolAllocator {

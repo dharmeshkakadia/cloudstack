@@ -19,8 +19,7 @@ package org.apache.cloudstack.api.command.user.network;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cloud.network.vpc.NetworkACL;
-import com.cloud.network.vpc.NetworkACLItem;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -32,18 +31,18 @@ import org.apache.cloudstack.api.response.NetworkACLItemResponse;
 import org.apache.cloudstack.api.response.NetworkACLResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
 import org.apache.commons.lang.StringUtils;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.Network;
-import com.cloud.network.vpc.Vpc;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.utils.net.NetUtils;
+import org.apache.network.Network;
+import org.apache.network.vpc.NetworkACL;
+import org.apache.network.vpc.NetworkACLItem;
+import org.apache.network.vpc.Vpc;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.utils.net.NetUtils;
 
 @APICommand(name = "createNetworkACL", description = "Creates a ACL rule in the given network (the network has to belong to VPC)",
 responseObject = NetworkACLItemResponse.class)

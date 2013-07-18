@@ -21,35 +21,34 @@ import java.util.Map;
 
 import javax.naming.ConfigurationException;
 
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.CheckHealthAnswer;
+import org.apache.agent.api.CheckHealthCommand;
+import org.apache.agent.api.Command;
+import org.apache.agent.api.ComputeChecksumCommand;
+import org.apache.agent.api.PingCommand;
+import org.apache.agent.api.PingStorageCommand;
+import org.apache.agent.api.ReadyAnswer;
+import org.apache.agent.api.ReadyCommand;
+import org.apache.agent.api.SecStorageSetupCommand;
+import org.apache.agent.api.StartupCommand;
+import org.apache.agent.api.StartupStorageCommand;
+import org.apache.agent.api.storage.ListTemplateAnswer;
+import org.apache.agent.api.storage.ListTemplateCommand;
+import org.apache.agent.api.to.NfsTO;
 import org.apache.cloudstack.storage.command.DownloadCommand;
 import org.apache.cloudstack.storage.command.DownloadProgressCommand;
 import org.apache.cloudstack.storage.template.DownloadManager;
 import org.apache.cloudstack.storage.template.DownloadManagerImpl;
+import org.apache.host.Host;
+import org.apache.host.Host.Type;
 import org.apache.log4j.Logger;
-
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.CheckHealthAnswer;
-import com.cloud.agent.api.CheckHealthCommand;
-import com.cloud.agent.api.Command;
-import com.cloud.agent.api.ComputeChecksumCommand;
-import com.cloud.agent.api.PingCommand;
-import com.cloud.agent.api.PingStorageCommand;
-import com.cloud.agent.api.ReadyAnswer;
-import com.cloud.agent.api.ReadyCommand;
-import com.cloud.agent.api.SecStorageSetupCommand;
-import com.cloud.agent.api.StartupCommand;
-import com.cloud.agent.api.StartupStorageCommand;
-import com.cloud.agent.api.storage.ListTemplateAnswer;
-import com.cloud.agent.api.storage.ListTemplateCommand;
-import com.cloud.agent.api.to.NfsTO;
-import com.cloud.host.Host;
-import com.cloud.host.Host.Type;
-import com.cloud.resource.ServerResourceBase;
-import com.cloud.storage.Storage;
-import com.cloud.storage.Storage.StoragePoolType;
-import com.cloud.storage.StorageLayer;
-import com.cloud.storage.template.TemplateProp;
-import com.cloud.utils.component.ComponentContext;
+import org.apache.resource.ServerResourceBase;
+import org.apache.storage.Storage;
+import org.apache.storage.StorageLayer;
+import org.apache.storage.Storage.StoragePoolType;
+import org.apache.storage.template.TemplateProp;
+import org.apache.utils.component.ComponentContext;
 
 public class LocalSecondaryStorageResource extends ServerResourceBase implements SecondaryStorageResource {
     private static final Logger s_logger = Logger.getLogger(LocalSecondaryStorageResource.class);
@@ -151,7 +150,7 @@ public class LocalSecondaryStorageResource extends ServerResourceBase implements
         if (_storage == null) {
             String value = (String)params.get(StorageLayer.ClassConfigKey);
             if (value == null) {
-                value = "com.cloud.storage.JavaStorageLayer";
+                value = "org.apache.storage.JavaStorageLayer";
             }
 
             try {

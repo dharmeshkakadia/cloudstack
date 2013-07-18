@@ -25,18 +25,17 @@ import javax.naming.ConfigurationException;
 
 import org.apache.cloudstack.api.response.ApiLimitResponse;
 import org.apache.cloudstack.ratelimit.ApiRateLimitServiceImpl;
+import org.apache.configuration.Config;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.exception.RequestLimitException;
+import org.apache.user.Account;
+import org.apache.user.AccountService;
+import org.apache.user.AccountVO;
+import org.apache.user.User;
+import org.apache.user.UserVO;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import com.cloud.configuration.Config;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.exception.RequestLimitException;
-import com.cloud.user.Account;
-import com.cloud.user.AccountService;
-import com.cloud.user.AccountVO;
-import com.cloud.user.User;
-import com.cloud.user.UserVO;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;

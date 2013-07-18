@@ -22,9 +22,9 @@ import java.util.List;
 
 import javax.ws.rs.Path;
 
-import com.cloud.network.Network;
-import com.cloud.storage.Volume;
-import com.cloud.vm.VirtualMachine;
+import org.apache.network.Network;
+import org.apache.storage.Volume;
+import org.apache.vm.VirtualMachine;
 
 /**
  * Service to retrieve CloudStack entities

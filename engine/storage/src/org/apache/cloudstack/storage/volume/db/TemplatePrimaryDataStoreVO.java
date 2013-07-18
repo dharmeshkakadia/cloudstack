@@ -31,12 +31,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.cloud.storage.VMTemplateStorageResourceAssoc.Status;
-
 import org.apache.cloudstack.engine.subsystem.api.storage.ObjectInDataStoreStateMachine;
-
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.fsm.StateObject;
+import org.apache.storage.VMTemplateStorageResourceAssoc.Status;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.fsm.StateObject;
 
 @Entity
 @Table(name = "template_spool_ref")

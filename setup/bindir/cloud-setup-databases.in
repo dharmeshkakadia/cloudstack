@@ -233,7 +233,7 @@ for full help
             depscp = r"@DEPSCLASSPATH@"
             classpath = os.path.pathsep.join([pcp,systemcp,depscp,mscp,conf])
             try:
-                runCmd(["java","-cp",classpath,"com.cloud.test.DatabaseConfig", self.serversetup])
+                runCmd(["java","-cp",classpath,"org.apache.test.DatabaseConfig", self.serversetup])
             except Exception, e:
                 self.errorAndExit("Apply %s failed"%self.serversetup)
         else:

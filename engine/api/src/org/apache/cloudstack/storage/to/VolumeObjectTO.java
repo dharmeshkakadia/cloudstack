@@ -16,13 +16,12 @@
 // under the License.
 package org.apache.cloudstack.storage.to;
 
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.DataTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.VolumeInfo;
-
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.DataTO;
-import com.cloud.storage.Storage;
-import com.cloud.storage.Volume;
+import org.apache.storage.Storage;
+import org.apache.storage.Volume;
 
 public class VolumeObjectTO implements DataTO {
     private String uuid;

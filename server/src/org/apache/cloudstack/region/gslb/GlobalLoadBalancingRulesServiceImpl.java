@@ -17,37 +17,38 @@
 
 package org.apache.cloudstack.region.gslb;
 
-import com.cloud.agent.AgentManager;
-import com.cloud.agent.api.routing.GlobalLoadBalancerConfigCommand;
-import com.cloud.agent.api.routing.SiteLoadBalancerConfig;
-import com.cloud.configuration.Config;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.event.ActionEvent;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.Network;
-import com.cloud.network.dao.*;
-import com.cloud.network.rules.LoadBalancer;
-import com.cloud.network.rules.RulesManager;
-import com.cloud.region.ha.GlobalLoadBalancerRule;
-import com.cloud.region.ha.GlobalLoadBalancingRulesService;
-import com.cloud.user.Account;
-import com.cloud.user.AccountManager;
-import com.cloud.user.UserContext;
-import com.cloud.utils.Pair;
-import com.cloud.utils.db.DB;
-import com.cloud.utils.db.Transaction;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.net.NetUtils;
+import org.apache.agent.AgentManager;
+import org.apache.agent.api.routing.GlobalLoadBalancerConfigCommand;
+import org.apache.agent.api.routing.SiteLoadBalancerConfig;
 import org.apache.cloudstack.acl.SecurityChecker;
 import org.apache.cloudstack.api.command.user.region.ha.gslb.*;
 import org.apache.cloudstack.region.Region;
 import org.apache.cloudstack.region.dao.RegionDao;
+import org.apache.configuration.Config;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.event.ActionEvent;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
+import org.apache.network.Network;
+import org.apache.network.dao.*;
+import org.apache.network.rules.LoadBalancer;
+import org.apache.network.rules.RulesManager;
+import org.apache.region.ha.GlobalLoadBalancerRule;
+import org.apache.region.ha.GlobalLoadBalancingRulesService;
+import org.apache.user.Account;
+import org.apache.user.AccountManager;
+import org.apache.user.UserContext;
+import org.apache.utils.Pair;
+import org.apache.utils.db.DB;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.net.NetUtils;
 
 import javax.ejb.Local;
 import javax.inject.Inject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -430,7 +431,7 @@ public class GlobalLoadBalancingRulesServiceImpl implements GlobalLoadBalancingR
 
         _accountMgr.checkAccess(caller, SecurityChecker.AccessType.ModifyEntry, true, gslbRule);
 
-        if (gslbRule.getState() == com.cloud.region.ha.GlobalLoadBalancerRule.State.Staged) {
+        if (gslbRule.getState() == org.apache.region.ha.GlobalLoadBalancerRule.State.Staged) {
             if (s_logger.isDebugEnabled()) {
                 s_logger.debug("Rule Id: " + gslbRuleId + " is still in Staged state so just removing it.");
             }
@@ -671,8 +672,8 @@ public class GlobalLoadBalancingRulesServiceImpl implements GlobalLoadBalancingR
     }
 
     @Override
-    public boolean revokeAllGslbRulesForAccount(com.cloud.user.Account caller, long accountId)
-            throws com.cloud.exception.ResourceUnavailableException {
+    public boolean revokeAllGslbRulesForAccount(org.apache.user.Account caller, long accountId)
+            throws org.apache.exception.ResourceUnavailableException {
         List<GlobalLoadBalancerRuleVO> gslbRules = _gslbRuleDao.listByAccount(accountId);
         if (gslbRules != null && !gslbRules.isEmpty()) {
             for (GlobalLoadBalancerRule gslbRule : gslbRules) {

@@ -24,14 +24,13 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.admin.storage.AddImageStoreCmd;
 import org.apache.cloudstack.api.response.HostResponse;
 import org.apache.cloudstack.api.response.ImageStoreResponse;
+import org.apache.storage.ImageStore;
+import org.apache.storage.StorageService;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
-
-import com.cloud.storage.ImageStore;
-import com.cloud.storage.StorageService;
 
 public class AddSecondaryStorageCmdTest extends TestCase {
 

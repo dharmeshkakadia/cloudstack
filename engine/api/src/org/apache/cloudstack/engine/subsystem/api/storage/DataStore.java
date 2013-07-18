@@ -16,8 +16,8 @@
 // under the License.
 package org.apache.cloudstack.engine.subsystem.api.storage;
 
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.storage.DataStoreRole;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.storage.DataStoreRole;
 
 public interface DataStore {
     DataStoreDriver getDriver();

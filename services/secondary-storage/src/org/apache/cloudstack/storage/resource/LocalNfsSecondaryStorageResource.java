@@ -16,9 +16,9 @@
 // under the License.
 package org.apache.cloudstack.storage.resource;
 
-import static com.cloud.utils.StringUtils.join;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
+import static org.apache.utils.StringUtils.join;
 
 import java.io.File;
 import java.io.InputStream;
@@ -32,29 +32,29 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Executors;
 
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.Command;
+import org.apache.agent.api.storage.DownloadAnswer;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.NfsTO;
+import org.apache.agent.api.to.S3TO;
+import org.apache.agent.api.to.SwiftTO;
 import org.apache.cloudstack.storage.command.DownloadSystemTemplateCommand;
 import org.apache.log4j.Logger;
+import org.apache.storage.JavaStorageLayer;
+import org.apache.storage.VMTemplateStorageResourceAssoc.Status;
+import org.apache.utils.S3Utils;
+import org.apache.utils.UriUtils;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.script.Script;
 import org.springframework.stereotype.Component;
 
 import com.amazonaws.services.s3.model.S3ObjectSummary;
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.Command;
-import com.cloud.agent.api.storage.DownloadAnswer;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.NfsTO;
-import com.cloud.agent.api.to.S3TO;
-import com.cloud.agent.api.to.SwiftTO;
-import com.cloud.configuration.Config;
-import com.cloud.configuration.dao.ConfigurationDaoImpl;
-import com.cloud.storage.JavaStorageLayer;
-import com.cloud.storage.VMTemplateStorageResourceAssoc.Status;
 
 import org.apache.cloudstack.storage.template.DownloadManagerImpl;
 import org.apache.cloudstack.storage.template.DownloadManagerImpl.ZfsPathParser;
-import com.cloud.utils.S3Utils;
-import com.cloud.utils.UriUtils;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.script.Script;
+import org.apache.configuration.Config;
+import org.apache.configuration.dao.ConfigurationDaoImpl;
 
 @Component
 public class LocalNfsSecondaryStorageResource extends NfsSecondaryStorageResource {

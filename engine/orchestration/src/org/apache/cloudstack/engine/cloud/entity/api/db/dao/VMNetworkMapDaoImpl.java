@@ -19,16 +19,18 @@ package org.apache.cloudstack.engine.cloud.entity.api.db.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Local;
 import javax.inject.Inject;
+
 import org.apache.cloudstack.engine.cloud.entity.api.db.VMNetworkMapVO;
+import org.apache.network.dao.NetworkDao;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.Transaction;
 import org.springframework.stereotype.Component;
-import com.cloud.network.dao.NetworkDao;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.Transaction;
 
 @Component
 @Local(value = { VMNetworkMapDao.class })

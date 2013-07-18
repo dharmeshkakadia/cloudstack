@@ -21,10 +21,10 @@ import java.util.List;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.network.rules.FirewallRule;
+import org.apache.serializer.Param;
+import org.apache.vm.NicSecondaryIp;
 
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.serializer.Param;
-import com.cloud.vm.NicSecondaryIp;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=NicSecondaryIp.class)

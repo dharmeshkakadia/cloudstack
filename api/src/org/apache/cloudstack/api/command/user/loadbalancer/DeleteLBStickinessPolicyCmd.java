@@ -24,14 +24,13 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.LBStickinessResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.rules.LoadBalancer;
-import com.cloud.network.rules.StickinessPolicy;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.network.rules.LoadBalancer;
+import org.apache.network.rules.StickinessPolicy;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "deleteLBStickinessPolicy", description = "Deletes a LB stickiness policy.", responseObject = SuccessResponse.class, since="3.0.0")
 public class DeleteLBStickinessPolicyCmd extends BaseAsyncCmd {

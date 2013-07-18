@@ -24,16 +24,15 @@ import org.apache.cloudstack.api.response.SspResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.network.element.SspService;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.host.Host;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.host.Host;
-import com.cloud.user.UserContext;
+import org.apache.user.UserContext;
 
 
 @APICommand(name="addStratosphereSsp", responseObject=SspResponse.class, description="Adds stratosphere ssp server")

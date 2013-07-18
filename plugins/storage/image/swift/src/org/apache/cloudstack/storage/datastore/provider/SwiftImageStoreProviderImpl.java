@@ -21,6 +21,7 @@ package org.apache.cloudstack.storage.datastore.provider;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
 import javax.inject.Inject;
 
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreDriver;
@@ -34,10 +35,9 @@ import org.apache.cloudstack.storage.image.ImageStoreDriver;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreHelper;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreProviderManager;
 import org.apache.cloudstack.storage.image.store.lifecycle.ImageStoreLifeCycle;
+import org.apache.storage.ScopeType;
+import org.apache.utils.component.ComponentContext;
 import org.springframework.stereotype.Component;
-
-import com.cloud.storage.ScopeType;
-import com.cloud.utils.component.ComponentContext;
 
 @Component
 public class SwiftImageStoreProviderImpl implements ImageStoreProvider {

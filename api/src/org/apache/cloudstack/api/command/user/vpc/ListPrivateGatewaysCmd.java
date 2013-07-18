@@ -27,9 +27,8 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.PrivateGatewayResponse;
 import org.apache.cloudstack.api.response.VpcResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.vpc.PrivateGateway;
-import com.cloud.utils.Pair;
+import org.apache.network.vpc.PrivateGateway;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listPrivateGateways", description="List private gateways", responseObject=PrivateGatewayResponse.class)
 public class ListPrivateGatewaysCmd extends BaseListProjectAndAccountResourcesCmd{

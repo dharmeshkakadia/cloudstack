@@ -22,9 +22,9 @@ import java.util.Date;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.serializer.Param;
+import org.apache.vm.snapshot.VMSnapshot;
 
-import com.cloud.serializer.Param;
-import com.cloud.vm.snapshot.VMSnapshot;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=VMSnapshot.class)

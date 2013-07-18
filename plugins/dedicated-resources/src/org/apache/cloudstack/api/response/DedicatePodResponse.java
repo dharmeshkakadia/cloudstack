@@ -18,9 +18,9 @@ package org.apache.cloudstack.api.response;
 
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.dc.DedicatedResources;
+import org.apache.serializer.Param;
 
-import com.cloud.dc.DedicatedResources;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value = DedicatedResources.class)

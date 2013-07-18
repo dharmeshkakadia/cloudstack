@@ -18,7 +18,6 @@
  */
 package org.apache.cloudstack.api.command.admin.storage;
 
-import static com.cloud.user.Account.ACCOUNT_ID_SYSTEM;
 import static org.apache.cloudstack.api.ApiConstants.S3_ACCESS_KEY;
 import static org.apache.cloudstack.api.ApiConstants.S3_BUCKET_NAME;
 import static org.apache.cloudstack.api.ApiConstants.S3_CONNECTION_TIMEOUT;
@@ -30,6 +29,7 @@ import static org.apache.cloudstack.api.ApiConstants.S3_SOCKET_TIMEOUT;
 import static org.apache.cloudstack.api.BaseCmd.CommandType.BOOLEAN;
 import static org.apache.cloudstack.api.BaseCmd.CommandType.INTEGER;
 import static org.apache.cloudstack.api.BaseCmd.CommandType.STRING;
+import static org.apache.user.Account.ACCOUNT_ID_SYSTEM;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,15 +41,14 @@ import org.apache.cloudstack.api.BaseCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ImageStoreResponse;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.DiscoveryException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.DiscoveryException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.storage.ImageStore;
+import org.apache.storage.ImageStore;
 
 @APICommand(name = "addS3", description = "Adds S3", responseObject = ImageStoreResponse.class, since = "4.0.0")
 public final class AddS3Cmd extends BaseCmd {

@@ -25,17 +25,16 @@ import org.apache.cloudstack.engine.subsystem.api.storage.HypervisorHostListener
 import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.StoragePoolVO;
 import org.apache.log4j.Logger;
-
-import com.cloud.agent.AgentManager;
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.ModifyStoragePoolAnswer;
-import com.cloud.agent.api.ModifyStoragePoolCommand;
-import com.cloud.alert.AlertManager;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.StoragePoolHostVO;
-import com.cloud.storage.dao.StoragePoolHostDao;
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.agent.AgentManager;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.ModifyStoragePoolAnswer;
+import org.apache.agent.api.ModifyStoragePoolCommand;
+import org.apache.alert.AlertManager;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.StoragePool;
+import org.apache.storage.StoragePoolHostVO;
+import org.apache.storage.dao.StoragePoolHostDao;
+import org.apache.utils.exception.CloudRuntimeException;
 
 public class DefaultHostListener implements HypervisorHostListener {
     private static final Logger s_logger = Logger.getLogger(DefaultHostListener.class);

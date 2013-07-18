@@ -25,14 +25,13 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.user.firewall.DeletePortForwardingRuleCmd;
 import org.apache.cloudstack.api.response.IPAddressResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InsufficientAddressCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InsufficientAddressCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.IpAddress;
+import org.apache.network.IpAddress;
 
 @APICommand(name = "disableStaticNat", description="Disables static rule for given ip address", responseObject=SuccessResponse.class)
 public class DisableStaticNatCmd extends BaseAsyncCmd {

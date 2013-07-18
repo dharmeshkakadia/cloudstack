@@ -21,14 +21,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.cloudstack.engine.cloud.entity.api.db.VMEntityVO;
-
-import com.cloud.utils.Pair;
-import com.cloud.utils.db.GenericDao;
-import com.cloud.utils.fsm.StateDao;
-import com.cloud.vm.VMInstanceVO;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachine.State;
-import com.cloud.vm.VirtualMachine.Type;
+import org.apache.utils.Pair;
+import org.apache.utils.db.GenericDao;
+import org.apache.utils.fsm.StateDao;
+import org.apache.vm.VMInstanceVO;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachine.State;
+import org.apache.vm.VirtualMachine.Type;
 
 
 /*

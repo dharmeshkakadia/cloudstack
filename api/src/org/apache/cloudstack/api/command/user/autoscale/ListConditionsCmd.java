@@ -17,7 +17,6 @@
 
 package org.apache.cloudstack.api.command.user.autoscale;
 
-import com.cloud.network.as.Condition;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListAccountResourcesCmd;
@@ -27,6 +26,7 @@ import org.apache.cloudstack.api.response.ConditionResponse;
 import org.apache.cloudstack.api.response.CounterResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.log4j.Logger;
+import org.apache.network.as.Condition;
 
 import java.util.ArrayList;
 import java.util.List;

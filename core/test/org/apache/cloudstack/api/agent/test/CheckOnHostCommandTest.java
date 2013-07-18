@@ -24,14 +24,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.agent.api.CheckOnHostCommand;
+import org.apache.agent.api.to.HostTO;
+import org.apache.host.Host;
+import org.apache.host.Status;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.resource.ResourceState;
 import org.junit.Test;
-
-import com.cloud.agent.api.CheckOnHostCommand;
-import com.cloud.agent.api.to.HostTO;
-import com.cloud.host.Host;
-import com.cloud.host.Status;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.resource.ResourceState;
 
 public class CheckOnHostCommandTest {
     public Host host = new Host() {

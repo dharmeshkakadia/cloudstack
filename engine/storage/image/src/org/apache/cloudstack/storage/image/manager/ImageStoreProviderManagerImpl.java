@@ -40,8 +40,8 @@ import org.apache.cloudstack.storage.image.store.ImageStoreImpl;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
-import com.cloud.storage.ScopeType;
-import com.cloud.storage.dao.VMTemplateDao;
+import org.apache.storage.ScopeType;
+import org.apache.storage.dao.VMTemplateDao;
 
 @Component
 public class ImageStoreProviderManagerImpl implements ImageStoreProviderManager {

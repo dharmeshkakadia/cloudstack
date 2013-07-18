@@ -16,12 +16,14 @@
 // under the License.
 package org.apache.cloudstack.api.response;
 
-import com.cloud.network.rules.HealthCheckPolicy;
 import org.apache.cloudstack.api.ApiConstants;
-import com.cloud.serializer.Param;
+
 import com.google.gson.annotations.SerializedName;
+
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.network.rules.HealthCheckPolicy;
+import org.apache.serializer.Param;
 
 import java.util.List;
 import java.util.UUID;

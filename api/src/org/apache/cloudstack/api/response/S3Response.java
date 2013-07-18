@@ -29,8 +29,8 @@ import static org.apache.cloudstack.api.ApiConstants.S3_SECRET_KEY;
 import static org.apache.cloudstack.api.ApiConstants.S3_SOCKET_TIMEOUT;
 
 import org.apache.cloudstack.api.BaseResponse;
+import org.apache.serializer.Param;
 
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 public class S3Response extends BaseResponse {

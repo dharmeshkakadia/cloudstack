@@ -35,292 +35,292 @@ msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4250 : \"com.cloud.utils.exception.CloudRuntimeException\""
+msgid "4250 : \"org.apache.utils.exception.CloudRuntimeException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4255 : \"com.cloud.utils.exception.ExceptionUtil\""
+msgid "4255 : \"org.apache.utils.exception.ExceptionUtil\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4260 : \"com.cloud.utils.exception.ExecutionException\""
+msgid "4260 : \"org.apache.utils.exception.ExecutionException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4265 : \"com.cloud.utils.exception.HypervisorVersionChangedException\""
+msgid "4265 : \"org.apache.utils.exception.HypervisorVersionChangedException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4270 : \"com.cloud.utils.exception.RuntimeCloudException\""
+msgid "4270 : \"org.apache.utils.exception.RuntimeCloudException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4275 : \"com.cloud.exception.CloudException\""
+msgid "4275 : \"org.apache.exception.CloudException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4280 : \"com.cloud.exception.AccountLimitException\""
+msgid "4280 : \"org.apache.exception.AccountLimitException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4285 : \"com.cloud.exception.AgentUnavailableException\""
+msgid "4285 : \"org.apache.exception.AgentUnavailableException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4290 : \"com.cloud.exception.CloudAuthenticationException\""
+msgid "4290 : \"org.apache.exception.CloudAuthenticationException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4295 : \"com.cloud.exception.CloudExecutionException\""
+msgid "4295 : \"org.apache.exception.CloudExecutionException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4300 : \"com.cloud.exception.ConcurrentOperationException\""
+msgid "4300 : \"org.apache.exception.ConcurrentOperationException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4305 : \"com.cloud.exception.ConflictingNetworkSettingsException\""
+msgid "4305 : \"org.apache.exception.ConflictingNetworkSettingsException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4310 : \"com.cloud.exception.DiscoveredWithErrorException\""
+msgid "4310 : \"org.apache.exception.DiscoveredWithErrorException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4315 : \"com.cloud.exception.HAStateException\""
+msgid "4315 : \"org.apache.exception.HAStateException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4320 : \"com.cloud.exception.InsufficientAddressCapacityException\""
+msgid "4320 : \"org.apache.exception.InsufficientAddressCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4325 : \"com.cloud.exception.InsufficientCapacityException\""
+msgid "4325 : \"org.apache.exception.InsufficientCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4330 : \"com.cloud.exception.InsufficientNetworkCapacityException\""
+msgid "4330 : \"org.apache.exception.InsufficientNetworkCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4335 : \"com.cloud.exception.InsufficientServerCapacityException\""
+msgid "4335 : \"org.apache.exception.InsufficientServerCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4340 : \"com.cloud.exception.InsufficientStorageCapacityException\""
+msgid "4340 : \"org.apache.exception.InsufficientStorageCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4345 : \"com.cloud.exception.InternalErrorException\""
+msgid "4345 : \"org.apache.exception.InternalErrorException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4350 : \"com.cloud.exception.InvalidParameterValueException\""
+msgid "4350 : \"org.apache.exception.InvalidParameterValueException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4355 : \"com.cloud.exception.ManagementServerException\""
+msgid "4355 : \"org.apache.exception.ManagementServerException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4360 : \"com.cloud.exception.NetworkRuleConflictException\""
+msgid "4360 : \"org.apache.exception.NetworkRuleConflictException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4365 : \"com.cloud.exception.PermissionDeniedException\""
+msgid "4365 : \"org.apache.exception.PermissionDeniedException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4370 : \"com.cloud.exception.ResourceAllocationException\""
+msgid "4370 : \"org.apache.exception.ResourceAllocationException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4375 : \"com.cloud.exception.ResourceInUseException\""
+msgid "4375 : \"org.apache.exception.ResourceInUseException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4380 : \"com.cloud.exception.ResourceUnavailableException\""
+msgid "4380 : \"org.apache.exception.ResourceUnavailableException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4385 : \"com.cloud.exception.StorageUnavailableException\""
+msgid "4385 : \"org.apache.exception.StorageUnavailableException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4390 : \"com.cloud.exception.UnsupportedServiceException\""
+msgid "4390 : \"org.apache.exception.UnsupportedServiceException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4395 : \"com.cloud.exception.VirtualMachineMigrationException\""
+msgid "4395 : \"org.apache.exception.VirtualMachineMigrationException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4400 : \"com.cloud.exception.AccountLimitException\""
+msgid "4400 : \"org.apache.exception.AccountLimitException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4405 : \"com.cloud.exception.AgentUnavailableException\""
+msgid "4405 : \"org.apache.exception.AgentUnavailableException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4410 : \"com.cloud.exception.CloudAuthenticationException\""
+msgid "4410 : \"org.apache.exception.CloudAuthenticationException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4415 : \"com.cloud.exception.CloudException\""
+msgid "4415 : \"org.apache.exception.CloudException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4420 : \"com.cloud.exception.CloudExecutionException\""
+msgid "4420 : \"org.apache.exception.CloudExecutionException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4425 : \"com.cloud.exception.ConcurrentOperationException\""
+msgid "4425 : \"org.apache.exception.ConcurrentOperationException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4430 : \"com.cloud.exception.ConflictingNetworkSettingsException\""
+msgid "4430 : \"org.apache.exception.ConflictingNetworkSettingsException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4435 : \"com.cloud.exception.ConnectionException\""
+msgid "4435 : \"org.apache.exception.ConnectionException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4440 : \"com.cloud.exception.DiscoveredWithErrorException\""
+msgid "4440 : \"org.apache.exception.DiscoveredWithErrorException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4445 : \"com.cloud.exception.DiscoveryException\""
+msgid "4445 : \"org.apache.exception.DiscoveryException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4450 : \"com.cloud.exception.HAStateException\""
+msgid "4450 : \"org.apache.exception.HAStateException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4455 : \"com.cloud.exception.InsufficientAddressCapacityException\""
+msgid "4455 : \"org.apache.exception.InsufficientAddressCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4460 : \"com.cloud.exception.InsufficientCapacityException\""
+msgid "4460 : \"org.apache.exception.InsufficientCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4465 : \"com.cloud.exception.InsufficientNetworkCapacityException\""
+msgid "4465 : \"org.apache.exception.InsufficientNetworkCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4470 : \"com.cloud.exception.InsufficientServerCapacityException\""
+msgid "4470 : \"org.apache.exception.InsufficientServerCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4475 : \"com.cloud.exception.InsufficientStorageCapacityException\""
+msgid "4475 : \"org.apache.exception.InsufficientStorageCapacityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4480 : \"com.cloud.exception.InsufficientVirtualNetworkCapcityException\""
+msgid "4480 : \"org.apache.exception.InsufficientVirtualNetworkCapcityException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4485 : \"com.cloud.exception.InternalErrorException\""
+msgid "4485 : \"org.apache.exception.InternalErrorException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4490 : \"com.cloud.exception.InvalidParameterValueException\""
+msgid "4490 : \"org.apache.exception.InvalidParameterValueException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4495 : \"com.cloud.exception.ManagementServerException\""
+msgid "4495 : \"org.apache.exception.ManagementServerException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4500 : \"com.cloud.exception.NetworkRuleConflictException\""
+msgid "4500 : \"org.apache.exception.NetworkRuleConflictException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4505 : \"com.cloud.exception.PermissionDeniedException\""
+msgid "4505 : \"org.apache.exception.PermissionDeniedException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4510 : \"com.cloud.exception.ResourceAllocationException\""
+msgid "4510 : \"org.apache.exception.ResourceAllocationException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4515 : \"com.cloud.exception.ResourceInUseException\""
+msgid "4515 : \"org.apache.exception.ResourceInUseException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4520 : \"com.cloud.exception.ResourceUnavailableException\""
+msgid "4520 : \"org.apache.exception.ResourceUnavailableException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4525 : \"com.cloud.exception.StorageUnavailableException\""
+msgid "4525 : \"org.apache.exception.StorageUnavailableException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4530 : \"com.cloud.exception.UnsupportedServiceException\""
+msgid "4530 : \"org.apache.exception.UnsupportedServiceException\""
 msgstr ""
 
 #. Tag: para
 #, no-c-format
-msgid "4535 : \"com.cloud.exception.VirtualMachineMigrationException\""
+msgid "4535 : \"org.apache.exception.VirtualMachineMigrationException\""
 msgstr ""
 
 #. Tag: para

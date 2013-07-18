@@ -23,8 +23,7 @@ import org.apache.cloudstack.api.BaseCmd;
 import org.apache.cloudstack.api.response.EventTypeResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "listEventTypes", description = "List Event Types", responseObject = EventTypeResponse.class)
 public class ListEventTypesCmd extends BaseCmd {

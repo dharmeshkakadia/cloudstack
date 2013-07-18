@@ -56,7 +56,7 @@ under the License.
    <!-- Limit categories -->
    <!-- ================ -->
 
-   <category name="com.cloud">
+   <category name="org.apache">
      <priority value="DEBUG"/>
    </category>
    

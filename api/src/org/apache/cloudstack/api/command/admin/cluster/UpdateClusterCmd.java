@@ -23,11 +23,10 @@ import org.apache.cloudstack.api.BaseCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ClusterResponse;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.org.Cluster;
-import com.cloud.user.Account;
+import org.apache.org.Cluster;
+import org.apache.user.Account;
 
 @APICommand(name = "updateCluster", description="Updates an existing cluster", responseObject=ClusterResponse.class)
 public class UpdateClusterCmd extends BaseCmd {

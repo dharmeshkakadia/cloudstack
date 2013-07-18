@@ -16,9 +16,14 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.vm;
 
-import com.cloud.vm.NicSecondaryIp;
 import org.apache.log4j.Logger;
-
+import org.apache.network.Network;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.utils.net.NetUtils;
+import org.apache.vm.Nic;
+import org.apache.vm.NicSecondaryIp;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -27,22 +32,15 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.NicResponse;
 import org.apache.cloudstack.api.response.NicSecondaryIpResponse;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.dc.DataCenter;
-import com.cloud.dc.DataCenter.NetworkType;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientAddressCapacityException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.Network;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.utils.net.NetUtils;
-import com.cloud.vm.Nic;
+import org.apache.dc.DataCenter;
+import org.apache.dc.DataCenter.NetworkType;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientAddressCapacityException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 
 @APICommand(name = "addIpToNic", description = "Assigns secondary IP to NIC", responseObject = NicSecondaryIpResponse.class)
 public class AddIpToVmNicCmd extends BaseAsyncCmd {

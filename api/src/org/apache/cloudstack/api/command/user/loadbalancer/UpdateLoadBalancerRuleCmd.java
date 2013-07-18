@@ -24,12 +24,11 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.FirewallRuleResponse;
 import org.apache.cloudstack.api.response.LoadBalancerResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.network.rules.LoadBalancer;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.network.rules.LoadBalancer;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "updateLoadBalancerRule", description="Updates load balancer", responseObject=LoadBalancerResponse.class)
 public class UpdateLoadBalancerRuleCmd extends BaseAsyncCmd {

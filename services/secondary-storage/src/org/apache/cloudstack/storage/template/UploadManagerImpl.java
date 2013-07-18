@@ -30,29 +30,28 @@ import java.util.concurrent.Executors;
 
 import javax.naming.ConfigurationException;
 
+import org.apache.agent.api.storage.CreateEntityDownloadURLAnswer;
+import org.apache.agent.api.storage.CreateEntityDownloadURLCommand;
+import org.apache.agent.api.storage.DeleteEntityDownloadURLAnswer;
+import org.apache.agent.api.storage.DeleteEntityDownloadURLCommand;
+import org.apache.agent.api.storage.UploadAnswer;
+import org.apache.agent.api.storage.UploadCommand;
+import org.apache.agent.api.storage.UploadProgressCommand;
 import org.apache.cloudstack.storage.resource.SecondaryStorageResource;
 import org.apache.log4j.Logger;
-
-import com.cloud.agent.api.storage.CreateEntityDownloadURLAnswer;
-import com.cloud.agent.api.storage.CreateEntityDownloadURLCommand;
-import com.cloud.agent.api.storage.DeleteEntityDownloadURLAnswer;
-import com.cloud.agent.api.storage.DeleteEntityDownloadURLCommand;
-import com.cloud.agent.api.storage.UploadAnswer;
-import com.cloud.agent.api.storage.UploadCommand;
-import com.cloud.agent.api.storage.UploadProgressCommand;
-import com.cloud.storage.Storage.ImageFormat;
-import com.cloud.storage.StorageLayer;
-import com.cloud.storage.Upload;
-import com.cloud.storage.UploadVO;
-import com.cloud.storage.template.FtpTemplateUploader;
-import com.cloud.storage.template.Processor;
-import com.cloud.storage.template.TemplateUploader;
-import com.cloud.storage.template.TemplateUploader.Status;
-import com.cloud.storage.template.TemplateUploader.UploadCompleteCallback;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.utils.component.ManagerBase;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.script.Script;
+import org.apache.storage.StorageLayer;
+import org.apache.storage.Upload;
+import org.apache.storage.UploadVO;
+import org.apache.storage.Storage.ImageFormat;
+import org.apache.storage.template.FtpTemplateUploader;
+import org.apache.storage.template.Processor;
+import org.apache.storage.template.TemplateUploader;
+import org.apache.storage.template.TemplateUploader.Status;
+import org.apache.storage.template.TemplateUploader.UploadCompleteCallback;
+import org.apache.utils.NumbersUtil;
+import org.apache.utils.component.ManagerBase;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.script.Script;
 
 public class UploadManagerImpl extends ManagerBase implements UploadManager {
 
@@ -276,7 +275,7 @@ public class UploadManagerImpl extends ManagerBase implements UploadManager {
     }
 
     @Override
-    public com.cloud.storage.UploadVO.Status getUploadStatus2(String jobId) {
+    public org.apache.storage.UploadVO.Status getUploadStatus2(String jobId) {
         return convertStatus(getUploadStatus(jobId));
     }
     @Override
@@ -292,7 +291,7 @@ public class UploadManagerImpl extends ManagerBase implements UploadManager {
         if (jobId != null)
             uj = jobs.get(jobId);
         if (uj == null) {           
-            return new UploadAnswer(null, 0, "Cannot find job", com.cloud.storage.UploadVO.Status.UNKNOWN, "", "", 0);            
+            return new UploadAnswer(null, 0, "Cannot find job", org.apache.storage.UploadVO.Status.UNKNOWN, "", "", 0);            
         }
         TemplateUploader td = uj.getTemplateUploader();
         switch (cmd.getRequest()) {
@@ -334,7 +333,7 @@ public class UploadManagerImpl extends ManagerBase implements UploadManager {
                 cmd.getTemplateSizeInBytes());
         sleep();
         if (jobId == null) {
-            return new UploadAnswer(null, 0, "Internal Error", com.cloud.storage.UploadVO.Status.UPLOAD_ERROR, "", "", 0);
+            return new UploadAnswer(null, 0, "Internal Error", org.apache.storage.UploadVO.Status.UPLOAD_ERROR, "", "", 0);
         }
         return new UploadAnswer(jobId, getUploadPct(jobId), getUploadError(jobId), getUploadStatus2(jobId), getUploadLocalPath(jobId), getInstallPath(jobId),
                 getUploadTemplateSize(jobId));

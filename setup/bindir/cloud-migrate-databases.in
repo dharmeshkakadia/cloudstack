@@ -158,7 +158,7 @@ class From21step1toTo21datamigrated(cloud_utils.MigrationStep):
 		cp = os.path.pathsep.join([pcp,systemcp,depscp,mscp,migrationxml,conf])
 		cmd = ["java"]
 		cmd += ["-cp",cp]
-		cmd += ["com.cloud.migration.Db20to21MigrationUtil"]
+		cmd += ["org.apache.migration.Db20to21MigrationUtil"]
 		logging.debug("Running command: %s"," ".join(cmd))
 		subprocess.check_call(cmd)
 

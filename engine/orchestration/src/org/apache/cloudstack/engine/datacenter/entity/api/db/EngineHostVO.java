@@ -40,14 +40,13 @@ import javax.persistence.Transient;
 import org.apache.cloudstack.api.Identity;
 import org.apache.cloudstack.engine.datacenter.entity.api.DataCenterResourceEntity.State;
 import org.apache.cloudstack.engine.datacenter.entity.api.DataCenterResourceEntity.State.Event;
-
-import com.cloud.host.Status;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.resource.ResourceState;
-import com.cloud.storage.Storage.StoragePoolType;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.utils.db.GenericDao;
-import com.cloud.utils.db.StateMachine;
+import org.apache.host.Status;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.resource.ResourceState;
+import org.apache.storage.Storage.StoragePoolType;
+import org.apache.utils.NumbersUtil;
+import org.apache.utils.db.GenericDao;
+import org.apache.utils.db.StateMachine;
 
 @Entity
 @Table(name="host")

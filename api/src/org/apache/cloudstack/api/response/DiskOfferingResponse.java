@@ -21,9 +21,9 @@ import java.util.Date;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.offering.DiskOffering;
+import org.apache.serializer.Param;
 
-import com.cloud.offering.DiskOffering;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=DiskOffering.class)

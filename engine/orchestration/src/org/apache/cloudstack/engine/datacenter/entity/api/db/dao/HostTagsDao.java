@@ -17,8 +17,9 @@
 package org.apache.cloudstack.engine.datacenter.entity.api.db.dao;
 
 import java.util.List;
-import com.cloud.host.HostTagVO;
-import com.cloud.utils.db.GenericDao;
+
+import org.apache.host.HostTagVO;
+import org.apache.utils.db.GenericDao;
 
 public interface HostTagsDao extends GenericDao<HostTagVO, Long> {
     

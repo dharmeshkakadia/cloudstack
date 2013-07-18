@@ -18,8 +18,8 @@ package org.apache.cloudstack.region;
 
 import java.util.Date;
 
-import com.cloud.utils.net.Ip;
 import org.apache.cloudstack.api.InternalIdentity;
+import org.apache.utils.net.Ip;
 
 public interface PortableIp extends InternalIdentity  {
 

@@ -18,7 +18,10 @@
 package org.apache.cloudstack.api.command.user.vm;
 
 import org.apache.log4j.Logger;
-
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.uservm.UserVm;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
 import org.apache.cloudstack.api.BaseAsyncCmd;
@@ -29,13 +32,9 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
-import com.cloud.async.AsyncJob;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.uservm.UserVm;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceUnavailableException;
+import org.apache.event.EventTypes;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceUnavailableException;
 
 @APICommand(name = "resetSSHKeyForVirtualMachine", responseObject = UserVmResponse.class, description = "Resets the SSH Key for virtual machine. " +
         "The virtual machine must be in a \"Stopped\" state. [async]")

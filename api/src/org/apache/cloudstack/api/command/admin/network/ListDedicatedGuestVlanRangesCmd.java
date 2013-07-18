@@ -16,12 +16,12 @@
 // under the License.
 package org.apache.cloudstack.api.command.admin.network;
 
-import com.cloud.network.GuestVlan;
-import com.cloud.user.Account;
-import com.cloud.utils.Pair;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.response.*;
 import org.apache.log4j.Logger;
+import org.apache.network.GuestVlan;
+import org.apache.user.Account;
+import org.apache.utils.Pair;
 
 import java.util.ArrayList;
 import java.util.List;

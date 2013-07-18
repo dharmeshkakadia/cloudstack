@@ -40,7 +40,7 @@ PIDFILE=@PIDDIR@/"$whatami".pid
 LOCKFILE=@LOCKDIR@/"$SHORTNAME"
 LOGFILE=@AGENTLOG@
 PROGNAME="Cloud Agent"
-CLASS="com.cloud.agent.AgentShell"
+CLASS="org.apache.agent.AgentShell"
 
 unset OPTIONS
 [ -r @SYSCONFDIR@/default/"$SHORTNAME" ] && source @SYSCONFDIR@/default/"$SHORTNAME"

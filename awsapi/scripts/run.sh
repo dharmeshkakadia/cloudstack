@@ -20,4 +20,4 @@ do
   CP=${CP}:$file
 done
 
-java -cp $CP:./cloud-tool.jar com.cloud.gate.tool.CloudS3CmdTool $@
+java -cp $CP:./cloud-tool.jar org.apache.gate.tool.CloudS3CmdTool $@

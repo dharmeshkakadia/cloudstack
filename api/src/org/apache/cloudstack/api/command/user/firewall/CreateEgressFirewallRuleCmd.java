@@ -19,8 +19,14 @@ package org.apache.cloudstack.api.command.user.firewall;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.log4j.Logger;
 
+import org.apache.log4j.Logger;
+import org.apache.network.Network;
+import org.apache.network.rules.FirewallRule;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.utils.net.NetUtils;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -31,17 +37,10 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.FirewallResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.Network;
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.utils.net.NetUtils;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceUnavailableException;
 
 @APICommand(name = "createEgressFirewallRule", description = "Creates a egress firewall rule for a given network ", responseObject = FirewallResponse.class)
 public class CreateEgressFirewallRuleCmd extends BaseAsyncCreateCmd implements FirewallRule {

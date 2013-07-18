@@ -27,9 +27,8 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.CounterResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.as.Counter;
-import com.cloud.user.Account;
+import org.apache.network.as.Counter;
+import org.apache.user.Account;
 
 @APICommand(name = "listCounters", description = "List the counters", responseObject = CounterResponse.class)
 public class ListCountersCmd extends BaseListCmd {

@@ -21,7 +21,7 @@ package org.apache.cloudstack.engine.service.api;
 import java.net.URI;
 import java.util.List;
 
-import com.cloud.utils.component.PluggableService;
+import org.apache.utils.component.PluggableService;
 
 public interface DirectoryService {
     void registerService(String serviceName, URI endpoint);

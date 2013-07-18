@@ -28,38 +28,47 @@ import javax.naming.ConfigurationException;
 
 import org.apache.cloudstack.affinity.dao.AffinityGroupDao;
 import org.apache.cloudstack.affinity.dao.AffinityGroupVMMapDao;
+import org.apache.deploy.DeploymentPlanner;
+import org.apache.event.ActionEvent;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.PermissionDeniedException;
+import org.apache.exception.ResourceInUseException;
 import org.apache.log4j.Logger;
+import org.apache.network.security.SecurityGroup;
+import org.apache.user.Account;
+import org.apache.user.AccountManager;
+import org.apache.user.UserContext;
+import org.apache.uservm.UserVm;
+import org.apache.utils.Pair;
+import org.apache.utils.component.ComponentContext;
+import org.apache.utils.component.Manager;
+import org.apache.utils.component.ManagerBase;
+import org.apache.utils.db.DB;
+import org.apache.utils.db.Filter;
+import org.apache.utils.db.JoinBuilder;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.fsm.StateListener;
+import org.apache.vm.UserVmVO;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachine.Event;
+import org.apache.vm.VirtualMachine.State;
+import org.apache.vm.dao.UserVmDao;
 import org.springframework.context.annotation.Primary;
 
 
-import com.cloud.deploy.DeploymentPlanner;
-import com.cloud.event.ActionEvent;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.PermissionDeniedException;
-import com.cloud.exception.ResourceInUseException;
-import com.cloud.network.security.SecurityGroup;
-import com.cloud.user.Account;
-import com.cloud.user.AccountManager;
-import com.cloud.user.UserContext;
-import com.cloud.uservm.UserVm;
-import com.cloud.utils.Pair;
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.utils.component.Manager;
-import com.cloud.utils.component.ManagerBase;
-import com.cloud.utils.db.DB;
-import com.cloud.utils.db.Filter;
-import com.cloud.utils.db.JoinBuilder;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.Transaction;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.fsm.StateListener;
-import com.cloud.vm.UserVmVO;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachine.Event;
-import com.cloud.vm.VirtualMachine.State;
-import com.cloud.vm.dao.UserVmDao;
+
+
+
+
+
+
+
+
+
 
 @Local(value = { AffinityGroupService.class })
 public class AffinityGroupServiceImpl extends ManagerBase implements AffinityGroupService, Manager,

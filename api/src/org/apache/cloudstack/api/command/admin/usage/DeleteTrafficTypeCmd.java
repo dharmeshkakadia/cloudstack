@@ -16,6 +16,7 @@
 // under the License.
 package org.apache.cloudstack.api.command.admin.usage;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -24,11 +25,9 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.TrafficTypeResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "deleteTrafficType", description="Deletes traffic type of a physical network", responseObject=SuccessResponse.class, since="3.0.0")
 public class DeleteTrafficTypeCmd extends BaseAsyncCmd {

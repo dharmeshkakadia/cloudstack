@@ -29,8 +29,7 @@ import org.apache.cloudstack.engine.subsystem.api.storage.PrimaryDataStoreDriver
 import org.apache.cloudstack.engine.subsystem.api.storage.PrimaryDataStoreProvider;
 import org.apache.cloudstack.storage.datastore.driver.CloudStackPrimaryDataStoreDriverImpl;
 import org.apache.cloudstack.storage.datastore.lifecycle.CloudStackPrimaryDataStoreLifeCycleImpl;
-
-import com.cloud.utils.component.ComponentContext;
+import org.apache.utils.component.ComponentContext;
 
 public class CloudStackPrimaryDataStoreProviderImpl implements PrimaryDataStoreProvider {
 

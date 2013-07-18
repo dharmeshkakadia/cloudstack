@@ -26,14 +26,13 @@ import org.apache.cloudstack.api.response.IPAddressResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.IpAddress;
-import com.cloud.user.Account;
-import com.cloud.uservm.UserVm;
+import org.apache.network.IpAddress;
+import org.apache.user.Account;
+import org.apache.uservm.UserVm;
 
 @APICommand(name = "enableStaticNat", description="Enables static nat for given ip address", responseObject=SuccessResponse.class)
 public class EnableStaticNatCmd extends BaseCmd{

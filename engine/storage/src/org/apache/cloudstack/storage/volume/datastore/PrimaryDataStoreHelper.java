@@ -23,28 +23,27 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.apache.agent.api.StoragePoolInfo;
+import org.apache.capacity.Capacity;
+import org.apache.capacity.CapacityVO;
+import org.apache.capacity.dao.CapacityDao;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreManager;
 import org.apache.cloudstack.engine.subsystem.api.storage.HostScope;
 import org.apache.cloudstack.engine.subsystem.api.storage.PrimaryDataStoreParameters;
 import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.StoragePoolVO;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 import org.apache.log4j.Logger;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.ScopeType;
+import org.apache.storage.StorageManager;
+import org.apache.storage.StoragePoolHostVO;
+import org.apache.storage.StoragePoolStatus;
+import org.apache.storage.dao.StoragePoolHostDao;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.springframework.stereotype.Component;
-
-import com.cloud.agent.api.StoragePoolInfo;
-import com.cloud.capacity.Capacity;
-import com.cloud.capacity.CapacityVO;
-import com.cloud.capacity.dao.CapacityDao;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.ScopeType;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.StorageManager;
-import com.cloud.storage.StoragePoolHostVO;
-import com.cloud.storage.StoragePoolStatus;
-import com.cloud.storage.dao.StoragePoolHostDao;
-import com.cloud.utils.db.Transaction;
-import com.cloud.utils.exception.CloudRuntimeException;
 
 @Component
 public class PrimaryDataStoreHelper {

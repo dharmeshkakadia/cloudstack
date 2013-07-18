@@ -16,12 +16,12 @@
 // under the License.
 package org.apache.cloudstack.network.lb;
 
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.exception.StorageUnavailableException;
-import com.cloud.network.router.VirtualRouter;
-import com.cloud.user.Account;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.exception.StorageUnavailableException;
+import org.apache.network.router.VirtualRouter;
+import org.apache.user.Account;
 
 public interface InternalLoadBalancerVMService {
 

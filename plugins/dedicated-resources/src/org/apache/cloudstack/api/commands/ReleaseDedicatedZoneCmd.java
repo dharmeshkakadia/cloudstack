@@ -27,10 +27,9 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.cloudstack.dedicated.DedicatedService;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "releaseDedicatedZone", description = "Release dedication of zone", responseObject = SuccessResponse.class)
 public class ReleaseDedicatedZoneCmd extends BaseAsyncCmd {

@@ -17,7 +17,6 @@
 
 package org.apache.cloudstack.api.command.user.volume;
 
-import com.cloud.server.ResourceTag;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListProjectAndAccountResourcesCmd;
@@ -25,6 +24,7 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ResourceDetailResponse;
 import org.apache.cloudstack.api.response.ResourceTagResponse;
+import org.apache.server.ResourceTag;
 
 import java.util.List;
 

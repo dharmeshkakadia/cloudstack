@@ -468,7 +468,7 @@
         <!-- needs to be before the X509 cert is removed -->
         <phase name="ec2authentication">
 		      <handler name="InFlowEC2Auth"
-                     class="com.cloud.bridge.auth.ec2.AuthenticationHandler">
+                     class="org.apache.bridge.auth.ec2.AuthenticationHandler">
                     <order phase="ec2authentication"/>
               </handler>
         </phase>   
@@ -501,7 +501,7 @@
         </phase>
    	    <phase name="s3authentication">
 		      <handler name="InFlowS3Auth"
-                     class="com.cloud.bridge.auth.s3.AuthenticationHandler">
+                     class="org.apache.bridge.auth.s3.AuthenticationHandler">
                     <order phase="s3authentication"/>
               </handler>
         </phase>

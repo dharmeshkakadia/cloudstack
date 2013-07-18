@@ -18,7 +18,7 @@
  */
 package org.apache.cloudstack.engine.subsystem.api.storage;
 
-import com.cloud.utils.fsm.StateObject;
+import org.apache.utils.fsm.StateObject;
 
 public interface ObjectInDataStoreStateMachine extends StateObject<ObjectInDataStoreStateMachine.State> {
     enum State {

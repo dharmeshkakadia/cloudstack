@@ -18,9 +18,9 @@ package org.apache.cloudstack.api.response;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.network.vpc.VpcGateway;
+import org.apache.serializer.Param;
 
-import com.cloud.network.vpc.VpcGateway;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=VpcGateway.class)

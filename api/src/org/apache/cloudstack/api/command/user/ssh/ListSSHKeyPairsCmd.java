@@ -26,9 +26,8 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.SSHKeyPairResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.SSHKeyPair;
-import com.cloud.utils.Pair;
+import org.apache.user.SSHKeyPair;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listSSHKeyPairs", description="List registered keypairs", responseObject=SSHKeyPairResponse.class)
 public class ListSSHKeyPairsCmd extends BaseListProjectAndAccountResourcesCmd {

@@ -30,7 +30,25 @@ import junit.framework.Assert;
 
 import org.apache.cloudstack.dedicated.DedicatedResourceManagerImpl;
 import org.apache.cloudstack.test.utils.SpringUtils;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.dc.DedicatedResourceVO;
+import org.apache.dc.dao.ClusterDao;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.dc.dao.DedicatedResourceDao;
+import org.apache.dc.dao.HostPodDao;
+import org.apache.domain.DomainVO;
+import org.apache.domain.dao.DomainDao;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.host.dao.HostDao;
 import org.apache.log4j.Logger;
+import org.apache.user.Account;
+import org.apache.user.AccountManager;
+import org.apache.user.AccountVO;
+import org.apache.user.UserContext;
+import org.apache.user.dao.AccountDao;
+import org.apache.utils.component.ComponentContext;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.vm.dao.UserVmDao;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -47,25 +65,6 @@ import org.springframework.core.type.filter.TypeFilter;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
-
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.dc.DedicatedResourceVO;
-import com.cloud.dc.dao.ClusterDao;
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.dc.dao.DedicatedResourceDao;
-import com.cloud.dc.dao.HostPodDao;
-import com.cloud.domain.DomainVO;
-import com.cloud.domain.dao.DomainDao;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.host.dao.HostDao;
-import com.cloud.user.Account;
-import com.cloud.user.AccountManager;
-import com.cloud.user.AccountVO;
-import com.cloud.user.UserContext;
-import com.cloud.user.dao.AccountDao;
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.vm.dao.UserVmDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class)

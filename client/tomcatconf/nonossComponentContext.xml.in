@@ -42,7 +42,7 @@
   independent configuration
     
 -->
-  <bean id="DatabaseUpgradeChecker" class="com.cloud.upgrade.DatabaseUpgradeChecker"/>
+  <bean id="DatabaseUpgradeChecker" class="org.apache.upgrade.DatabaseUpgradeChecker"/>
   <bean id="GlobalLoadBalancingRulesServiceImpl" class ="org.apache.cloudstack.region.gslb.GlobalLoadBalancingRulesServiceImpl" >
     <property name="GslbServiceProvider">
       <ref bean="Netscaler"/>
@@ -52,7 +52,7 @@
   <!--
     DAO with customized configuration under non-OSS deployment
   -->
-  <bean id="configurationDaoImpl" class="com.cloud.configuration.dao.ConfigurationDaoImpl">
+  <bean id="configurationDaoImpl" class="org.apache.configuration.dao.ConfigurationDaoImpl">
     <property name="configParams">
       <map>
         <entry key="premium" value="true" />
@@ -63,97 +63,97 @@
   <!--
     VMware support components
   -->  
-  <bean id="VmwareFencer" class="com.cloud.ha.VmwareFencer">
+  <bean id="VmwareFencer" class="org.apache.ha.VmwareFencer">
     <property name="name" value="VMwareFenceBuilder"/>
   </bean>
-  <bean id="vmwareServerDiscoverer" class="com.cloud.hypervisor.vmware.VmwareServerDiscoverer">
+  <bean id="vmwareServerDiscoverer" class="org.apache.hypervisor.vmware.VmwareServerDiscoverer">
     <property name="name" value="VMware Discover"/>
   </bean>
-  <bean id="VMwareGuru" class="com.cloud.hypervisor.guru.VMwareGuru">
+  <bean id="VMwareGuru" class="org.apache.hypervisor.guru.VMwareGuru">
     <property name="name" value="VMwareGuru"/>
   </bean>
-  <bean id="VmwareInvestigator" class="com.cloud.ha.VmwareInvestigator">
+  <bean id="VmwareInvestigator" class="org.apache.ha.VmwareInvestigator">
     <property name="name" value="VMwareInvestigator"/>
   </bean>
-  <bean id="VmwareManager" class="com.cloud.hypervisor.vmware.manager.VmwareManagerImpl"/>
-  <bean id="vmwareContextFactory" class="com.cloud.hypervisor.vmware.resource.VmwareContextFactory" />
-  <bean id="VmwareDatacenterDaoImpl" class="com.cloud.hypervisor.vmware.dao.VmwareDatacenterDaoImpl" />
-  <bean id="VmwareDatacenterZoneMapDaoImpl" class="com.cloud.hypervisor.vmware.dao.VmwareDatacenterZoneMapDaoImpl" />
-  <bean id="LegacyZoneDaoImpl" class="com.cloud.hypervisor.vmware.dao.LegacyZoneDaoImpl" />
+  <bean id="VmwareManager" class="org.apache.hypervisor.vmware.manager.VmwareManagerImpl"/>
+  <bean id="vmwareContextFactory" class="org.apache.hypervisor.vmware.resource.VmwareContextFactory" />
+  <bean id="VmwareDatacenterDaoImpl" class="org.apache.hypervisor.vmware.dao.VmwareDatacenterDaoImpl" />
+  <bean id="VmwareDatacenterZoneMapDaoImpl" class="org.apache.hypervisor.vmware.dao.VmwareDatacenterZoneMapDaoImpl" />
+  <bean id="LegacyZoneDaoImpl" class="org.apache.hypervisor.vmware.dao.LegacyZoneDaoImpl" />
 
   <!--
     Nicira support components
   -->
-  <bean id="niciraNvpDaoImpl" class="com.cloud.network.dao.NiciraNvpDaoImpl" />
-  <bean id="niciraNvpNicMappingDaoImpl" class="com.cloud.network.dao.NiciraNvpNicMappingDaoImpl" />
-  <bean id="niciraNvpRouterMappingDaoImpl" class="com.cloud.network.dao.NiciraNvpRouterMappingDaoImpl" />
-  <bean id="NiciraNvpGuestNetworkGuru" class="com.cloud.network.guru.NiciraNvpGuestNetworkGuru">
+  <bean id="niciraNvpDaoImpl" class="org.apache.network.dao.NiciraNvpDaoImpl" />
+  <bean id="niciraNvpNicMappingDaoImpl" class="org.apache.network.dao.NiciraNvpNicMappingDaoImpl" />
+  <bean id="niciraNvpRouterMappingDaoImpl" class="org.apache.network.dao.NiciraNvpRouterMappingDaoImpl" />
+  <bean id="NiciraNvpGuestNetworkGuru" class="org.apache.network.guru.NiciraNvpGuestNetworkGuru">
     <property name="name" value="NiciraNvpGuestNetworkGuru"/>
   </bean>
-  <bean id="NiciraNvp" class="com.cloud.network.element.NiciraNvpElement">
+  <bean id="NiciraNvp" class="org.apache.network.element.NiciraNvpElement">
     <property name="name" value="NiciraNvp"/>
   </bean>
   
   <!--
       BigSwitch Components
   -->
-  <bean id="BigSwitchVns" class="com.cloud.network.element.BigSwitchVnsElement">
+  <bean id="BigSwitchVns" class="org.apache.network.element.BigSwitchVnsElement">
     <property name="name" value="BigSwitchVns"/>
   </bean>
 
   <!--
     Netapp support components
   -->  
-  <bean id="lunDaoImpl" class="com.cloud.netapp.dao.LunDaoImpl" />
-  <bean id="poolDaoImpl" class="com.cloud.netapp.dao.PoolDaoImpl" />
-  <bean id="netappVolumeDaoImpl" class="com.cloud.netapp.dao.VolumeDaoImpl" />
-  <bean id="NetappManager" class="com.cloud.netapp.NetappManagerImpl"/>
+  <bean id="lunDaoImpl" class="org.apache.netapp.dao.LunDaoImpl" />
+  <bean id="poolDaoImpl" class="org.apache.netapp.dao.PoolDaoImpl" />
+  <bean id="netappVolumeDaoImpl" class="org.apache.netapp.dao.VolumeDaoImpl" />
+  <bean id="NetappManager" class="org.apache.netapp.NetappManagerImpl"/>
 
   <!--
    JuniperSRX support components
   -->
-  <bean id="JuniperSRX" class="com.cloud.network.element.JuniperSRXExternalFirewallElement">
+  <bean id="JuniperSRX" class="org.apache.network.element.JuniperSRXExternalFirewallElement">
     <property name="name" value="JuniperSRX"/>
   </bean>
   
   <!--
     NetScalar support components
   -->
-  <bean id="netScalerPodDaoImpl" class="com.cloud.network.dao.NetScalerPodDaoImpl" />
-  <bean id="Netscaler" class="com.cloud.network.element.NetscalerElement">
+  <bean id="netScalerPodDaoImpl" class="org.apache.network.dao.NetScalerPodDaoImpl" />
+  <bean id="Netscaler" class="org.apache.network.element.NetscalerElement">
     <property name="name" value="Netscaler"/>
   </bean>
   
   <!--
     F5BigIP support components
   -->
-  <bean id="F5BigIP" class="com.cloud.network.element.F5ExternalLoadBalancerElement">
+  <bean id="F5BigIP" class="org.apache.network.element.F5ExternalLoadBalancerElement">
     <property name="name" value="F5BigIP"/>
   </bean>
   
   <!--
     Cisco Nexus support components
   -->  
-  <bean id="ciscoNexusVSMDeviceDaoImpl" class="com.cloud.network.dao.CiscoNexusVSMDeviceDaoImpl" />
-  <bean id="CiscoNexus1000vVSM" class="com.cloud.network.element.CiscoNexusVSMElement">
+  <bean id="ciscoNexusVSMDeviceDaoImpl" class="org.apache.network.dao.CiscoNexusVSMDeviceDaoImpl" />
+  <bean id="CiscoNexus1000vVSM" class="org.apache.network.element.CiscoNexusVSMElement">
     <property name="name" value="CiscoNexus1000vVSM"/>
   </bean>
   
   <!--
     Cisco VNMC support components
   -->
-  <bean id="ciscoVnmcDaoImpl" class="com.cloud.network.dao.CiscoVnmcDaoImpl" />
-  <bean id="ciscoAsa1000vDaoImpl" class="com.cloud.network.dao.CiscoAsa1000vDaoImpl" />
-  <bean id="networkAsa1000vMapDaoImpl" class="com.cloud.network.dao.NetworkAsa1000vMapDaoImpl" />
-  <bean id="CiscoVNMC" class="com.cloud.network.element.CiscoVnmcElement">
+  <bean id="ciscoVnmcDaoImpl" class="org.apache.network.dao.CiscoVnmcDaoImpl" />
+  <bean id="ciscoAsa1000vDaoImpl" class="org.apache.network.dao.CiscoAsa1000vDaoImpl" />
+  <bean id="networkAsa1000vMapDaoImpl" class="org.apache.network.dao.NetworkAsa1000vMapDaoImpl" />
+  <bean id="CiscoVNMC" class="org.apache.network.element.CiscoVnmcElement">
     <property name="name" value="CiscoVNMC"/>
   </bean>
   
   <!--
     BigSwitch support components
   -->  
-  <bean id="bigSwitchVnsDaoImpl" class="com.cloud.network.dao.BigSwitchVnsDaoImpl" />
-  <bean id="bigSwitchVnsElement" class="com.cloud.network.element.BigSwitchVnsElement">
+  <bean id="bigSwitchVnsDaoImpl" class="org.apache.network.dao.BigSwitchVnsDaoImpl" />
+  <bean id="bigSwitchVnsElement" class="org.apache.network.element.BigSwitchVnsElement">
     <property name="name" value="BigSwitchVnsElement"/>
   </bean>
 
@@ -161,10 +161,10 @@
   <!--
     Midonet support components
   -->
-  <bean id="MidoNetGuestNetworkGuru" class="com.cloud.network.guru.MidoNetGuestNetworkGuru">
+  <bean id="MidoNetGuestNetworkGuru" class="org.apache.network.guru.MidoNetGuestNetworkGuru">
     <property name="name" value="MidoNetGuestNetworkGuru"/>
   </bean>
-  <bean id="MidoNetElement" class="com.cloud.network.element.MidoNetElement">
+  <bean id="MidoNetElement" class="org.apache.network.element.MidoNetElement">
     <property name="name" value="MidoNetElement"/>
   </bean>
 
@@ -172,8 +172,8 @@
   <!--
     UCS support components
   -->
-  <bean id="ucsBladeDaoImpl" class="com.cloud.ucs.database.UcsBladeDaoImpl" />
-  <bean id="ucsManagerDaoImpl" class="com.cloud.ucs.database.UcsManagerDaoImpl" />
+  <bean id="ucsBladeDaoImpl" class="org.apache.ucs.database.UcsBladeDaoImpl" />
+  <bean id="ucsManagerDaoImpl" class="org.apache.ucs.database.UcsManagerDaoImpl" />
   
 <!--
 
@@ -218,7 +218,7 @@
   </bean>
 
   <!-- Security adapters -->
-  <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
+  <bean id="userAuthenticators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="SHA256SaltedUserAuthenticator"/>
@@ -228,7 +228,7 @@
       </list>
     </property>
   </bean>
-  <bean id="userPasswordEncoders" class="com.cloud.utils.component.AdapterList">
+  <bean id="userPasswordEncoders" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="SHA256SaltedUserAuthenticator"/>
@@ -239,7 +239,7 @@
     </property>
   </bean>
 
-  <bean id="securityCheckers" class="com.cloud.utils.component.AdapterList">
+  <bean id="securityCheckers" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="domainChecker"/>
@@ -248,7 +248,7 @@
   </bean>
 
   <!-- Resource discoverers -->
-  <bean id="resourceDiscoverers" class="com.cloud.utils.component.AdapterList">
+  <bean id="resourceDiscoverers" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="XcpServerDiscoverer"/>
@@ -262,7 +262,7 @@
   </bean>
 
   <!-- HA adapters -->
-  <bean id="haInvestigators" class="com.cloud.utils.component.AdapterList">
+  <bean id="haInvestigators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="CheckOnAgentInvestigator"/>
@@ -274,7 +274,7 @@
     </property>
   </bean>
 
-  <bean id="haFenceBuilders" class="com.cloud.utils.component.AdapterList">
+  <bean id="haFenceBuilders" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="XenServerFencer"/>
@@ -286,7 +286,7 @@
   </bean>
 
   <!-- Deployment/allocation adapters -->
-  <bean id="deploymentPlanners" class="com.cloud.utils.component.AdapterList">
+  <bean id="deploymentPlanners" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="FirstFitPlanner" />
@@ -298,7 +298,7 @@
     </property>
   </bean>
 
-  <bean id="podAllocators" class="com.cloud.utils.component.AdapterList">
+  <bean id="podAllocators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="UserConcentratedAllocator"/>
@@ -306,7 +306,7 @@
     </property>
   </bean>
   
-  <bean id="hostAllocators" class="com.cloud.utils.component.AdapterList">
+  <bean id="hostAllocators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="FirstFitRouting"/>
@@ -314,7 +314,7 @@
     </property>
   </bean>
 
-  <bean id="storagePoolAllocators" class="com.cloud.utils.component.AdapterList">
+  <bean id="storagePoolAllocators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="LocalStoragePoolAllocator"/>
@@ -326,7 +326,7 @@
   </bean>
 
   <!-- Networking adapters -->
-  <bean id="ipDeployers" class="com.cloud.utils.component.AdapterList">
+  <bean id="ipDeployers" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="elasticLoadBalancerElement"/>
@@ -338,7 +338,7 @@
     </property>
   </bean>
 
-  <bean id="dhcpProviders" class="com.cloud.utils.component.AdapterList">
+  <bean id="dhcpProviders" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="VirtualRouter"/>
@@ -348,7 +348,7 @@
     </property>
   </bean>
 
-  <bean id="networkGurus" class="com.cloud.utils.component.AdapterList">
+  <bean id="networkGurus" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="StorageNetworkGuru"/>
@@ -366,7 +366,7 @@
     </property>
   </bean>
   
-  <bean id="networkElements" class="com.cloud.utils.component.AdapterList">
+  <bean id="networkElements" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="JuniperSRX"/>
@@ -397,7 +397,7 @@
    	<property name="type" value="host anti-affinity"/>
   </bean>
   
-  <bean id="affinityProcessors" class="com.cloud.utils.component.AdapterList">
+  <bean id="affinityProcessors" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="HostAntiAffinityProcessor" />

@@ -27,22 +27,21 @@ import javax.ejb.Local;
 import javax.inject.Inject;
 import javax.naming.ConfigurationException;
 
+import org.apache.dc.AccountVlanMapVO;
+import org.apache.dc.PodVlanMapVO;
+import org.apache.dc.Vlan;
+import org.apache.dc.VlanVO;
+import org.apache.dc.Vlan.VlanType;
+import org.apache.network.dao.IPAddressDao;
+import org.apache.utils.Pair;
+import org.apache.utils.db.DB;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.JoinBuilder;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.springframework.stereotype.Component;
-
-import com.cloud.dc.AccountVlanMapVO;
-import com.cloud.dc.PodVlanMapVO;
-import com.cloud.dc.Vlan;
-import com.cloud.dc.Vlan.VlanType;
-import com.cloud.dc.VlanVO;
-import com.cloud.network.dao.IPAddressDao;
-import com.cloud.utils.Pair;
-import com.cloud.utils.db.DB;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.JoinBuilder;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.Transaction;
-import com.cloud.utils.exception.CloudRuntimeException;
 
 @Component
 @Local(value={PortableIpDao.class})

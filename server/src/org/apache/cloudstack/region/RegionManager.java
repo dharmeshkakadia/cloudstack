@@ -23,12 +23,11 @@ import org.apache.cloudstack.api.command.admin.account.UpdateAccountCmd;
 import org.apache.cloudstack.api.command.admin.domain.UpdateDomainCmd;
 import org.apache.cloudstack.api.command.admin.user.DeleteUserCmd;
 import org.apache.cloudstack.api.command.admin.user.UpdateUserCmd;
-
-import com.cloud.domain.Domain;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.user.Account;
-import com.cloud.user.UserAccount;
+import org.apache.domain.Domain;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.user.Account;
+import org.apache.user.UserAccount;
 
 public interface RegionManager {
 

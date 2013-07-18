@@ -19,8 +19,8 @@ package org.apache.cloudstack.api.response;
 import java.util.Date;
 
 import org.apache.cloudstack.api.BaseResponse;
+import org.apache.serializer.Param;
 
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 public class SnapshotScheduleResponse extends BaseResponse {

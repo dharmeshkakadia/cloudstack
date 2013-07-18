@@ -25,12 +25,11 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.admin.network.DeleteNetworkOfferingCmd;
 import org.apache.cloudstack.api.response.NetworkResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.Network;
-import com.cloud.user.UserContext;
+import org.apache.network.Network;
+import org.apache.user.UserContext;
 
 @APICommand(name = "deleteNetwork", description="Deletes a network", responseObject=SuccessResponse.class)
 public class DeleteNetworkCmd extends BaseAsyncCmd{

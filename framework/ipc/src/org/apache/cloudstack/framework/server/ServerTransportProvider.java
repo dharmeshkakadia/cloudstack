@@ -32,8 +32,7 @@ import org.apache.cloudstack.framework.transport.TransportEndpointSite;
 import org.apache.cloudstack.framework.transport.TransportPdu;
 import org.apache.cloudstack.framework.transport.TransportProvider;
 import org.apache.log4j.Logger;
-
-import com.cloud.utils.concurrency.NamedThreadFactory;
+import org.apache.utils.concurrency.NamedThreadFactory;
 
 public class ServerTransportProvider implements TransportProvider {
     private static final Logger s_logger = Logger.getLogger(ServerTransportProvider.class);

@@ -26,12 +26,11 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.region.RegionService;
+import org.apache.domain.Domain;
 import org.apache.log4j.Logger;
-
-import com.cloud.domain.Domain;
-import com.cloud.user.Account;
-import com.cloud.user.UserAccount;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.UserAccount;
+import org.apache.user.UserContext;
 
 @APICommand(name = "updateDomain", description="Updates a domain with a new name", responseObject=DomainResponse.class)
 public class UpdateDomainCmd extends BaseCmd {

@@ -29,7 +29,7 @@ import org.apache.cloudstack.engine.subsystem.api.storage.Scope;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
-import com.cloud.storage.ScopeType;
+import org.apache.storage.ScopeType;
 
 @Component
 public class StorageCacheRandomAllocator implements StorageCacheAllocator {

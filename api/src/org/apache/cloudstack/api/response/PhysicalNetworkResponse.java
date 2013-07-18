@@ -21,9 +21,9 @@ import java.util.List;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.network.PhysicalNetwork;
+import org.apache.serializer.Param;
 
-import com.cloud.network.PhysicalNetwork;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=PhysicalNetwork.class)

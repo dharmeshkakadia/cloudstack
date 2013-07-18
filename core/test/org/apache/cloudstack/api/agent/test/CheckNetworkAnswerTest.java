@@ -20,17 +20,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import com.cloud.agent.api.storage.ResizeVolumeCommand;
-import com.cloud.agent.api.to.StorageFilerTO;
-import com.cloud.storage.Storage;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.StoragePoolStatus;
+import org.apache.agent.api.CheckNetworkAnswer;
+import org.apache.agent.api.CheckNetworkCommand;
+import org.apache.agent.api.storage.ResizeVolumeCommand;
+import org.apache.agent.api.to.StorageFilerTO;
+import org.apache.storage.Storage;
+import org.apache.storage.StoragePool;
+import org.apache.storage.StoragePoolStatus;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-
-import com.cloud.agent.api.CheckNetworkAnswer;
-import com.cloud.agent.api.CheckNetworkCommand;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

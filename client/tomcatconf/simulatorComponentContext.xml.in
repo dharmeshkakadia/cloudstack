@@ -24,13 +24,13 @@
   <!--
     OSS deployment component configuration
   -->
-  <bean id="databaseUpgradeChecker" class="com.cloud.upgrade.DatabaseUpgradeChecker"/>
-  <bean id="configurationDaoImpl" class="com.cloud.configuration.dao.ConfigurationDaoImpl"/>
+  <bean id="databaseUpgradeChecker" class="org.apache.upgrade.DatabaseUpgradeChecker"/>
+  <bean id="configurationDaoImpl" class="org.apache.configuration.dao.ConfigurationDaoImpl"/>
 
-  <bean id="SimulatorDiscoverer" class="com.cloud.resource.SimulatorDiscoverer">
+  <bean id="SimulatorDiscoverer" class="org.apache.resource.SimulatorDiscoverer">
     <property name="name" value="Simulator Agent"/>
   </bean>
-  <bean id="SimulatorGuru" class="com.cloud.simulator.SimulatorGuru">
+  <bean id="SimulatorGuru" class="org.apache.simulator.SimulatorGuru">
     <property name="name" value="Simulator Guru"/>
   </bean>
 
@@ -54,7 +54,7 @@
   <!--
     Managers & pluggable adapters configuration under OSS deployment
   -->
-  <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
+  <bean id="userAuthenticators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="SHA256SaltedUserAuthenticator"/>
@@ -64,7 +64,7 @@
       </list>
     </property>
   </bean>
-  <bean id="userPasswordEncoders" class="com.cloud.utils.component.AdapterList">
+  <bean id="userPasswordEncoders" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="SHA256SaltedUserAuthenticator"/>
@@ -76,7 +76,7 @@
   </bean>
 
 
-  <bean id="securityCheckers" class="com.cloud.utils.component.AdapterList">
+  <bean id="securityCheckers" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="domainChecker"/>
@@ -85,7 +85,7 @@
   </bean>
 
   <!-- Resource discoverers -->
-  <bean id="resourceDiscoverers" class="com.cloud.utils.component.AdapterList">
+  <bean id="resourceDiscoverers" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="SimulatorDiscoverer"/>
@@ -99,7 +99,7 @@
   </bean>
 
   <!-- HA adapters -->
-  <bean id="haInvestigators" class="com.cloud.utils.component.AdapterList">
+  <bean id="haInvestigators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="CheckOnAgentInvestigator"/>
@@ -110,7 +110,7 @@
     </property>
   </bean>
 
-  <bean id="haFenceBuilders" class="com.cloud.utils.component.AdapterList">
+  <bean id="haFenceBuilders" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="XenServerFencer"/>
@@ -121,7 +121,7 @@
   </bean>
 
   <!-- Deployment/allocation adapters -->
-  <bean id="deploymentPlanners" class="com.cloud.utils.component.AdapterList">
+  <bean id="deploymentPlanners" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="FirstFitPlanner"/>
@@ -131,7 +131,7 @@
     </property>
   </bean>
 
-  <bean id="podAllocators" class="com.cloud.utils.component.AdapterList">
+  <bean id="podAllocators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="UserConcentratedAllocator"/>
@@ -139,7 +139,7 @@
     </property>
   </bean>
 
-  <bean id="hostAllocators" class="com.cloud.utils.component.AdapterList">
+  <bean id="hostAllocators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="FirstFitRouting"/>
@@ -147,7 +147,7 @@
     </property>
   </bean>
 
-  <bean id="storagePoolAllocators" class="com.cloud.utils.component.AdapterList">
+  <bean id="storagePoolAllocators" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="LocalStoragePoolAllocator"/>
@@ -159,7 +159,7 @@
   </bean>
 
   <!-- Networking adapters -->
-  <bean id="ipDeployers" class="com.cloud.utils.component.AdapterList">
+  <bean id="ipDeployers" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="elasticLoadBalancerElement"/>
@@ -169,7 +169,7 @@
     </property>
   </bean>
 
-  <bean id="dhcpProviders" class="com.cloud.utils.component.AdapterList">
+  <bean id="dhcpProviders" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="VirtualRouter"/>
@@ -178,7 +178,7 @@
     </property>
   </bean>
 
-  <bean id="networkGurus" class="com.cloud.utils.component.AdapterList">
+  <bean id="networkGurus" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="StorageNetworkGuru"/>
@@ -194,7 +194,7 @@
     </property>
   </bean>
 
-  <bean id="networkElements" class="com.cloud.utils.component.AdapterList">
+  <bean id="networkElements" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
         <ref bean="VirtualRouter"/>
@@ -209,8 +209,8 @@
   <!--
     UCS support components
   -->
-  <bean id="ucsBladeDaoImpl" class="com.cloud.ucs.database.UcsBladeDaoImpl"/>
-  <bean id="ucsManagerDaoImpl" class="com.cloud.ucs.database.UcsManagerDaoImpl"/>
+  <bean id="ucsBladeDaoImpl" class="org.apache.ucs.database.UcsBladeDaoImpl"/>
+  <bean id="ucsManagerDaoImpl" class="org.apache.ucs.database.UcsManagerDaoImpl"/>
 
   <bean id="GlobalLoadBalancingRulesServiceImpl"
         class="org.apache.cloudstack.region.gslb.GlobalLoadBalancingRulesServiceImpl"/>
@@ -223,7 +223,7 @@
     <property name="type" value="host anti-affinity"/>
   </bean>
 
-  <bean id="affinityProcessors" class="com.cloud.utils.component.AdapterList">
+  <bean id="affinityProcessors" class="org.apache.utils.component.AdapterList">
     <property name="Adapters">
       <list>
           <ref bean="HostAntiAffinityProcessor" />

@@ -19,17 +19,17 @@ package org.apache.cloudstack.network.lb;
 import java.util.List;
 import java.util.Map;
 
-import com.cloud.deploy.DeployDestination;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.Network;
-import com.cloud.network.lb.LoadBalancingRule;
-import com.cloud.network.router.VirtualRouter;
-import com.cloud.user.Account;
-import com.cloud.utils.component.Manager;
-import com.cloud.utils.net.Ip;
-import com.cloud.vm.VirtualMachineProfile.Param;
+import org.apache.deploy.DeployDestination;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.network.Network;
+import org.apache.network.lb.LoadBalancingRule;
+import org.apache.network.router.VirtualRouter;
+import org.apache.user.Account;
+import org.apache.utils.component.Manager;
+import org.apache.utils.net.Ip;
+import org.apache.vm.VirtualMachineProfile.Param;
 
 public interface InternalLoadBalancerVMManager extends Manager, InternalLoadBalancerVMService{
     //RAM/CPU for the system offering used by Internal LB VMs

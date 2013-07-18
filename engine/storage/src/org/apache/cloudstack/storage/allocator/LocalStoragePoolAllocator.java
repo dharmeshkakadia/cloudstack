@@ -25,26 +25,25 @@ import javax.ejb.Local;
 import javax.inject.Inject;
 import javax.naming.ConfigurationException;
 
+import org.apache.capacity.dao.CapacityDao;
 import org.apache.cloudstack.engine.subsystem.api.storage.StoragePoolAllocator;
 import org.apache.cloudstack.storage.datastore.db.StoragePoolVO;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.deploy.DeploymentPlan;
+import org.apache.deploy.DeploymentPlanner.ExcludeList;
 import org.apache.log4j.Logger;
+import org.apache.service.dao.ServiceOfferingDao;
+import org.apache.storage.StoragePool;
+import org.apache.storage.StoragePoolHostVO;
+import org.apache.storage.Volume;
+import org.apache.storage.dao.StoragePoolHostDao;
+import org.apache.utils.NumbersUtil;
+import org.apache.vm.DiskProfile;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
+import org.apache.vm.dao.UserVmDao;
+import org.apache.vm.dao.VMInstanceDao;
 import org.springframework.stereotype.Component;
-
-import com.cloud.capacity.dao.CapacityDao;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.deploy.DeploymentPlan;
-import com.cloud.deploy.DeploymentPlanner.ExcludeList;
-import com.cloud.service.dao.ServiceOfferingDao;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.StoragePoolHostVO;
-import com.cloud.storage.Volume;
-import com.cloud.storage.dao.StoragePoolHostDao;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.vm.DiskProfile;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
-import com.cloud.vm.dao.UserVmDao;
-import com.cloud.vm.dao.VMInstanceDao;
 
 @Component
 @Local(value = StoragePoolAllocator.class)

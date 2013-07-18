@@ -28,7 +28,7 @@
   </parent>
   <dependencies>
     <dependency>
-      <groupId>com.cloud.com.f5</groupId>
+      <groupId>org.apache.com.f5</groupId>
       <artifactId>icontrol</artifactId>
       <version>1.0</version>
     </dependency>

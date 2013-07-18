@@ -16,15 +16,14 @@
 // under the License.
 package org.apache.cloudstack.storage.datastore;
 
+import org.apache.agent.api.to.DataObjectType;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObject;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObjectInStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.ObjectInDataStoreStateMachine.Event;
-
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.utils.fsm.NoTransitionException;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.storage.DataStoreRole;
+import org.apache.utils.fsm.NoTransitionException;
 
 public interface ObjectInDataStoreManager {
     public DataObject create(DataObject dataObj, DataStore dataStore);

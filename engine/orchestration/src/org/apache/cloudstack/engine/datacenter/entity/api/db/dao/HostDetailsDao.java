@@ -18,8 +18,8 @@ package org.apache.cloudstack.engine.datacenter.entity.api.db.dao;
 
 import java.util.Map;
 
-import com.cloud.host.DetailVO;
-import com.cloud.utils.db.GenericDao;
+import org.apache.host.DetailVO;
+import org.apache.utils.db.GenericDao;
 
 public interface HostDetailsDao extends GenericDao<DetailVO, Long> {
     Map<String, String> findDetails(long hostId);

@@ -18,7 +18,10 @@ package org.apache.cloudstack.api.command.user.loadbalancer;
 
 import org.apache.cloudstack.api.response.LBHealthCheckResponse;
 import org.apache.log4j.Logger;
-
+import org.apache.network.rules.HealthCheckPolicy;
+import org.apache.network.rules.LoadBalancer;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
 import org.apache.cloudstack.api.BaseAsyncCmd;
@@ -26,12 +29,8 @@ import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SuccessResponse;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.rules.HealthCheckPolicy;
-import com.cloud.network.rules.LoadBalancer;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
 
 @APICommand(name = "deleteLBHealthCheckPolicy", description = "Deletes a load balancer HealthCheck policy.", responseObject = SuccessResponse.class, since="4.2.0")
 public class DeleteLBHealthCheckPolicyCmd extends BaseAsyncCmd {

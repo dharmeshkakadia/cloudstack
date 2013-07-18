@@ -30,11 +30,10 @@ import org.apache.cloudstack.api.BaseAsyncCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.server.ResourceTag;
-import com.cloud.server.ResourceTag.TaggedResourceType;
+import org.apache.server.ResourceTag;
+import org.apache.server.ResourceTag.TaggedResourceType;
 @APICommand(name = "createTags", description = "Creates resource tag(s)", responseObject = SuccessResponse.class, since = "4.0.0")
 public class CreateTagsCmd extends BaseAsyncCmd{
     public static final Logger s_logger = Logger.getLogger(CreateTagsCmd.class.getName());

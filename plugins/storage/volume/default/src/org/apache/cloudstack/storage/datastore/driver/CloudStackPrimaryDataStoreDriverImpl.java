@@ -18,25 +18,13 @@
  */
 package org.apache.cloudstack.storage.datastore.driver;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.storage.ResizeVolumeAnswer;
-import com.cloud.agent.api.storage.ResizeVolumeCommand;
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.DataTO;
-import com.cloud.agent.api.to.StorageFilerTO;
-import com.cloud.exception.StorageUnavailableException;
-import com.cloud.host.dao.HostDao;
-import com.cloud.storage.ResizeVolumePayload;
-import com.cloud.storage.StorageManager;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.VolumeManager;
-import com.cloud.storage.dao.DiskOfferingDao;
-import com.cloud.storage.dao.SnapshotDao;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.storage.dao.VolumeDao;
-import com.cloud.storage.snapshot.SnapshotManager;
-import com.cloud.vm.dao.VMInstanceDao;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.storage.ResizeVolumeAnswer;
+import org.apache.agent.api.storage.ResizeVolumeCommand;
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.DataTO;
+import org.apache.agent.api.to.StorageFilerTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.*;
 import org.apache.cloudstack.framework.async.AsyncCompletionCallback;
 import org.apache.cloudstack.storage.command.CommandResult;
@@ -44,7 +32,19 @@ import org.apache.cloudstack.storage.command.CreateObjectCommand;
 import org.apache.cloudstack.storage.command.DeleteCommand;
 import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
 import org.apache.cloudstack.storage.volume.VolumeObject;
+import org.apache.exception.StorageUnavailableException;
+import org.apache.host.dao.HostDao;
 import org.apache.log4j.Logger;
+import org.apache.storage.ResizeVolumePayload;
+import org.apache.storage.StorageManager;
+import org.apache.storage.StoragePool;
+import org.apache.storage.VolumeManager;
+import org.apache.storage.dao.DiskOfferingDao;
+import org.apache.storage.dao.SnapshotDao;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.storage.dao.VolumeDao;
+import org.apache.storage.snapshot.SnapshotManager;
+import org.apache.vm.dao.VMInstanceDao;
 
 import javax.inject.Inject;
 

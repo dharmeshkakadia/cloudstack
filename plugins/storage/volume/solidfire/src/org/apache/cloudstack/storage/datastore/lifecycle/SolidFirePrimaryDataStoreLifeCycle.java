@@ -23,6 +23,7 @@ import java.util.StringTokenizer;
 
 import javax.inject.Inject;
 
+import org.apache.agent.api.StoragePoolInfo;
 import org.apache.cloudstack.engine.subsystem.api.storage.ClusterScope;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.HostScope;
@@ -33,14 +34,12 @@ import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.StoragePoolDetailsDao;
 import org.apache.cloudstack.storage.datastore.util.SolidFireUtil;
 import org.apache.cloudstack.storage.volume.datastore.PrimaryDataStoreHelper;
-
-import com.cloud.dc.DataCenterVO;
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.agent.api.StoragePoolInfo;
-import com.cloud.storage.StoragePoolAutomation;
-import com.cloud.storage.Storage.StoragePoolType;
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.dc.DataCenterVO;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.storage.StoragePoolAutomation;
+import org.apache.storage.Storage.StoragePoolType;
+import org.apache.utils.exception.CloudRuntimeException;
 
 public class SolidFirePrimaryDataStoreLifeCycle implements PrimaryDataStoreLifeCycle {
     @Inject PrimaryDataStoreDao storagePoolDao;

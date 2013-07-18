@@ -17,8 +17,8 @@
 package org.apache.cloudstack.ratelimit;
 
 import org.apache.cloudstack.api.response.ApiLimitResponse;
-import com.cloud.user.Account;
-import com.cloud.utils.component.PluggableService;
+import org.apache.user.Account;
+import org.apache.utils.component.PluggableService;
 
 /**
  * Provide API rate limit service

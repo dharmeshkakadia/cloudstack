@@ -18,6 +18,7 @@ package org.apache.cloudstack.api.command.user.nat;
 
 import java.util.List;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -28,18 +29,16 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.FirewallRuleResponse;
 import org.apache.cloudstack.api.response.IPAddressResponse;
 import org.apache.cloudstack.api.response.IpForwardingRuleResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.IpAddress;
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.network.rules.StaticNatRule;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.network.IpAddress;
+import org.apache.network.rules.FirewallRule;
+import org.apache.network.rules.StaticNatRule;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "createIpForwardingRule", description="Creates an ip forwarding rule", responseObject=FirewallRuleResponse.class)
 public class CreateIpForwardingRuleCmd extends BaseAsyncCreateCmd implements StaticNatRule {

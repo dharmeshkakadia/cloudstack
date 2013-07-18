@@ -24,8 +24,8 @@ import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.cloud.dc.dao.ClusterDao;
-import com.cloud.dc.dao.ClusterDaoImpl;
+import org.apache.dc.dao.ClusterDao;
+import org.apache.dc.dao.ClusterDaoImpl;
 
 @Configuration
 public class TestConfiguration {

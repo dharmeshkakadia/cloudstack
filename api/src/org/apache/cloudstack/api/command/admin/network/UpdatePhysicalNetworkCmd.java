@@ -18,17 +18,16 @@ package org.apache.cloudstack.api.command.admin.network;
 
 import java.util.List;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseAsyncCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.PhysicalNetworkResponse;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.network.PhysicalNetwork;
-import com.cloud.user.Account;
+import org.apache.network.PhysicalNetwork;
+import org.apache.user.Account;
 
 @APICommand(name = "updatePhysicalNetwork", description="Updates a physical network", responseObject=PhysicalNetworkResponse.class, since="3.0.0")
 public class UpdatePhysicalNetworkCmd extends BaseAsyncCmd {

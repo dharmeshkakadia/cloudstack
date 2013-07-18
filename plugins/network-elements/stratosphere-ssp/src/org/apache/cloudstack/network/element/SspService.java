@@ -18,9 +18,8 @@ package org.apache.cloudstack.network.element;
 
 import org.apache.cloudstack.api.commands.AddSspCmd;
 import org.apache.cloudstack.api.commands.DeleteSspCmd;
-
-import com.cloud.host.Host;
-import com.cloud.utils.component.PluggableService;
+import org.apache.host.Host;
+import org.apache.utils.component.PluggableService;
 
 /**
  * Stratosphere sdn platform plugin service.

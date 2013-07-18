@@ -20,12 +20,12 @@ package org.apache.cloudstack.storage.datastore.driver;
 
 import javax.inject.Inject;
 
+import org.apache.agent.api.to.DataStoreTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.EndPointSelector;
 import org.apache.cloudstack.storage.image.BaseImageStoreDriverImpl;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.storage.Storage.ImageFormat;
-import com.cloud.storage.dao.VMTemplateDao;
+import org.apache.storage.Storage.ImageFormat;
+import org.apache.storage.dao.VMTemplateDao;
 
 //http-read-only based image store
 public class SampleImageStoreDriverImpl extends BaseImageStoreDriverImpl {

@@ -20,10 +20,9 @@ package org.apache.cloudstack.engine.subsystem.api.storage;
 
 import java.util.Map;
 
+import org.apache.agent.api.to.VirtualMachineTO;
 import org.apache.cloudstack.framework.async.AsyncCompletionCallback;
-
-import com.cloud.agent.api.to.VirtualMachineTO;
-import com.cloud.host.Host;
+import org.apache.host.Host;
 
 public interface DataMotionStrategy {
     boolean canHandle(DataObject srcData, DataObject destData);

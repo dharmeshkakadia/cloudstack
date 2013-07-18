@@ -23,15 +23,14 @@ import junit.framework.TestCase;
 
 import org.apache.cloudstack.api.command.admin.domain.DeleteDomainCmd;
 import org.apache.cloudstack.region.dao.RegionDao;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.user.dao.AccountDao;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.user.dao.AccountDao;
 
 
 

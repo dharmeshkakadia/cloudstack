@@ -21,6 +21,17 @@ import java.io.IOException;
 import org.apache.cloudstack.lb.dao.ApplicationLoadBalancerRuleDao;
 import org.apache.cloudstack.network.lb.InternalLoadBalancerVMManager;
 import org.apache.cloudstack.test.utils.SpringUtils;
+import org.apache.configuration.ConfigurationManager;
+import org.apache.dc.dao.AccountVlanMapDaoImpl;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.network.NetworkManager;
+import org.apache.network.NetworkModel;
+import org.apache.network.dao.NetworkServiceMapDao;
+import org.apache.network.dao.PhysicalNetworkServiceProviderDao;
+import org.apache.network.dao.VirtualRouterProviderDao;
+import org.apache.user.AccountManager;
+import org.apache.utils.net.NetUtils;
+import org.apache.vm.dao.DomainRouterDao;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -30,18 +41,6 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
 import org.springframework.core.type.filter.TypeFilter;
-
-import com.cloud.configuration.ConfigurationManager;
-import com.cloud.dc.dao.AccountVlanMapDaoImpl;
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.network.NetworkManager;
-import com.cloud.network.NetworkModel;
-import com.cloud.network.dao.NetworkServiceMapDao;
-import com.cloud.network.dao.PhysicalNetworkServiceProviderDao;
-import com.cloud.network.dao.VirtualRouterProviderDao;
-import com.cloud.user.AccountManager;
-import com.cloud.utils.net.NetUtils;
-import com.cloud.vm.dao.DomainRouterDao;
 
 @Configuration
 @ComponentScan(

@@ -19,8 +19,8 @@
 
 package org.apache.cloudstack.storage.datastore.provider;
 
-import com.cloud.storage.ScopeType;
-import com.cloud.utils.component.ComponentContext;
+import org.apache.storage.ScopeType;
+import org.apache.utils.component.ComponentContext;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreDriver;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreLifeCycle;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreProvider;

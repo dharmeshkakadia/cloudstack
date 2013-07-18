@@ -16,7 +16,8 @@
 // under the License.
 package org.apache.cloudstack.api;
 
-import com.cloud.serializer.Param;
+import org.apache.serializer.Param;
+
 import com.google.gson.annotations.SerializedName;
 
 public abstract class BaseResponse implements ResponseObject {

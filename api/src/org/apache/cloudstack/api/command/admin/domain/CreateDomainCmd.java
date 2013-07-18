@@ -23,11 +23,10 @@ import org.apache.cloudstack.api.BaseCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DomainResponse;
+import org.apache.domain.Domain;
 import org.apache.log4j.Logger;
-
-import com.cloud.domain.Domain;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "createDomain", description="Creates a domain", responseObject=DomainResponse.class)
 public class CreateDomainCmd extends BaseCmd {

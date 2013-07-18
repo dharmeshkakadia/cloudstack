@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.engine.subsystem.api.storage.disktype;
 
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.utils.exception.CloudRuntimeException;
 
 public enum DiskFormat {
     VMDK, VHD, ISO, QCOW2;

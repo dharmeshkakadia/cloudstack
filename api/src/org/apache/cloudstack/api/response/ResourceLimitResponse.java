@@ -19,9 +19,9 @@ package org.apache.cloudstack.api.response;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.configuration.ResourceLimit;
+import org.apache.serializer.Param;
 
-import com.cloud.configuration.ResourceLimit;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value = ResourceLimit.class)

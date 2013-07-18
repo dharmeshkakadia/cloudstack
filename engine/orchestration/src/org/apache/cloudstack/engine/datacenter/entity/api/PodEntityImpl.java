@@ -25,10 +25,9 @@ import java.util.Map;
 
 import org.apache.cloudstack.engine.datacenter.entity.api.DataCenterResourceEntity.State.Event;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineHostPodVO;
-
-import com.cloud.org.Cluster;
-import com.cloud.org.Grouping.AllocationState;
-import com.cloud.utils.fsm.NoTransitionException;
+import org.apache.org.Cluster;
+import org.apache.org.Grouping.AllocationState;
+import org.apache.utils.fsm.NoTransitionException;
 
 public class PodEntityImpl implements PodEntity {
 

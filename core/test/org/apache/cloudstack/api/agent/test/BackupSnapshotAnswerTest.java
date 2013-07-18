@@ -19,13 +19,12 @@ package org.apache.cloudstack.api.agent.test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.apache.agent.api.BackupSnapshotAnswer;
+import org.apache.agent.api.BackupSnapshotCommand;
+import org.apache.storage.StoragePool;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-
-import com.cloud.agent.api.BackupSnapshotAnswer;
-import com.cloud.agent.api.BackupSnapshotCommand;
-import com.cloud.storage.StoragePool;
 
 public class BackupSnapshotAnswerTest {
     private BackupSnapshotCommand bsc;

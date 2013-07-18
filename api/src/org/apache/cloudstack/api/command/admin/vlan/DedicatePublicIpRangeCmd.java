@@ -26,12 +26,11 @@ import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.VlanIpRangeResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.dc.Vlan;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.Vlan;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "dedicatePublicIpRange", description="Dedicates a Public IP range to an account", responseObject=VlanIpRangeResponse.class)
 public class DedicatePublicIpRangeCmd extends BaseCmd {

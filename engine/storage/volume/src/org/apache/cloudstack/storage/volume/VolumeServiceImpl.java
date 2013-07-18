@@ -25,21 +25,26 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.storage.ListVolumeAnswer;
+import org.apache.agent.api.storage.ListVolumeCommand;
+import org.apache.agent.api.to.VirtualMachineTO;
+import org.apache.alert.AlertManager;
 import org.apache.cloudstack.engine.cloud.entity.api.VolumeEntity;
+import org.apache.cloudstack.engine.subsystem.api.storage.ChapInfo;
 import org.apache.cloudstack.engine.subsystem.api.storage.CopyCommandResult;
 import org.apache.cloudstack.engine.subsystem.api.storage.CreateCmdResult;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataMotionService;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObject;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
+import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreDriver;
 import org.apache.cloudstack.engine.subsystem.api.storage.EndPoint;
 import org.apache.cloudstack.engine.subsystem.api.storage.EndPointSelector;
 import org.apache.cloudstack.engine.subsystem.api.storage.ObjectInDataStoreStateMachine;
 import org.apache.cloudstack.engine.subsystem.api.storage.ObjectInDataStoreStateMachine.Event;
-import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreDriver;
 import org.apache.cloudstack.engine.subsystem.api.storage.PrimaryDataStoreDriver;
 import org.apache.cloudstack.engine.subsystem.api.storage.SnapshotInfo;
 import org.apache.cloudstack.engine.subsystem.api.storage.TemplateInfo;
-import org.apache.cloudstack.engine.subsystem.api.storage.ChapInfo;
 import org.apache.cloudstack.engine.subsystem.api.storage.VolumeDataFactory;
 import org.apache.cloudstack.engine.subsystem.api.storage.VolumeInfo;
 import org.apache.cloudstack.engine.subsystem.api.storage.VolumeService;
@@ -56,36 +61,30 @@ import org.apache.cloudstack.storage.datastore.PrimaryDataStoreProviderManager;
 import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreVO;
 import org.apache.cloudstack.storage.to.VolumeObjectTO;
+import org.apache.configuration.Config;
+import org.apache.configuration.Resource.ResourceType;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.host.Host;
 import org.apache.log4j.Logger;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.StoragePool;
+import org.apache.storage.VMTemplateStoragePoolVO;
+import org.apache.storage.VMTemplateStorageResourceAssoc;
+import org.apache.storage.VMTemplateStorageResourceAssoc.Status;
+import org.apache.storage.Volume;
+import org.apache.storage.VolumeVO;
+import org.apache.storage.dao.VMTemplatePoolDao;
+import org.apache.storage.dao.VolumeDao;
+import org.apache.storage.snapshot.SnapshotManager;
+import org.apache.storage.template.TemplateProp;
+import org.apache.user.AccountManager;
+import org.apache.user.ResourceLimitService;
+import org.apache.utils.NumbersUtil;
+import org.apache.utils.db.DB;
+import org.apache.utils.exception.CloudRuntimeException;
 import org.springframework.stereotype.Component;
-
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.storage.ListVolumeAnswer;
-import com.cloud.agent.api.storage.ListVolumeCommand;
-import com.cloud.agent.api.to.VirtualMachineTO;
-import com.cloud.alert.AlertManager;
-import com.cloud.configuration.Config;
-import com.cloud.configuration.Resource.ResourceType;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.host.Host;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.VMTemplateStoragePoolVO;
-import com.cloud.storage.VMTemplateStorageResourceAssoc;
-import com.cloud.storage.VMTemplateStorageResourceAssoc.Status;
-import com.cloud.storage.Volume;
-import com.cloud.storage.VolumeVO;
-import com.cloud.storage.dao.VMTemplatePoolDao;
-import com.cloud.storage.dao.VolumeDao;
-import com.cloud.storage.snapshot.SnapshotManager;
-import com.cloud.storage.template.TemplateProp;
-import com.cloud.user.AccountManager;
-import com.cloud.user.ResourceLimitService;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.utils.db.DB;
-import com.cloud.utils.exception.CloudRuntimeException;
 
 @Component
 public class VolumeServiceImpl implements VolumeService {
@@ -1084,7 +1083,7 @@ public class VolumeServiceImpl implements VolumeService {
                     if (volInfo.getSize() > 0) {
                         try {
                             _resourceLimitMgr.checkResourceLimit(_accountMgr.getAccount(volume.getAccountId()),
-                                    com.cloud.configuration.Resource.ResourceType.secondary_storage, volInfo.getSize()
+                                    org.apache.configuration.Resource.ResourceType.secondary_storage, volInfo.getSize()
                                     - volInfo.getPhysicalSize());
                         } catch (ResourceAllocationException e) {
                             s_logger.warn(e.getMessage());
@@ -1092,7 +1091,7 @@ public class VolumeServiceImpl implements VolumeService {
                                     volume.getDataCenterId(), volume.getPodId(), e.getMessage(), e.getMessage());
                         } finally {
                             _resourceLimitMgr.recalculateResourceCount(volume.getAccountId(), volume.getDomainId(),
-                                    com.cloud.configuration.Resource.ResourceType.secondary_storage.getOrdinal());
+                                    org.apache.configuration.Resource.ResourceType.secondary_storage.getOrdinal());
                         }
                     }
                 }

@@ -18,13 +18,15 @@
  */
 package org.apache.cloudstack.storage.cache.manager;
 
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.Storage;
-import com.cloud.storage.VMTemplateVO;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.utils.DateUtil;
-import com.cloud.utils.component.ComponentContext;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.Storage;
+import org.apache.storage.VMTemplateVO;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.utils.DateUtil;
+import org.apache.utils.component.ComponentContext;
+
 import junit.framework.Assert;
+
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreManager;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreProvider;
@@ -40,6 +42,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.inject.Inject;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;

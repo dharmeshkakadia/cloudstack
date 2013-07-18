@@ -19,6 +19,7 @@ package org.apache.cloudstack.api.command.user.address;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListTaggedResourcesCmd;
@@ -31,10 +32,8 @@ import org.apache.cloudstack.api.response.VlanIpRangeResponse;
 import org.apache.cloudstack.api.response.VpcResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.network.IpAddress;
-import com.cloud.utils.Pair;
+import org.apache.network.IpAddress;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listPublicIpAddresses", description="Lists all public ip addresses", responseObject=IPAddressResponse.class)
 public class ListPublicIpAddressesCmd extends BaseListTaggedResourcesCmd {

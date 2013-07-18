@@ -33,7 +33,7 @@ PIDFILE=@PIDDIR@/"$whatami".pid
 LOCKFILE=@LOCKDIR@/"$SHORTNAME"
 LOGFILE=@AGENTLOG@
 PROGNAME="Cloud Agent"
-CLASS="com.cloud.agent.AgentShell"
+CLASS="org.apache.agent.AgentShell"
 JSVC=`which jsvc 2>/dev/null`;
 
 # exit if we don't find jsvc

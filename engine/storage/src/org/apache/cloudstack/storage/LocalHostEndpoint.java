@@ -20,16 +20,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.Command;
 import org.apache.cloudstack.engine.subsystem.api.storage.EndPoint;
 import org.apache.cloudstack.framework.async.AsyncCompletionCallback;
 import org.apache.cloudstack.storage.command.CopyCommand;
 import org.apache.cloudstack.storage.command.DownloadCommand;
 import org.apache.cloudstack.storage.resource.LocalNfsSecondaryStorageResource;
-
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.Command;
-import com.cloud.resource.ServerResource;
-import com.cloud.utils.net.NetUtils;
+import org.apache.resource.ServerResource;
+import org.apache.utils.net.NetUtils;
 
 public class LocalHostEndpoint implements EndPoint {
     private ScheduledExecutorService executor;

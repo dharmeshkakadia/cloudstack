@@ -18,11 +18,7 @@
  */
 package org.apache.cloudstack.storage.datastore.lifecycle;
 
-import com.cloud.agent.api.StoragePoolInfo;
-import com.cloud.host.HostVO;
-import com.cloud.host.dao.HostDao;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.StoragePoolStatus;
+import org.apache.agent.api.StoragePoolInfo;
 import org.apache.cloudstack.engine.subsystem.api.storage.*;
 import org.apache.cloudstack.storage.command.AttachPrimaryDataStoreCmd;
 import org.apache.cloudstack.storage.command.CreatePrimaryDataStoreCmd;
@@ -30,8 +26,13 @@ import org.apache.cloudstack.storage.datastore.PrimaryDataStoreProviderManager;
 import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.StoragePoolVO;
 import org.apache.cloudstack.storage.volume.datastore.PrimaryDataStoreHelper;
+import org.apache.host.HostVO;
+import org.apache.host.dao.HostDao;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.storage.StoragePoolStatus;
 
 import javax.inject.Inject;
+
 import java.util.List;
 import java.util.Map;
 

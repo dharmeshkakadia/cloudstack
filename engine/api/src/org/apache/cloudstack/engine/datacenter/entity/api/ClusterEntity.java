@@ -18,10 +18,10 @@
  */
 package org.apache.cloudstack.engine.datacenter.entity.api;
 
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.org.Cluster.ClusterType;
-import com.cloud.org.Grouping.AllocationState;
-import com.cloud.org.Managed.ManagedState;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.org.Cluster.ClusterType;
+import org.apache.org.Grouping.AllocationState;
+import org.apache.org.Managed.ManagedState;
 
 public interface ClusterEntity extends DataCenterResourceEntity, OrganizationScope {
 	

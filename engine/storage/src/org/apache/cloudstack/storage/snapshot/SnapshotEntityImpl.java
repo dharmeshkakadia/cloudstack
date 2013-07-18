@@ -22,8 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.cloudstack.engine.cloud.entity.api.SnapshotEntity;
-
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 
 public class SnapshotEntityImpl implements SnapshotEntity {
 

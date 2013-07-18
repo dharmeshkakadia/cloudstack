@@ -25,10 +25,9 @@ import org.apache.cloudstack.api.BaseListCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ListResponse;
+import org.apache.domain.Domain;
 import org.apache.log4j.Logger;
-
-import com.cloud.domain.Domain;
-import com.cloud.utils.Pair;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listDomains", description="Lists domains and provides detailed information for listed domains", responseObject=DomainResponse.class)
 public class ListDomainsCmd extends BaseListCmd {

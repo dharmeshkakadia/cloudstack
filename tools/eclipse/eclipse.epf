@@ -359,7 +359,7 @@
 /instance/org.eclipse.debug.ui/pref_state_memento.org.eclipse.debug.ui.BreakpointView=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="315" org.eclipse.debug.ui.SASH_VIEW_PART\="684">\r\n<PRESENTATION_CONTEXT_PROPERTIES IMemento.internal.id\="org.eclipse.debug.ui.BreakpointView">\r\n<BOOLEAN BOOLEAN\="true" IMemento.internal.id\="org.eclipse.debug.ui.check"/>\r\n</PRESENTATION_CONTEXT_PROPERTIES>\r\n</VariablesViewMemento>
 @org.eclipse.ui.workbench=3.104.0.v20130204-164612
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_catch=insert
-/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.importorder=java;javax;org;com;org.apache.cloudstack;com.cloud;
+/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.importorder=java;javax;org;com;org.apache.cloudstack;org.apache;
 /instance/org.eclipse.jdt.ui/sp_cleanup.qualify_static_member_accesses_with_declaring_class=false
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_opening_paren_in_while=insert
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.insert_space_before_closing_paren_in_method_declaration=do not insert

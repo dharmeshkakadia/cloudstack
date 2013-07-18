@@ -25,12 +25,11 @@ import org.apache.cloudstack.api.BaseListCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ServiceResponse;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.Network;
-import com.cloud.network.Network.Service;
-import com.cloud.user.Account;
+import org.apache.network.Network;
+import org.apache.network.Network.Service;
+import org.apache.user.Account;
 
 
 @APICommand(name = "listSupportedNetworkServices", description="Lists all network services provided by CloudStack or for the given Provider.", responseObject=ServiceResponse.class, since="3.0.0")

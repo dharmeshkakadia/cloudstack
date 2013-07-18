@@ -24,14 +24,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.agent.api.BackupSnapshotCommand;
+import org.apache.agent.api.to.StorageFilerTO;
+import org.apache.agent.api.to.SwiftTO;
+import org.apache.storage.StoragePool;
+import org.apache.storage.StoragePoolStatus;
+import org.apache.storage.Storage.StoragePoolType;
 import org.junit.Test;
-
-import com.cloud.agent.api.BackupSnapshotCommand;
-import com.cloud.agent.api.to.StorageFilerTO;
-import com.cloud.agent.api.to.SwiftTO;
-import com.cloud.storage.Storage.StoragePoolType;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.StoragePoolStatus;
 
 public class BackupSnapshotCommandTest {
     public StoragePool pool = new StoragePool() {

@@ -20,11 +20,12 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Local;
+
 import org.apache.cloudstack.affinity.AffinityGroupVO;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
 import org.springframework.stereotype.Component;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
 
 @Local(value = { AffinityGroupDao.class })
 public class AffinityGroupDaoImpl extends GenericDaoBase<AffinityGroupVO, Long> implements AffinityGroupDao {

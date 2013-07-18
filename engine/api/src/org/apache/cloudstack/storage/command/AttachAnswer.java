@@ -18,8 +18,8 @@
  */
 package org.apache.cloudstack.storage.command;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.to.DiskTO;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.to.DiskTO;
 
 public class AttachAnswer extends Answer {
     private DiskTO disk;

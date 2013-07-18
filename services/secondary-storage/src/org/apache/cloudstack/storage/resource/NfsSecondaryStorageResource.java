@@ -16,12 +16,12 @@
 // under the License.
 package org.apache.cloudstack.storage.resource;
 
-import static com.cloud.utils.S3Utils.putFile;
-import static com.cloud.utils.StringUtils.join;
-import static com.cloud.utils.db.GlobalLock.executeWithNoWaitLock;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static org.apache.commons.lang.StringUtils.substringAfterLast;
+import static org.apache.utils.S3Utils.putFile;
+import static org.apache.utils.StringUtils.join;
+import static org.apache.utils.db.GlobalLock.executeWithNoWaitLock;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -43,6 +43,43 @@ import java.util.concurrent.Callable;
 
 import javax.naming.ConfigurationException;
 
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.CheckHealthAnswer;
+import org.apache.agent.api.CheckHealthCommand;
+import org.apache.agent.api.Command;
+import org.apache.agent.api.ComputeChecksumCommand;
+import org.apache.agent.api.DeleteSnapshotsDirCommand;
+import org.apache.agent.api.DownloadSnapshotFromS3Command;
+import org.apache.agent.api.DownloadSnapshotFromSwiftCommand;
+import org.apache.agent.api.DownloadTemplateFromSwiftToSecondaryStorageCommand;
+import org.apache.agent.api.GetStorageStatsAnswer;
+import org.apache.agent.api.GetStorageStatsCommand;
+import org.apache.agent.api.PingCommand;
+import org.apache.agent.api.PingStorageCommand;
+import org.apache.agent.api.ReadyAnswer;
+import org.apache.agent.api.ReadyCommand;
+import org.apache.agent.api.SecStorageFirewallCfgCommand;
+import org.apache.agent.api.SecStorageSetupAnswer;
+import org.apache.agent.api.SecStorageSetupCommand;
+import org.apache.agent.api.SecStorageVMSetupCommand;
+import org.apache.agent.api.StartupCommand;
+import org.apache.agent.api.StartupSecondaryStorageCommand;
+import org.apache.agent.api.UploadTemplateToSwiftFromSecondaryStorageCommand;
+import org.apache.agent.api.SecStorageFirewallCfgCommand.PortConfig;
+import org.apache.agent.api.SecStorageSetupCommand.Certificates;
+import org.apache.agent.api.storage.CreateEntityDownloadURLCommand;
+import org.apache.agent.api.storage.DeleteEntityDownloadURLCommand;
+import org.apache.agent.api.storage.ListTemplateAnswer;
+import org.apache.agent.api.storage.ListTemplateCommand;
+import org.apache.agent.api.storage.ListVolumeAnswer;
+import org.apache.agent.api.storage.ListVolumeCommand;
+import org.apache.agent.api.storage.UploadCommand;
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.DataTO;
+import org.apache.agent.api.to.NfsTO;
+import org.apache.agent.api.to.S3TO;
+import org.apache.agent.api.to.SwiftTO;
 import org.apache.cloudstack.storage.command.CopyCmdAnswer;
 import org.apache.cloudstack.storage.command.CopyCommand;
 import org.apache.cloudstack.storage.command.DeleteCommand;
@@ -57,67 +94,30 @@ import org.apache.cloudstack.storage.to.SnapshotObjectTO;
 import org.apache.cloudstack.storage.to.TemplateObjectTO;
 import org.apache.cloudstack.storage.to.VolumeObjectTO;
 import org.apache.commons.lang.StringUtils;
+import org.apache.exception.InternalErrorException;
+import org.apache.host.Host;
+import org.apache.host.Host.Type;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 import org.apache.log4j.Logger;
+import org.apache.resource.ServerResourceBase;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.StorageLayer;
+import org.apache.storage.Storage.ImageFormat;
+import org.apache.storage.template.Processor;
+import org.apache.storage.template.TemplateLocation;
+import org.apache.storage.template.TemplateProp;
+import org.apache.storage.template.VhdProcessor;
+import org.apache.storage.template.Processor.FormatInfo;
+import org.apache.utils.NumbersUtil;
+import org.apache.utils.S3Utils;
+import org.apache.utils.S3Utils.FileNamingStrategy;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.net.NetUtils;
+import org.apache.utils.script.OutputInterpreter;
+import org.apache.utils.script.Script;
+import org.apache.vm.SecondaryStorageVm;
 
 import com.amazonaws.services.s3.model.S3ObjectSummary;
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.CheckHealthAnswer;
-import com.cloud.agent.api.CheckHealthCommand;
-import com.cloud.agent.api.Command;
-import com.cloud.agent.api.ComputeChecksumCommand;
-import com.cloud.agent.api.DeleteSnapshotsDirCommand;
-import com.cloud.agent.api.DownloadSnapshotFromS3Command;
-import com.cloud.agent.api.DownloadSnapshotFromSwiftCommand;
-import com.cloud.agent.api.DownloadTemplateFromSwiftToSecondaryStorageCommand;
-import com.cloud.agent.api.GetStorageStatsAnswer;
-import com.cloud.agent.api.GetStorageStatsCommand;
-import com.cloud.agent.api.PingCommand;
-import com.cloud.agent.api.PingStorageCommand;
-import com.cloud.agent.api.ReadyAnswer;
-import com.cloud.agent.api.ReadyCommand;
-import com.cloud.agent.api.SecStorageFirewallCfgCommand;
-import com.cloud.agent.api.SecStorageFirewallCfgCommand.PortConfig;
-import com.cloud.agent.api.SecStorageSetupAnswer;
-import com.cloud.agent.api.SecStorageSetupCommand;
-import com.cloud.agent.api.SecStorageSetupCommand.Certificates;
-import com.cloud.agent.api.SecStorageVMSetupCommand;
-import com.cloud.agent.api.StartupCommand;
-import com.cloud.agent.api.StartupSecondaryStorageCommand;
-import com.cloud.agent.api.UploadTemplateToSwiftFromSecondaryStorageCommand;
-import com.cloud.agent.api.storage.CreateEntityDownloadURLCommand;
-import com.cloud.agent.api.storage.DeleteEntityDownloadURLCommand;
-import com.cloud.agent.api.storage.ListTemplateAnswer;
-import com.cloud.agent.api.storage.ListTemplateCommand;
-import com.cloud.agent.api.storage.ListVolumeAnswer;
-import com.cloud.agent.api.storage.ListVolumeCommand;
-import com.cloud.agent.api.storage.UploadCommand;
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.DataTO;
-import com.cloud.agent.api.to.NfsTO;
-import com.cloud.agent.api.to.S3TO;
-import com.cloud.agent.api.to.SwiftTO;
-import com.cloud.exception.InternalErrorException;
-import com.cloud.host.Host;
-import com.cloud.host.Host.Type;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.resource.ServerResourceBase;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.Storage.ImageFormat;
-import com.cloud.storage.StorageLayer;
-import com.cloud.storage.template.Processor;
-import com.cloud.storage.template.Processor.FormatInfo;
-import com.cloud.storage.template.TemplateLocation;
-import com.cloud.storage.template.TemplateProp;
-import com.cloud.storage.template.VhdProcessor;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.utils.S3Utils;
-import com.cloud.utils.S3Utils.FileNamingStrategy;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.net.NetUtils;
-import com.cloud.utils.script.OutputInterpreter;
-import com.cloud.utils.script.Script;
-import com.cloud.vm.SecondaryStorageVm;
 
 public class NfsSecondaryStorageResource extends ServerResourceBase implements SecondaryStorageResource {
 
@@ -1884,7 +1884,7 @@ public class NfsSecondaryStorageResource extends ServerResourceBase implements S
         if (_storage == null) {
             value = (String) params.get(StorageLayer.ClassConfigKey);
             if (value == null) {
-                value = "com.cloud.storage.JavaStorageLayer";
+                value = "org.apache.storage.JavaStorageLayer";
             }
 
             try {

@@ -148,7 +148,7 @@ echo "Setting up configuration values..."
     for i in $LB
    do
       DST='../src/'
-      java -cp ${DST}commons-httpclient-3.1.jar:${DST}mysql-connector-java-5.1.7-bin.jar:${DST}commons-logging-1.1.1.jar:${DST}commons-codec-1.4.jar:${DST}cloud-test.jar:${DST}log4j-1.2.15.jar:${DST}trilead-ssh2-build213.jar:${DST}cloud-utils.jar:.././conf com.cloud.test.regression.Deploy -h $i -f ../conf/deploy.xml
+      java -cp ${DST}commons-httpclient-3.1.jar:${DST}mysql-connector-java-5.1.7-bin.jar:${DST}commons-logging-1.1.1.jar:${DST}commons-codec-1.4.jar:${DST}cloud-test.jar:${DST}log4j-1.2.15.jar:${DST}trilead-ssh2-build213.jar:${DST}cloud-utils.jar:.././conf org.apache.test.regression.Deploy -h $i -f ../conf/deploy.xml
       echo "Restarting Management server to apply configuration values"
    done
 
@@ -166,7 +166,7 @@ echo "Adding secondary/primary storage/hosts..."
     for i in $LB
    do
       DST='../src/'
-      java -cp ${DST}commons-httpclient-3.1.jar:${DST}mysql-connector-java-5.1.7-bin.jar:${DST}commons-logging-1.1.1.jar:${DST}commons-codec-1.4.jar:${DST}cloud-test.jar:${DST}log4j-1.2.15.jar:${DST}trilead-ssh2-build213.jar:${DST}cloud-utils.jar:.././conf com.cloud.test.regression.Deploy -h $i -f ../conf/config.xml
+      java -cp ${DST}commons-httpclient-3.1.jar:${DST}mysql-connector-java-5.1.7-bin.jar:${DST}commons-logging-1.1.1.jar:${DST}commons-codec-1.4.jar:${DST}cloud-test.jar:${DST}log4j-1.2.15.jar:${DST}trilead-ssh2-build213.jar:${DST}cloud-utils.jar:.././conf org.apache.test.regression.Deploy -h $i -f ../conf/config.xml
    done
 
 fi

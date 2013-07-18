@@ -32,16 +32,16 @@
 
   <context:annotation-config />
 
-  <context:component-scan base-package="org.apache.cloudstack, com.cloud" />
+  <context:component-scan base-package="org.apache.cloudstack, org.apache, org.apache.network" />
   
   <!--
     @DB support
   -->
-  <bean id="componentContext" class="com.cloud.utils.component.ComponentContext" />
+  <bean id="componentContext" class="org.apache.utils.component.ComponentContext" />
 
-  <bean id="transactionContextBuilder" class="com.cloud.utils.db.TransactionContextBuilder" />
-  <bean id="actionEventInterceptor" class="com.cloud.event.ActionEventInterceptor" />
-  <bean id="instantiatePostProcessor" class="com.cloud.utils.component.ComponentInstantiationPostProcessor">
+  <bean id="transactionContextBuilder" class="org.apache.utils.db.TransactionContextBuilder" />
+  <bean id="actionEventInterceptor" class="org.apache.event.ActionEventInterceptor" />
+  <bean id="instantiatePostProcessor" class="org.apache.utils.component.ComponentInstantiationPostProcessor">
     <property name="Interceptors">
         <list>
             <ref bean="transactionContextBuilder" />
@@ -50,7 +50,7 @@
     </property>
   </bean>
   
-  <bean class="com.cloud.network.security.SecurityGroupManagerTestConfiguration" />
+  <bean class="org.apache.network.security.SecurityGroupManagerTestConfiguration" />
 
   <!--
     RPC/Async/EventBus
@@ -82,6 +82,6 @@
 
   <bean id="eventBus" class = "org.apache.cloudstack.framework.eventbus.EventBusBase" />
 
-  <bean id="apiServlet" class = "com.cloud.api.ApiServlet" />
+  <bean id="apiServlet" class = "org.apache.api.ApiServlet" />
 
 </beans>

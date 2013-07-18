@@ -29,19 +29,18 @@ import org.apache.cloudstack.storage.command.CreateObjectAnswer;
 import org.apache.cloudstack.storage.datastore.db.SnapshotDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.SnapshotDataStoreVO;
 import org.apache.cloudstack.storage.to.SnapshotObjectTO;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.Snapshot;
+import org.apache.storage.SnapshotVO;
+import org.apache.storage.dao.SnapshotDao;
+import org.apache.storage.snapshot.SnapshotManager;
+import org.apache.utils.NumbersUtil;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.fsm.NoTransitionException;
 import org.springframework.stereotype.Component;
-
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.Snapshot;
-import com.cloud.storage.SnapshotVO;
-import com.cloud.storage.dao.SnapshotDao;
-import com.cloud.storage.snapshot.SnapshotManager;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.fsm.NoTransitionException;
 
 @Component
 public class XenserverSnapshotStrategy extends SnapshotStrategyBase {

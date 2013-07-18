@@ -23,11 +23,10 @@ import org.apache.cloudstack.api.BaseCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.UserVmResponse;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.user.Account;
-import com.cloud.uservm.UserVm;
+import org.apache.user.Account;
+import org.apache.uservm.UserVm;
 
 @APICommand(name = "recoverVirtualMachine", description="Recovers a virtual machine.", responseObject=UserVmResponse.class)
 public class RecoverVMCmd extends BaseCmd {

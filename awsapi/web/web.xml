@@ -36,7 +36,7 @@
     <servlet>
         <servlet-name>EC2MainServlet</servlet-name>
         <display-name>EC2 Main Servlet</display-name>
-        <servlet-class>com.cloud.bridge.service.EC2MainServlet</servlet-class>
+        <servlet-class>org.apache.bridge.service.EC2MainServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
@@ -64,7 +64,7 @@
     <servlet>
         <servlet-name>CloudBridgeS3Servlet</servlet-name>
         <display-name>Cloud.com Bridge S3 Service REST Servlet</display-name>
-        <servlet-class>com.cloud.bridge.service.S3RestServlet</servlet-class>
+        <servlet-class>org.apache.bridge.service.S3RestServlet</servlet-class>
         <init-param>
             <param-name>readonly</param-name>
             <param-value>false</param-value>
@@ -73,7 +73,7 @@
     <servlet>
         <servlet-name>EC2RestServlet</servlet-name>
         <display-name>Cloud.com Bridge EC2 Service REST Servlet</display-name>
-        <servlet-class>com.cloud.bridge.service.EC2RestServlet</servlet-class>
+        <servlet-class>org.apache.bridge.service.EC2RestServlet</servlet-class>
 		<load-on-startup>3</load-on-startup>
     </servlet>
 

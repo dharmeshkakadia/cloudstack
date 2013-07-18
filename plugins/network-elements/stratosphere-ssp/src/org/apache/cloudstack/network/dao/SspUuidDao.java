@@ -18,9 +18,9 @@ package org.apache.cloudstack.network.dao;
 
 import java.util.List;
 
-import com.cloud.network.Network;
-import com.cloud.utils.db.GenericDao;
-import com.cloud.vm.NicProfile;
+import org.apache.network.Network;
+import org.apache.utils.db.GenericDao;
+import org.apache.vm.NicProfile;
 
 /**
  * Mapping for SSP UUID and cloudstack entities

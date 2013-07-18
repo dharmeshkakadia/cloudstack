@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.engine.datacenter.entity.api.db;
 
-import com.cloud.org.Cluster;
+import org.apache.org.Cluster;
 
 public interface EngineCluster extends Cluster {
 

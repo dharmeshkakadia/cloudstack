@@ -16,11 +16,11 @@
 // under the License.
 package org.apache.cloudstack.storage.command;
 
-import com.cloud.agent.api.Command;
-import com.cloud.agent.api.storage.PasswordAuth;
-import com.cloud.agent.api.storage.Proxy;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.template.VirtualMachineTemplate;
+import org.apache.agent.api.Command;
+import org.apache.agent.api.storage.PasswordAuth;
+import org.apache.agent.api.storage.Proxy;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.template.VirtualMachineTemplate;
 
 public class DownloadSystemTemplateCommand extends Command {
 

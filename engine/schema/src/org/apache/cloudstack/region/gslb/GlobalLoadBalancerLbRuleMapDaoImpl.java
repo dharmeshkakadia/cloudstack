@@ -17,13 +17,14 @@
 
 package org.apache.cloudstack.region.gslb;
 
-import com.cloud.utils.db.DB;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
+import org.apache.utils.db.DB;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
 import org.springframework.stereotype.Component;
 
 import javax.ejb.Local;
+
 import java.util.List;
 
 @Component

@@ -18,16 +18,10 @@
  */
 package org.apache.cloudstack.storage.image;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.storage.DownloadAnswer;
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.DataTO;
-import com.cloud.storage.VMTemplateStorageResourceAssoc;
-import com.cloud.storage.VMTemplateVO;
-import com.cloud.storage.VolumeVO;
-import com.cloud.storage.dao.VMTemplateDao;
-import com.cloud.storage.dao.VolumeDao;
-import com.cloud.storage.download.DownloadMonitor;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.storage.DownloadAnswer;
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.DataTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.CopyCommandResult;
 import org.apache.cloudstack.engine.subsystem.api.storage.CreateCmdResult;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObject;
@@ -44,8 +38,15 @@ import org.apache.cloudstack.storage.datastore.db.TemplateDataStoreVO;
 import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreDao;
 import org.apache.cloudstack.storage.datastore.db.VolumeDataStoreVO;
 import org.apache.log4j.Logger;
+import org.apache.storage.VMTemplateStorageResourceAssoc;
+import org.apache.storage.VMTemplateVO;
+import org.apache.storage.VolumeVO;
+import org.apache.storage.dao.VMTemplateDao;
+import org.apache.storage.dao.VolumeDao;
+import org.apache.storage.download.DownloadMonitor;
 
 import javax.inject.Inject;
+
 import java.util.Date;
 
 public abstract class BaseImageStoreDriverImpl implements ImageStoreDriver {

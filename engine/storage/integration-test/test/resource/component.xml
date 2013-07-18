@@ -34,103 +34,103 @@
   <!--
       Compose a CloudStack deployment with selected components here
   -->
-  <bean id="databaseUpgradeChecker" class="com.cloud.upgrade.DatabaseUpgradeChecker" />
+  <bean id="databaseUpgradeChecker" class="org.apache.upgradee.DatabaseUpgradeChecker" />
   
-  <bean id="management-server" class ="com.cloud.server.ManagementServerExtImpl" />
-  <bean id="configuration-server" class="com.cloud.server.ConfigurationServerImpl" />
+  <bean id="management-server" class ="org.apache.serverr.ManagementServerExtImpl" />
+  <bean id="configuration-server" class=org.apache.serverer.ConfigurationServerImpl" />
    
-  <bean id="clusterManagerImpl" class="com.cloud.cluster.ClusterManagerImpl" />
-  <bean id="clusteredVirtualMachineManagerImpl" class="com.cloud.vm.ClusteredVirtualMachineManagerImpl" />
-  <bean id="highAvailabilityManagerExtImpl" class="com.cloud.ha.HighAvailabilityManagerExtImpl" />
-  <bean id="bareMetalVmManagerImpl" class="com.cloud.baremetal.BareMetalVmManagerImpl" />
-  <bean id="consoleProxyManagerImpl" class="com.cloud.consoleproxy.ConsoleProxyManagerImpl" />
-  <bean id="securityGroupManagerImpl2" class="com.cloud.network.security.SecurityGroupManagerImpl2" />
-  <bean id="premiumSecondaryStorageManagerImpl" class="com.cloud.secstorage.PremiumSecondaryStorageManagerImpl" />
-  <bean id="randomlyIncreasingVMInstanceDaoImpl" class="com.cloud.vm.dao.RandomlyIncreasingVMInstanceDaoImpl" />
+  <bean id="clusterManagerImpl" class="org.apache.clusterr.ClusterManagerImpl" />
+  <bean id="clusteredVirtualMachineManagerImpl" class="org.apache.vmm.ClusteredVirtualMachineManagerImpl" />
+  <bean id="highAvailabilityManagerExtImpl" class="org.apache.haa.HighAvailabilityManagerExtImpl" />
+  <bean id="bareMetalVmManagerImpl" class="org.apache.baremetal.BareMetalVmManagerImpl" />
+  <bean id="consoleProxyManagerImpl" class="org.apache.consoleproxyy.ConsoleProxyManagerImpl" />
+  <bean id="securityGroupManagerImpl2" class="org.apache.networkk.security.SecurityGroupManagerImpl2" />
+  <bean id="premiumSecondaryStorageManagerImpl" class="org.apache.secstoragee.PremiumSecondaryStorageManagerImpl" />
+  <bean id="randomlyIncreasingVMInstanceDaoImpl" class=org.apache.vmvm.dao.RandomlyIncreasingVMInstanceDaoImpl" />
     
             
   <!--
      Adapters
   -->
-  <bean id="FirstFitRouting" class="com.cloud.agent.manager.allocator.impl.FirstFitRoutingAllocator">
+  <bean id="FirstFitRouting" class="org.apache.agentt.manager.allocator.impl.FirstFitRoutingAllocator">
     <property name="name" value="FirstFitRouting"/>
   </bean>
   
   <!--
     Storage pool allocators
   -->
-  <bean id="LocalStoragePoolAllocator" class="com.cloud.storage.allocator.LocalStoragePoolAllocator">
+  <bean id="LocalStoragePoolAllocator" class="org.apache.storagee.allocator.LocalStoragePoolAllocator">
     <property name="name" value="LocalStorage"/>
   </bean>
-  <bean id="FirstFitStoragePoolAllocator" class="com.cloud.storage.allocator.FirstFitStoragePoolAllocator">
+  <bean id="FirstFitStoragePoolAllocator" class=org.apache.storagege.allocator.FirstFitStoragePoolAllocator">
     <property name="name" value="Storage"/>
   </bean>
 
-  <bean id="UserConcentratedAllocator" class="com.cloud.agent.manager.allocator.impl.UserConcentratedAllocator">
+  <bean id="UserConcentratedAllocator" class=org.apache.agentnt.manager.allocator.impl.UserConcentratedAllocator">
     <property name="name" value="User First"/>
   </bean>
 
-  <bean id="ConsoleProxyAllocator" class="com.cloud.consoleproxy.ConsoleProxyBalanceAllocator">
+  <bean id="ConsoleProxyAllocator" class=org.apache.consoleproxyxy.ConsoleProxyBalanceAllocator">
     <property name="name" value="Balance"/>
   </bean>
 
  
-  <bean id="ExternalIpAddressAllocator" class="com.cloud.network.ExternalIpAddressAllocator">
+  <bean id="ExternalIpAddressAllocator" class=org.apache.networkrk.ExternalIpAddressAllocator">
     <property name="name" value="Basic"/>
   </bean>
 
   <!--
     Investigators
   -->
-  <bean id="CheckOnAgentInvestigator" class="com.cloud.ha.CheckOnAgentInvestigator">
+  <bean id="CheckOnAgentInvestigator" class=org.apache.haha.CheckOnAgentInvestigator">
     <property name="name" value="SimpleInvestigator"/>
   </bean>
 
-  <bean id="XenServerInvestigator" class="com.cloud.ha.XenServerInvestigator">
+  <bean id="XenServerInvestigator" class="org.apache.ha.XenServerInvestigator">
     <property name="name" value="XenServerInvestigator"/>
   </bean>
   
-  <bean id="UserVmDomRInvestigator" class="com.cloud.ha.UserVmDomRInvestigator">
+  <bean id="UserVmDomRInvestigator" class="org.apache.ha.UserVmDomRInvestigator">
     <property name="name" value="PingInvestigator"/>
   </bean>
 
-  <bean id="ManagementIPSystemVMInvestigator" class="com.cloud.ha.ManagementIPSystemVMInvestigator">
+  <bean id="ManagementIPSystemVMInvestigator" class="org.apache.ha.ManagementIPSystemVMInvestigator">
     <property name="name" value="ManagementIPSysVMInvestigator"/>
   </bean>
 
   <!--
     Fencers
   -->
-  <bean id="XenServerFencer" class="com.cloud.ha.XenServerFencer">
+  <bean id="XenServerFencer" class="org.apache.ha.XenServerFencer">
     <property name="name" value="XenServerFenceBuilder"/>
   </bean>
-  <bean id="KVMFencer" class="com.cloud.ha.KVMFencer">
+  <bean id="KVMFencer" class="org.apache.ha.KVMFencer">
     <property name="name" value="KVMFenceBuilder"/>
   </bean>
 
 
-  <bean id="XcpServerDiscoverer" class="com.cloud.hypervisor.xen.discoverer.XcpServerDiscoverer">
+  <bean id="XcpServerDiscoverer" class="org.apache.hypervisor.xen.discoverer.XcpServerDiscoverer">
     <property name="name" value="XCP Agent"/>
   </bean>
 
-  <bean id="SecondaryStorageDiscoverer" class="com.cloud.storage.secondary.SecondaryStorageDiscoverer">
+  <bean id="SecondaryStorageDiscoverer" class="org.apache.storage.secondary.SecondaryStorageDiscoverer">
     <property name="name" value="SecondaryStorage"/>
   </bean>
 
-  <bean id="KvmServerDiscoverer" class="com.cloud.hypervisor.kvm.discoverer.KvmServerDiscoverer">
+  <bean id="KvmServerDiscoverer" class="org.apache.hypervisor.kvm.discoverer.KvmServerDiscoverer">
     <property name="name" value="KVM Agent"/>
   </bean>
 
-  <bean id="BareMetalDiscoverer" class="com.cloud.baremetal.BareMetalDiscoverer">
+  <bean id="BareMetalDiscoverer" class="org.apache.baremetal.BareMetalDiscoverer">
     <property name="name" value="Bare Metal Agent"/>
   </bean>
 
-  <bean id="FirstFitPlanner" class="com.cloud.deploy.FirstFitPlanner">
+  <bean id="FirstFitPlanner" class="org.apache.deployy.FirstFitPlanner">
     <property name="name" value="First Fit"/>
   </bean>
 
 
-  <bean id="BareMetalPlanner" class="com.cloud.deploy.BareMetalPlanner">
+  <bean id="BareMetalPlanner" class=org.apache.deployoy.BareMetalPlanner">
     <property name="name" value="BareMetal Fit"/>
   </bean>
     
@@ -138,55 +138,55 @@
   <!--
     Network Gurus
   -->
-  <bean id="StorageNetworkGuru" class="com.cloud.network.guru.StorageNetworkGuru">
+  <bean id="StorageNetworkGuru" class="org.apache.network.guru.StorageNetworkGuru">
     <property name="name" value="StorageNetworkGuru"/>
   </bean>
-  <bean id="ExternalGuestNetworkGuru" class="com.cloud.network.guru.ExternalGuestNetworkGuru">
+  <bean id="ExternalGuestNetworkGuru" class="org.apache.network.guru.ExternalGuestNetworkGuru">
     <property name="name" value="ExternalGuestNetworkGuru"/>
   </bean>
-  <bean id="PublicNetworkGuru" class="com.cloud.network.guru.PublicNetworkGuru">
+  <bean id="PublicNetworkGuru" class="org.apache.networkt.guru.PublicNetworkGuru">
     <property name="name" value="PublicNetworkGuru"/>
   </bean>
-  <bean id="PodBasedNetworkGuru" class="com.cloud.network.guru.PodBasedNetworkGuru">
+  <bean id="PodBasedNetworkGuru" class="org.apache.network.guru.PodBasedNetworkGuru">
     <property name="name" value="PodBasedNetworkGuru"/>
   </bean>
-  <bean id="ControlNetworkGuru" class="com.cloud.network.guru.ControlNetworkGuru">
+  <bean id="ControlNetworkGuru" class="org.apache.network.guru.ControlNetworkGuru">
     <property name="name" value="ControlNetworkGuru"/>
   </bean>
-  <bean id="DirectNetworkGuru" class="com.cloud.network.guru.DirectNetworkGuru">
+  <bean id="DirectNetworkGuru" class="org.apache.network.guru.DirectNetworkGuru">
     <property name="name" value="DirectNetworkGuru"/>
   </bean>
-  <bean id="DirectPodBasedNetworkGuru" class="com.cloud.network.guru.DirectPodBasedNetworkGuru">
+  <bean id="DirectPodBasedNetworkGuru" class="org.apache.network.guru.DirectPodBasedNetworkGuru">
     <property name="name" value="DirectPodBasedNetworkGuru"/>
   </bean>
-  <bean id="OvsGuestNetworkGuru" class="com.cloud.network.guru.OvsGuestNetworkGuru">
+  <bean id="OvsGuestNetworkGuru" class="org.apache.network.guru.OvsGuestNetworkGuru">
     <property name="name" value="OvsGuestNetworkGuru"/>
   </bean>
-  <bean id="PrivateNetworkGuru" class="com.cloud.network.guru.PrivateNetworkGuru">
+  <bean id="PrivateNetworkGuru" class="org.apache.network.guru.PrivateNetworkGuru">
     <property name="name" value="PrivateNetworkGuru"/>
   </bean>
-   <bean id="VpcVirtualRouter" class="com.cloud.network.element.VpcVirtualRouterElement">
+   <bean id="VpcVirtualRouter" class="org.apache.network.element.VpcVirtualRouterElement">
     <property name="name" value="VpcVirtualRouter"/>
   </bean>
   <!--
    Hypervisor Gurus
   -->
-  <bean id="XenServerGuru" class="com.cloud.hypervisor.XenServerGuru">
+  <bean id="XenServerGuru" class="org.apache.hypervisorsor.XenServerGuru">
     <property name="name" value="XenServerGuru"/>
   </bean>
   
-  <bean id="KVMGuru" class="com.cloud.hypervisor.KVMGuru">
+  <bean id="KVMGuru" class="org.apache.hypervisor.KVMGuru">
     <property name="name" value="KVMGuru"/>
   </bean>
   
-  <bean id="BareMetalGuru" class="com.cloud.baremetal.BareMetalGuru">
+  <bean id="BareMetalGuru" class="org.apache.baremetal.BareMetalGuru">
     <property name="name" value="BareMetalGuru"/>
   </bean>
 
   <!--
     DAO with customized configuration
   -->
-  <bean id="configurationDaoImpl" class="com.cloud.configuration.dao.ConfigurationDaoImpl">
+  <bean id="configurationDaoImpl" class="org.apache.configurationn.dao.ConfigurationDaoImpl">
   </bean>
   
 </beans>

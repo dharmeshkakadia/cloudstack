@@ -20,9 +20,8 @@ import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.BaseListTemplateOrIsoPermissionsCmd;
 import org.apache.cloudstack.api.response.TemplatePermissionsResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.storage.Storage.ImageFormat;
-import com.cloud.template.VirtualMachineTemplate;
+import org.apache.storage.Storage.ImageFormat;
+import org.apache.template.VirtualMachineTemplate;
 
 @APICommand(name = "listTemplatePermissions", description="List template visibility and all accounts that have permissions to view this template.", responseObject=TemplatePermissionsResponse.class)
 public class ListTemplatePermissionsCmd extends BaseListTemplateOrIsoPermissionsCmd {

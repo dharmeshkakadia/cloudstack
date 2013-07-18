@@ -16,30 +16,31 @@
 // under the License.
 package org.apache.cloudstack.privategw;
 
-import com.cloud.configuration.ConfigurationManager;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.dc.dao.VlanDao;
-import com.cloud.exception.*;
-import com.cloud.network.NetworkManager;
-import com.cloud.network.NetworkModel;
-import com.cloud.network.NetworkService;
-import com.cloud.network.dao.*;
-import com.cloud.network.vpc.VpcManagerImpl;
-import com.cloud.network.vpc.VpcService;
-import com.cloud.network.vpc.dao.*;
-import com.cloud.network.vpn.Site2SiteVpnManager;
-import com.cloud.offerings.dao.NetworkOfferingServiceMapDao;
-import com.cloud.server.ConfigurationServer;
-import com.cloud.tags.dao.ResourceTagDao;
-import com.cloud.user.AccountManager;
-import com.cloud.user.ResourceLimitService;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.vm.dao.DomainRouterDao;
 import junit.framework.Assert;
+
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.admin.vpc.CreatePrivateGatewayCmd;
 import org.apache.cloudstack.test.utils.SpringUtils;
+import org.apache.configuration.ConfigurationManager;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.dc.dao.VlanDao;
+import org.apache.exception.*;
+import org.apache.network.NetworkManager;
+import org.apache.network.NetworkModel;
+import org.apache.network.NetworkService;
+import org.apache.network.dao.*;
+import org.apache.network.vpc.VpcManagerImpl;
+import org.apache.network.vpc.VpcService;
+import org.apache.network.vpc.dao.*;
+import org.apache.network.vpn.Site2SiteVpnManager;
+import org.apache.offerings.dao.NetworkOfferingServiceMapDao;
+import org.apache.server.ConfigurationServer;
+import org.apache.tags.dao.ResourceTagDao;
+import org.apache.user.AccountManager;
+import org.apache.user.ResourceLimitService;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.vm.dao.DomainRouterDao;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -57,6 +58,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import javax.naming.ConfigurationException;
+
 import java.io.IOException;
 
 @RunWith(SpringJUnit4ClassRunner.class)

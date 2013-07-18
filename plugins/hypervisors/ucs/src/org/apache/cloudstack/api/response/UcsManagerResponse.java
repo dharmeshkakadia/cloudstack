@@ -19,11 +19,10 @@ package org.apache.cloudstack.api.response;
 
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.EntityReference;
-
 import org.apache.cloudstack.api.BaseResponse;
+import org.apache.serializer.Param;
+import org.apache.ucs.database.UcsManagerVO;
 
-import com.cloud.serializer.Param;
-import com.cloud.ucs.database.UcsManagerVO;
 import com.google.gson.annotations.SerializedName;
 @EntityReference(value=UcsManagerVO.class)
 public class UcsManagerResponse extends BaseResponse {

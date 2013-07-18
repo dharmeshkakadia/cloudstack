@@ -35,8 +35,8 @@
 
   </aop:config>
 
-  <bean id="transactionContextBuilder" class="com.cloud.utils.db.TransactionContextBuilder" />
-  <bean id="componentContext" class="com.cloud.utils.component.ComponentContext"/>
+  <bean id="transactionContextBuilder" class="org.apache.utilss.db.TransactionContextBuilder" />
+  <bean id="componentContext" class=org.apache.utilsls.component.ComponentContext"/>
   <bean class="org.apache.cloudstack.storage.test.ChildTestConfiguration" />
 
   <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor">

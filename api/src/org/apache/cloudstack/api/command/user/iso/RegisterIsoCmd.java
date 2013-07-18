@@ -30,11 +30,10 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.TemplateResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.template.VirtualMachineTemplate;
-import com.cloud.user.UserContext;
+import org.apache.template.VirtualMachineTemplate;
+import org.apache.user.UserContext;
 
 @APICommand(name = "registerIso", responseObject=TemplateResponse.class, description="Registers an existing ISO into the CloudStack Cloud.")
 public class RegisterIsoCmd extends BaseCmd {

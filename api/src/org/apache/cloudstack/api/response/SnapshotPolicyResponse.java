@@ -18,9 +18,9 @@ package org.apache.cloudstack.api.response;
 
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.serializer.Param;
+import org.apache.storage.snapshot.SnapshotPolicy;
 
-import com.cloud.serializer.Param;
-import com.cloud.storage.snapshot.SnapshotPolicy;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=SnapshotPolicy.class)

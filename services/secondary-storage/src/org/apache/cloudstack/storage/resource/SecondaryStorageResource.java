@@ -15,7 +15,7 @@
 // specific language governing permissions and limitations
 // under the License.
 package org.apache.cloudstack.storage.resource;
-import com.cloud.resource.ServerResource;
+import org.apache.resource.ServerResource;
 /**
  *
  * SecondaryStorageServerResource is a generic container to execute commands sent

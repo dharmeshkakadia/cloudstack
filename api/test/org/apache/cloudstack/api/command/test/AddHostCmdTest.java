@@ -24,16 +24,15 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.admin.host.AddHostCmd;
 import org.apache.cloudstack.api.response.HostResponse;
 import org.apache.cloudstack.api.response.ListResponse;
+import org.apache.exception.DiscoveryException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.host.Host;
+import org.apache.resource.ResourceService;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
-
-import com.cloud.exception.DiscoveryException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.host.Host;
-import com.cloud.resource.ResourceService;
 
 import edu.emory.mathcs.backport.java.util.Arrays;
 

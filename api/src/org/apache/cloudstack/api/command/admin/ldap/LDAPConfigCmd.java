@@ -29,14 +29,13 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.LDAPConfigResponse;
 import org.apache.cloudstack.api.response.ListResponse;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "ldapConfig", description="Configure the LDAP context for this site.", responseObject=LDAPConfigResponse.class, since="3.0.0")
 public class LDAPConfigCmd extends BaseCmd  {

@@ -18,8 +18,15 @@
  */
 package org.apache.cloudstack.storage.datastore.provider;
 
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.utils.component.ManagerBase;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.inject.Inject;
+import javax.naming.ConfigurationException;
+
 import org.apache.cloudstack.api.response.StorageProviderResponse;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreProvider;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreProvider.DataStoreProviderType;
@@ -28,16 +35,10 @@ import org.apache.cloudstack.engine.subsystem.api.storage.PrimaryDataStoreDriver
 import org.apache.cloudstack.storage.datastore.PrimaryDataStoreProviderManager;
 import org.apache.cloudstack.storage.image.ImageStoreDriver;
 import org.apache.cloudstack.storage.image.datastore.ImageStoreProviderManager;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
+import org.apache.utils.component.ManagerBase;
 import org.springframework.stereotype.Component;
-
-import javax.inject.Inject;
-import javax.naming.ConfigurationException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 @Component
 public class DataStoreProviderManagerImpl extends ManagerBase implements DataStoreProviderManager {

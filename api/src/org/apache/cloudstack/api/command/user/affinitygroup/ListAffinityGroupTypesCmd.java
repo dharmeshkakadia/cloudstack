@@ -24,8 +24,7 @@ import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.BaseListCmd;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "listAffinityGroupTypes", description = "Lists affinity group types available", responseObject = AffinityGroupTypeResponse.class)
 public class ListAffinityGroupTypesCmd extends BaseListCmd {

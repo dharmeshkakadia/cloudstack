@@ -21,6 +21,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiConstants.HostDetails;
@@ -32,13 +33,11 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.host.Host;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.host.Host;
-import com.cloud.utils.Pair;
-import com.cloud.utils.Ternary;
+import org.apache.utils.Pair;
+import org.apache.utils.Ternary;
 
 @APICommand(name = "listHosts", description="Lists hosts.", responseObject=HostResponse.class)
 public class ListHostsCmd extends BaseListCmd {

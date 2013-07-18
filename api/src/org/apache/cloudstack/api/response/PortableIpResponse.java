@@ -24,11 +24,12 @@ import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
 
-import com.cloud.network.IpAddress;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
+
 import org.apache.cloudstack.region.PortableIp;
 import org.apache.cloudstack.region.PortableIpRange;
+import org.apache.network.IpAddress;
+import org.apache.serializer.Param;
 
 @EntityReference(value=PortableIp.class)
 public class PortableIpResponse extends BaseResponse {

@@ -61,4 +61,4 @@ then
   maxmem=$eightypcnt
 fi
 
-java -Djavax.net.ssl.trustStore=./certs/realhostip.keystore -Dlog.home=$LOGHOME -mx${maxmem}m -cp $CP com.cloud.agent.AgentShell $keyvalues $@
+java -Djavax.net.ssl.trustStore=./certs/realhostip.keystore -Dlog.home=$LOGHOME -mx${maxmem}m -cp $CP org.apache.agent.AgentShell $keyvalues $@

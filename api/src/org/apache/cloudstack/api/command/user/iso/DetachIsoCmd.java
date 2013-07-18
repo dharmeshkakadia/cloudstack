@@ -25,11 +25,10 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.user.vm.DeployVMCmd;
 import org.apache.cloudstack.api.response.TemplateResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.uservm.UserVm;
+import org.apache.uservm.UserVm;
 
 @APICommand(name = "detachIso", description="Detaches any ISO file (if any) currently attached to a virtual machine.", responseObject=UserVmResponse.class)
 public class DetachIsoCmd extends BaseAsyncCmd {

@@ -18,6 +18,7 @@ package org.apache.cloudstack.api.command.user.autoscale;
 
 import java.util.List;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -28,14 +29,12 @@ import org.apache.cloudstack.api.response.AutoScalePolicyResponse;
 import org.apache.cloudstack.api.response.AutoScaleVmGroupResponse;
 import org.apache.cloudstack.api.response.AutoScaleVmProfileResponse;
 import org.apache.cloudstack.api.response.FirewallRuleResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.network.as.AutoScaleVmGroup;
-import com.cloud.network.rules.LoadBalancer;
+import org.apache.network.as.AutoScaleVmGroup;
+import org.apache.network.rules.LoadBalancer;
 
 @APICommand(name = "createAutoScaleVmGroup", description = "Creates and automatically starts a virtual machine based on a service offering, disk offering, and template.", responseObject = AutoScaleVmGroupResponse.class)
 public class CreateAutoScaleVmGroupCmd extends BaseAsyncCreateCmd {

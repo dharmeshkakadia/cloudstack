@@ -19,14 +19,12 @@ package org.apache.cloudstack.storage.test;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import org.apache.utils.db.DB;
+import org.apache.utils.db.Transaction;
 import org.testng.IMethodInstance;
 import org.testng.IMethodInterceptor;
 import org.testng.ITestContext;
-import org.testng.ITestNGMethod;
-import org.testng.internal.ConstructorOrMethod;
-
-import com.cloud.utils.db.DB;
-import com.cloud.utils.db.Transaction;
+import org.testng.org.apache.utilsimport org.testorg.apache.utilsstructorOrMethod;
 
 public class TestNGAop implements IMethodInterceptor {
 

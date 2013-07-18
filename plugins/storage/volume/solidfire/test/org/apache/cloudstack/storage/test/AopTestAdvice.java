@@ -16,9 +16,8 @@
 // under the License.
 package org.apache.cloudstack.storage.test;
 
+import org.apache.utils.db.Transaction;
 import org.aspectj.lang.ProceedingJoinPoint;
-
-import com.cloud.utils.db.Transaction;
 
 public class AopTestAdvice {
     public Object AopTestMethod(ProceedingJoinPoint call) throws Throwable {

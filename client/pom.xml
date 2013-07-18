@@ -535,8 +535,8 @@
                 <echo>quickcloud</echo>
                 <replaceregexp
                     file="${basedir}/target/generated-webapp/WEB-INF/classes/applicationContext.xml"
-                  match="com.cloud.consoleproxy.ConsoleProxyManagerImpl"
-                  replace="com.cloud.consoleproxy.StaticConsoleProxyManager" byline="true" />
+                  match="org.apache.consoleproxy.ConsoleProxyManagerImpl"
+                  replace="org.apache.consoleproxy.StaticConsoleProxyManager" byline="true" />
               </target>
             </configuration>
           </execution>

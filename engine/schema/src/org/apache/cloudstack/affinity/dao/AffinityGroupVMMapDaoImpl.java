@@ -24,18 +24,17 @@ import javax.inject.Inject;
 
 import org.apache.cloudstack.affinity.AffinityGroupVMMapVO;
 import org.apache.cloudstack.affinity.AffinityGroupVO;
+import org.apache.host.HostTagVO;
+import org.apache.utils.Pair;
+import org.apache.utils.db.Filter;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.GenericSearchBuilder;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.db.JoinBuilder.JoinType;
+import org.apache.utils.db.SearchCriteria.Func;
 import org.springframework.stereotype.Component;
-
-import com.cloud.host.HostTagVO;
-import com.cloud.utils.Pair;
-import com.cloud.utils.db.Filter;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.GenericSearchBuilder;
-import com.cloud.utils.db.JoinBuilder.JoinType;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.SearchCriteria.Func;
-import com.cloud.utils.db.Transaction;
 
 @Local(value = { AffinityGroupVMMapDao.class })
 public class AffinityGroupVMMapDaoImpl extends GenericDaoBase<AffinityGroupVMMapVO, Long> implements

@@ -45,4 +45,4 @@ done
 #     esac
 #  done
    
-java -mx700m -cp $CP:./conf com.cloud.consoleproxy.ConsoleProxy $@
+java -mx700m -cp $CP:./conf org.apache.consoleproxy.ConsoleProxy $@

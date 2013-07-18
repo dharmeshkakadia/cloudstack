@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListTaggedResourcesCmd;
@@ -29,12 +30,10 @@ import org.apache.cloudstack.api.response.TemplateResponse;
 import org.apache.cloudstack.api.response.VolumeResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.template.VirtualMachineTemplate.TemplateFilter;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.utils.Pair;
+import org.apache.template.VirtualMachineTemplate.TemplateFilter;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listTemplates", description="List all public, private, and privileged templates.", responseObject=TemplateResponse.class)
 public class ListTemplatesCmd extends BaseListTaggedResourcesCmd {

@@ -16,8 +16,8 @@
 // under the License.
 package org.apache.cloudstack.storage.command;
 
-import com.cloud.agent.api.Command;
-import com.cloud.agent.api.to.DataTO;
+import org.apache.agent.api.Command;
+import org.apache.agent.api.to.DataTO;
 
 public final class CopyCommand extends Command implements StorageSubSystemCommand {
     private DataTO srcTO;

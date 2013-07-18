@@ -27,8 +27,7 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.region.RegionService;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "removeRegion", description="Removes specified region", responseObject=SuccessResponse.class)
 public class RemoveRegionCmd extends BaseCmd {

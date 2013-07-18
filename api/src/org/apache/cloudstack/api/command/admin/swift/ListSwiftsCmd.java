@@ -24,8 +24,7 @@ import org.apache.cloudstack.api.command.admin.storage.ListImageStoresCmd;
 import org.apache.cloudstack.api.response.ImageStoreResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "listSwifts", description = "List Swift.", responseObject = ImageStoreResponse.class, since="3.0.0")
 public class ListSwiftsCmd extends BaseListCmd {

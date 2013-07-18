@@ -17,9 +17,10 @@
 
 package org.apache.cloudstack.region.gslb;
 
-import com.cloud.region.ha.GlobalLoadBalancerRule;
-
 import javax.persistence.*;
+
+import org.apache.region.ha.GlobalLoadBalancerRule;
+
 import java.util.UUID;
 
 @Entity

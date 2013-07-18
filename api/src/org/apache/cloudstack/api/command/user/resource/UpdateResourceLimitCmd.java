@@ -25,10 +25,9 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.ResourceLimitResponse;
+import org.apache.configuration.ResourceLimit;
 import org.apache.log4j.Logger;
-
-import com.cloud.configuration.ResourceLimit;
-import com.cloud.user.UserContext;
+import org.apache.user.UserContext;
 
 @APICommand(name = "updateResourceLimit", description="Updates resource limits for an account or domain.", responseObject=ResourceLimitResponse.class)
 public class UpdateResourceLimitCmd extends BaseCmd {

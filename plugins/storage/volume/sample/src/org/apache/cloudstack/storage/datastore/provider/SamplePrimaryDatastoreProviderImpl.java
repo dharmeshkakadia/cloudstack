@@ -29,8 +29,7 @@ import org.apache.cloudstack.engine.subsystem.api.storage.PrimaryDataStoreProvid
 import org.apache.cloudstack.storage.datastore.PrimaryDataStoreProviderManager;
 import org.apache.cloudstack.storage.datastore.driver.SamplePrimaryDataStoreDriverImpl;
 import org.apache.cloudstack.storage.datastore.lifecycle.SamplePrimaryDataStoreLifeCycleImpl;
-
-import com.cloud.utils.component.ComponentContext;
+import org.apache.utils.component.ComponentContext;
 
 public class SamplePrimaryDatastoreProviderImpl implements PrimaryDataStoreProvider {
     private final String providerName = "sample primary data store provider";

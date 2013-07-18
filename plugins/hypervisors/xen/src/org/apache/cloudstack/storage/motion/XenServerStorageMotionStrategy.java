@@ -24,9 +24,29 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.apache.host.Host;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 import org.apache.log4j.Logger;
+import org.apache.storage.StoragePool;
+import org.apache.storage.VolumeVO;
+import org.apache.storage.dao.VolumeDao;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.vm.VMInstanceVO;
+import org.apache.vm.dao.VMInstanceDao;
 import org.springframework.stereotype.Component;
-
+import org.apache.agent.AgentManager;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.MigrateWithStorageAnswer;
+import org.apache.agent.api.MigrateWithStorageCommand;
+import org.apache.agent.api.MigrateWithStorageCompleteAnswer;
+import org.apache.agent.api.MigrateWithStorageCompleteCommand;
+import org.apache.agent.api.MigrateWithStorageReceiveAnswer;
+import org.apache.agent.api.MigrateWithStorageReceiveCommand;
+import org.apache.agent.api.MigrateWithStorageSendAnswer;
+import org.apache.agent.api.MigrateWithStorageSendCommand;
+import org.apache.agent.api.to.StorageFilerTO;
+import org.apache.agent.api.to.VirtualMachineTO;
+import org.apache.agent.api.to.VolumeTO;
 import org.apache.cloudstack.engine.subsystem.api.storage.CopyCommandResult;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataMotionStrategy;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObject;
@@ -36,30 +56,8 @@ import org.apache.cloudstack.engine.subsystem.api.storage.VolumeInfo;
 import org.apache.cloudstack.framework.async.AsyncCompletionCallback;
 import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
 import org.apache.cloudstack.storage.to.VolumeObjectTO;
-
-import com.cloud.agent.AgentManager;
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.MigrateWithStorageAnswer;
-import com.cloud.agent.api.MigrateWithStorageCommand;
-import com.cloud.agent.api.MigrateWithStorageCompleteAnswer;
-import com.cloud.agent.api.MigrateWithStorageCompleteCommand;
-import com.cloud.agent.api.MigrateWithStorageReceiveAnswer;
-import com.cloud.agent.api.MigrateWithStorageReceiveCommand;
-import com.cloud.agent.api.MigrateWithStorageSendAnswer;
-import com.cloud.agent.api.MigrateWithStorageSendCommand;
-import com.cloud.agent.api.to.StorageFilerTO;
-import com.cloud.agent.api.to.VirtualMachineTO;
-import com.cloud.agent.api.to.VolumeTO;
-import com.cloud.exception.AgentUnavailableException;
-import com.cloud.exception.OperationTimedoutException;
-import com.cloud.host.Host;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.StoragePool;
-import com.cloud.storage.VolumeVO;
-import com.cloud.storage.dao.VolumeDao;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.vm.VMInstanceVO;
-import com.cloud.vm.dao.VMInstanceDao;
+import org.apache.exception.AgentUnavailableException;
+import org.apache.exception.OperationTimedoutException;
 
 @Component
 public class XenServerStorageMotionStrategy implements DataMotionStrategy {

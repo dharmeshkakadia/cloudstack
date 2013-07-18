@@ -20,8 +20,7 @@ package org.apache.cloudstack.storage.image;
 
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStoreDriver;
-
-import com.cloud.storage.Storage.ImageFormat;
+import org.apache.storage.Storage.ImageFormat;
 
 public interface ImageStoreDriver extends DataStoreDriver {
     String createEntityExtractUrl(DataStore store, String installPath, ImageFormat format);

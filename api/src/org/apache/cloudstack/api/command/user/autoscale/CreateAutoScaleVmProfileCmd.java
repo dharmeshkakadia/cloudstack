@@ -19,6 +19,7 @@ package org.apache.cloudstack.api.command.user.autoscale;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -30,16 +31,14 @@ import org.apache.cloudstack.api.response.ServiceOfferingResponse;
 import org.apache.cloudstack.api.response.TemplateResponse;
 import org.apache.cloudstack.api.response.UserResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.network.as.AutoScaleVmProfile;
-import com.cloud.user.Account;
-import com.cloud.user.User;
-import com.cloud.user.UserContext;
+import org.apache.network.as.AutoScaleVmProfile;
+import org.apache.user.Account;
+import org.apache.user.User;
+import org.apache.user.UserContext;
 
 @APICommand(name = "createAutoScaleVmProfile", description = "Creates a profile that contains information about the virtual machine which will be provisioned automatically by autoscale feature.", responseObject = AutoScaleVmProfileResponse.class)
 @SuppressWarnings("rawtypes")

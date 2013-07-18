@@ -26,14 +26,13 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.IPAddressResponse;
 import org.apache.cloudstack.api.response.RemoteAccessVpnResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.IpAddress;
-import com.cloud.network.RemoteAccessVpn;
+import org.apache.network.IpAddress;
+import org.apache.network.RemoteAccessVpn;
 
 @APICommand(name = "createRemoteAccessVpn", description="Creates a l2tp/ipsec remote access vpn", responseObject=RemoteAccessVpnResponse.class)
 public class CreateRemoteAccessVpnCmd extends BaseAsyncCreateCmd {

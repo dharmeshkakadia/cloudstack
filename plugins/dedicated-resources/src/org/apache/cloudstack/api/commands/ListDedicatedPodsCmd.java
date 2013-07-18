@@ -32,11 +32,10 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.response.DedicatePodResponse;
 import org.apache.cloudstack.dedicated.DedicatedService;
+import org.apache.dc.DedicatedResourceVO;
+import org.apache.dc.DedicatedResources;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.DedicatedResourceVO;
-import com.cloud.dc.DedicatedResources;
-import com.cloud.utils.Pair;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listDedicatedPods", description = "Lists dedicated pods.", responseObject = DedicatePodResponse.class)
 public class ListDedicatedPodsCmd extends BaseListCmd {

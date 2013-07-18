@@ -19,9 +19,9 @@ package org.apache.cloudstack.api.response;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.serializer.Param;
+import org.apache.storage.GuestOS;
 
-import com.cloud.serializer.Param;
-import com.cloud.storage.GuestOS;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=GuestOS.class)

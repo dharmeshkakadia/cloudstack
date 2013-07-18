@@ -16,6 +16,7 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.snapshot;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -27,18 +28,16 @@ import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.SnapshotPolicyResponse;
 import org.apache.cloudstack.api.response.SnapshotResponse;
 import org.apache.cloudstack.api.response.VolumeResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.PermissionDeniedException;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.PermissionDeniedException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.projects.Project;
-import com.cloud.storage.Snapshot;
-import com.cloud.storage.Volume;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.projects.Project;
+import org.apache.storage.Snapshot;
+import org.apache.storage.Volume;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "createSnapshot", description = "Creates an instant snapshot of a volume.", responseObject = SnapshotResponse.class)
 public class CreateSnapshotCmd extends BaseAsyncCreateCmd {

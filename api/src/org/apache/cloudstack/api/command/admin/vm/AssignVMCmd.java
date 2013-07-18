@@ -31,9 +31,8 @@ import org.apache.cloudstack.api.response.NetworkResponse;
 import org.apache.cloudstack.api.response.SecurityGroupResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
-import com.cloud.uservm.UserVm;
+import org.apache.user.Account;
+import org.apache.uservm.UserVm;
 
 @APICommand(name = "assignVirtualMachine", description="Assign a VM from one account to another under the same domain. This API is available for Basic zones with security groups and Advance zones with guest networks. The VM is restricted to move between accounts under same domain.", responseObject=UserVmResponse.class, since="3.0.0")
 public class AssignVMCmd extends BaseCmd  {

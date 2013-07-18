@@ -16,6 +16,7 @@
 // under the License.
 package org.apache.cloudstack.api.command.admin.router;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListProjectAndAccountResourcesCmd;
@@ -29,9 +30,7 @@ import org.apache.cloudstack.api.response.UserVmResponse;
 import org.apache.cloudstack.api.response.VpcResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.network.router.VirtualRouter.Role;
+import org.apache.network.router.VirtualRouter.Role;
 
 @APICommand(name = "listRouters", description="List routers.", responseObject=DomainRouterResponse.class)
 public class ListRoutersCmd extends BaseListProjectAndAccountResourcesCmd {

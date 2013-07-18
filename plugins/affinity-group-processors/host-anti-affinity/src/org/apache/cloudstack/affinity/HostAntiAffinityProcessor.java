@@ -26,20 +26,19 @@ import javax.naming.ConfigurationException;
 import org.apache.cloudstack.affinity.dao.AffinityGroupDao;
 import org.apache.cloudstack.affinity.dao.AffinityGroupVMMapDao;
 import org.apache.cloudstack.framework.messagebus.MessageSubscriber;
+import org.apache.configuration.Config;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.deploy.DeploymentPlan;
+import org.apache.deploy.DeploymentPlanner.ExcludeList;
+import org.apache.exception.AffinityConflictException;
 import org.apache.log4j.Logger;
-
-import com.cloud.configuration.Config;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.deploy.DeploymentPlan;
-import com.cloud.deploy.DeploymentPlanner.ExcludeList;
-import com.cloud.exception.AffinityConflictException;
-import com.cloud.utils.DateUtil;
-import com.cloud.utils.NumbersUtil;
-import com.cloud.vm.VMInstanceVO;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
-import com.cloud.vm.dao.UserVmDao;
-import com.cloud.vm.dao.VMInstanceDao;
+import org.apache.utils.DateUtil;
+import org.apache.utils.NumbersUtil;
+import org.apache.vm.VMInstanceVO;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
+import org.apache.vm.dao.UserVmDao;
+import org.apache.vm.dao.VMInstanceDao;
 
 @Local(value = AffinityGroupProcessor.class)
 public class HostAntiAffinityProcessor extends AffinityProcessorBase implements AffinityGroupProcessor {

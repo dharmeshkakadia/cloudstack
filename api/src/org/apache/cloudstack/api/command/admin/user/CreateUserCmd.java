@@ -25,10 +25,9 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.UserResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
-import com.cloud.user.User;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.User;
+import org.apache.user.UserContext;
 
 @APICommand(name = "createUser", description="Creates a user for an account that already exists", responseObject=UserResponse.class)
 public class CreateUserCmd extends BaseCmd {

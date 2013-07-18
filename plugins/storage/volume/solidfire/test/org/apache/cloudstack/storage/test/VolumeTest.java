@@ -24,8 +24,23 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
+import org.apache.agent.AgentManager;
 import org.apache.cloudstack.engine.subsystem.api.storage.PrimaryDataStoreInfo;
 import org.apache.cloudstack.storage.datastore.db.PrimaryDataStoreDao;
+import org.apache.dc.ClusterVO;
+import org.apache.dc.DataCenterVO;
+import org.apache.dc.HostPodVO;
+import org.apache.dc.DataCenter.NetworkType;
+import org.apache.dc.dao.ClusterDao;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.dc.dao.HostPodDao;
+import org.apache.host.Host;
+import org.apache.host.HostVO;
+import org.apache.host.dao.HostDao;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.org.Cluster.ClusterType;
+import org.apache.org.Managed.ManagedState;
+import org.apache.resource.ResourceState;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,22 +48,6 @@ import org.mockito.Matchers;
 import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.cloud.agent.AgentManager;
-import com.cloud.dc.ClusterVO;
-import com.cloud.dc.DataCenter.NetworkType;
-import com.cloud.dc.DataCenterVO;
-import com.cloud.dc.HostPodVO;
-import com.cloud.dc.dao.ClusterDao;
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.dc.dao.HostPodDao;
-import com.cloud.host.Host;
-import com.cloud.host.HostVO;
-import com.cloud.host.dao.HostDao;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.org.Cluster.ClusterType;
-import com.cloud.org.Managed.ManagedState;
-import com.cloud.resource.ResourceState;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/resource/storageContext.xml")

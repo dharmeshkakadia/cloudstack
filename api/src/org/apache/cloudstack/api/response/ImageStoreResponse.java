@@ -22,10 +22,10 @@ import java.util.Set;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.serializer.Param;
+import org.apache.storage.ImageStore;
+import org.apache.storage.ScopeType;
 
-import com.cloud.serializer.Param;
-import com.cloud.storage.ImageStore;
-import com.cloud.storage.ScopeType;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=ImageStore.class)

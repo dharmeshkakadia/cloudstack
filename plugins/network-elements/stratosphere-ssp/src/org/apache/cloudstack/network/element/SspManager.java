@@ -16,13 +16,13 @@
 // under the License.
 package org.apache.cloudstack.network.element;
 
-import com.cloud.deploy.DeployDestination;
-import com.cloud.network.Network;
-import com.cloud.network.PhysicalNetwork;
-import com.cloud.offering.NetworkOffering;
-import com.cloud.utils.component.Manager;
-import com.cloud.vm.NicProfile;
-import com.cloud.vm.ReservationContext;
+import org.apache.deploy.DeployDestination;
+import org.apache.network.Network;
+import org.apache.network.PhysicalNetwork;
+import org.apache.offering.NetworkOffering;
+import org.apache.utils.component.Manager;
+import org.apache.vm.NicProfile;
+import org.apache.vm.ReservationContext;
 
 public interface SspManager extends Manager {
     /**

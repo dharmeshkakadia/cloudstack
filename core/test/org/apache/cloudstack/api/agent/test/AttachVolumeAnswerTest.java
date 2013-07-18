@@ -19,11 +19,10 @@ package org.apache.cloudstack.api.agent.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.apache.agent.api.AttachVolumeAnswer;
+import org.apache.agent.api.AttachVolumeCommand;
+import org.apache.storage.Storage.StoragePoolType;
 import org.junit.Test;
-
-import com.cloud.agent.api.AttachVolumeAnswer;
-import com.cloud.agent.api.AttachVolumeCommand;
-import com.cloud.storage.Storage.StoragePoolType;
 
 public class AttachVolumeAnswerTest {
     AttachVolumeCommand avc = new AttachVolumeCommand(true, false, "vmname",

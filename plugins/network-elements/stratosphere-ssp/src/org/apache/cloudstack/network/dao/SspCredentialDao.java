@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.network.dao;
 
-import com.cloud.utils.db.GenericDao;
+import org.apache.utils.db.GenericDao;
 
 public interface SspCredentialDao extends GenericDao<SspCredentialVO, Long> {
     /**

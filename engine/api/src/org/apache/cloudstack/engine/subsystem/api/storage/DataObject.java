@@ -18,9 +18,9 @@
  */
 package org.apache.cloudstack.engine.subsystem.api.storage;
 
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.to.DataObjectType;
-import com.cloud.agent.api.to.DataTO;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.to.DataObjectType;
+import org.apache.agent.api.to.DataTO;
 
 public interface DataObject {
     long getId();

@@ -28,9 +28,9 @@ import org.apache.cloudstack.api.EntityReference;
 import org.apache.cloudstack.api.response.ControlledEntityResponse;
 import org.apache.cloudstack.api.response.ControlledViewEntityResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
+import org.apache.network.security.SecurityGroup;
+import org.apache.serializer.Param;
 
-import com.cloud.network.security.SecurityGroup;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")

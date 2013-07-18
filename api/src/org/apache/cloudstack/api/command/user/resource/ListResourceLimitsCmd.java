@@ -25,9 +25,8 @@ import org.apache.cloudstack.api.BaseListProjectAndAccountResourcesCmd;
 import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ResourceLimitResponse;
+import org.apache.configuration.ResourceLimit;
 import org.apache.log4j.Logger;
-
-import com.cloud.configuration.ResourceLimit;
 
 @APICommand(name = "listResourceLimits", description="Lists resource limits.", responseObject=ResourceLimitResponse.class)
 public class ListResourceLimitsCmd extends BaseListProjectAndAccountResourcesCmd {

@@ -25,11 +25,11 @@ import org.apache.cloudstack.affinity.AffinityGroupResponse;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.network.router.VirtualRouter;
+import org.apache.serializer.Param;
+import org.apache.uservm.UserVm;
+import org.apache.vm.VirtualMachine;
 
-import com.cloud.network.router.VirtualRouter;
-import com.cloud.serializer.Param;
-import com.cloud.uservm.UserVm;
-import com.cloud.vm.VirtualMachine;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("unused")

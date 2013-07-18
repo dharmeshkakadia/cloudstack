@@ -19,10 +19,10 @@ package org.apache.cloudstack.storage.datastore.db;
 import java.util.List;
 import java.util.Map;
 
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.storage.ScopeType;
-import com.cloud.storage.StoragePoolStatus;
-import com.cloud.utils.db.GenericDao;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.storage.ScopeType;
+import org.apache.storage.StoragePoolStatus;
+import org.apache.utils.db.GenericDao;
 
 /**
  * Data Access Object for storage_pool table

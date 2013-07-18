@@ -19,19 +19,19 @@
 package org.apache.cloudstack.storage.datastore.driver;
 
 import java.util.Map;
+
 import javax.inject.Inject;
 
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.SwiftTO;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.storage.datastore.db.ImageStoreDetailsDao;
 import org.apache.cloudstack.storage.image.BaseImageStoreDriverImpl;
 import org.apache.cloudstack.storage.image.store.ImageStoreImpl;
+import org.apache.exception.UnsupportedServiceException;
 import org.apache.log4j.Logger;
-
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.SwiftTO;
-import com.cloud.exception.UnsupportedServiceException;
-import com.cloud.storage.Storage.ImageFormat;
+import org.apache.storage.Storage.ImageFormat;
 
 public class SwiftImageStoreDriverImpl extends BaseImageStoreDriverImpl {
     private static final Logger s_logger = Logger.getLogger(SwiftImageStoreDriverImpl.class);

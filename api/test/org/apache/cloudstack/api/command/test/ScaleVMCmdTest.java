@@ -16,23 +16,23 @@
 // under the License.
 package org.apache.cloudstack.api.command.test;
 
-import com.cloud.uservm.UserVm;
-import com.cloud.vm.UserVmService;
 import junit.framework.Assert;
 import junit.framework.TestCase;
+
 import org.apache.cloudstack.api.ResponseGenerator;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.user.vm.ScaleVMCmd;
-
 import org.apache.cloudstack.api.response.SwiftResponse;
 import org.apache.cloudstack.api.response.UserVmResponse;
+import org.apache.uservm.UserVm;
+import org.apache.vm.UserVmService;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
-import static org.mockito.Matchers.anyInt;
 
+import static org.mockito.Matchers.anyInt;
 
 import java.util.LinkedList;
 import java.util.List;

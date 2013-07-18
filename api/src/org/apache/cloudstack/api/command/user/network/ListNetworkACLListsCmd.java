@@ -16,8 +16,6 @@
 // under the License.
 package org.apache.cloudstack.api.command.user.network;
 
-import com.cloud.network.vpc.NetworkACL;
-import com.cloud.utils.Pair;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListCmd;
@@ -27,6 +25,8 @@ import org.apache.cloudstack.api.response.NetworkACLResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
 import org.apache.cloudstack.api.response.VpcResponse;
 import org.apache.log4j.Logger;
+import org.apache.network.vpc.NetworkACL;
+import org.apache.utils.Pair;
 
 import java.util.ArrayList;
 import java.util.List;

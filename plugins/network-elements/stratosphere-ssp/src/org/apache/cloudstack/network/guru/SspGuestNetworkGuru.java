@@ -21,27 +21,26 @@ import javax.inject.Inject;
 
 import org.apache.cloudstack.network.element.SspElement;
 import org.apache.cloudstack.network.element.SspManager;
+import org.apache.dc.DataCenter.NetworkType;
+import org.apache.deploy.DeployDestination;
+import org.apache.exception.InsufficientAddressCapacityException;
+import org.apache.exception.InsufficientVirtualNetworkCapcityException;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.DataCenter.NetworkType;
-import com.cloud.deploy.DeployDestination;
-import com.cloud.exception.InsufficientAddressCapacityException;
-import com.cloud.exception.InsufficientVirtualNetworkCapcityException;
-import com.cloud.network.Network;
-import com.cloud.network.NetworkMigrationResponder;
-import com.cloud.network.NetworkProfile;
-import com.cloud.network.PhysicalNetwork;
-import com.cloud.network.PhysicalNetwork.IsolationMethod;
-import com.cloud.network.dao.NetworkDao;
-import com.cloud.network.guru.GuestNetworkGuru;
-import com.cloud.network.guru.NetworkGuru;
-import com.cloud.offering.NetworkOffering;
-import com.cloud.offerings.dao.NetworkOfferingServiceMapDao;
-import com.cloud.vm.NicProfile;
-import com.cloud.vm.ReservationContext;
-import com.cloud.vm.ReservationContextImpl;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
+import org.apache.network.Network;
+import org.apache.network.NetworkMigrationResponder;
+import org.apache.network.NetworkProfile;
+import org.apache.network.PhysicalNetwork;
+import org.apache.network.PhysicalNetwork.IsolationMethod;
+import org.apache.network.dao.NetworkDao;
+import org.apache.network.guru.GuestNetworkGuru;
+import org.apache.network.guru.NetworkGuru;
+import org.apache.offering.NetworkOffering;
+import org.apache.offerings.dao.NetworkOfferingServiceMapDao;
+import org.apache.vm.NicProfile;
+import org.apache.vm.ReservationContext;
+import org.apache.vm.ReservationContextImpl;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
 
 /**
  * Stratosphere SDN Platform NetworkGuru
@@ -97,7 +96,7 @@ public class SspGuestNetworkGuru extends GuestNetworkGuru implements NetworkMigr
      * Effective return object members are: cidr, broadcastUri, gateway, mode, physicalNetworkId
      * The other members will be silently ignored.
      * This method is called at DeployVMCmd#execute (running phase) - NetworkManagerImpl#prepare
-     * @see org.apache.cloudstack.network.guru.GuestNetworkGuru#implement(com.cloud.network.Network, com.cloud.offering.NetworkOffering, com.cloud.deploy.DeployDestination, com.cloud.vm.ReservationContext)
+     * @see org.apache.cloudstack.network.guru.GuestNetworkGuru#implement(org.apache.network.Network, org.apache.offering.NetworkOffering, org.apache.deploy.DeployDestination, org.apache.vm.ReservationContext)
      */
     @Override
     public Network implement(Network network, NetworkOffering offering,

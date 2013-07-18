@@ -19,11 +19,10 @@ package org.apache.cloudstack.api.agent.test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.apache.agent.api.AgentControlCommand;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.UnsupportedAnswer;
 import org.junit.Test;
-
-import com.cloud.agent.api.AgentControlCommand;
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.UnsupportedAnswer;
 
 public class AnswerTest {
     AgentControlCommand acc = new AgentControlCommand();

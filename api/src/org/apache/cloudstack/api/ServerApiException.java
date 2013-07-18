@@ -17,10 +17,10 @@
 package org.apache.cloudstack.api;
 import java.util.ArrayList;
 
-import com.cloud.exception.CloudException;
-import com.cloud.utils.exception.CSExceptionErrorCode;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.exception.ExceptionProxyObject;
+import org.apache.exception.CloudException;
+import org.apache.utils.exception.CSExceptionErrorCode;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.exception.ExceptionProxyObject;
 
 @SuppressWarnings("serial")
 public class ServerApiException extends CloudRuntimeException {

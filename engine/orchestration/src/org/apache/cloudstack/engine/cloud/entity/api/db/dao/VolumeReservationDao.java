@@ -19,8 +19,7 @@ package org.apache.cloudstack.engine.cloud.entity.api.db.dao;
 import java.util.List;
 
 import org.apache.cloudstack.engine.cloud.entity.api.db.VolumeReservationVO;
-
-import com.cloud.utils.db.GenericDao;
+import org.apache.utils.db.GenericDao;
 
 public interface VolumeReservationDao extends GenericDao<VolumeReservationVO, Long>{
 

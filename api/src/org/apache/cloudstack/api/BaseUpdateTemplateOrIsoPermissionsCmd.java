@@ -21,9 +21,8 @@ import java.util.List;
 import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.TemplateResponse;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.InvalidParameterValueException;
 
 public abstract class BaseUpdateTemplateOrIsoPermissionsCmd extends BaseCmd {
     public Logger s_logger = getLogger();

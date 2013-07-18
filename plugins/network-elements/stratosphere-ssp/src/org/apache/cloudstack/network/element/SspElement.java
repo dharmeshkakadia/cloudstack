@@ -38,45 +38,44 @@ import org.apache.cloudstack.network.dao.SspTenantDao;
 import org.apache.cloudstack.network.dao.SspTenantVO;
 import org.apache.cloudstack.network.dao.SspUuidDao;
 import org.apache.cloudstack.network.dao.SspUuidVO;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.deploy.DeployDestination;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceUnavailableException;
+import org.apache.host.Host;
+import org.apache.host.HostVO;
+import org.apache.host.dao.HostDao;
 import org.apache.log4j.Logger;
-
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.deploy.DeployDestination;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.host.Host;
-import com.cloud.host.HostVO;
-import com.cloud.host.dao.HostDao;
-import com.cloud.network.Network;
-import com.cloud.network.Network.Capability;
-import com.cloud.network.Network.Provider;
-import com.cloud.network.Network.Service;
-import com.cloud.network.NetworkManager;
-import com.cloud.network.NetworkMigrationResponder;
-import com.cloud.network.NetworkModel;
-import com.cloud.network.Networks.BroadcastDomainType;
-import com.cloud.network.PhysicalNetwork;
-import com.cloud.network.PhysicalNetworkServiceProvider;
-import com.cloud.network.PhysicalNetworkServiceProvider.State;
-import com.cloud.network.dao.NetworkServiceMapDao;
-import com.cloud.network.dao.PhysicalNetworkDao;
-import com.cloud.network.dao.PhysicalNetworkServiceProviderDao;
-import com.cloud.network.dao.PhysicalNetworkServiceProviderVO;
-import com.cloud.network.element.ConnectivityProvider;
-import com.cloud.network.element.NetworkElement;
-import com.cloud.offering.NetworkOffering;
-import com.cloud.utils.component.AdapterBase;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.vm.NicProfile;
-import com.cloud.vm.NicVO;
-import com.cloud.vm.ReservationContext;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
-import com.cloud.vm.dao.NicDao;
-import com.cloud.resource.ResourceManager;
+import org.apache.network.Network;
+import org.apache.network.NetworkManager;
+import org.apache.network.NetworkMigrationResponder;
+import org.apache.network.NetworkModel;
+import org.apache.network.PhysicalNetwork;
+import org.apache.network.PhysicalNetworkServiceProvider;
+import org.apache.network.Network.Capability;
+import org.apache.network.Network.Provider;
+import org.apache.network.Network.Service;
+import org.apache.network.Networks.BroadcastDomainType;
+import org.apache.network.PhysicalNetworkServiceProvider.State;
+import org.apache.network.dao.NetworkServiceMapDao;
+import org.apache.network.dao.PhysicalNetworkDao;
+import org.apache.network.dao.PhysicalNetworkServiceProviderDao;
+import org.apache.network.dao.PhysicalNetworkServiceProviderVO;
+import org.apache.network.element.ConnectivityProvider;
+import org.apache.network.element.NetworkElement;
+import org.apache.offering.NetworkOffering;
+import org.apache.resource.ResourceManager;
+import org.apache.utils.component.AdapterBase;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.vm.NicProfile;
+import org.apache.vm.NicVO;
+import org.apache.vm.ReservationContext;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
+import org.apache.vm.dao.NicDao;
 
 /**
  * Stratosphere sdn platform network element
@@ -182,7 +181,7 @@ public class SspElement extends AdapterBase implements ConnectivityProvider, Ssp
     }
 
     /* (non-Javadoc)
-     * @see org.apache.cloudstack.network.element.NetworkElement#isReady(com.cloud.network.PhysicalNetworkServiceProvider)
+     * @see org.apache.cloudstack.network.element.NetworkElement#isReady(org.apache.network.PhysicalNetworkServiceProvider)
      */
     @Override
     public boolean isReady(PhysicalNetworkServiceProvider provider) {
@@ -201,7 +200,7 @@ public class SspElement extends AdapterBase implements ConnectivityProvider, Ssp
 
     /* (non-Javadoc)
      * If this element is ready, then it can be enabled.
-     * @see org.apache.cloudstack.network.element.SspManager#isEnabled(com.cloud.network.PhysicalNetwork)
+     * @see org.apache.cloudstack.network.element.SspManager#isEnabled(org.apache.network.PhysicalNetwork)
      */
     @Override
     public boolean canHandle(PhysicalNetwork physicalNetwork){
@@ -474,7 +473,7 @@ public class SspElement extends AdapterBase implements ConnectivityProvider, Ssp
      *
      * This method will be called right after NetworkGuru#implement().
      * see also {@link #shutdown(Network, ReservationContext, boolean)}
-     * @see org.apache.cloudstack.network.element.NetworkElement#implement(com.cloud.network.Network, com.cloud.offering.NetworkOffering, com.cloud.deploy.DeployDestination, com.cloud.vm.ReservationContext)
+     * @see org.apache.cloudstack.network.element.NetworkElement#implement(org.apache.network.Network, org.apache.offering.NetworkOffering, org.apache.deploy.DeployDestination, org.apache.vm.ReservationContext)
      */
     @Override
     public boolean implement(Network network, NetworkOffering offering,
@@ -490,7 +489,7 @@ public class SspElement extends AdapterBase implements ConnectivityProvider, Ssp
      *
      * This method will be called right BEFORE NetworkGuru#shutdown().
      * The entities was acquired by {@link #implement(Network, NetworkOffering, DeployDestination, ReservationContext)}
-     * @see org.apache.cloudstack.network.element.NetworkElement#shutdown(com.cloud.network.Network, com.cloud.vm.ReservationContext, boolean)
+     * @see org.apache.cloudstack.network.element.NetworkElement#shutdown(org.apache.network.Network, org.apache.vm.ReservationContext, boolean)
      */
     @Override
     public boolean shutdown(Network network, ReservationContext context,
@@ -505,7 +504,7 @@ public class SspElement extends AdapterBase implements ConnectivityProvider, Ssp
      *
      * This method will be called right after NetworkGuru#reserve().
      * The entities will be released by {@link #release(Network, NicProfile, VirtualMachineProfile, ReservationContext)}
-     * @see org.apache.cloudstack.network.element.NetworkElement#prepare(com.cloud.network.Network, com.cloud.vm.NicProfile, com.cloud.vm.VirtualMachineProfile, com.cloud.deploy.DeployDestination, com.cloud.vm.ReservationContext)
+     * @see org.apache.cloudstack.network.element.NetworkElement#prepare(org.apache.network.Network, org.apache.vm.NicProfile, org.apache.vm.VirtualMachineProfile, org.apache.deploy.DeployDestination, org.apache.vm.ReservationContext)
      */
     @Override
     public boolean prepare(Network network, NicProfile nic,
@@ -522,7 +521,7 @@ public class SspElement extends AdapterBase implements ConnectivityProvider, Ssp
      *
      * This method will be called right AFTER NetworkGuru#release().
      * The entities was acquired in {@link #prepare(Network, NicProfile, VirtualMachineProfile, DeployDestination, ReservationContext)}
-     * @see org.apache.cloudstack.network.element.NetworkElement#release(com.cloud.network.Network, com.cloud.vm.NicProfile, com.cloud.vm.VirtualMachineProfile, com.cloud.vm.ReservationContext)
+     * @see org.apache.cloudstack.network.element.NetworkElement#release(org.apache.network.Network, org.apache.vm.NicProfile, org.apache.vm.VirtualMachineProfile, org.apache.vm.ReservationContext)
      */
     @Override
     public boolean release(Network network, NicProfile nic,
@@ -537,7 +536,7 @@ public class SspElement extends AdapterBase implements ConnectivityProvider, Ssp
      * Destroy a network implementation.
      *
      * This method will be called right BEFORE NetworkGuru#trash() in "Expunge" phase.
-     * @see org.apache.cloudstack.network.element.NetworkElement#destroy(com.cloud.network.Network)
+     * @see org.apache.cloudstack.network.element.NetworkElement#destroy(org.apache.network.Network)
      */
     @Override
     public boolean destroy(Network network, ReservationContext context)

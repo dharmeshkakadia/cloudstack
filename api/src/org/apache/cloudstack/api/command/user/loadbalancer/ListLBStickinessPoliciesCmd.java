@@ -27,11 +27,10 @@ import org.apache.cloudstack.api.response.FirewallRuleResponse;
 import org.apache.cloudstack.api.response.LBStickinessResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.rules.LoadBalancer;
-import com.cloud.network.rules.StickinessPolicy;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.network.rules.LoadBalancer;
+import org.apache.network.rules.StickinessPolicy;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "listLBStickinessPolicies", description = "Lists LBStickiness policies.", responseObject = LBStickinessResponse.class, since="3.0.0")
 public class ListLBStickinessPoliciesCmd extends BaseListCmd {

@@ -160,7 +160,7 @@ under the License.
 	</test>
 
 	<test> 
-		<class>com.cloud.test.regression.SanityTest</class>
+		<class>org.apache.test.regression.SanityTest</class>
 		<filename>../metadata/func/regression.xml</filename>
 		<testname>REGRESSION TEST</testname>
 	</test>
@@ -208,13 +208,13 @@ under the License.
 <!--	-->
 <!---->
 <!--	<test>-->
-<!--		<class>com.cloud.test.regression.LoadBalancingTest</class>-->
+<!--		<class>org.apache.test.regression.LoadBalancingTest</class>-->
 <!--		<filename>../metadata/func/loadbalancers.xml</filename>-->
 <!--		<testname>LOAD BALANCING TEST</testname>-->
 <!--	</test>-->
 <!--	-->
 <!--	<test>-->
-<!--		<class>com.cloud.test.regression.PortForwardingTest</class>-->
+<!--		<class>org.apache.test.regression.PortForwardingTest</class>-->
 <!--		<filename>../metadata/func/securitygroups.xml</filename>-->
 <!--		<testname>SECURITY GROUP TEST</testname>-->
 <!--	</test>-->
@@ -275,7 +275,7 @@ under the License.
 	
 
 <!--	<test>
-		<class>com.cloud.test.regression.DelegatedAdminTest</class>
+		<class>org.apache.test.regression.DelegatedAdminTest</class>
 		<testname>DELEGATED ADMIN TEST</testname>
 
 		<filename>../metadata/delegatedAdmin/delegated_admin_createusers.xml</filename>

@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.engine.datacenter.entity.api;
 
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
 
 public interface HostEntity extends DataCenterResourceEntity {
 

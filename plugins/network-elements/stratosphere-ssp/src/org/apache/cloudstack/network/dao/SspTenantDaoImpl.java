@@ -18,10 +18,10 @@ package org.apache.cloudstack.network.dao;
 
 import javax.ejb.Local;
 
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.SearchCriteria.Op;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.SearchCriteria.Op;
 
 @Local(SspTenantDao.class)
 public class SspTenantDaoImpl extends GenericDaoBase<SspTenantVO, Long>

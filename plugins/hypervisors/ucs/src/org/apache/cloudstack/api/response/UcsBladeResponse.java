@@ -19,9 +19,9 @@ package org.apache.cloudstack.api.response;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.serializer.Param;
+import org.apache.ucs.database.UcsBladeVO;
 
-import com.cloud.serializer.Param;
-import com.cloud.ucs.database.UcsBladeVO;
 import com.google.gson.annotations.SerializedName;
 @EntityReference(value=UcsBladeVO.class)
 public class UcsBladeResponse extends BaseResponse {

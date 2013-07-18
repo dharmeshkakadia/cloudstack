@@ -21,13 +21,12 @@ import java.util.List;
 import javax.ejb.Local;
 
 import org.apache.log4j.Logger;
-
-import com.cloud.network.Network;
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.db.SearchBuilder;
-import com.cloud.utils.db.SearchCriteria;
-import com.cloud.utils.db.SearchCriteria.Op;
-import com.cloud.vm.NicProfile;
+import org.apache.network.Network;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.db.SearchBuilder;
+import org.apache.utils.db.SearchCriteria;
+import org.apache.utils.db.SearchCriteria.Op;
+import org.apache.vm.NicProfile;
 
 @Local(SspUuidDao.class)
 public class SspUuidDaoImpl extends GenericDaoBase<SspUuidVO, Long> implements SspUuidDao {

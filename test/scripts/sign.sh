@@ -23,4 +23,4 @@
 set -e
 DST='../src/'
 
-java -cp ${DST}cloud-test.jar:${DST}cloud-utils.jar com.cloud.test.utils.SignRequest $*
+java -cp ${DST}cloud-test.jar:${DST}cloud-utils.jar org.apache.test.utils.SignRequest $*

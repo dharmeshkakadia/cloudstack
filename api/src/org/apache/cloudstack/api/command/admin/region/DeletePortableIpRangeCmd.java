@@ -19,17 +19,16 @@ package org.apache.cloudstack.api.command.admin.region;
 
 import javax.inject.Inject;
 
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.response.PortableIpRangeResponse;
 import org.apache.cloudstack.api.response.RegionResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.region.Region;
 import org.apache.cloudstack.region.RegionService;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "deletePortableIpRange", description="deletes a range of portable public IP's associated with a region", responseObject=SuccessResponse.class)
 public class DeletePortableIpRangeCmd extends BaseAsyncCmd {

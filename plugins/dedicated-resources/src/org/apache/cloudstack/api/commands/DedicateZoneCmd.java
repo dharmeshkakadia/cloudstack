@@ -32,11 +32,10 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.cloudstack.api.response.DedicateZoneResponse;
 import org.apache.cloudstack.dedicated.DedicatedService;
+import org.apache.dc.DedicatedResources;
+import org.apache.event.EventTypes;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.DedicatedResources;
-import com.cloud.event.EventTypes;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "dedicateZone", description ="Dedicates a zones.", responseObject = DedicateZoneResponse.class)
 public class DedicateZoneCmd extends BaseAsyncCmd {

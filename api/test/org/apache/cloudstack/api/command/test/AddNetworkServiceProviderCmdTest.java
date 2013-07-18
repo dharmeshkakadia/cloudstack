@@ -24,15 +24,14 @@ import junit.framework.TestCase;
 
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.admin.network.AddNetworkServiceProviderCmd;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.network.NetworkService;
+import org.apache.network.PhysicalNetworkServiceProvider;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
-
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.network.NetworkService;
-import com.cloud.network.PhysicalNetworkServiceProvider;
 
 public class AddNetworkServiceProviderCmdTest extends TestCase {
 

@@ -28,8 +28,7 @@ import org.apache.cloudstack.api.response.AutoScaleVmGroupResponse;
 import org.apache.cloudstack.api.response.ConditionResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.as.AutoScalePolicy;
+import org.apache.network.as.AutoScalePolicy;
 
 @APICommand(name = "listAutoScalePolicies", description = "Lists autoscale policies.", responseObject = AutoScalePolicyResponse.class)
 public class ListAutoScalePoliciesCmd extends BaseListAccountResourcesCmd {

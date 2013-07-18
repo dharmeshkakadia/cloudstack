@@ -29,9 +29,8 @@ import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.org.Cluster;
-import com.cloud.utils.Pair;
+import org.apache.org.Cluster;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listClusters", description="Lists clusters.", responseObject=ClusterResponse.class)
 public class ListClustersCmd extends BaseListCmd {

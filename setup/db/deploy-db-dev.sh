@@ -119,7 +119,7 @@ done
 
 echo CP is $CP
 
-java -cp $CP com.cloud.test.DatabaseConfig $*
+java -cp $CP org.apache.test.DatabaseConfig $*
 
 if [ $? -ne 0 ]
 then

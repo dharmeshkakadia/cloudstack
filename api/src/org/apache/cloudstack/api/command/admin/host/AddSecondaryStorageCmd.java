@@ -25,11 +25,10 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.admin.storage.AddImageStoreCmd;
 import org.apache.cloudstack.api.response.ImageStoreResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.exception.DiscoveryException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.DiscoveryException;
-import com.cloud.storage.ImageStore;
-import com.cloud.user.Account;
+import org.apache.storage.ImageStore;
+import org.apache.user.Account;
 
 @APICommand(name = "addSecondaryStorage", description="Adds secondary storage.", responseObject=ImageStoreResponse.class)
 public class AddSecondaryStorageCmd extends BaseCmd {

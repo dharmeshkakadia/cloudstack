@@ -20,10 +20,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.apache.agent.api.ChangeAgentCommand;
+import org.apache.host.Status.Event;
 import org.junit.Test;
-
-import com.cloud.agent.api.ChangeAgentCommand;
-import com.cloud.host.Status.Event;
 
 public class ChangeAgentCommandTest {
 

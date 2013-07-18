@@ -18,7 +18,7 @@
  */
 package org.apache.cloudstack.engine.subsystem.api.storage;
 
-import com.cloud.storage.ScopeType;
+import org.apache.storage.ScopeType;
 
 public interface Scope {
     ScopeType getScopeType();

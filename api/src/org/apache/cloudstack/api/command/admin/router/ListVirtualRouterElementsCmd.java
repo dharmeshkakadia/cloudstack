@@ -30,14 +30,13 @@ import org.apache.cloudstack.api.command.user.network.ListNetworkOfferingsCmd;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ProviderResponse;
 import org.apache.cloudstack.api.response.VirtualRouterProviderResponse;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.VirtualRouterProvider;
-import com.cloud.network.element.VirtualRouterElementService;
+import org.apache.network.VirtualRouterProvider;
+import org.apache.network.element.VirtualRouterElementService;
 
 @APICommand(name = "listVirtualRouterElements", description="Lists all available virtual router elements.", responseObject=VirtualRouterProviderResponse.class)
 public class ListVirtualRouterElementsCmd extends BaseListCmd {

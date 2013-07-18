@@ -17,10 +17,8 @@ import java.util.List;
 
 import org.apache.cloudstack.engine.datacenter.entity.api.DataCenterResourceEntity;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineHostPodVO;
-
-
-import com.cloud.utils.db.GenericDao;
-import com.cloud.utils.fsm.StateDao;
+import org.apache.utils.db.GenericDao;
+import org.apache.utils.fsm.StateDao;
 
 public interface EngineHostPodDao extends GenericDao<EngineHostPodVO, Long>, StateDao<DataCenterResourceEntity.State, DataCenterResourceEntity.State.Event, DataCenterResourceEntity> {
 	public List<EngineHostPodVO> listByDataCenterId(long id);

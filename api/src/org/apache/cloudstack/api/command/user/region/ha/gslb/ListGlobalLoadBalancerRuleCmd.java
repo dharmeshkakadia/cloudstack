@@ -17,8 +17,6 @@
 
 package org.apache.cloudstack.api.command.user.region.ha.gslb;
 
-import com.cloud.region.ha.GlobalLoadBalancerRule;
-import com.cloud.region.ha.GlobalLoadBalancingRulesService;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseListTaggedResourcesCmd;
@@ -27,8 +25,11 @@ import org.apache.cloudstack.api.response.GlobalLoadBalancerResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.RegionResponse;
 import org.apache.log4j.Logger;
+import org.apache.region.ha.GlobalLoadBalancerRule;
+import org.apache.region.ha.GlobalLoadBalancingRulesService;
 
 import javax.inject.Inject;
+
 import java.util.ArrayList;
 import java.util.List;
 

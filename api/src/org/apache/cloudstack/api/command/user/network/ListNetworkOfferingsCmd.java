@@ -28,8 +28,7 @@ import org.apache.cloudstack.api.response.NetworkOfferingResponse;
 import org.apache.cloudstack.api.response.NetworkResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.offering.NetworkOffering;
+import org.apache.offering.NetworkOffering;
 
 @APICommand(name = "listNetworkOfferings", description="Lists all available network offerings.", responseObject=NetworkOfferingResponse.class)
 public class ListNetworkOfferingsCmd extends BaseListCmd {

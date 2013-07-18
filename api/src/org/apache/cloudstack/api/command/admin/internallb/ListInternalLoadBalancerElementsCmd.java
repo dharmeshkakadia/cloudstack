@@ -30,13 +30,12 @@ import org.apache.cloudstack.api.response.InternalLoadBalancerElementResponse;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.ProviderResponse;
 import org.apache.cloudstack.network.element.InternalLoadBalancerElementService;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.VirtualRouterProvider;
+import org.apache.network.VirtualRouterProvider;
 
 @APICommand(name = "listInternalLoadBalancerElements", description="Lists all available Internal Load Balancer elements.",
             responseObject=InternalLoadBalancerElementResponse.class, since="4.2.0")

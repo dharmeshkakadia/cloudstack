@@ -16,19 +16,18 @@
 // under the License.
 package org.apache.cloudstack.discovery;
 
-import com.cloud.user.User;
-import com.cloud.user.UserVO;
-
 import java.util.*;
+
 import javax.naming.ConfigurationException;
 
-import com.cloud.utils.component.PluggableService;
 import org.apache.cloudstack.acl.APIChecker;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.command.user.discovery.ListApisCmd;
 import org.apache.cloudstack.api.response.ApiDiscoveryResponse;
 import org.apache.cloudstack.api.response.ListResponse;
-
+import org.apache.user.User;
+import org.apache.user.UserVO;
+import org.apache.utils.component.PluggableService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

@@ -26,10 +26,9 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.dc.Pod;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.Pod;
-import com.cloud.utils.Pair;
+import org.apache.utils.Pair;
 
 @APICommand(name = "listPods", description="Lists all Pods.", responseObject=PodResponse.class)
 public class ListPodsByCmd extends BaseListCmd {

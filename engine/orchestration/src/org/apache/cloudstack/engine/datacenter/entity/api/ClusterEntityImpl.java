@@ -24,11 +24,11 @@ import java.util.Map;
 
 import org.apache.cloudstack.engine.datacenter.entity.api.DataCenterResourceEntity.State.Event;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.EngineClusterVO;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.org.Cluster.ClusterType;
-import com.cloud.org.Grouping.AllocationState;
-import com.cloud.org.Managed.ManagedState;
-import com.cloud.utils.fsm.NoTransitionException;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.org.Cluster.ClusterType;
+import org.apache.org.Grouping.AllocationState;
+import org.apache.org.Managed.ManagedState;
+import org.apache.utils.fsm.NoTransitionException;
 
 
 public class ClusterEntityImpl implements ClusterEntity {

@@ -17,16 +17,16 @@
 
 package org.apache.cloudstack.api.command.admin.network;
 
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ResourceInUseException;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.*;
 import org.apache.cloudstack.api.response.CounterResponse;
 import org.apache.cloudstack.api.response.GuestVlanRangeResponse;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.ResourceInUseException;
 import org.apache.log4j.Logger;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "releaseDedicatedGuestVlanRange", description = "Releases a dedicated guest vlan range to the system", responseObject = SuccessResponse.class)
 public class ReleaseDedicatedGuestVlanRangeCmd extends BaseAsyncCmd {

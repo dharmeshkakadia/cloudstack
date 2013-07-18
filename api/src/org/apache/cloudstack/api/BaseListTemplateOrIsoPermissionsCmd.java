@@ -20,10 +20,9 @@ import java.util.List;
 
 import org.apache.cloudstack.api.response.TemplatePermissionsResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.template.VirtualMachineTemplate;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.template.VirtualMachineTemplate;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 public class BaseListTemplateOrIsoPermissionsCmd extends BaseCmd {
     public Logger s_logger = getLogger();

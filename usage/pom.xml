@@ -63,7 +63,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
             <excludes>
-                <exclude>com/cloud/usage/UsageManagerTest.java</exclude>
+                <exclude>org/apache/usage/UsageManagerTest.java</exclude>
             </excludes>
         </configuration>
       </plugin>
@@ -181,7 +181,7 @@
                 <groupId>org.apache.cloudstack</groupId>
                 <artifactId>cloud-usage</artifactId>
               </executableDependency>
-              <mainClass>com.cloud.usage.UsageServer</mainClass>
+              <mainClass>org.apache.usage.UsageServer</mainClass>
               <arguments/>
               <systemProperties>
                 <systemProperty>

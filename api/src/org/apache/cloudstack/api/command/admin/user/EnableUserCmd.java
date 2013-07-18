@@ -27,11 +27,10 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.UserResponse;
 import org.apache.cloudstack.region.RegionService;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
-import com.cloud.user.User;
-import com.cloud.user.UserAccount;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.User;
+import org.apache.user.UserAccount;
+import org.apache.user.UserContext;
 
 @APICommand(name = "enableUser", description="Enables a user account", responseObject=UserResponse.class)
 public class EnableUserCmd extends BaseCmd {

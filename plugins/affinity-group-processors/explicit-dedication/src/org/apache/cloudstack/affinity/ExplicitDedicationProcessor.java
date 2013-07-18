@@ -25,29 +25,28 @@ import javax.inject.Inject;
 
 import org.apache.cloudstack.affinity.dao.AffinityGroupDao;
 import org.apache.cloudstack.affinity.dao.AffinityGroupVMMapDao;
+import org.apache.dc.ClusterVO;
+import org.apache.dc.DataCenter;
+import org.apache.dc.DataCenterVO;
+import org.apache.dc.DedicatedResourceVO;
+import org.apache.dc.HostPodVO;
+import org.apache.dc.dao.ClusterDao;
+import org.apache.dc.dao.DataCenterDao;
+import org.apache.dc.dao.DedicatedResourceDao;
+import org.apache.dc.dao.HostPodDao;
+import org.apache.deploy.DeploymentPlan;
+import org.apache.deploy.DeploymentPlanner.ExcludeList;
+import org.apache.domain.DomainVO;
+import org.apache.domain.dao.DomainDao;
+import org.apache.exception.AffinityConflictException;
+import org.apache.host.HostVO;
+import org.apache.host.dao.HostDao;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.ClusterVO;
-import com.cloud.dc.DataCenter;
-import com.cloud.dc.DataCenterVO;
-import com.cloud.dc.DedicatedResourceVO;
-import com.cloud.dc.HostPodVO;
-import com.cloud.dc.dao.ClusterDao;
-import com.cloud.dc.dao.DataCenterDao;
-import com.cloud.dc.dao.DedicatedResourceDao;
-import com.cloud.dc.dao.HostPodDao;
-import com.cloud.deploy.DeploymentPlan;
-import com.cloud.deploy.DeploymentPlanner.ExcludeList;
-import com.cloud.domain.DomainVO;
-import com.cloud.domain.dao.DomainDao;
-import com.cloud.exception.AffinityConflictException;
-import com.cloud.host.HostVO;
-import com.cloud.host.dao.HostDao;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
-import com.cloud.vm.dao.UserVmDao;
-import com.cloud.vm.dao.VMInstanceDao;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
+import org.apache.vm.dao.UserVmDao;
+import org.apache.vm.dao.VMInstanceDao;
 
 @Local(value = AffinityGroupProcessor.class)
 public class ExplicitDedicationProcessor extends AffinityProcessorBase implements AffinityGroupProcessor {

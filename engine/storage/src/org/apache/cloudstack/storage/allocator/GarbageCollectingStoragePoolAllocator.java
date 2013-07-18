@@ -24,17 +24,16 @@ import javax.inject.Inject;
 import javax.naming.ConfigurationException;
 
 import org.apache.cloudstack.engine.subsystem.api.storage.StoragePoolAllocator;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.deploy.DeploymentPlan;
+import org.apache.deploy.DeploymentPlanner.ExcludeList;
 import org.apache.log4j.Logger;
-
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.deploy.DeploymentPlan;
-import com.cloud.deploy.DeploymentPlanner.ExcludeList;
-import com.cloud.storage.StorageManager;
-import com.cloud.storage.StoragePool;
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.vm.DiskProfile;
-import com.cloud.vm.VirtualMachine;
-import com.cloud.vm.VirtualMachineProfile;
+import org.apache.storage.StorageManager;
+import org.apache.storage.StoragePool;
+import org.apache.utils.component.ComponentContext;
+import org.apache.vm.DiskProfile;
+import org.apache.vm.VirtualMachine;
+import org.apache.vm.VirtualMachineProfile;
 
 @Local(value = StoragePoolAllocator.class)
 public class GarbageCollectingStoragePoolAllocator extends AbstractStoragePoolAllocator {

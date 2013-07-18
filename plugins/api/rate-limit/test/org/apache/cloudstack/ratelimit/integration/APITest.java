@@ -28,10 +28,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.apache.api.ApiGsonHelper;
 import org.apache.cloudstack.api.response.SuccessResponse;
+import org.apache.utils.exception.CloudRuntimeException;
 
-import com.cloud.api.ApiGsonHelper;
-import com.cloud.utils.exception.CloudRuntimeException;
 import com.google.gson.Gson;
 
 /**

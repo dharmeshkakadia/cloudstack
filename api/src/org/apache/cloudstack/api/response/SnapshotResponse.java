@@ -23,15 +23,14 @@ import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
 
-import com.cloud.serializer.Param;
-import com.cloud.storage.Snapshot;
 import com.google.gson.annotations.SerializedName;
-import com.cloud.serializer.Param;
-import com.cloud.storage.Snapshot;
 import com.google.gson.annotations.SerializedName;
+
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.serializer.Param;
+import org.apache.storage.Snapshot;
 
 import java.util.Date;
 import java.util.List;

@@ -28,12 +28,10 @@ import org.apache.cloudstack.engine.datacenter.entity.api.db.dao.EngineClusterDa
 import org.apache.cloudstack.engine.datacenter.entity.api.db.dao.EngineDataCenterDao;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.dao.EngineHostDao;
 import org.apache.cloudstack.engine.datacenter.entity.api.db.dao.EngineHostPodDao;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.utils.fsm.NoTransitionException;
+import org.apache.utils.fsm.StateMachine2;
 import org.springframework.stereotype.Component;
-
-
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.utils.fsm.NoTransitionException;
-import com.cloud.utils.fsm.StateMachine2;
 
 @Component
 public class DataCenterResourceManagerImpl implements DataCenterResourceManager {

@@ -16,18 +16,17 @@
 // under the License.
 package org.apache.cloudstack.storage.template;
 
+import org.apache.agent.api.storage.CreateEntityDownloadURLAnswer;
+import org.apache.agent.api.storage.CreateEntityDownloadURLCommand;
+import org.apache.agent.api.storage.DeleteEntityDownloadURLAnswer;
+import org.apache.agent.api.storage.DeleteEntityDownloadURLCommand;
+import org.apache.agent.api.storage.UploadAnswer;
+import org.apache.agent.api.storage.UploadCommand;
 import org.apache.cloudstack.storage.resource.SecondaryStorageResource;
-
-import com.cloud.agent.api.storage.CreateEntityDownloadURLAnswer;
-import com.cloud.agent.api.storage.CreateEntityDownloadURLCommand;
-import com.cloud.agent.api.storage.DeleteEntityDownloadURLAnswer;
-import com.cloud.agent.api.storage.DeleteEntityDownloadURLCommand;
-import com.cloud.agent.api.storage.UploadAnswer;
-import com.cloud.agent.api.storage.UploadCommand;
-import com.cloud.storage.Storage.ImageFormat;
-import com.cloud.storage.Upload.Status;
-import com.cloud.storage.template.TemplateUploader;
-import com.cloud.utils.component.Manager;
+import org.apache.storage.Storage.ImageFormat;
+import org.apache.storage.Upload.Status;
+import org.apache.storage.template.TemplateUploader;
+import org.apache.utils.component.Manager;
 
 public interface UploadManager extends Manager {
 

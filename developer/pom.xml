@@ -141,7 +141,7 @@
               </execution>
             </executions>
             <configuration>
-              <mainClass>com.cloud.upgrade.DatabaseCreator</mainClass>
+              <mainClass>org.apache.upgrade.DatabaseCreator</mainClass>
               <arguments>
                 <!-- db properties file -->
                 <argument>${basedir}/../utils/conf/db.properties</argument>
@@ -164,7 +164,7 @@
                 <argument>${basedir}/developer-prefill.sql</argument>
                 <argument>${basedir}/developer-prefill.sql.override</argument>
                 <!-- Do database upgrade-->
-                <argument>com.cloud.upgrade.DatabaseUpgradeChecker</argument>
+                <argument>org.apache.upgrade.DatabaseUpgradeChecker</argument>
                 <argument>--database=cloud,usage,awsapi</argument>
                 <argument>--rootpassword=${db.root.password}</argument>
                 <!-- Print help using -h or dash-dash-help -->
@@ -210,7 +210,7 @@
               </execution>
             </executions>
             <configuration>
-              <mainClass>com.cloud.upgrade.DatabaseCreator</mainClass>
+              <mainClass>org.apache.upgrade.DatabaseCreator</mainClass>
               <arguments>
                 <!-- db properties file -->
                 <argument>${basedir}/../utils/conf/db.properties</argument>
@@ -219,7 +219,7 @@
                 <argument>${basedir}/target/db/create-schema-simulator.sql</argument>
                 <argument>${basedir}/target/db/templates.simulator.sql</argument>
                 <!-- upgrade -->
-                <argument>com.cloud.upgrade.DatabaseUpgradeChecker</argument>
+                <argument>org.apache.upgrade.DatabaseUpgradeChecker</argument>
                 <argument>--database=simulator</argument>
                 <argument>--rootpassword=${db.root.password}</argument>
               </arguments>

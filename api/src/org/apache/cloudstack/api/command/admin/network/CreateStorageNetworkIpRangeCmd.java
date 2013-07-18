@@ -24,15 +24,14 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.PodResponse;
 import org.apache.cloudstack.api.response.StorageNetworkIpRangeResponse;
+import org.apache.dc.StorageNetworkIpRange;
+import org.apache.event.EventTypes;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.dc.StorageNetworkIpRange;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.user.Account;
+import org.apache.user.Account;
 
 @APICommand(name = "createStorageNetworkIpRange", description="Creates a Storage network IP range.", responseObject=StorageNetworkIpRangeResponse.class, since="3.0.0")
 public class CreateStorageNetworkIpRangeCmd extends BaseAsyncCmd {

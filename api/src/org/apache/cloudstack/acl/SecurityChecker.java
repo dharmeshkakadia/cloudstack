@@ -16,14 +16,14 @@
 // under the License.
 package org.apache.cloudstack.acl;
 
-import com.cloud.dc.DataCenter;
-import com.cloud.domain.Domain;
-import com.cloud.exception.PermissionDeniedException;
-import com.cloud.offering.DiskOffering;
-import com.cloud.offering.ServiceOffering;
-import com.cloud.user.Account;
-import com.cloud.user.User;
-import com.cloud.utils.component.Adapter;
+import org.apache.dc.DataCenter;
+import org.apache.domain.Domain;
+import org.apache.exception.PermissionDeniedException;
+import org.apache.offering.DiskOffering;
+import org.apache.offering.ServiceOffering;
+import org.apache.user.Account;
+import org.apache.user.User;
+import org.apache.utils.component.Adapter;
 
 /**
  * SecurityChecker checks the ownership and access control to objects within

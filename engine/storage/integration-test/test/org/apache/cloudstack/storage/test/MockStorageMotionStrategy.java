@@ -27,8 +27,8 @@ import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.VolumeInfo;
 import org.apache.cloudstack.framework.async.AsyncCompletionCallback;
 
-import com.cloud.agent.api.to.VirtualMachineTO;
-import com.cloud.host.Host;
+import org.apache.agent.api.to.VirtualMachineTO;
+import org.apache.host.Host;
 
 public class MockStorageMotionStrategy implements DataMotionStrategy {
 

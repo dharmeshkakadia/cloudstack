@@ -19,6 +19,7 @@ package org.apache.cloudstack.api.command.user.firewall;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.ApiErrorCode;
@@ -28,18 +29,16 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.FirewallResponse;
 import org.apache.cloudstack.api.response.IPAddressResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.network.IpAddress;
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
-import com.cloud.utils.net.NetUtils;
+import org.apache.network.IpAddress;
+import org.apache.network.rules.FirewallRule;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
+import org.apache.utils.net.NetUtils;
 
 @APICommand(name = "createFirewallRule", description = "Creates a firewall rule for a given ip address", responseObject = FirewallResponse.class)
 public class CreateFirewallRuleCmd extends BaseAsyncCreateCmd implements FirewallRule {

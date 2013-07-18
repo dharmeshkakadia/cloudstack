@@ -20,7 +20,7 @@ under the License.
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
-   <throwableRenderer class="com.cloud.utils.log.CglibThrowableRenderer"/>
+   <throwableRenderer class="org.apache.utils.log.CglibThrowableRenderer"/>
 
    <!-- ================================= -->
    <!-- Preserve messages in a local file -->
@@ -119,7 +119,7 @@ under the License.
    <!-- Limit categories -->
    <!-- ================ -->
 
-   <category name="com.cloud">
+   <category name="org.apache">
      <priority value="DEBUG"/>
    </category>
    
@@ -127,7 +127,7 @@ under the License.
       <priority value="DEBUG"/>
    </category>
 
-   <category name="com.cloud.utils.nio">
+   <category name="org.apache.utils.nio">
      <priority value="INFO"/>
    </category>
    
@@ -152,22 +152,22 @@ under the License.
      <priority value="INFO"/>
    </category>
 
-   <category name="apiserver.com.cloud">
+   <category name="apiserver.org.apache">
      <priority value="DEBUG"/>
    </category>
 
-   <logger name="apiserver.com.cloud" additivity="false">
+   <logger name="apiserver.org.apache" additivity="false">
       <level value="DEBUG"/>
       <appender-ref ref="APISERVER"/>
    </logger>
 
    
-   <logger name="com.cloud.bridge" additivity="false">
+   <logger name="org.apache.bridge" additivity="false">
       <level value="DEBUG"/>
       <appender-ref ref="AWSAPI"/>
    </logger>
    
-   <logger name="com.cloud.stack" additivity="false">
+   <logger name="org.apache.stack" additivity="false">
       <level value="DEBUG"/>
       <appender-ref ref="AWSAPI"/>
    </logger>

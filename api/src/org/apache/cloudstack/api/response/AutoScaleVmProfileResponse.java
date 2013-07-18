@@ -25,10 +25,10 @@ import org.apache.cloudstack.api.BaseCmd.CommandType;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
 import org.apache.cloudstack.api.Parameter;
+import org.apache.network.as.AutoScaleVmProfile;
+import org.apache.serializer.Param;
+import org.apache.utils.Pair;
 
-import com.cloud.network.as.AutoScaleVmProfile;
-import com.cloud.serializer.Param;
-import com.cloud.utils.Pair;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=AutoScaleVmProfile.class)

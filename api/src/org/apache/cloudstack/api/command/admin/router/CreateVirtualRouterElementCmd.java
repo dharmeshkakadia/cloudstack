@@ -28,16 +28,15 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ProviderResponse;
 import org.apache.cloudstack.api.response.VirtualRouterProviderResponse;
+import org.apache.event.EventTypes;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.exception.ResourceAllocationException;
 import org.apache.log4j.Logger;
-
-import com.cloud.event.EventTypes;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.network.VirtualRouterProvider;
-import com.cloud.network.VirtualRouterProvider.VirtualRouterProviderType;
-import com.cloud.network.element.VirtualRouterElementService;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.network.VirtualRouterProvider;
+import org.apache.network.VirtualRouterProvider.VirtualRouterProviderType;
+import org.apache.network.element.VirtualRouterElementService;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "createVirtualRouterElement", responseObject=VirtualRouterProviderResponse.class, description="Create a virtual router element.")
 public class CreateVirtualRouterElementCmd extends BaseAsyncCreateCmd {

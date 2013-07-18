@@ -28,7 +28,7 @@
   </parent>
   <dependencies>
     <dependency>
-      <groupId>com.cloud.com.netapp</groupId>
+      <groupId>org.apache.com.netapp</groupId>
       <artifactId>manageontap</artifactId>
       <version>4.0</version>
     </dependency>

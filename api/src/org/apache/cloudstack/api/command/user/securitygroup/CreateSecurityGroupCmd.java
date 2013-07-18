@@ -26,10 +26,9 @@ import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ProjectAccountResponse;
 import org.apache.cloudstack.api.response.SecurityGroupResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.network.security.SecurityGroup;
-import com.cloud.user.Account;
-import com.cloud.user.UserContext;
+import org.apache.network.security.SecurityGroup;
+import org.apache.user.Account;
+import org.apache.user.UserContext;
 
 @APICommand(name = "createSecurityGroup", responseObject = SecurityGroupResponse.class, description = "Creates a security group")
 public class CreateSecurityGroupCmd extends BaseCmd {

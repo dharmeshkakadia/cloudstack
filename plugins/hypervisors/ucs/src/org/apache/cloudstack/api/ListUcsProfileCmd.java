@@ -30,16 +30,15 @@ import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.ListResponse;
 import org.apache.cloudstack.api.response.UcsManagerResponse;
 import org.apache.cloudstack.api.response.UcsProfileResponse;
+import org.apache.exception.ConcurrentOperationException;
+import org.apache.exception.InsufficientCapacityException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.exception.ResourceAllocationException;
+import org.apache.exception.ResourceUnavailableException;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.ConcurrentOperationException;
-import com.cloud.exception.InsufficientCapacityException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.exception.ResourceAllocationException;
-import com.cloud.exception.ResourceUnavailableException;
-import com.cloud.server.ManagementService;
-import com.cloud.ucs.manager.UcsManager;
-import com.cloud.user.Account;
+import org.apache.server.ManagementService;
+import org.apache.ucs.manager.UcsManager;
+import org.apache.user.Account;
 @APICommand(name="listUcsProfile", description="List profile in ucs manager", responseObject=UcsProfileResponse.class)
 public class ListUcsProfileCmd extends BaseListCmd {
     public static final Logger s_logger = Logger.getLogger(ListUcsProfileCmd.class);

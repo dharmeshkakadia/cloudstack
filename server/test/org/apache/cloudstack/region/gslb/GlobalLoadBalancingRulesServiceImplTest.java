@@ -15,28 +15,29 @@
 
 package org.apache.cloudstack.region.gslb;
 
-import com.cloud.agent.AgentManager;
-import com.cloud.configuration.dao.ConfigurationDao;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.network.dao.*;
-import com.cloud.network.rules.FirewallRule;
-import com.cloud.network.rules.RulesManager;
-import com.cloud.region.ha.GlobalLoadBalancerRule;
-import com.cloud.user.Account;
-import com.cloud.user.AccountManager;
-import com.cloud.user.AccountVO;
-import com.cloud.user.UserContext;
-import com.cloud.utils.db.Transaction;
-import com.cloud.utils.net.Ip;
 import junit.framework.Assert;
 import junit.framework.TestCase;
+
+import org.apache.agent.AgentManager;
 import org.apache.cloudstack.api.command.user.region.ha.gslb.AssignToGlobalLoadBalancerRuleCmd;
 import org.apache.cloudstack.api.command.user.region.ha.gslb.CreateGlobalLoadBalancerRuleCmd;
 import org.apache.cloudstack.api.command.user.region.ha.gslb.DeleteGlobalLoadBalancerRuleCmd;
 import org.apache.cloudstack.api.command.user.region.ha.gslb.RemoveFromGlobalLoadBalancerRuleCmd;
 import org.apache.cloudstack.region.RegionVO;
 import org.apache.cloudstack.region.dao.RegionDao;
+import org.apache.configuration.dao.ConfigurationDao;
+import org.apache.exception.InvalidParameterValueException;
 import org.apache.log4j.Logger;
+import org.apache.network.dao.*;
+import org.apache.network.rules.FirewallRule;
+import org.apache.network.rules.RulesManager;
+import org.apache.region.ha.GlobalLoadBalancerRule;
+import org.apache.user.Account;
+import org.apache.user.AccountManager;
+import org.apache.user.AccountVO;
+import org.apache.user.UserContext;
+import org.apache.utils.db.Transaction;
+import org.apache.utils.net.Ip;
 import org.junit.Test;
 import org.mockito.Mockito;
 

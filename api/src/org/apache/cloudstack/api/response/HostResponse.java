@@ -21,11 +21,11 @@ import java.util.Date;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.host.Host;
+import org.apache.host.Status;
+import org.apache.hypervisor.Hypervisor.HypervisorType;
+import org.apache.serializer.Param;
 
-import com.cloud.host.Host;
-import com.cloud.host.Status;
-import com.cloud.hypervisor.Hypervisor.HypervisorType;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=Host.class)

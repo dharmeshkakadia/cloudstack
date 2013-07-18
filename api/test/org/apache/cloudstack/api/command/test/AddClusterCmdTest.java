@@ -22,16 +22,15 @@ import junit.framework.TestCase;
 import org.apache.cloudstack.api.ResponseGenerator;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.command.admin.cluster.AddClusterCmd;
+import org.apache.exception.DiscoveryException;
+import org.apache.exception.ResourceInUseException;
+import org.apache.org.Cluster;
+import org.apache.resource.ResourceService;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
-
-import com.cloud.exception.DiscoveryException;
-import com.cloud.exception.ResourceInUseException;
-import com.cloud.org.Cluster;
-import com.cloud.resource.ResourceService;
 
 import edu.emory.mathcs.backport.java.util.Arrays;
 

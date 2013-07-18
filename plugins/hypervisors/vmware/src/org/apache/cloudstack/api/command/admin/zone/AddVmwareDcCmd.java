@@ -27,14 +27,13 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.VmwareDatacenterResponse;
 import org.apache.cloudstack.api.response.ZoneResponse;
+import org.apache.exception.DiscoveryException;
+import org.apache.exception.ResourceInUseException;
+import org.apache.hypervisor.vmware.VmwareDatacenterService;
+import org.apache.hypervisor.vmware.VmwareDatacenterVO;
 import org.apache.log4j.Logger;
-
-import com.cloud.exception.DiscoveryException;
-import com.cloud.exception.ResourceInUseException;
-import com.cloud.hypervisor.vmware.VmwareDatacenterService;
-import com.cloud.hypervisor.vmware.VmwareDatacenterVO;
-import com.cloud.user.Account;
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.user.Account;
+import org.apache.utils.exception.CloudRuntimeException;
 
 @APICommand(name = "addVmwareDc", description="Adds a VMware datacenter to specified zone", responseObject=VmwareDatacenterResponse.class)
 public class AddVmwareDcCmd extends BaseCmd {

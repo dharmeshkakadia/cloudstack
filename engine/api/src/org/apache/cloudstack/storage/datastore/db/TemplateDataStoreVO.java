@@ -32,12 +32,10 @@ import javax.persistence.TemporalType;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataObjectInStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.ObjectInDataStoreStateMachine;
 import org.apache.cloudstack.engine.subsystem.api.storage.ObjectInDataStoreStateMachine.State;
-
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.VMTemplateStorageResourceAssoc.Status;
-
-import com.cloud.utils.db.GenericDaoBase;
-import com.cloud.utils.fsm.StateObject;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.VMTemplateStorageResourceAssoc.Status;
+import org.apache.utils.db.GenericDaoBase;
+import org.apache.utils.fsm.StateObject;
 
 /**
  * Join table for image_data_store and templates

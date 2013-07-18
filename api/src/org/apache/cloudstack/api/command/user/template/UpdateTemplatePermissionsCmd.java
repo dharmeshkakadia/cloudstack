@@ -20,9 +20,8 @@ import org.apache.cloudstack.api.APICommand;
 import org.apache.cloudstack.api.BaseUpdateTemplateOrIsoPermissionsCmd;
 import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.template.VirtualMachineTemplate;
-import com.cloud.user.Account;
+import org.apache.template.VirtualMachineTemplate;
+import org.apache.user.Account;
 
 @APICommand(name = "updateTemplatePermissions", responseObject=SuccessResponse.class, description="Updates a template visibility permissions. " +
                                                                                         "A public template is visible to all accounts within the same domain. " +

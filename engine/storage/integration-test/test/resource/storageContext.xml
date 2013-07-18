@@ -22,11 +22,11 @@
                                           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
   <context:annotation-config />
     
-   <bean id="componentContext" class="com.cloud.utils.component.ComponentContext" />
-  <bean id="transactionContextBuilder" class="com.cloud.utils.db.TransactionContextBuilder" />
-  <bean id="actionEventInterceptor" class="com.cloud.event.ActionEventInterceptor" />
+   <bean id="componentContext" class="org.apache.utilss.component.ComponentContext" />
+  <bean id="transactionContextBuilder" class=org.apache.utilsls.db.TransactionContextBuilder" />
+  <bean id="actionEventInterceptor" class="org.apache.eventt.ActionEventInterceptor" />
 <bean class="org.apache.cloudstack.storage.test.ChildTestConfiguration" />
-  <bean id="instantiatePostProcessor" class="com.cloud.utils.component.ComponentInstantiationPostProcessor">
+  <bean id="instantiatePostProcessor" classorg.apache.utilsils.component.ComponentInstantiationPostProcessor">
     <property name="Interceptors">
         <list>
             <ref bean="transactionContextBuilder" />
@@ -84,8 +84,8 @@
   <bean id="swiftImageStoreProviderImpl" class="org.apache.cloudstack.storage.datastore.provider.SwiftImageStoreProviderImpl" />
   <bean id="simulatorImageStoreProviderImpl" class="org.apache.cloudstack.storage.datastore.provider.SimulatorImageStoreProviderImpl" />
   <bean id="BAREMETAL" class="org.apache.cloudstack.storage.image.format.BAREMETAL" />
-  <bean id="storagePoolAutomationImpl" class="com.cloud.storage.StoragePoolAutomationImpl" />
-  <bean id="AccountGuestVlanMapDaoImpl" class="com.cloud.network.dao.AccountGuestVlanMapDaoImpl" />
+  <bean id="storagePoolAutomationImpl" class="org.apache.storagee.StoragePoolAutomationImpl" />
+  <bean id="AccountGuestVlanMapDaoImpl" class="org.apache.networkk.dao.AccountGuestVlanMapDaoImpl" />
   <bean id="StorageCacheReplacementAlgorithm" class="org.apache.cloudstack.storage.cache.manager.StorageCacheReplacementAlgorithmLRU" />
-  <bean id="ServiceOfferingDetailsDao" class="com.cloud.service.dao.ServiceOfferingDetailsDaoImpl" />
+  <bean id="ServiceOfferingDetailsDao" class="org.apache.servicee.dao.ServiceOfferingDetailsDaoImpl" />
 </beans>

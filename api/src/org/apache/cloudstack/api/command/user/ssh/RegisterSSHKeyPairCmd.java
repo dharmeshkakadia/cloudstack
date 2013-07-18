@@ -24,9 +24,8 @@ import org.apache.cloudstack.api.response.DomainResponse;
 import org.apache.cloudstack.api.response.ProjectResponse;
 import org.apache.cloudstack.api.response.SSHKeyPairResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.SSHKeyPair;
-import com.cloud.user.UserContext;
+import org.apache.user.SSHKeyPair;
+import org.apache.user.UserContext;
 
 @APICommand(name = "registerSSHKeyPair", description="Register a public key in a keypair under a certain name", responseObject=SSHKeyPairResponse.class)
 public class RegisterSSHKeyPairCmd extends BaseCmd {

@@ -28,10 +28,9 @@ import org.apache.cloudstack.api.response.SuccessResponse;
 import org.apache.cloudstack.api.response.UserResponse;
 import org.apache.cloudstack.region.RegionService;
 import org.apache.log4j.Logger;
-
-import com.cloud.user.Account;
-import com.cloud.user.User;
-import com.cloud.user.UserContext;
+import org.apache.user.Account;
+import org.apache.user.User;
+import org.apache.user.UserContext;
 
 @APICommand(name = "deleteUser", description="Deletes a user for an account", responseObject=SuccessResponse.class)
 public class DeleteUserCmd extends BaseCmd {

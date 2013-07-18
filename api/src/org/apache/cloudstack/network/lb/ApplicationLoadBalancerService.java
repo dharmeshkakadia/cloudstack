@@ -20,12 +20,11 @@ package org.apache.cloudstack.network.lb;
 import java.util.List;
 
 import org.apache.cloudstack.api.command.user.loadbalancer.ListApplicationLoadBalancersCmd;
-
-import com.cloud.exception.InsufficientAddressCapacityException;
-import com.cloud.exception.InsufficientVirtualNetworkCapcityException;
-import com.cloud.exception.NetworkRuleConflictException;
-import com.cloud.network.rules.LoadBalancerContainer.Scheme;
-import com.cloud.utils.Pair;
+import org.apache.exception.InsufficientAddressCapacityException;
+import org.apache.exception.InsufficientVirtualNetworkCapcityException;
+import org.apache.exception.NetworkRuleConflictException;
+import org.apache.network.rules.LoadBalancerContainer.Scheme;
+import org.apache.utils.Pair;
 
 public interface ApplicationLoadBalancerService {
     

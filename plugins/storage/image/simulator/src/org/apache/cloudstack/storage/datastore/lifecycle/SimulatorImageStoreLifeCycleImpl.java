@@ -20,12 +20,12 @@
 package org.apache.cloudstack.storage.datastore.lifecycle;
 
 
-import com.cloud.agent.api.StoragePoolInfo;
-import com.cloud.exception.InvalidParameterValueException;
-import com.cloud.hypervisor.Hypervisor;
-import com.cloud.storage.DataStoreRole;
-import com.cloud.storage.ScopeType;
-import com.cloud.utils.UriUtils;
+import org.apache.agent.api.StoragePoolInfo;
+import org.apache.exception.InvalidParameterValueException;
+import org.apache.hypervisor.Hypervisor;
+import org.apache.storage.DataStoreRole;
+import org.apache.storage.ScopeType;
+import org.apache.utils.UriUtils;
 import org.apache.cloudstack.engine.subsystem.api.storage.ClusterScope;
 import org.apache.cloudstack.engine.subsystem.api.storage.DataStore;
 import org.apache.cloudstack.engine.subsystem.api.storage.HostScope;

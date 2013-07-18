@@ -23,9 +23,9 @@ import java.util.Map;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.offering.NetworkOffering;
+import org.apache.serializer.Param;
 
-import com.cloud.offering.NetworkOffering;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=NetworkOffering.class)

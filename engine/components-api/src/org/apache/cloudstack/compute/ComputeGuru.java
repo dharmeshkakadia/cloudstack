@@ -18,7 +18,7 @@
  */
 package org.apache.cloudstack.compute;
 
-import com.cloud.vm.VirtualMachineProfile;
+import org.apache.vm.VirtualMachineProfile;
 
 /**
  * ComputeGuru understands everything about the hypervisor.

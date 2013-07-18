@@ -16,11 +16,10 @@
 // under the License.
 package org.apache.cloudstack.api;
 
+import org.apache.async.AsyncJob;
 import org.apache.cloudstack.api.response.AsyncJobResponse;
-
-import com.cloud.async.AsyncJob;
-import com.cloud.user.User;
-import com.cloud.user.UserContext;
+import org.apache.user.User;
+import org.apache.user.UserContext;
 
 /**
  * queryAsyncJobResult API command.

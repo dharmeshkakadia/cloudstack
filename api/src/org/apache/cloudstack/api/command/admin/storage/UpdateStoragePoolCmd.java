@@ -26,9 +26,8 @@ import org.apache.cloudstack.api.Parameter;
 import org.apache.cloudstack.api.ServerApiException;
 import org.apache.cloudstack.api.response.StoragePoolResponse;
 import org.apache.log4j.Logger;
-
-import com.cloud.storage.StoragePool;
-import com.cloud.user.Account;
+import org.apache.storage.StoragePool;
+import org.apache.user.Account;
 
 @APICommand(name = "updateStoragePool", description="Updates a storage pool.", responseObject=StoragePoolResponse.class, since="3.0.0")
 public class UpdateStoragePoolCmd extends BaseCmd {

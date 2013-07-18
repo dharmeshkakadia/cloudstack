@@ -18,9 +18,8 @@ package org.apache.cloudstack.utils.qemu;
 
 import org.apache.cloudstack.utils.qemu.QemuImgFile;
 import org.apache.cloudstack.utils.qemu.QemuImgException;
-
-import com.cloud.utils.script.Script;
-import com.cloud.utils.script.OutputInterpreter;
+import org.apache.utils.script.OutputInterpreter;
+import org.apache.utils.script.Script;
 
 import java.util.ArrayList;
 import java.util.List;

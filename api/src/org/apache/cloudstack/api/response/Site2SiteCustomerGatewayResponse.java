@@ -21,9 +21,9 @@ import java.util.Date;
 import org.apache.cloudstack.api.ApiConstants;
 import org.apache.cloudstack.api.BaseResponse;
 import org.apache.cloudstack.api.EntityReference;
+import org.apache.network.Site2SiteCustomerGateway;
+import org.apache.serializer.Param;
 
-import com.cloud.network.Site2SiteCustomerGateway;
-import com.cloud.serializer.Param;
 import com.google.gson.annotations.SerializedName;
 
 @EntityReference(value=Site2SiteCustomerGateway.class)

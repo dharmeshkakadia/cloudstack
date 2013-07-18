@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.storage;
 
-import static com.cloud.utils.StringUtils.join;
+import static org.apache.utils.StringUtils.join;
 import static java.util.Arrays.asList;
 
 import java.io.InputStream;
@@ -33,20 +33,21 @@ import org.apache.cloudstack.storage.template.DownloadManagerImpl;
 import org.springframework.stereotype.Component;
 
 import com.amazonaws.services.s3.model.S3ObjectSummary;
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.Command;
-import com.cloud.agent.api.storage.DownloadAnswer;
-import com.cloud.agent.api.to.DataStoreTO;
-import com.cloud.agent.api.to.NfsTO;
-import com.cloud.agent.api.to.S3TO;
-import com.cloud.agent.api.to.SwiftTO;
-import com.cloud.storage.JavaStorageLayer;
-import com.cloud.storage.StorageLayer;
-import com.cloud.storage.VMTemplateStorageResourceAssoc.Status;
-import com.cloud.utils.S3Utils;
-import com.cloud.utils.UriUtils;
-import com.cloud.utils.exception.CloudRuntimeException;
-import com.cloud.utils.script.Script;
+
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.Command;
+import org.apache.agent.api.storage.DownloadAnswer;
+import org.apache.agent.api.to.DataStoreTO;
+import org.apache.agent.api.to.NfsTO;
+import org.apache.agent.api.to.S3TO;
+import org.apache.agent.api.to.SwiftTO;
+import org.apache.storage.JavaStorageLayer;
+import org.apache.storage.StorageLayer;
+import org.apache.storage.VMTemplateStorageResourceAssoc.Status;
+import org.apache.utils.S3Utils;
+import org.apache.utils.UriUtils;
+import org.apache.utils.exception.CloudRuntimeException;
+import org.apache.utils.script.Script;
 
 @Component
 public class MockLocalNfsSecondaryStorageResource extends NfsSecondaryStorageResource {

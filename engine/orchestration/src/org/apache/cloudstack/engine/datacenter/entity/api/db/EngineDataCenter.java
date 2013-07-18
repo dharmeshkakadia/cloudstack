@@ -16,7 +16,7 @@
 // under the License.
 package org.apache.cloudstack.engine.datacenter.entity.api.db;
 
-import com.cloud.dc.DataCenter;
+import org.apache.dc.DataCenter;
 
 public interface EngineDataCenter extends DataCenter {
 

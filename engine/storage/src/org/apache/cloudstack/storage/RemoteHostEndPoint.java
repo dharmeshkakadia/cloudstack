@@ -24,26 +24,25 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
+import org.apache.agent.AgentManager;
+import org.apache.agent.Listener;
+import org.apache.agent.api.AgentControlAnswer;
+import org.apache.agent.api.AgentControlCommand;
+import org.apache.agent.api.Answer;
+import org.apache.agent.api.Command;
+import org.apache.agent.api.StartupCommand;
+import org.apache.agent.manager.Commands;
 import org.apache.cloudstack.engine.subsystem.api.storage.EndPoint;
 import org.apache.cloudstack.framework.async.AsyncCompletionCallback;
+import org.apache.exception.AgentUnavailableException;
+import org.apache.exception.ConnectionException;
+import org.apache.exception.OperationTimedoutException;
+import org.apache.host.Host;
+import org.apache.host.Status;
+import org.apache.hypervisor.HypervisorGuruManager;
 import org.apache.log4j.Logger;
-
-import com.cloud.agent.AgentManager;
-import com.cloud.agent.Listener;
-import com.cloud.agent.api.AgentControlAnswer;
-import com.cloud.agent.api.AgentControlCommand;
-import com.cloud.agent.api.Answer;
-import com.cloud.agent.api.Command;
-import com.cloud.agent.api.StartupCommand;
-import com.cloud.agent.manager.Commands;
-import com.cloud.exception.AgentUnavailableException;
-import com.cloud.exception.ConnectionException;
-import com.cloud.exception.OperationTimedoutException;
-import com.cloud.host.Host;
-import com.cloud.host.Status;
-import com.cloud.hypervisor.HypervisorGuruManager;
-import com.cloud.utils.component.ComponentContext;
-import com.cloud.utils.exception.CloudRuntimeException;
+import org.apache.utils.component.ComponentContext;
+import org.apache.utils.exception.CloudRuntimeException;
 
 public class RemoteHostEndPoint implements EndPoint {
     private static final Logger s_logger = Logger.getLogger(RemoteHostEndPoint.class);
